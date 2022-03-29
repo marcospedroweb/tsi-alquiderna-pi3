@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('product', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->longText('description');
             $table->string('image');
+            $table->integer('imagePosX');
+            $table->integer('imagePosY');
             $table->string('author_name');
             $table->longText('author_link');
             $table->string('source_website_link');
@@ -32,7 +34,25 @@ return new class extends Migration
             $table->integer('physical_magic');
             $table->integer('mana');
             $table->boolean('sale');
-            $table->int('price');
+            $table->double('price', 10, 2);
+            $table->bigInteger('category_id')->unsigned();
+            $table->foreign('category_id')
+                  ->references('id')
+                  ->on('categories')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+            $table->bigInteger('itemClass_id')->unsigned();
+            $table->foreign('itemClass_id')
+                  ->references('id')
+                  ->on('item_classes')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
+            $table->bigInteger('sourceWebsite_id')->unsigned();
+            $table->foreign('sourceWebsite_id')
+                  ->references('id')
+                  ->on('source_websites')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -44,6 +64,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product');
+        Schema::dropIfExists('products');
     }
 };

@@ -13,6 +13,8 @@ class Product extends Model
     protected $fillable = ['name',
                            'description',
                            'image',
+                           'imagePosX',
+                           'imagePosY',
                            'author_name',
                            'author_link',
                            'source_website_link',
@@ -27,7 +29,10 @@ class Product extends Model
                            'physical_magic',
                            'mana',
                            'sale',
-                           'price']; // Laravel preenchera essa coluna
+                           'price',
+                           'category_id',
+                           'itemClass_id',
+                           'sourceWebsite_id']; // Laravel preenchera essa coluna
 
     public function Category(){
         return $this->belongsTo(Category::class);
