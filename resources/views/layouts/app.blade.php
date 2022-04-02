@@ -20,6 +20,7 @@
         rel="stylesheet">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/eb4109d4de.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/script.js') }}" type="module"></script>
 </head>
 
 <body>
@@ -118,6 +119,13 @@
             <div class="container-xxl mt-5">
                 <div class="alert alert-success">
                     {{ session()->get('success') }}
+                </div>
+            </div>
+        @endif
+        @if (session()->get('error'))
+            <div class="container-xxl mt-5">
+                <div class="alert alert-danger">
+                    {{ session()->get('error') }}
                 </div>
             </div>
         @endif

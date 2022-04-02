@@ -66,13 +66,13 @@ Route::put('/sourceWebsite/edit/{sourceWebsite}', [SourceWebsiteController::clas
 Route::get('/sourceWebsite/trash', [SourceWebsiteController::class, 'trash'])->name('sourceWebsite.trash'); //Vizualiza todos os itens com softdelete
 Route::get('/sourceWebsite/trash/restore/{sourceWebsite}', [SourceWebsiteController::class, 'restore'])->name('sourceWebsite.restore'); // Restaura do soft delete
 
-//Product
-Route::get('/Product', [ProductController::class, 'index'])->name('product.index');//armazena no banco
-Route::get('/Product/create', [ProductController::class, 'create'])->name('product.create'); // Retorna a pagina para create novo dado
-Route::post('/Product/create/', [ProductController::class, 'store'])->name('product.store');//armazena no banco
-Route::get('/Product/destroy/{product}', [ProductController::class, 'destroy'])->name('product.destroy'); // "Apaga do banco"
-Route::get('/Product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit'); // Vizualiza pagina para edit, já com os dados
-Route::put('/Product/edit/{product}', [ProductController::class, 'update'])->name('product.update'); // Atualiza no banco com as informações
-Route::get('/Product/trash', [ProductController::class, 'trash'])->name('product.trash'); //Vizualiza todos os itens com softdelete
-Route::get('/Product/trash/restore/{product}', [ProductController::class, 'restore'])->name('product.restore'); // Restaura do soft delete
+//product
+Route::get('/product', [ProductController::class, 'index'])->name('product.index');//armazena no banco
+Route::get('/product/create', [ProductController::class, 'create'])->name('product.create'); // Retorna a pagina para create novo dado
+Route::post('/product/create/', [ProductController::class, 'store'])->name('product.store');//armazena no banco
+Route::get('/product/destroy/{product}', [ProductController::class, 'destroy'])->name('product.destroy'); // "Apaga do banco"
+Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit'); // Vizualiza pagina para edit, já com os dados
+Route::put('/product/edit/{product}', [ProductController::class, 'update'])->name('product.update'); // Atualiza no banco com as informações
+Route::get('/product/trash', [ProductController::class, 'trash'])->name('product.trash'); //Vizualiza todos os itens com softdelete
+Route::get('/product/trash/restore/{product}', [ProductController::class, 'restore'])->name('product.restore'); // Restaura do soft delete
 

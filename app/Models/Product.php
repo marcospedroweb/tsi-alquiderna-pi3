@@ -35,17 +35,18 @@ class Product extends Model
                            'sourceWebsite_id']; // Laravel preenchera essa coluna
 
     public function Category(){
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'category_id', 'id');
         // Varios produtos podem pertecem a 1 categoria
     }
 
     public function ItemClass(){
-        return $this->belongsTo(ItemClass::class);
+        return $this->belongsTo(ItemClass::class, 'itemClass_id', 'id');
         // Varios produtos podem pertecem a 1 classe de item
     }
 
     public function SourceWebsite(){
-        return $this->belongsTo(SourceWebsite::class);
+        return $this->belongsTo(SourceWebsite::class, 'sourceWebsite_id', 'id');
         // Varios produtos podem pertecem a 1 site fonte
     }
+
 }

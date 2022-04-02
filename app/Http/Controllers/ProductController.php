@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\ItemClass;
+use App\Models\SourceWebsite;
 
 class ProductController extends Controller
 {
@@ -15,7 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('product.index')->with('products', Product::all());
+        return view('product.index')->with(['products' => Product::all(), 'categories' => Category::all(), 'sourceWebsites' => SourceWebsite::all()]);
     }
 
     /**
@@ -25,7 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product.create');
+        return view('product.create')->with(['categories' => Category::all(), 'itemClasses' => ItemClass::all(),'sourceWebsites' => SourceWebsite::all()]);
     }
 
     /**
@@ -36,9 +39,28 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        Product::create($request->all());//Recebe os dados do forulario e cria uma linha no banco com os dados, recebe tudo mas ele so pega o que precisa
-        session()->flash('success', 'Produto criada com sucesso');
-        return redirect(route('product.index'));
+
+        $requestImage = $request->image; // Recebe o resquest da imagem
+        $extension = $requestImage->extension(); // Recebe a extensão da imagem
+        if($extension !== 'jpeg' || $extension !== 'jpg' || $extension !== 'png'){
+            session()->flash('error', 'Imagem invalida');
+            return redirect(route('product.create'));
+            dd('erro');
+        }else{
+            if($request->hasFile('image') && $request->file('image')->isValid()){
+                $imageName = md5($requestImage->getClientOriginalName() . strtotime('now')) . '.' . $extension; // Concatena o nome original da imagem com o tempo do upload da imagem, por final com a extenção
+                // [md5] é responsavel por transformar tudo em uma hash
+                $requestImage->move(public_path('imgs/products'), $imageName); // Move a imagem para o public
+            }
+
+            $data = $request->all();
+            $data['image'] = 'ImagemTeste.jpeg';
+            Product::create($data);//Recebe os dados do forulario e cria uma linha no banco com os dados, recebe tudo mas ele so pega o que precisa
+
+            session()->flash('success', 'Produto criada com sucesso');
+            return redirect(route('product.index'));
+        }
+
     }
 
     /**

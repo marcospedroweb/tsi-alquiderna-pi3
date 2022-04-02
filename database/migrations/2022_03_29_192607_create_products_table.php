@@ -53,6 +53,7 @@ return new class extends Migration
                   ->on('source_websites')
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

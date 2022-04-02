@@ -1,6 +1,15 @@
 @extends('layouts.app')
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-5">
+        <h2>Produto</h2>
+        <div>
+            <a href="{{ route('product.index') }}" class="btn btn-primary">Listar produtos</a>
+            <a href="{{ route('product.create') }}" class="btn btn-primary active">Criar produto</a>
+            <a href="{{ route('product.trash') }}" class="btn btn-primary">Lixeira produto</a>
+            <a href="{{ route('crud.index') }}" class="btn btn-secondary">Crud geral</a>
+        </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mb-5">
         <h2>Categoria</h2>
         <div>
             <a href="{{ route('category.index') }}" class="btn btn-primary">Listar categorias</a>
