@@ -23,18 +23,26 @@
                         <span>Dado inválido</span>
                     </div>
                 </div>
-                <div class="col form-floating mb-3">
-                    <input required type="number" class="form-control" placeholder="produto" name="lvlMin" id="lvlMin">
-                    <label style="margin-left: 12px; border: 0;" for="lvlMin">Nivel
-                        minimo</label>
+                <div class="col">
+                    <select required class="form-select form-select-lg mb-3" aria-label="Default select example"
+                        name="lvlMin">
+                        <option selected disabled>Nivel minimo</option>
+                        <option value="0">Nível 0</option>
+                        <option value="31">Nível 31</option>
+                        <option value="61">Nível 61</option>
+                    </select>
                     <div class="invalid-feedback">
                         <span>Dado inválido</span>
                     </div>
                 </div>
-                <div class="col form-floating mb-3">
-                    <input required type="number" class="form-control" placeholder="produto" name="lvlMax" id="lvlMax">
-                    <label style="margin-left: 12px; border: 0;" for="lvlMax">Nivel
-                        maximo</label>
+                <div class="col">
+                    <select required class="form-select form-select-lg mb-3" aria-label="Default select example"
+                        name="lvlMax">
+                        <option selected disabled>Nivel maximo</option>
+                        <option value="30">Nível 30</option>
+                        <option value="60">Nível 60</option>
+                        <option value="100">Nível 100</option>
+                    </select>
                     <div class="invalid-feedback">
                         <span>Dado inválido</span>
                     </div>
@@ -44,13 +52,13 @@
                 <div class="col mb-3">
                     <label style="margin-left: 12px; border: 0;" for="image" class="form-label">Imagem do
                         produto</label>
-                    <input required class="form-control" type="file" name="image" id="image" accept=".jpeg ,. jpg , .png">
+                    <input required class="form-control" type="file" name="image" id="image" accept=".jpeg , .jpg , .png">
                     <div class="invalid-feedback">
                         <span>Dado inválido</span>
                     </div>
                 </div>
                 <div class="col form-floating mb-3">
-                    <input required type="number" class="form-control" placeholder="produto" name="imagePosX"
+                    <input required type="text" class="form-control" placeholder="produto" name="imagePosX"
                         id="imagePosX">
                     <label style="margin-left: 12px; border: 0;" for="imagePosX">Pos X da imagem</label>
                     <div class="invalid-feedback">
@@ -58,7 +66,7 @@
                     </div>
                 </div>
                 <div class="col form-floating mb-3">
-                    <input required type="number" class="form-control" placeholder="produto" name="imagePosY"
+                    <input required type="text" class="form-control" placeholder="produto" name="imagePosY"
                         id="imagePosY">
                     <label style="margin-left: 12px; border: 0;" for="imagePosY">Pos Y da imagem</label>
                     <div class="invalid-feedback">
@@ -219,6 +227,18 @@
                         <option selected disabled>Produto em promoção?</option>
                         <option value="0">Não</option>
                         <option value="1">Sim</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        <span>Dado inválido</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <select required class="form-select form-select-lg mb-3" aria-label="Default select example"
+                        name="recommendation">
+                        <option selected disabled>Recomendado para...</option>
+                        <option value="ini">iniciantes</option>
+                        <option value="int">intermediarios</option>
+                        <option value="avan">avançados</option>
                     </select>
                     <div class="invalid-feedback">
                         <span>Dado inválido</span>

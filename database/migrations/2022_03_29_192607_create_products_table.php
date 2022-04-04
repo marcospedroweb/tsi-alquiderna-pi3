@@ -16,12 +16,13 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->longText('description');
+            $table->string('description');
+            $table->string('recommendation');
             $table->string('image');
-            $table->integer('imagePosX');
-            $table->integer('imagePosY');
+            $table->string('imagePosX');
+            $table->string('imagePosY');
             $table->string('author_name');
-            $table->longText('author_link');
+            $table->string('author_link');
             $table->string('source_website_link');
             $table->integer('lvlMin');
             $table->integer('lvlMax');

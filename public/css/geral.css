@@ -1,0 +1,56 @@
+:root {
+    --nav-color: #fff;
+    --footer-color: #fff;
+    --header-text-color: #000;
+    --subHeader-text-color: #000;
+    --paragraph-text-color: #000;
+    --btn-static: #fff;
+    --btn-hover: #fff;
+    --btn-active: #fff;
+}
+
+.display-5 {
+    /* Banners main*/
+    font-size: 3.125rem;
+}
+
+.display-6 {
+    /* Banners sub*/
+    font-size: 1.75rem;
+}
+
+.display-6 {
+    /* Banners paragraph*/
+    font-size: 1.25rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+}
+
+.h1 {
+    font-size: 1.75rem !important;
+}
+
+.h2 {
+    font-size: 1.3125rem !important;
+}
+
+.h3 {
+    font-size: 1rem !important;
+}
+
+p,
+span {
+    font-family: 'Open Sans', sans-serif;
+}
+
+p {
+    font-size: 1rem !important;
+}

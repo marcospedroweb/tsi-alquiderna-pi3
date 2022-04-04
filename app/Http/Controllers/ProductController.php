@@ -42,7 +42,7 @@ class ProductController extends Controller
 
         $requestImage = $request->image; // Recebe o resquest da imagem
         $extension = $requestImage->extension(); // Recebe a extensão da imagem
-        if($extension !== 'jpeg' || $extension !== 'jpg' || $extension !== 'png'){
+        if($extension !== 'jpeg' && $extension !== 'jpg' && $extension !== 'png'){
             session()->flash('error', 'Imagem invalida');
             return redirect(route('product.create'));
             dd('erro');
@@ -54,7 +54,7 @@ class ProductController extends Controller
             }
 
             $data = $request->all();
-            $data['image'] = 'ImagemTeste.jpeg';
+            $data['image'] = $imageName;
             Product::create($data);//Recebe os dados do forulario e cria uma linha no banco com os dados, recebe tudo mas ele so pega o que precisa
 
             session()->flash('success', 'Produto criada com sucesso');

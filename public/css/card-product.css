@@ -1,0 +1,76 @@
+.card-product {
+    width: 100%;
+    width: 312px;
+    height: 388px;
+    cursor: pointer;
+    transition: transform .25s ease-out;
+}
+
+.card-product:hover {
+    transform: scale(1.05);
+}
+
+.card-product::before {
+    content: '';
+    width: 312px;
+    height: 388px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, .75));
+    position: absolute;
+}
+
+.card-product img {
+    object-fit: cover;
+    object-position: center center;
+}
+
+.card-product-text {
+    padding: 0.625rem;
+    color: #fff;
+}
+
+.attributes {
+    background-color: #fff;
+    padding: 4px;
+    border-radius: 6px;
+    color: #000000;
+    font-weight: 600;
+}
+
+.attribute+.attribute {
+    margin-left: .5rem;
+}
+
+.attributes i::before {
+    width: auto;
+    height: 12px;
+    padding-right: .25rem;
+}
+
+.attribute>.bi-heart-fill,
+.bi-heart-fill+span {
+    color: #91140B;
+}
+
+.attribute>.fa-person-running,
+.fa-person-running+span {
+    color: #3137D1;
+}
+
+.attribute>.bi-shield-slash-fill,
+.bi-shield-slash-fill+span {
+    color: #D97B0E;
+}
+
+.attributes .shield-moon,
+.shield-moon+span {
+    color: #771CA3 !important;
+}
+
+.shield-moon+span {
+    padding-left: .25rem;
+}
+
+.card-product-price p {
+    font-weight: bold;
+    margin: 0;
+}
