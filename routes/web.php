@@ -76,3 +76,13 @@ Route::put('/product/edit/{product}', [ProductController::class, 'update'])->nam
 Route::get('/product/trash', [ProductController::class, 'trash'])->name('product.trash'); //Vizualiza todos os itens com softdelete
 Route::get('/product/trash/restore/{product}', [ProductController::class, 'restore'])->name('product.restore'); // Restaura do soft delete
 
+//Tag
+Route::get('/tag', [TagController::class, 'index'])->name('tag.index');
+Route::get('/tag/create', [TagController::class, 'create'])->name('tag.create');
+Route::post('/tag/create/', [TagController::class, 'store'])->name('tag.store');
+Route::get('/tag/destroy/{tag}', [TagController::class, 'destroy'])->name('tag.destroy');
+Route::get('/tag/edit/{tag}', [TagController::class, 'edit'])->name('tag.edit'); //edita
+Route::put('/tag/edit/{tag}', [TagController::class, 'update'])->name('tag.update'); //salva no banco
+Route::get('/tag/trash', [TagController::class, 'trash'])->name('tag.trash');
+Route::get('/tag/restore/{tag}', [TagController::class, 'restore'])->name('tag.restore');
+Route::get('/tag/forceDelete/{tag}', [TagController::class, 'forceDelete'])->name('tag.forceDelete');
