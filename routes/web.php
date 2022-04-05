@@ -5,6 +5,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\SourceWebsiteController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TagController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,12 @@ use App\Http\Controllers\ProductController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('crud');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
 
 /*
     Passos:

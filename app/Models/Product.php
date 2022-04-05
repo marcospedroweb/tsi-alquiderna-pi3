@@ -14,8 +14,6 @@ class Product extends Model
                            'description',
                            'recommendation',
                            'image',
-                           'imagePosX',
-                           'imagePosY',
                            'author_name',
                            'author_link',
                            'source_website_link',

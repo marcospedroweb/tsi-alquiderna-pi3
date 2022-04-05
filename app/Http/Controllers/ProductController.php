@@ -28,7 +28,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product.create')->with(['categories' => Category::all(), 'itemClasses' => ItemClass::all(),'sourceWebsites' => SourceWebsite::all()]);
+        return view('product.create')->with(['categories' => Category::all(),
+                                             'itemClasses' => ItemClass::all(),
+                                             'sourceWebsites' => SourceWebsite::all()]);
     }
 
     /**
@@ -83,7 +85,10 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         // Leva a Product para pagina para edit
-        return view('product.edit')->with('Product', $product);
+        return view('product.edit')->with(['product' => $product,
+                                           'categories' => Category::all(),
+                                           'itemClasses' => ItemClass::all(),
+                                           'sourceWebsites' => SourceWebsite::all()]);
     }
 
     /**

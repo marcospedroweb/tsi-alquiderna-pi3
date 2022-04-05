@@ -4,28 +4,258 @@
         <h2>Produto</h2>
         <div>
             <a href="{{ route('product.index') }}" class="btn btn-primary">Listar produtos</a>
-            <a href="{{ route('product.create') }}" class="btn btn-primary active">Criar produto</a>
+            <a href="{{ route('product.create') }}" class="btn btn-primary">Criar produto</a>
             <a href="{{ route('product.trash') }}" class="btn btn-primary">Lixeira produto</a>
             <a href="{{ route('crud.index') }}" class="btn btn-secondary">Crud geral</a>
         </div>
     </div>
-    <div class="d-flex justify-content-between align-items-center mb-5">
-        <h2>Categoria</h2>
-        <div>
-            <a href="{{ route('category.index') }}" class="btn btn-primary">Listar categorias</a>
-            <a href="{{ route('category.create') }}" class="btn btn-primary active">Criar categoria</a>
-            <a href="{{ route('category.trash') }}" class="btn btn-primary">Lixeira categoria</a>
-            <a href="{{ route('crud.index') }}" class="btn btn-secondary">Crud geral</a>
-        </div>
-    </div>
-    <form action="{{ route('category.update', $category->id) }}" class="row justify-content-center align-items-center"
-        method="POST">
+    <form action="{{ route('product.store') }}" class="row justify-content-center align-items-center needs-validation"
+        method="POST" enctype="multipart/form-data" novalidate>
         @csrf
-        @method('PUT')
-        <h3 class="text-center mb-3">Editando categoria</h3>
-        <div class="col-4 form-floating mb-3">
-            <input type="text" class="form-control" value="{{ $category->name }}" name="name">
-            <label for="floatingInput" style="margin-left: 12px; border: 0;">Nome da categoria</label>
+        <h3 class="text-center mb-3">Editando produto</h3>
+        <div class="col-10 mb-3">
+            <div class="row justify-content-center align-items-center">
+                <div class="col form-floating mb-3">
+                    <input value="{{ $product->name }}" required type="text" class="form-control" placeholder="produto"
+                        name="name" id="name">
+                    <label style="margin-left: 12px; border: 0;" for="name">Nome do
+                        produto</label>
+                    <div class="invalid-feedback">
+                        <span>Dado inválido</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <select required class="form-select form-select-lg mb-3" aria-label="Default select example"
+                        name="lvlMin">
+                        <option disabled>Nivel minimo</option>
+                        <option {{ $product->lvlMin === 0 ? 'selected' : '' }} value="0">Nível 0</option>
+                        <option {{ $product->lvlMin === 31 ? 'selected' : '' }} value="31">Nível 31</option>
+                        <option {{ $product->lvlMin === 61 ? 'selected' : '' }} value="61">Nível 61</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        <span>Dado inválido</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <select required class="form-select form-select-lg mb-3" aria-label="Default select example"
+                        name="lvlMax">
+                        <option selected disabled>Nivel maximo</option>
+                        <option {{ $product->lvlMax === 30 ? 'selected' : '' }} value="30">Nível 30</option>
+                        <option {{ $product->lvlMax === 60 ? 'selected' : '' }} value="60">Nível 60</option>
+                        <option {{ $product->lvlMax === 100 ? 'selected' : '' }} value="100">Nível 100</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        <span>Dado inválido</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col mb-3">
+                    <label style="margin-left: 12px; border: 0;" for="image" class="form-label">Imagem do
+                        produto</label>
+                    <input value="{{ $product->image }}" required class="form-control" type="file" name="image"
+                        id="image" accept=".jpeg , .jpg , .png">
+                    <div class="invalid-feedback">
+                        <span>Dado inválido</span>
+                    </div>
+                </div>
+                <div class="col form-floating mb-3">
+                    <input value="{{ $product->author_name }}" required type="text" class="form-control"
+                        placeholder="produto" name="author_name" id="author_name">
+                    <label style="margin-left: 12px; border: 0;" for="author_name">Nome do author</label>
+                    <div class="invalid-feedback">
+                        <span>Dado inválido</span>
+                    </div>
+                </div>
+                <div class="col form-floating mb-3">
+                    <input value="{{ $product->author_link }}" required type="text" class="form-control"
+                        placeholder="produto" name="author_link" id="author_link">
+                    <label style="margin-left: 12px; border: 0;" for="author_link">Link do author</label>
+                    <div class="invalid-feedback">
+                        <span>Dado inválido</span>
+                    </div>
+                </div>
+                <div class="col form-floating mb-3">
+                    <input value="{{ $product->source_website_link }}" required type="text" class="form-control"
+                        placeholder="produto" name="source_website_link" id="source_website_link">
+                    <label style="margin-left: 12px; border: 0;" for="source_website_link">Link da imagem</label>
+                    <div class="invalid-feedback">
+                        <span>Dado inválido</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-between align-items-start">
+                <div class="col-6 row justify-content-center align-items-center flex-column">
+                    <div class="col">
+                        <select required class="form-select form-select-lg mb-3" aria-label="Default select example"
+                            name="sourceWebsite_id">
+                            <option selected disabled>Site fonte</option>
+                            @foreach ($sourceWebsites as $sourceWebsite)
+                                <option value="{{ $sourceWebsite->id }}"
+                                    {{ $product->SourceWebsite->name === $sourceWebsite->name ? 'selected' : '' }}>
+                                    {{ $sourceWebsite->name }}</option>
+                            @endforeach
+                        </select>
+                        <div class="invalid-feedback">
+                            <span>Dado inválido</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <select required class="form-select form-select-lg mb-3" aria-label="Default select example"
+                            name="enchant">
+                            <option selected disabled>Produto é encantavel?</option>
+                            <option {{ $product->enchant === 0 ? 'selected' : '' }} value="0">Não</option>
+                            <option {{ $product->enchant === 1 ? 'selected' : '' }} value="1">Sim</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            <span>Dado inválido</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <select required class="form-select form-select-lg mb-3" aria-label="Default select example"
+                            name="category_id" data-category>
+                            <option selected disabled>Categoria</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}"
+                                    {{ $product->Category->name === $category->name ? 'selected' : '' }}>
+                                    {{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                        <div class="invalid-feedback">
+                            <span>Dado inválido</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <select required class="form-select form-select-lg mb-3" aria-label="Default select example"
+                            name="itemClass_id">
+                            <option value="0" selected disabled>Classe</option>
+                            @foreach ($itemClasses as $itemClass)
+                                <option value="{{ $itemClass->id }}" class="d-none"
+                                    {{ $product->ItemClass->name === $itemClass->name ? 'selected' : '' }}>
+                                    {{ $itemClass->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <div class="invalid-feedback">
+                            <span>Dado inválido</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 row justify-content-center align-items-center">
+                    <div class="form-floating mb-3" id="div-input-life">
+                        <input value="{{ $product->life }}" required type="number" class="form-control"
+                            placeholder="300" id="life" name="life" value="0">
+                        <label style="margin-left: 12px; border: 0;" for="life">Atributo de vida</label>
+                        <div class="invalid-feedback">
+                            <span>Dado inválido</span>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3" id="div-input-speed">
+                        <input value="{{ $product->speed }}" required type="number" class="form-control"
+                            placeholder="300" id="speed" name="speed" value="0">
+                        <label style="margin-left: 12px; border: 0;" for="speed">Atributo de velocidade</label>
+                        <div class="invalid-feedback">
+                            <span>Dado inválido</span>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3" id="div-input-strength">
+                        <input value="{{ $product->strength }}" required type="number" class="form-control"
+                            placeholder="300" id="strength" name="strength" value="0">
+                        <label style="margin-left: 12px; border: 0;" for="strength">Atributo de Força</label>
+                        <div class="invalid-feedback">
+                            <span>Dado inválido</span>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3" id="div-input-physical-protection">
+                        <input value="{{ $product->physical_protection }}" required type="number" class="form-control"
+                            placeholder="300" id="physical_protection" name="physical_protection" value="0">
+                        <label style="margin-left: 12px; border: 0;" for="physical_protection">Atributo de proteção
+                            física</label>
+                        <div class="invalid-feedback">
+                            <span>Dado inválido</span>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3" id="div-input-magic-protection">
+                        <input value="{{ $product->magic_protection }}" required type="number" class="form-control"
+                            placeholder="300" id="magic_protection" name="magic_protection" value="0">
+                        <label style="margin-left: 12px; border: 0;" for="magic_protection">Atributo de proteção
+                            mágica</label>
+                        <div class="invalid-feedback">
+                            <span>Dado inválido</span>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3" id="div-input-physical-attack">
+                        <input value="{{ $product->physical_attack }}" required type="number" class="form-control"
+                            placeholder="300" id="physical_attack" name="physical_attack" value="0">
+                        <label style="margin-left: 12px; border: 0;" for="physical_attack">Atributo de ataque físico</label>
+                        <div class="invalid-feedback">
+                            <span>Dado inválido</span>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3" id="div-input-physical-magic">
+                        <input value="{{ $product->physical_magic }}" required type="number" class="form-control"
+                            placeholder="300" id="physical_magic" name="physical_magic" value="0">
+                        <label style="margin-left: 12px; border: 0;" for="physical_magic">Atributo de ataque mágico</label>
+                        <div class="invalid-feedback">
+                            <span>Dado inválido</span>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3" id="div-input-mana">
+                        <input value="{{ $product->mana }}" required type="number" class="form-control"
+                            placeholder="300" id="mana" name="mana" value="0">
+                        <label style="margin-left: 12px; border: 0;" for="mana">Mana</label>
+                        <div class="invalid-feedback">
+                            <span>Dado inválido</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col">
+                    <select required class="form-select form-select-lg mb-3" aria-label="Default select example"
+                        name="sale">
+                        <option selected disabled>Produto em promoção?</option>
+                        <option {{ $product->sale === 0 ? 'selected' : '' }} value="0">Não</option>
+                        <option {{ $product->sale === 1 ? 'selected' : '' }} value="1">Sim</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        <span>Dado inválido</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <select required class="form-select form-select-lg mb-3" aria-label="Default select example"
+                        name="recommendation">
+                        <option selected disabled>Recomendado para...</option>
+                        <option {{ $product->recommendation === 'ini' ? 'selected' : '' }} value="ini">iniciantes
+                        </option>
+                        <option {{ $product->recommendation === 'int' ? 'selected' : '' }} value="int">intermediarios
+                        </option>
+                        <option {{ $product->recommendation === 'avan' ? 'selected' : '' }} value="avan">avançados
+                        </option>
+                    </select>
+                    <div class="invalid-feedback">
+                        <span>Dado inválido</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <input value="{{ $product->price }}" required type="number" class="form-control"
+                            placeholder="300" id="price" name="price">
+                        <label for="price">Preço</label>
+                        <div class="invalid-feedback">
+                            <span>Dado inválido</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-floating mb-3">
+                <textarea class="form-control" placeholder="Leave a comment here" id="description" style="height: 100px"
+                    name="description" value="{{ $product->description }}"></textarea>
+                <label for="description">Descrição do produto</label>
+                <div class="invalid-feedback">
+                    <span>Dado inválido</span>
+                </div>
+            </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary mt-3">Cadastrar</button>
             </div>

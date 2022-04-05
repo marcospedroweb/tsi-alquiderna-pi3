@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->softDeletes();
-            $table->timestamps();
+        Schema::table('products', function (Blueprint $table) {
+            $table->string('strength');
+            $table->dropColumn('imagePosX');
+            $table->dropColumn('imagePosY');
         });
     }
 
@@ -28,6 +27,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropColumn('strength');
+            $table->string('imagePosX');
+            $table->string('imagePosY');
+        });
     }
 };

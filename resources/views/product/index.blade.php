@@ -64,6 +64,7 @@
                             href="{{ $product->author_link }}">{{ $product->author_name }}</a> em <a
                             href="{{ $product->source_website_link }}">{{ $product->SourceWebsite->name }}</a>
                     </h3>
+                    <p>{{ $product->recommendation }}</p>
                     <div>
                         <div class="d-flex mb-3">
                             <div class="product-info d-flex flex-column justify-content-center align-items-center">
