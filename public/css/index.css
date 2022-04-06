@@ -1,0 +1,7 @@
+@import url(./geral.css);
+
+#mainCarousel-prev-icon, #mainCarousel-next-icon{
+    background-color: var(--nav-color);
+    padding: 1.5rem;
+    border-radius: 50%;
+}

@@ -64,7 +64,7 @@
 </head>
 
 <body>
-    <header class="bg-primary">
+    <header id="header">
         <div class="container-xxl">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid">
@@ -135,18 +135,11 @@
                     </div>
                     <div class="d-flex justify-content-center align-items-center">
                         <i class="fa-solid fa-magnifying-glass me-2"></i>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-bag me-2" viewBox="0 0 16 16">
-                            <path
-                                d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
-                        </svg>
+                        <button class="btn p-0 m-0 me-2" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="btn-bag"><i
+                                class="bi bi-bag"></i></button>
                         <div class="d-flex justify-content-center align-items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-person-circle me-1" viewBox="0 0 16 16">
-                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                                <path fill-rule="evenodd"
-                                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                            </svg>
+                            <i class="bi bi-person-circle me-2"></i>
                             <span>Login</span>
                         </div>
                     </div>
@@ -170,6 +163,17 @@
             </div>
         @endif
         <main>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
+                    <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    ...
+                </div>
+            </div>
             <!-- Isso será substituido por qualquer sessão de se chamar produto-->
             <div class="container-xxl mt-3">
                 @yield('content')
