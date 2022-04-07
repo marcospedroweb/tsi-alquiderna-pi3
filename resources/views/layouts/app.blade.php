@@ -146,6 +146,7 @@
                                 class="bi bi-bag"></i></button>
                         <div class="d-flex justify-content-center align-items-center">
                             <i class="bi bi-person-circle me-2"></i>
+<<<<<<< HEAD
                             <a href="{{ route('login') }}">Login</a>
                         </div>
                         <div class="d-flex justify-content-center align-items-center">
@@ -153,6 +154,9 @@
                                 @csrf
                                 <button type="submit">LOGOUT</button>
                             </form>
+=======
+                            <span>Login</span>
+>>>>>>> 84d20235a1c419dd4e170b031b0ea34554f41198
                         </div>
                     </div>
                 </div>
