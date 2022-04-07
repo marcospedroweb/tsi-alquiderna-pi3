@@ -146,7 +146,13 @@
                                 class="bi bi-bag"></i></button>
                         <div class="d-flex justify-content-center align-items-center">
                             <i class="bi bi-person-circle me-2"></i>
-                            <span>Login</span>
+                            <a href="{{ route('login') }}">Login</a>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <button type="submit">LOGOUT</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -154,6 +160,11 @@
         </div>
     </header>
     <main>
+        @if (Auth::check())
+            {{ session()->flash('success', 'Usuario logado') }}
+        @else
+            {{ session()->flash('success', 'Usuario não logado') }}
+        @endif
         @if (session()->get('success'))
             <div class="container-xxl mt-5">
                 <div class="alert alert-success">
