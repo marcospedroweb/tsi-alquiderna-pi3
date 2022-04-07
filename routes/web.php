@@ -20,14 +20,14 @@ use App\Http\Controllers\TagController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+})->name('index');
 
 Route::get('/dashboard', function () {
     return view('crud');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 /*
     Passos:
@@ -39,58 +39,61 @@ require __DIR__.'/auth.php';
     // Se não existir o elemento, cria esse elemento/função
 */
 
-//Crud geral
-Route::get('/crud', function(){
-    return view('crud');
-})->name('crud.index');//armazena no banco
+Route::middleware(['auth', 'admin'])->group(function () {
 
-//category
-Route::get('/category', [CategoryController::class, 'index'])->name('category.index');//armazena no banco
-Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create'); // Retorna a pagina para create novo dado
-Route::post('/category/create/', [CategoryController::class, 'store'])->name('category.store');//armazena no banco
-Route::get('/category/destroy/{category}', [CategoryController::class, 'destroy'])->name('category.destroy'); // "Apaga do banco"
-Route::get('/category/edit/{category}', [CategoryController::class, 'edit'])->name('category.edit'); // Vizualiza pagina para edit, já com os dados
-Route::put('/category/edit/{category}', [CategoryController::class, 'update'])->name('category.update'); // Atualiza no banco com as informações
-Route::get('/category/trash', [CategoryController::class, 'trash'])->name('category.trash'); //Vizualiza todos os itens com softdelete
-Route::get('/category/trash/restore/{category}', [CategoryController::class, 'restore'])->name('category.restore'); // Restaura do soft delete
+    //Crud geral
+    Route::get('/crud', function () {
+        return view('crud');
+    })->name('crud.index'); //armazena no banco
 
-//class
-Route::get('/class', [ClassController::class, 'index'])->name('itemClass.index');//armazena no banco
-Route::get('/class/create', [ClassController::class, 'create'])->name('itemClass.create'); // Retorna a pagina para create novo dado
-Route::post('/class/create/', [ClassController::class, 'store'])->name('itemClass.store');//armazena no banco
-Route::get('/class/destroy/{itemClass}', [ClassController::class, 'destroy'])->name('itemClass.destroy'); // "Apaga do banco"
-Route::get('/class/edit/{itemClass}', [ClassController::class, 'edit'])->name('itemClass.edit'); // Vizualiza pagina para edit, já com os dados
-Route::put('/class/edit/{itemClass}', [ClassController::class, 'update'])->name('itemClass.update'); // Atualiza no banco com as informações
-Route::get('/class/trash', [ClassController::class, 'trash'])->name('itemClass.trash'); //Vizualiza todos os itens com softdelete
-Route::get('/class/trash/restore/{itemClass}', [ClassController::class, 'restore'])->name('itemClass.restore'); // Restaura do soft delete
+    //category
+    Route::get('/category', [CategoryController::class, 'index'])->name('category.index'); //armazena no banco
+    Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create'); // Retorna a pagina para create novo dado
+    Route::post('/category/create/', [CategoryController::class, 'store'])->name('category.store'); //armazena no banco
+    Route::get('/category/destroy/{category}', [CategoryController::class, 'destroy'])->name('category.destroy'); // "Apaga do banco"
+    Route::get('/category/edit/{category}', [CategoryController::class, 'edit'])->name('category.edit'); // Vizualiza pagina para edit, já com os dados
+    Route::put('/category/edit/{category}', [CategoryController::class, 'update'])->name('category.update'); // Atualiza no banco com as informações
+    Route::get('/category/trash', [CategoryController::class, 'trash'])->name('category.trash'); //Vizualiza todos os itens com softdelete
+    Route::get('/category/trash/restore/{category}', [CategoryController::class, 'restore'])->name('category.restore'); // Restaura do soft delete
 
-//sourceWebsites
-Route::get('/sourceWebsite', [SourceWebsiteController::class, 'index'])->name('sourceWebsite.index');//armazena no banco
-Route::get('/sourceWebsite/create', [SourceWebsiteController::class, 'create'])->name('sourceWebsite.create'); // Retorna a pagina para create novo dado
-Route::post('/sourceWebsite/create/', [SourceWebsiteController::class, 'store'])->name('sourceWebsite.store');//armazena no banco
-Route::get('/sourceWebsite/destroy/{sourceWebsite}', [SourceWebsiteController::class, 'destroy'])->name('sourceWebsite.destroy'); // "Apaga do banco"
-Route::get('/sourceWebsite/edit/{sourceWebsite}', [SourceWebsiteController::class, 'edit'])->name('sourceWebsite.edit'); // Vizualiza pagina para edit, já com os dados
-Route::put('/sourceWebsite/edit/{sourceWebsite}', [SourceWebsiteController::class, 'update'])->name('sourceWebsite.update'); // Atualiza no banco com as informações
-Route::get('/sourceWebsite/trash', [SourceWebsiteController::class, 'trash'])->name('sourceWebsite.trash'); //Vizualiza todos os itens com softdelete
-Route::get('/sourceWebsite/trash/restore/{sourceWebsite}', [SourceWebsiteController::class, 'restore'])->name('sourceWebsite.restore'); // Restaura do soft delete
+    //class
+    Route::get('/class', [ClassController::class, 'index'])->name('itemClass.index'); //armazena no banco
+    Route::get('/class/create', [ClassController::class, 'create'])->name('itemClass.create'); // Retorna a pagina para create novo dado
+    Route::post('/class/create/', [ClassController::class, 'store'])->name('itemClass.store'); //armazena no banco
+    Route::get('/class/destroy/{itemClass}', [ClassController::class, 'destroy'])->name('itemClass.destroy'); // "Apaga do banco"
+    Route::get('/class/edit/{itemClass}', [ClassController::class, 'edit'])->name('itemClass.edit'); // Vizualiza pagina para edit, já com os dados
+    Route::put('/class/edit/{itemClass}', [ClassController::class, 'update'])->name('itemClass.update'); // Atualiza no banco com as informações
+    Route::get('/class/trash', [ClassController::class, 'trash'])->name('itemClass.trash'); //Vizualiza todos os itens com softdelete
+    Route::get('/class/trash/restore/{itemClass}', [ClassController::class, 'restore'])->name('itemClass.restore'); // Restaura do soft delete
 
-//product
-Route::get('/product', [ProductController::class, 'index'])->name('product.index');//armazena no banco
-Route::get('/product/create', [ProductController::class, 'create'])->name('product.create'); // Retorna a pagina para create novo dado
-Route::post('/product/create/', [ProductController::class, 'store'])->name('product.store');//armazena no banco
-Route::get('/product/destroy/{product}', [ProductController::class, 'destroy'])->name('product.destroy'); // "Apaga do banco"
-Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit'); // Vizualiza pagina para edit, já com os dados
-Route::put('/product/edit/{product}', [ProductController::class, 'update'])->name('product.update'); // Atualiza no banco com as informações
-Route::get('/product/trash', [ProductController::class, 'trash'])->name('product.trash'); //Vizualiza todos os itens com softdelete
-Route::get('/product/trash/restore/{product}', [ProductController::class, 'restore'])->name('product.restore'); // Restaura do soft delete
+    //sourceWebsites
+    Route::get('/sourceWebsite', [SourceWebsiteController::class, 'index'])->name('sourceWebsite.index'); //armazena no banco
+    Route::get('/sourceWebsite/create', [SourceWebsiteController::class, 'create'])->name('sourceWebsite.create'); // Retorna a pagina para create novo dado
+    Route::post('/sourceWebsite/create/', [SourceWebsiteController::class, 'store'])->name('sourceWebsite.store'); //armazena no banco
+    Route::get('/sourceWebsite/destroy/{sourceWebsite}', [SourceWebsiteController::class, 'destroy'])->name('sourceWebsite.destroy'); // "Apaga do banco"
+    Route::get('/sourceWebsite/edit/{sourceWebsite}', [SourceWebsiteController::class, 'edit'])->name('sourceWebsite.edit'); // Vizualiza pagina para edit, já com os dados
+    Route::put('/sourceWebsite/edit/{sourceWebsite}', [SourceWebsiteController::class, 'update'])->name('sourceWebsite.update'); // Atualiza no banco com as informações
+    Route::get('/sourceWebsite/trash', [SourceWebsiteController::class, 'trash'])->name('sourceWebsite.trash'); //Vizualiza todos os itens com softdelete
+    Route::get('/sourceWebsite/trash/restore/{sourceWebsite}', [SourceWebsiteController::class, 'restore'])->name('sourceWebsite.restore'); // Restaura do soft delete
 
-//Tag
-Route::get('/tag', [TagController::class, 'index'])->name('tag.index');
-Route::get('/tag/create', [TagController::class, 'create'])->name('tag.create');
-Route::post('/tag/create/', [TagController::class, 'store'])->name('tag.store');
-Route::get('/tag/destroy/{tag}', [TagController::class, 'destroy'])->name('tag.destroy');
-Route::get('/tag/edit/{tag}', [TagController::class, 'edit'])->name('tag.edit'); //edita
-Route::put('/tag/edit/{tag}', [TagController::class, 'update'])->name('tag.update'); //salva no banco
-Route::get('/tag/trash', [TagController::class, 'trash'])->name('tag.trash');
-Route::get('/tag/restore/{tag}', [TagController::class, 'restore'])->name('tag.restore');
-Route::get('/tag/forceDelete/{tag}', [TagController::class, 'forceDelete'])->name('tag.forceDelete');
+    //product
+    Route::get('/product', [ProductController::class, 'index'])->name('product.index'); //armazena no banco
+    Route::get('/product/create', [ProductController::class, 'create'])->name('product.create'); // Retorna a pagina para create novo dado
+    Route::post('/product/create/', [ProductController::class, 'store'])->name('product.store'); //armazena no banco
+    Route::get('/product/destroy/{product}', [ProductController::class, 'destroy'])->name('product.destroy'); // "Apaga do banco"
+    Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit'); // Vizualiza pagina para edit, já com os dados
+    Route::put('/product/edit/{product}', [ProductController::class, 'update'])->name('product.update'); // Atualiza no banco com as informações
+    Route::get('/product/trash', [ProductController::class, 'trash'])->name('product.trash'); //Vizualiza todos os itens com softdelete
+    Route::get('/product/trash/restore/{product}', [ProductController::class, 'restore'])->name('product.restore'); // Restaura do soft delete
+
+    //Tag
+    Route::get('/tag', [TagController::class, 'index'])->name('tag.index');
+    Route::get('/tag/create', [TagController::class, 'create'])->name('tag.create');
+    Route::post('/tag/create/', [TagController::class, 'store'])->name('tag.store');
+    Route::get('/tag/destroy/{tag}', [TagController::class, 'destroy'])->name('tag.destroy');
+    Route::get('/tag/edit/{tag}', [TagController::class, 'edit'])->name('tag.edit'); //edita
+    Route::put('/tag/edit/{tag}', [TagController::class, 'update'])->name('tag.update'); //salva no banco
+    Route::get('/tag/trash', [TagController::class, 'trash'])->name('tag.trash');
+    Route::get('/tag/restore/{tag}', [TagController::class, 'restore'])->name('tag.restore');
+    Route::get('/tag/forceDelete/{tag}', [TagController::class, 'forceDelete'])->name('tag.forceDelete');
+});

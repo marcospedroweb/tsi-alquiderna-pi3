@@ -19,41 +19,40 @@ return new class extends Migration
             $table->string('description');
             $table->string('recommendation');
             $table->string('image');
-            $table->string('imagePosX');
-            $table->string('imagePosY');
             $table->string('author_name');
             $table->string('author_link');
             $table->string('source_website_link');
             $table->integer('lvlMin');
             $table->integer('lvlMax');
-            $table->boolean('enchant');
-            $table->integer('life');
-            $table->integer('speed');
-            $table->integer('physical_protection');
-            $table->integer('magic_protection');
-            $table->integer('physical_attack');
-            $table->integer('physical_magic');
-            $table->integer('mana');
+            $table->boolean('enchant')->default(0);
+            $table->integer('life')->default(0);
+            $table->integer('speed')->default(0);
+            $table->string('strength')->default(0);
+            $table->integer('physical_protection')->default(0);
+            $table->integer('magic_protection')->default(0);
+            $table->integer('physical_attack')->default(0);
+            $table->integer('physical_magic')->default(0);
+            $table->integer('mana')->default(0);
             $table->boolean('sale');
             $table->double('price', 10, 2);
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')
-                  ->references('id')
-                  ->on('categories')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('categories')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->bigInteger('itemClass_id')->unsigned();
             $table->foreign('itemClass_id')
-                  ->references('id')
-                  ->on('item_classes')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('item_classes')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->bigInteger('sourceWebsite_id')->unsigned();
             $table->foreign('sourceWebsite_id')
-                  ->references('id')
-                  ->on('source_websites')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('source_websites')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

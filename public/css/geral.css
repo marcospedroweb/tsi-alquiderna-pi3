@@ -73,6 +73,15 @@ p {
     font-family: 'Open Sans', sans-serif;
 }
 
+#header{
+    background-color: var(--nav-color);
+    color: #fff;
+}
+
+#btn-bag{
+    color: #fff;
+}
+
 .product-info {
     width: 100%;
     background-color: #FAFAFA;

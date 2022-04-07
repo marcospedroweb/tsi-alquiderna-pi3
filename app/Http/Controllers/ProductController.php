@@ -28,9 +28,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product.create')->with(['categories' => Category::all(),
-                                             'itemClasses' => ItemClass::all(),
-                                             'sourceWebsites' => SourceWebsite::all()]);
+        return view('product.create')->with([
+            'categories' => Category::all(),
+            'itemClasses' => ItemClass::all(),
+            'sourceWebsites' => SourceWebsite::all()
+        ]);
     }
 
     /**
@@ -41,28 +43,26 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
+        // Para funcionar o storage é necessario executar o comando [php artisan storage:link]
         $requestImage = $request->image; // Recebe o resquest da imagem
         $extension = $requestImage->extension(); // Recebe a extensão da imagem
-        if($extension !== 'jpeg' && $extension !== 'jpg' && $extension !== 'png'){
+        //Verificando se a extensão é valida
+        if ($extension !== 'jpeg' && $extension !== 'jpg' && $extension !== 'png') {
             session()->flash('error', 'Imagem invalida');
             return redirect(route('product.create'));
             dd('erro');
-        }else{
-            if($request->hasFile('image') && $request->file('image')->isValid()){
-                $imageName = md5($requestImage->getClientOriginalName() . strtotime('now')) . '.' . $extension; // Concatena o nome original da imagem com o tempo do upload da imagem, por final com a extenção
-                // [md5] é responsavel por transformar tudo em uma hash
-                $requestImage->move(public_path('imgs/products'), $imageName); // Move a imagem para o public
-            }
-
-            $data = $request->all();
-            $data['image'] = $imageName;
-            Product::create($data);//Recebe os dados do forulario e cria uma linha no banco com os dados, recebe tudo mas ele so pega o que precisa
-
-            session()->flash('success', 'Produto criada com sucesso');
-            return redirect(route('product.index'));
         }
 
+        // Salvando a arquivo da imagem com nome aleatorio
+        $path = $request->file('image')->store('public/itens'); // [$request->file('nameDoInput')->store('public/{suaPasta}')]
+        //[str_replace('public', 'storage', $file)] e armazenar isso no banco
+
+        $data = $request->all(); // Retornando os valores de todos os inputs
+        $data['image'] = str_replace('public', 'storage', $path); //Salvando no banco o link para imagem
+        Product::create($data); //Recebe os dados do forulario e cria uma linha no banco com os dados, recebe tudo mas ele so pega o que precisa
+
+        session()->flash('success', 'Produto criado com sucesso');
+        return redirect(route('product.index'));
     }
 
     /**
@@ -85,10 +85,12 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         // Leva a Product para pagina para edit
-        return view('product.edit')->with(['product' => $product,
-                                           'categories' => Category::all(),
-                                           'itemClasses' => ItemClass::all(),
-                                           'sourceWebsites' => SourceWebsite::all()]);
+        return view('product.edit')->with([
+            'product' => $product,
+            'categories' => Category::all(),
+            'itemClasses' => ItemClass::all(),
+            'sourceWebsites' => SourceWebsite::all()
+        ]);
     }
 
     /**
@@ -105,7 +107,7 @@ class ProductController extends Controller
         // [Request $request] Recebe todos os dados que irão substituir a $product
         $product->update($request->all());
         session()->flash('success', 'Produto editada com sucesso');
-        return redirect(route('product.index'));// para onde ta voltando
+        return redirect(route('product.index')); // para onde ta voltando
     }
 
     /**
@@ -121,11 +123,13 @@ class ProductController extends Controller
         return redirect(route('product.index'));
     }
 
-    public function trash(){
-        return view('product.trash')->with('products', Product::onlyTrashed()->get());// Retorna todos os elementos com soft delete
+    public function trash()
+    {
+        return view('product.trash')->with('products', Product::onlyTrashed()->get()); // Retorna todos os elementos com soft delete
     }
 
-    public function restore($product_id){
+    public function restore($product_id)
+    {
         // Recebe como parametro o id que deseja ser restaurado
         $product = Product::onlyTrashed()->where('id', $product_id)->first(); // Retorna o id daquela linha "apagada"
         $product->restore(); // Restaura aquela linha
