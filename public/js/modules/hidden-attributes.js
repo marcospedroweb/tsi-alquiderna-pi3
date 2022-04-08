@@ -18,7 +18,6 @@ const divInputPhysicalAttack = document.querySelector("#div-input-physical-attac
 const divInputMagicAttack = document.querySelector("#div-input-physical-magic");
 const divInputMana = document.querySelector("#div-input-mana");
 
-
 function removeInputsAndClasses(optionsSelectClasses) {
     // Tira o d-none de todos os inputs
     divInputPhysicalAttack.classList.remove("d-none");
@@ -38,76 +37,82 @@ function removeInputsAndClasses(optionsSelectClasses) {
     });
 }
 
-selectcategoryChosen.addEventListener("change", () => {
-    const selectItemClasses = document.querySelector('select[name="itemClass_id"]');
-    if (selectItemClasses.classList.contains("d-none"))
-        selectItemClasses.classList.remove("d-none");
 
-    const categoryChosen = selectcategoryChosen.selectedOptions[0].textContent; // Qual categoria a pessoa escolheu
-    const optionsSelectClasses = Array.from(selectItemClasses.options); // Transforma todas as classes em array
-    removeInputsAndClasses(optionsSelectClasses); // Retorna todos os inputs e selects a zero
-    selectItemClasses.value = '0';
-    // console.log(categoryChosen)
-    // console.log(optionsSelect);
-    if (categoryChosen === 'Armadura') {
-        console.log('teste')
-        divInputPhysicalAttack.classList.add("d-none");
-        divInputMagicAttack.classList.add("d-none");
-        divInputMana.classList.add("d-none");
-        divInputstrength.classList.add('d-none');
+if (selectcategoryChosen && divInputLife && divInputSpeed && divInputstrength && divInputPhysicalProtection && divInputMagicProtection && divInputPhysicalAttack && divInputMagicAttack && divInputMana) {
 
-        //Tira a classe [d-none] de todas as classes relacionadas a armadura
-        itemClassesId.armadura.forEach(elementCLass => {
-            optionsSelectClasses.forEach(elementOption => {
-                if (elementCLass == elementOption.value)
-                    elementOption.classList.remove('d-none');
+    selectcategoryChosen.addEventListener("change", () => {
+        const selectItemClasses = document.querySelector('select[name="itemClass_id"]');
+        if (selectItemClasses.classList.contains("d-none"))
+            selectItemClasses.classList.remove("d-none");
+
+        const categoryChosen = selectcategoryChosen.selectedOptions[0].textContent; // Qual categoria a pessoa escolheu
+        const optionsSelectClasses = Array.from(selectItemClasses.options); // Transforma todas as classes em array
+        removeInputsAndClasses(optionsSelectClasses); // Retorna todos os inputs e selects a zero
+        selectItemClasses.value = '0';
+        // console.log(categoryChosen)
+        // console.log(optionsSelect);
+        if (categoryChosen === 'Armadura') {
+            console.log('teste')
+            divInputPhysicalAttack.classList.add("d-none");
+            divInputMagicAttack.classList.add("d-none");
+            divInputMana.classList.add("d-none");
+            divInputstrength.classList.add('d-none');
+
+            //Tira a classe [d-none] de todas as classes relacionadas a armadura
+            itemClassesId.armadura.forEach(elementCLass => {
+                optionsSelectClasses.forEach(elementOption => {
+                    if (elementCLass == elementOption.value)
+                        elementOption.classList.remove('d-none');
+                });
             });
-        });
-    } else if (['Arma física', 'Arma mágica'].includes(categoryChosen)) {
-        //Tirando os inputs que não são validos para armaduras
+        } else if (['Arma física', 'Arma mágica'].includes(categoryChosen)) {
+            //Tirando os inputs que não são validos para armaduras
 
-        divInputPhysicalProtection.classList.add("d-none");
-        divInputMagicProtection.classList.add("d-none");
-        divInputLife.classList.add("d-none");
-        divInputSpeed.classList.add("d-none");
-        divInputstrength.classList.add('d-none');
+            divInputPhysicalProtection.classList.add("d-none");
+            divInputMagicProtection.classList.add("d-none");
+            divInputLife.classList.add("d-none");
+            divInputSpeed.classList.add("d-none");
+            divInputstrength.classList.add('d-none');
 
-        //Tira a classe [d-none] de todas as classes relacionadas a armadura
-        itemClassesId.armaFisica.forEach(elementCLass => {
-            optionsSelectClasses.forEach(elementOption => {
-                if (elementCLass == elementOption.value)
-                    elementOption.classList.remove('d-none');
+            //Tira a classe [d-none] de todas as classes relacionadas a armadura
+            itemClassesId.armaFisica.forEach(elementCLass => {
+                optionsSelectClasses.forEach(elementOption => {
+                    if (elementCLass == elementOption.value)
+                        elementOption.classList.remove('d-none');
+                });
             });
-        });
-    } else if (categoryChosen === 'Poção') {
+        } else if (categoryChosen === 'Poção') {
 
-        divInputPhysicalProtection.classList.add("d-none");
-        divInputMagicProtection.classList.add("d-none");
-        divInputMagicAttack.classList.add("d-none");
-        divInputPhysicalAttack.classList.add("d-none");
+            divInputPhysicalProtection.classList.add("d-none");
+            divInputMagicProtection.classList.add("d-none");
+            divInputMagicAttack.classList.add("d-none");
+            divInputPhysicalAttack.classList.add("d-none");
 
-        //Tira a classe [d-none] de todas as classes relacionadas a armadura
-        itemClassesId.pocoes.forEach(elementCLass => {
-            optionsSelectClasses.forEach(elementOption => {
-                if (elementCLass == elementOption.value)
-                    elementOption.classList.remove('d-none');
+            //Tira a classe [d-none] de todas as classes relacionadas a armadura
+            itemClassesId.pocoes.forEach(elementCLass => {
+                optionsSelectClasses.forEach(elementOption => {
+                    if (elementCLass == elementOption.value)
+                        elementOption.classList.remove('d-none');
+                });
             });
-        });
 
-    } else {
+        } else {
 
-        divInputPhysicalProtection.classList.add("d-none");
-        divInputMagicProtection.classList.add("d-none");
-        divInputLife.classList.add("d-none");
-        divInputSpeed.classList.add("d-none");
-        divInputstrength.classList.add('d-none');
+            divInputPhysicalProtection.classList.add("d-none");
+            divInputMagicProtection.classList.add("d-none");
+            divInputLife.classList.add("d-none");
+            divInputSpeed.classList.add("d-none");
+            divInputstrength.classList.add('d-none');
 
-        itemClassesId.grimorio.forEach(elementCLass => {
-            optionsSelectClasses.forEach(elementOption => {
-                if (elementCLass == elementOption.value)
-                    elementOption.classList.remove('d-none');
+            itemClassesId.grimorio.forEach(elementCLass => {
+                optionsSelectClasses.forEach(elementOption => {
+                    if (elementCLass == elementOption.value)
+                        elementOption.classList.remove('d-none');
+                });
             });
-        });
-    }
+        }
 
-});
+    });
+
+}
+

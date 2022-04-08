@@ -28,6 +28,18 @@ p {
     font-size: 1rem !important;
 }
 
+.pb-5 {
+    padding-bottom: 2rem !important;
+}
+
+.pb-6 {
+    padding-bottom: 4rem !important;
+}
+
+.pt-6 {
+    padding-top: 4rem !important;
+}
+
 .mb-5 {
     margin-bottom: 2rem !important;
 }
@@ -73,12 +85,12 @@ p {
     font-family: 'Open Sans', sans-serif;
 }
 
-#header{
+#header {
     background-color: var(--nav-color);
     color: #fff;
 }
 
-#btn-bag{
+#btn-bag {
     color: #fff;
 }
 
@@ -94,6 +106,47 @@ p {
     margin-left: 24px;
 }
 
-.sections-products-cards{
+/* .carousel-products {} */
 
+.carousel-products .card-product {
+    min-width: 303px;
+    min-height: 388px;
+    background-color: #ccc;
+    transition: all .25s ease-out;
+    cursor: pointer;
+}
+
+.carousel-products .card-product:hover {
+    transform: scale(1.05);
+}
+
+.card-product+.card-product {
+    margin-left: 24px;
+}
+
+.carousel-products .carousel-control-prev {
+    margin-left: 12px;
+}
+
+.carousel-products .carousel-control-next {
+    margin-right: 12px;
+}
+
+.carousel-products .carousel-control-prev,
+.carousel-products .carousel-control-next {
+    width: unset !important;
+}
+
+.carousel-product-icon {
+    background-color: var(--nav-color);
+    padding: 1.5rem;
+    border-radius: 50%;
+}
+
+footer {
+    background-color: var(--nav-color);
+}
+
+.list-unstyled {
+    color: #fff;
 }
