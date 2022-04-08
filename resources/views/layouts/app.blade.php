@@ -75,7 +75,7 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid">
                     <div>
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" href="{{ route('index') }}">
                             <h1 class="d-none">Alquiderna</h1>
                             <svg width="95" height="20" viewBox="0 0 1086 229" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -146,7 +146,6 @@
                                 class="bi bi-bag"></i></button>
                         <div class="d-flex justify-content-center align-items-center">
                             <i class="bi bi-person-circle me-2"></i>
-<<<<<<< HEAD
                             <a href="{{ route('login') }}">Login</a>
                         </div>
                         <div class="d-flex justify-content-center align-items-center">
@@ -154,9 +153,6 @@
                                 @csrf
                                 <button type="submit">LOGOUT</button>
                             </form>
-=======
-                            <span>Login</span>
->>>>>>> 84d20235a1c419dd4e170b031b0ea34554f41198
                         </div>
                     </div>
                 </div>
@@ -164,11 +160,11 @@
         </div>
     </header>
     <main>
-        @if (Auth::check())
+        {{-- @if (Auth::check())
             {{ session()->flash('success', 'Usuario logado') }}
         @else
             {{ session()->flash('success', 'Usuario não logado') }}
-        @endif
+        @endif --}}
         @if (session()->get('success'))
             <div class="container-xxl mt-5">
                 <div class="alert alert-success">

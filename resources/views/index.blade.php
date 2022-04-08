@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+    <section id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
@@ -26,5 +26,28 @@
             <span class="carousel-control-next-icon" aria-hidden="true" id="mainCarousel-next-icon"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>
+    </section>
+    <section class="sections-products-cards d-flex">
+        <div class="card-product">
+            1
+        </div>
+        <div class="card-product">
+            2
+        </div>
+        <div class="card-product">
+            3
+        </div>
+        <div class="card-product">
+            4
+        </div>
+        <div class="card-product">
+            5
+        </div>
+        <div class="card-product">
+            6
+        </div>
+        <div class="card-product">
+            7
+        </div>
+    </section>
 @endsection
