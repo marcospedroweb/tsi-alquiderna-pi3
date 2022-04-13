@@ -11,7 +11,7 @@
     </div>
     <div class="row justify-content-between align-items-center mb-6">
         @foreach ($products as $product)
-            <div class="col col-lg-4 bg-secondary p-3 row flex-column justify-content-center align-items-center">
+            <div class="col col-lg-4 row bg-secondary p-3 flex-column justify-content-center align-items-center">
                 <div class="col justify-content-center align-items-center">
                     <div class="card-product position-relative overflow-hidden mx-auto mb-3">
                         <img src='{{ asset("imgs/products/$product->image") }}' class="img-fluid">
