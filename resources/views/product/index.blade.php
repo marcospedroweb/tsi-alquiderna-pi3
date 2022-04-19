@@ -3,22 +3,30 @@
     <div class="d-flex justify-content-between align-items-center mb-5">
         <h2>Produto</h2>
         <div>
-            <a href="{{ route('product.index') }}" class="btn btn-primary">Listar produtos</a>
-            <a href="{{ route('product.create') }}" class="btn btn-primary active">Criar produto</a>
+            <a href="{{ route('product.index') }}" class="btn btn-primary active">Listar produtos</a>
+            <a href="{{ route('product.create') }}" class="btn btn-primary">Criar produto</a>
             <a href="{{ route('product.trash') }}" class="btn btn-primary">Lixeira produto</a>
             <a href="{{ route('crud.index') }}" class="btn btn-secondary">Crud geral</a>
         </div>
     </div>
+    <div class="my-5">
+        <span>Quantidade de produtos: {{ count($products) }}</span>
+    </div>
     <div class="row justify-content-between align-items-center mb-6">
         @foreach ($products as $product)
-            <div class="col col-lg-4 row bg-secondary p-3 flex-column justify-content-center align-items-center">
+            <div class="col col-lg-4 row bg-secondary p-3 flex-column justify-content-center align-items-center mb-4">
                 <div class="col justify-content-center align-items-center">
-                    <div class="card-product position-relative overflow-hidden mx-auto mb-3">
-                        <img src='{{ asset("imgs/products/$product->image") }}' class="img-fluid">
+                    <div class="card-product-view position-relative overflow-hidden mx-auto mb-3">
+                        <img src='{{ asset("$product->image") }}' class="img-fluid">
                         <div
-                            class="card-product-text w-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column">
+                            class="card-product-view-text w-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column">
                             <div class="d-flex flex-column">
-                                <h3>{{ $product->name }}</h3>
+                                <h3 style="word-wrap: break-word;">
+                                    @if ($product->new === '1')
+                                        <span class="novidade">novo</span>
+                                    @endif
+                                    {{ $product->name }}
+                                </h3>
                                 <p>{{ $product->Category->name }} {{ $product->ItemClass->name }}, nível
                                     {{ $product->lvlMin }}
                                 </p>
@@ -50,10 +58,49 @@
                                             </svg>
                                             <span>{{ $product->magic_protection }}</span>
                                         </div>
+                                    @elseif($product->Category->name === 'Poção' && $product->ItemClass->name === 'Vida')
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="bi bi-heart-fill"></i>
+                                            <span>{{ $product->life }}</span>
+                                        </div>
+                                    @elseif($product->Category->name === 'Poção' && $product->ItemClass->name === 'Força')
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="bi bi-shield-slash-fill"></i>
+                                            <span>{{ $product->physical_attack }}</span>
+                                        </div>
+                                    @elseif($product->Category->name === 'Poção' && $product->ItemClass->name === 'Mana')
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-droplet"></i>
+                                            <span>{{ $product->mana }}</span>
+                                        </div>
+                                    @else
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-user-slash"></i>
+                                            <span>{{ $product->physical_attack }}</span>
+                                        </div>
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-wand-sparkles"></i>
+                                            <span>{{ $product->magic_attack }}</span>
+                                        </div>
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-droplet"></i>
+                                            <span>{{ $product->mana }}</span>
+                                        </div>
                                     @endif
                                 </div>
-                                <div class="card-product-price">
-                                    <p>R$ {{ $product->price }}</p>
+                                <div class="card-product-view-price">
+                                    <div class="d-flex flex-column align-items-end">
+                                        @if ($product->discount_price !== 0.0)
+                                            <p class="text-decoration-line-through">R$ <span
+                                                    class="product-price">{{ $product->price }}</span></p>
+                                            <p class="p-product-price">R$ <span
+                                                    class="product-discount-price">{{ $product->discount_price }}</span>
+                                            </p>
+                                        @else
+                                            <p class="p-product-price">R$ <span
+                                                    class="product-price">{{ $product->price }}</span></p>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +111,7 @@
                             href="{{ $product->author_link }}">{{ $product->author_name }}</a> em <a
                             href="{{ $product->source_website_link }}">{{ $product->SourceWebsite->name }}</a>
                     </h3>
-                    <p>{{ $product->recommendation }}</p>
+                    <p class="recommendation-text">{{ $product->recommendation }}</p>
                     <div>
                         <div class="d-flex mb-3">
                             <div class="product-info d-flex flex-column justify-content-center align-items-center">
@@ -113,81 +160,4 @@
             </div>
         @endforeach
     </div>
-
-    {{-- <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nome do produto</th>
-                <th scope="col">Descrição</th>
-                <th scope="col">Imagem</th>
-                <th scope="col">PosX</th>
-                <th scope="col">PosY</th>
-                <th scope="col">Nome do autor</th>
-                <th scope="col">link do autor</th>
-                <th scope="col">Site</th>
-                <th scope="col">link do post</th>
-                <th scope="col">Nivel minimo</th>
-                <th scope="col">Nivel maximo</th>
-                <th scope="col">Encantar</th>
-                <th scope="col">Vida</th>
-                <th scope="col">Velocidade</th>
-                <th scope="col">Proteção fisica</th>
-                <th scope="col">Proteção magica</th>
-                <th scope="col">Ataque fisico</th>
-                <th scope="col">Ataque magico</th>
-                <th scope="col">Mana</th>
-                <th scope="col">Promoção</th>
-                <th scope="col">Preço</th>
-                <th scope="col">Categoria</th>
-                <th scope="col">Classe</th>
-                <th scope="col">Editar</th>
-                <th scope="col">Apagar</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($products as $product)
-                <tr>
-                    <td>{{ $product->id }}</td>
-                    <td>{{ $product->name }}</td>
-                    <td>{{ $product->description }}</td>
-                    <td>{{ $product->image }}</td>
-                    <td>{{ $product->imagePosX }}</td>
-                    <td>{{ $product->imagePosY }}</td>
-                    <td>{{ $product->author_name }}</td>
-                    <td>{{ $product->author_link }}</td>
-                    <td>
-                        @foreach ($product->SourceWebsite()->get() as $sourceWebsite)
-                            {{ $sourceWebsite->name }}
-                        @endforeach
-                    </td>
-                    <td>{{ $product->source_website_link }}</td>
-                    <td>{{ $product->lvlMin }}</td>
-                    <td>{{ $product->lvlMax }}</td>
-                    <td>{{ $product->enchant }}</td>
-                    <td>{{ $product->life }}</td>
-                    <td>{{ $product->speed }}</td>
-                    <td>{{ $product->physical_protection }}</td>
-                    <td>{{ $product->magic_protection }}</td>
-                    <td>{{ $product->physical_attack }}</td>
-                    <td>{{ $product->physical_magic }}</td>
-                    <td>{{ $product->mana }}</td>
-                    <td>{{ $product->sale }}</td>
-                    <td>{{ $product->price }}</td>
-                    <td>
-                        @foreach ($product->Category()->get() as $category)
-                            {{ $category->name }}
-                        @endforeach
-                    </td>
-                    <td>
-                        @foreach ($product->ItemClass()->get() as $itemClass)
-                            {{ $itemClass->name }}
-                        @endforeach
-                    </td>
-                    <td><a href="{{ route('product.edit', $product->id) }}" class="btn btn-primary">Editar</a></td>
-                    <td><a href="{{ route('product.destroy', $product->id) }}" class="btn btn-danger">Apagar</a></td>
-                </tr>
-            @endforeach
-        </tbody>
-     </table> --}}
 @endsection

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name', 37);
             $table->string('description');
             $table->string('recommendation');
             $table->string('image');
@@ -34,7 +34,9 @@ return new class extends Migration
             $table->integer('physical_magic')->default(0);
             $table->integer('mana')->default(0);
             $table->boolean('sale');
+            $table->boolean('new');
             $table->double('price', 10, 2);
+            $table->double('discount_price', 10, 2)->default(0);
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')
                 ->references('id')

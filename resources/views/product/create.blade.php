@@ -16,7 +16,8 @@
         <div class="col-10 mb-3">
             <div class="row justify-content-center align-items-center">
                 <div class="col form-floating mb-3">
-                    <input required type="text" class="form-control" placeholder="produto" name="name" id="name">
+                    <input required type="text" class="form-control" placeholder="produto" name="name" id="name"
+                        maxlength="37">
                     <label style="margin-left: 12px; border: 0;" for="name">Nome do
                         produto</label>
                     <div class="invalid-feedback">
@@ -203,6 +204,16 @@
         </div>
         <div class="row justify-content-center align-items-center">
             <div class="col">
+                <select required class="form-select form-select-lg mb-3" aria-label="Default select example" name="new">
+                    <option selected disabled>Lançamento?</option>
+                    <option value="0">Não</option>
+                    <option value="1">Sim</option>
+                </select>
+                <div class="invalid-feedback">
+                    <span>Dado inválido</span>
+                </div>
+            </div>
+            <div class="col">
                 <select required class="form-select form-select-lg mb-3" aria-label="Default select example" name="sale">
                     <option selected disabled>Produto em promoção?</option>
                     <option value="0">Não</option>
@@ -224,10 +235,21 @@
                     <span>Dado inválido</span>
                 </div>
             </div>
-            <div class="col">
+            <div class="col" id="col-original-price">
                 <div class="form-floating mb-3">
-                    <input required type="number" class="form-control" placeholder="300" id="price" name="price">
-                    <label for="price">Preço</label>
+                    <input required type="number" class="form-control" placeholder="300" id="price" name="price"
+                        max="9999">
+                    <label for="price">Preço original</label>
+                    <div class="invalid-feedback">
+                        <span>Dado inválido</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-none" id="col-discount-price">
+                <div class="form-floating mb-3">
+                    <input required type="number" class="form-control" placeholder="300" id="discount_price"
+                        name="discount_price" value="0" max="9999">
+                    <label for="discount_price">Preço com desconto</label>
                     <div class="invalid-feedback">
                         <span>Dado inválido</span>
                     </div>
@@ -235,16 +257,15 @@
             </div>
         </div>
         <div class="form-floating mb-3">
-            <textarea class="form-control" placeholder="Leave a comment here" id="description" style="height: 100px"
+            <textarea class="form-control" placeholder="Leave a comment here" id="description" style="height: 100px;"
                 name="description"></textarea>
-            <label for="description">Descrição do produto</label>
+            <label for="description" style="margin-left: 12px; border: 0;">Descrição do produto</label>
             <div class="invalid-feedback">
                 <span>Dado inválido</span>
             </div>
         </div>
-        <div class="text-center">
+        <div class="text-center mb-6">
             <button type="submit" class="btn btn-primary mt-3">Cadastrar</button>
-        </div>
         </div>
     </form>
 @endsection

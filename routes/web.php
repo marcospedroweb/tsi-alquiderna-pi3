@@ -54,6 +54,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::put('/category/edit/{category}', [CategoryController::class, 'update'])->name('category.update'); // Atualiza no banco com as informações
     Route::get('/category/trash', [CategoryController::class, 'trash'])->name('category.trash'); //Vizualiza todos os itens com softdelete
     Route::get('/category/trash/restore/{category}', [CategoryController::class, 'restore'])->name('category.restore'); // Restaura do soft delete
+    Route::get('/category/forceDelete/{category}', [CategoryController::class, 'forceDelete'])->name('category.forceDelete'); // Restaura do soft delete
 
     //class
     Route::get('/class', [ClassController::class, 'index'])->name('itemClass.index'); //armazena no banco
@@ -64,6 +65,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::put('/class/edit/{itemClass}', [ClassController::class, 'update'])->name('itemClass.update'); // Atualiza no banco com as informações
     Route::get('/class/trash', [ClassController::class, 'trash'])->name('itemClass.trash'); //Vizualiza todos os itens com softdelete
     Route::get('/class/trash/restore/{itemClass}', [ClassController::class, 'restore'])->name('itemClass.restore'); // Restaura do soft delete
+    Route::get('/class/forceDelete/{sourceWebsite}', [ClassController::class, 'forceDelete'])->name('itemClass.forceDelete'); // Restaura do soft delete
 
     //sourceWebsites
     Route::get('/sourceWebsite', [SourceWebsiteController::class, 'index'])->name('sourceWebsite.index'); //armazena no banco
@@ -74,6 +76,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::put('/sourceWebsite/edit/{sourceWebsite}', [SourceWebsiteController::class, 'update'])->name('sourceWebsite.update'); // Atualiza no banco com as informações
     Route::get('/sourceWebsite/trash', [SourceWebsiteController::class, 'trash'])->name('sourceWebsite.trash'); //Vizualiza todos os itens com softdelete
     Route::get('/sourceWebsite/trash/restore/{sourceWebsite}', [SourceWebsiteController::class, 'restore'])->name('sourceWebsite.restore'); // Restaura do soft delete
+    Route::get('/sourceWebsite/forceDelete/{sourceWebsite}', [SourceWebsiteController::class, 'forceDelete'])->name('sourceWebsite.forceDelete'); // Restaura do soft delete
 
     //product
     Route::get('/product', [ProductController::class, 'index'])->name('product.index'); //armazena no banco
@@ -84,5 +87,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::put('/product/edit/{product}', [ProductController::class, 'update'])->name('product.update'); // Atualiza no banco com as informações
     Route::get('/product/trash', [ProductController::class, 'trash'])->name('product.trash'); //Vizualiza todos os itens com softdelete
     Route::get('/product/trash/restore/{product}', [ProductController::class, 'restore'])->name('product.restore'); // Restaura do soft delete
+    Route::get('/product/forceDelete/{product}', [ProductController::class, 'forceDelete'])->name('product.forceDelete'); // Restaura do soft delete
 
 });

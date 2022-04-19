@@ -84,6 +84,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+
         // Leva a Product para pagina para edit
         return view('product.edit')->with([
             'product' => $product,
@@ -102,11 +103,28 @@ class ProductController extends Controller
      */
     public function update(Product $product, Request $request)
     {
+        // Para funcionar o storage é necessario executar o comando [php artisan storage:link]
+        $requestImage = $request->image; // Recebe o resquest da imagem
+        $extension = $requestImage->extension(); // Recebe a extensão da imagem
+        //Verificando se a extensão é valida
+        if ($extension !== 'jpeg' && $extension !== 'jpg' && $extension !== 'png') {
+            session()->flash('error', 'Imagem invalida');
+            return redirect(route('product.create'));
+            dd('erro');
+        }
+
+        // Salvando a arquivo da imagem com nome aleatorio
+        $path = $request->file('image')->store('public/itens'); // [$request->file('nameDoInput')->store('public/{suaPasta}')]
+        //[str_replace('public', 'storage', $file)] e armazenar isso no banco
+
+        $data = $request->all(); // Retornando os valores de todos os inputs
+        $data['image'] = str_replace('public', 'storage', $path); //Salvando no banco o link para imagem
+
         // Leva a Product para pagina para edit
         // [Product $product] é a Product que deve ser atualizada
         // [Request $request] Recebe todos os dados que irão substituir a $product
-        $product->update($request->all());
-        session()->flash('success', 'Produto editada com sucesso');
+        $product->update($data);
+        session()->flash('success', 'Produto editado com sucesso');
         return redirect(route('product.index')); // para onde ta voltando
     }
 
@@ -135,5 +153,16 @@ class ProductController extends Controller
         $product->restore(); // Restaura aquela linha
         session()->flash('success', 'Produto restaurada com sucesso');
         return redirect(route('itemClass.index'));
+    }
+
+    public function forceDelete($product_id)
+    {
+        // Para deletar permanentemente, o find comum não encontrará esse id já que ele está "excluido"
+        // Para buscarmos esse id no banco é necessario utilizar o [product::onlyTrashed()] que retornará todos as products "deletadas"
+        // Depois utilizar o [->where('colunaDesejada', $variavelComOValor)->first()], para encontrar aquela coluna (geralmente id), passando a variavel com o valor que é igual a da coluna e [first()] que retornará o primeiro resultado que ele encontrar
+        $product = Product::onlyTrashed()->where('id', $product_id)->first();
+        $product->forceDelete(); // Apaga totalmente aquele dado
+        session()->flash('success', 'Produto deletado PERMANENTEMENTE com sucesso'); //[session()->flash()] consiste em uma flash message, mostra a mensagem para o usuario rapidamente, depois apaga isso da memoria
+        return redirect(route('product.trash'));
     }
 }

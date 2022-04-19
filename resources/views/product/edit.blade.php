@@ -9,15 +9,17 @@
             <a href="{{ route('crud.index') }}" class="btn btn-secondary">Crud geral</a>
         </div>
     </div>
-    <form action="{{ route('product.store') }}" class="row justify-content-center align-items-center needs-validation"
-        method="POST" enctype="multipart/form-data" novalidate>
+    <form action="{{ route('product.update', $product->id) }}"
+        class="row justify-content-center align-items-center needs-validation" enctype="multipart/form-data" novalidate
+        method="POST">
         @csrf
+        @method('PUT')
         <h3 class="text-center mb-3">Editando produto</h3>
         <div class="col-10 mb-3">
             <div class="row justify-content-center align-items-center">
                 <div class="col form-floating mb-3">
                     <input value="{{ $product->name }}" required type="text" class="form-control" placeholder="produto"
-                        name="name" id="name">
+                        name="name" id="name" maxlength="37">
                     <label style="margin-left: 12px; border: 0;" for="name">Nome do
                         produto</label>
                     <div class="invalid-feedback">
@@ -212,6 +214,16 @@
             </div>
             <div class="row justify-content-center align-items-center">
                 <div class="col">
+                    <select required class="form-select form-select-lg mb-3" aria-label="Default select example" name="new">
+                        <option selected disabled>Produto em promoção?</option>
+                        <option {{ $product->new === 0 ? 'selected' : '' }} value="0">Não</option>
+                        <option {{ $product->new === 1 ? 'selected' : '' }} value="1">Sim</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        <span>Dado inválido</span>
+                    </div>
+                </div>
+                <div class="col">
                     <select required class="form-select form-select-lg mb-3" aria-label="Default select example"
                         name="sale">
                         <option selected disabled>Produto em promoção?</option>
@@ -237,11 +249,22 @@
                         <span>Dado inválido</span>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col" id="col-discount-price">
                     <div class="form-floating mb-3">
-                        <input value="{{ $product->price }}" required type="number" class="form-control"
-                            placeholder="300" id="price" name="price">
-                        <label for="price">Preço</label>
+                        <input required type="number" class="form-control" placeholder="300" id="price" name="price"
+                            value="{{ $product->price }}" max="9999">
+                        <label for="price">Preço original</label>
+                        <div class="invalid-feedback">
+                            <span>Dado inválido</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-none" id="col-discount-price">
+                    <div class="form-floating mb-3">
+                        <input required type="number" class="form-control" placeholder="300" id="discount_price"
+                            name="discount_price" value="{{ $product->descount_price ? $product->descount_price : '0' }}"
+                            max="9999">
+                        <label for="discount_price">Preço com desconto</label>
                         <div class="invalid-feedback">
                             <span>Dado inválido</span>
                         </div>
@@ -249,9 +272,9 @@
                 </div>
             </div>
             <div class="form-floating mb-3">
-                <textarea class="form-control" placeholder="Leave a comment here" id="description" style="height: 100px"
-                    name="description" value="{{ $product->description }}"></textarea>
-                <label for="description">Descrição do produto</label>
+                <textarea class="form-control" placeholder="Leave a comment here" id="description" style="height: 100px;"
+                    name="description">{{ $product->description }}</textarea>
+                <label for="description" style="margin-left: 12px; border: 0;">Descrição do produto</label>
                 <div class="invalid-feedback">
                     <span>Dado inválido</span>
                 </div>

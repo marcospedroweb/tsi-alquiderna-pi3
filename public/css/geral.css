@@ -4,7 +4,7 @@
     --header-text-color: #000;
     --subHeader-text-color: #000;
     --paragraph-text-color: #000;
-    --btn-static: #fff;
+    --btn-static: #EBD565;
     --btn-hover: #fff;
     --btn-active: #fff;
 }
@@ -61,7 +61,7 @@ p {
 }
 
 .bg-secondary {
-    background-color: #f5f5f5 !important;
+    background-color: #fcfcfc !important;
     border: 2px solid var(--nav-color);
     border-radius: 8px;
 }
@@ -140,7 +140,7 @@ p {
     box-shadow: none !important;
 }
 
-.carousel-control-prev-icon {
+.carousel-control-prev-icon:not(#mainCarousel .carousel-control-prev-icon) {
     opacity: 0;
     transition: opacity .25s ease-in;
 }

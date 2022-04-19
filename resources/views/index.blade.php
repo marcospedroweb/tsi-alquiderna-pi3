@@ -9,13 +9,19 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://via.placeholder.com/1296x500.png" class="d-block w-100" alt="...">
+                <a href="#">
+                    <img src="{{ asset('imgs/Carrosel-image-1.png') }}" class="d-block w-100" alt="Imagem de produto">
+                </a>
             </div>
             <div class="carousel-item">
-                <img src="https://via.placeholder.com/1296x500.png" class="d-block w-100" alt="...">
+                <a href="#">
+                    <img src="{{ asset('imgs/Carrosel-image-2.png') }}" class="d-block w-100" alt="Imagem de produto">
+                </a>
             </div>
             <div class="carousel-item">
-                <img src="https://via.placeholder.com/1296x500.png" class="d-block w-100" alt="...">
+                <a href="#">
+                    <img src="{{ asset('imgs/Carrosel-image-3.png') }}" class="d-block w-100" alt="Imagem de produto">
+                </a>
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">

@@ -6,6 +6,7 @@ export default function initValidateForm() {
     Array.prototype.slice.call(forms).forEach(function (form) {
         form.addEventListener('submit', function (event) {
             if (!form.checkValidity()) {
+                console.log('bloqueado');
                 event.preventDefault()
                 event.stopPropagation()
             }

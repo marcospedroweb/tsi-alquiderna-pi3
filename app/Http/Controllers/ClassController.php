@@ -36,7 +36,7 @@ class ClassController extends Controller
      */
     public function store(Request $request)
     {
-        ItemClass::create($request->all());//Recebe os dados do forulario e cria uma linha no banco com os dados, recebe tudo mas ele so pega o que precisa
+        ItemClass::create($request->all()); //Recebe os dados do forulario e cria uma linha no banco com os dados, recebe tudo mas ele so pega o que precisa
         session()->flash('success', 'Classe de item criada com sucesso');
         return redirect(route('itemClass.index'));
     }
@@ -61,7 +61,7 @@ class ClassController extends Controller
     public function edit(ItemClass $itemClass)
     {
         // Leva a ItemClass para pagina para editar
-        return view('itemClass.edit')->with('itemClasses', $itemClass);
+        return view('itemClass.edit')->with('itemClass', $itemClass);
     }
 
     /**
@@ -78,7 +78,7 @@ class ClassController extends Controller
         // [Request $request] Recebe todos os dados que irão substituir a $itemClass
         $itemClass->update($request->all());
         session()->flash('success', 'Classe de item editada com sucesso');
-        return redirect(route('itemClass.index'));// para onde ta voltando
+        return redirect(route('itemClass.index')); // para onde ta voltando
     }
 
     /**
@@ -94,11 +94,13 @@ class ClassController extends Controller
         return redirect(route('itemClass.index'));
     }
 
-    public function trash(){
-        return view('itemClass.trash')->with('itemClasses', ItemClass::onlyTrashed()->get());// Retorna todos os elementos com soft delete
+    public function trash()
+    {
+        return view('itemClass.trash')->with('itemClasses', ItemClass::onlyTrashed()->get()); // Retorna todos os elementos com soft delete
     }
 
-    public function restore($itemClass_id){
+    public function restore($itemClass_id)
+    {
         // Recebe como parametro o id que deseja ser restaurado
         $itemClass = ItemClass::onlyTrashed()->where('id', $itemClass_id)->first(); // Retorna o id daquela linha "apagada"
         $itemClass->restore(); // Restaura aquela linha
