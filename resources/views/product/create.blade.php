@@ -185,10 +185,10 @@
                         <span>Dado inválido</span>
                     </div>
                 </div>
-                <div class="form-floating mb-3" id="div-input-physical-magic">
-                    <input required type="number" class="form-control" placeholder="300" id="physical_magic"
-                        name="physical_magic" value="0">
-                    <label style="margin-left: 12px; border: 0;" for="physical_magic">Atributo de ataque mágico</label>
+                <div class="form-floating mb-3" id="div-input-magic-attack">
+                    <input required type="number" class="form-control" placeholder="300" id="magic_attack"
+                        name="magic_attack" value="0">
+                    <label style="margin-left: 12px; border: 0;" for="magic_attack">Atributo de ataque mágico</label>
                     <div class="invalid-feedback">
                         <span>Dado inválido</span>
                     </div>

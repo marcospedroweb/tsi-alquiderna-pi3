@@ -5,8 +5,11 @@
     --subHeader-text-color: #000;
     --paragraph-text-color: #000;
     --btn-static: #EBD565;
-    --btn-hover: #fff;
-    --btn-active: #fff;
+    --btn-hover: #c7b246;
+    --btn-active: #ffe978;
+    --btn-static-text-color: #4A1B00;
+    --btn-hover-text-color: #210c00;
+    --btn-active-text-color: #4A1B00;
 }
 
 h1,
@@ -79,6 +82,44 @@ p {
 .display-6 {
     /* Banners paragraph*/
     font-size: 1.25rem;
+}
+
+.btn-primary {
+    border: 0;
+    background-color: var(--btn-static) !important;
+    color: var(--btn-static-text-color) !important;
+    transition: all .25s ease-out;
+}
+
+.btn-primary:hover {
+    background-color: var(--btn-hover) !important;
+    color: var(--btn-hover-text-color) !important;
+}
+
+.btn-primary:active {
+    background-color: var(--btn-active) !important;
+    color: var(--btn-active-text-color) !important;
+}
+
+.btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.1rem rgba(74, 27, 0, 0.5) !important;
+}
+
+.btn-link {
+    color: #fff !important;
+    text-decoration: none;
+    transition: color .25s ease-out;
+}
+
+.btn-link:hover {
+    color: #ddd !important;
+    text-decoration: none;
+}
+
+.dropdown-item:active {
+    background-color: var(--nav-color) !important;
+
 }
 
 .div-product-info h5 {

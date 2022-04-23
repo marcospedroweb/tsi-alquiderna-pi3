@@ -10,7 +10,36 @@
         </div>
     </div>
     <div class="my-5">
-        <span>Quantidade de produtos: {{ count($products) }}</span>
+        <span>Quantidade de produtos: {{ count($products) }} cadastrados</span>
+        <div class="row">
+            <div class="col">
+                <span class="d-block">Armaduras leves: {{ count($lightArmors) }}</span>
+                <span class="d-block">Armaduras médias: {{ count($mediumArmors) }}</span>
+                <span class="d-block">Armaduras pesadas: {{ count($heavyArmors) }}</span>
+                <span class="d-block">kits armaduras:
+                    {{ count($kitsLightArmors) + count($kitsMediumArmors) + count($kitsHeavyArmors) }}</span>
+            </div>
+            <div class="col">
+                <span class="d-block">espadas: {{ count($swords) }}</span>
+                <span class="d-block">machados: {{ count($axes) }}</span>
+                <span class="d-block">arcos: {{ count($bows) }}</span>
+                <span class="d-block">kits armas físicas: {{ count($kitsPhysicalWeapons) }}</span>
+            </div>
+            <div class="col">
+                <span class="d-block">varinhas: {{ count($wands) }}</span>
+                <span class="d-block">kits armas mágicas: {{ count($kitsMagicWeapons) }}</span>
+            </div>
+            <div class="col">
+                <span class="d-block">poções de Vida: {{ count($lifePotions) }}</span>
+                <span class="d-block">poções de Força: {{ count($strengthPotions) }}</span>
+                <span class="d-block">poções de Mana: {{ count($manaPotions) }}</span>
+                <span class="d-block">kits de poções: {{ count($kitsPotions) }}</span>
+            </div>
+            <div class="col">
+                <span class="d-block">poções de grimórios: {{ count($grimoires) }}</span>
+                <span class="d-block">kits grimorios: {{ count($kitsGrimoires) }}</span>
+            </div>
+        </div>
     </div>
     <div class="row justify-content-between align-items-center mb-6">
         @foreach ($products as $product)
@@ -94,7 +123,8 @@
                                             <p class="text-decoration-line-through">R$ <span
                                                     class="product-price">{{ $product->price }}</span></p>
                                             <p class="p-product-price">R$ <span
-                                                    class="product-discount-price">{{ $product->discount_price }}</span>
+                                                    class="product-discount-price">{{ $product->discount_price }}
+                                                </span>
                                             </p>
                                         @else
                                             <p class="p-product-price">R$ <span

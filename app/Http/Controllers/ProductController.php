@@ -18,7 +18,28 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('product.index')->with(['products' => Product::all(), 'categories' => Category::all(), 'sourceWebsites' => SourceWebsite::all()]);
+        return view('product.index')->with([
+            'products' => Product::all(),
+            'lightArmors' => Product::categoryProducts('Armadura', 'leve'),
+            'mediumArmors' => Product::categoryProducts('Armadura', 'média'),
+            'heavyArmors' => Product::categoryProducts('Armadura', 'pesada'),
+            'kitsLightArmors' => Product::categoryProducts('Armadura', 'leve - kit'),
+            'kitsMediumArmors' => Product::categoryProducts('Armadura', 'média - kit'),
+            'kitsHeavyArmors' => Product::categoryProducts('Armadura', 'pesada - kit'),
+            'swords' => Product::categoryProducts('Arma física', 'espada'),
+            'axes' => Product::categoryProducts('Arma física', 'machado'),
+            'bows' => Product::categoryProducts('Arma física', 'arco'),
+            'kitsPhysicalWeapons' => Product::categoryProducts('Arma física', 'kit'),
+            'wands' => Product::categoryProducts('Arma mágica', 'varinha'),
+            'kitsMagicWeapons' => Product::categoryProducts('Arma mágica', 'kit'),
+            'lifePotions' => Product::categoryProducts('Poção', 'vida'),
+            'strengthPotions' => Product::categoryProducts('Poção', 'força'),
+            'manaPotions' => Product::categoryProducts('Poção', 'mana'),
+            'kitsPotions' => Product::categoryProducts('Poção', 'kit'),
+            'grimoires' => Product::categoryProducts('Grimório', 'mágico'),
+            'kitsGrimoires' => Product::categoryProducts('Grimório', 'kit'),
+
+        ]);
     }
 
     /**
@@ -44,18 +65,20 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         // Para funcionar o storage é necessario executar o comando [php artisan storage:link]
-        $requestImage = $request->image; // Recebe o resquest da imagem
-        $extension = $requestImage->extension(); // Recebe a extensão da imagem
-        //Verificando se a extensão é valida
-        if ($extension !== 'jpeg' && $extension !== 'jpg' && $extension !== 'png') {
-            session()->flash('error', 'Imagem invalida');
-            return redirect(route('product.create'));
-            dd('erro');
-        }
+        if ($request->image) {
+            $requestImage = $request->image; // Recebe o resquest da imagem
+            $extension = $requestImage->extension(); // Recebe a extensão da imagem
+            //Verificando se a extensão é valida
+            if ($extension !== 'jpeg' && $extension !== 'jpg' && $extension !== 'png') {
+                session()->flash('error', 'Imagem invalida');
+                return redirect(route('product.create'));
+                dd('erro');
+            }
 
-        // Salvando a arquivo da imagem com nome aleatorio
-        $path = $request->file('image')->store('public/itens'); // [$request->file('nameDoInput')->store('public/{suaPasta}')]
-        //[str_replace('public', 'storage', $file)] e armazenar isso no banco
+            // Salvando a arquivo da imagem com nome aleatorio
+            $path = $request->file('image')->store('public/itens'); // [$request->file('nameDoInput')->store('public/{suaPasta}')]
+            //[str_replace('public', 'storage', $file)] e armazenar isso no banco
+        }
 
         $data = $request->all(); // Retornando os valores de todos os inputs
         $data['image'] = str_replace('public', 'storage', $path); //Salvando no banco o link para imagem
@@ -103,22 +126,24 @@ class ProductController extends Controller
      */
     public function update(Product $product, Request $request)
     {
-        // Para funcionar o storage é necessario executar o comando [php artisan storage:link]
-        $requestImage = $request->image; // Recebe o resquest da imagem
-        $extension = $requestImage->extension(); // Recebe a extensão da imagem
-        //Verificando se a extensão é valida
-        if ($extension !== 'jpeg' && $extension !== 'jpg' && $extension !== 'png') {
-            session()->flash('error', 'Imagem invalida');
-            return redirect(route('product.create'));
-            dd('erro');
-        }
-
-        // Salvando a arquivo da imagem com nome aleatorio
-        $path = $request->file('image')->store('public/itens'); // [$request->file('nameDoInput')->store('public/{suaPasta}')]
-        //[str_replace('public', 'storage', $file)] e armazenar isso no banco
-
         $data = $request->all(); // Retornando os valores de todos os inputs
-        $data['image'] = str_replace('public', 'storage', $path); //Salvando no banco o link para imagem
+
+        // Para funcionar o storage é necessario executar o comando [php artisan storage:link]
+        if ($request->image) {
+            $requestImage = $request->image; // Recebe o resquest da imagem
+            $extension = $requestImage->extension(); // Recebe a extensão da imagem
+            //Verificando se a extensão é valida
+            if ($extension !== 'jpeg' && $extension !== 'jpg' && $extension !== 'png') {
+                session()->flash('error', 'Imagem invalida');
+                return redirect(route('product.create'));
+                dd('erro');
+            }
+
+            // Salvando a arquivo da imagem com nome aleatorio
+            $path = $request->file('image')->store('public/itens'); // [$request->file('nameDoInput')->store('public/{suaPasta}')]
+            //[str_replace('public', 'storage', $file)] e armazenar isso no banco
+            $data['image'] = str_replace('public', 'storage', $path); //Salvando no banco o link para imagem
+        }
 
         // Leva a Product para pagina para edit
         // [Product $product] é a Product que deve ser atualizada

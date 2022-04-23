@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\softDeletes;
 
+use Illuminate\Support\Facades\DB;
+
 class Product extends Model
 {
     use HasFactory;
@@ -26,7 +28,7 @@ class Product extends Model
         'physical_protection',
         'magic_protection',
         'physical_attack',
-        'physical_magic',
+        'magic_attack',
         'mana',
         'sale',
         'price',
@@ -59,6 +61,18 @@ class Product extends Model
     {
         return $this->belongsToMany(Tag::class);
         // Varios produtos pertencem a varias tags
+    }
+
+    public static function newProducts()
+    {
+        return DB::table('products')->where('new', 1)->get();
+    }
+
+    public static function categoryProducts(string $category_name, string $itemClass_name)
+    {
+        return DB::table('products')
+            ->where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+            ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)->get();
     }
 
     public function hasTag($tag_id)

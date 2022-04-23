@@ -1,40 +1,3 @@
-{{-- <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
-    </body>
-</html> --}}
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -138,16 +101,49 @@
                         <button class="btn p-0 m-0 me-2" type="button" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="btn-bag"><i
                                 class="bi bi-bag"></i></button>
-                        <div class="d-flex justify-content-center align-items-center">
-                            <i class="bi bi-person-circle me-2"></i>
-                            <a href="{{ route('login') }}">Login</a>
-                        </div>
-                        <div class="d-flex justify-content-center align-items-center">
-                            <form action="{{ route('logout') }}" method="post">
-                                @csrf
-                                <button type="submit">LOGOUT</button>
-                            </form>
-                        </div>
+                        @if (!Auth::check())
+                            <div class="d-flex justify-content-center align-items-center">
+                                <a href="{{ route('login') }}" class="btn-link">
+                                    <i class="bi bi-person-circle me-2"></i>
+                                    Login
+                                </a>
+                            </div>
+                        @elseif (Auth()->user()->VerifyIsAdmin())
+                            <div class="dropdown d-flex justify-content-center align-items-center">
+                                <button class="btn btn-link dropdown-toggle ps-0" type="button" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle me-2"></i>
+                                    Olá, {{ Auth()->user()->name }}
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('crud.index') }}">Crud</a></li>
+                                    <li>
+                                        <form action="{{ route('logout') }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn">LOGOUT</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        @else
+                            <div class="dropdown d-flex justify-content-center align-items-center">
+                                <button class="btn btn-link dropdown-toggle ps-0" type="button" id="dropdownMenuButton1"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle me-2"></i>
+                                    Olá, {{ Auth()->user()->name }}
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                                    <li>
+                                        <form action="{{ route('logout') }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn dropdown-item">LOGOUT</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </nav>

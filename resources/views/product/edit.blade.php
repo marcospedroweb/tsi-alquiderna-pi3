@@ -55,8 +55,8 @@
                 <div class="col mb-3">
                     <label style="margin-left: 12px; border: 0;" for="image" class="form-label">Imagem do
                         produto</label>
-                    <input value="{{ $product->image }}" required class="form-control" type="file" name="image"
-                        id="image" accept=".jpeg , .jpg , .png">
+                    <input value="{{ $product->image }}" class="form-control" type="file" name="image" id="image"
+                        accept=".jpeg , .jpg , .png">
                     <div class="invalid-feedback">
                         <span>Dado inválido</span>
                     </div>
@@ -194,10 +194,10 @@
                             <span>Dado inválido</span>
                         </div>
                     </div>
-                    <div class="form-floating mb-3" id="div-input-physical-magic">
-                        <input value="{{ $product->physical_magic }}" required type="number" class="form-control"
-                            placeholder="300" id="physical_magic" name="physical_magic" value="0">
-                        <label style="margin-left: 12px; border: 0;" for="physical_magic">Atributo de ataque mágico</label>
+                    <div class="form-floating mb-3" id="div-input-magic-attack">
+                        <input value="{{ $product->magic_attack }}" required type="number" class="form-control"
+                            placeholder="300" id="magic_attack" name="magic_attack" value="0">
+                        <label style="margin-left: 12px; border: 0;" for="magic_attack">Atributo de ataque mágico</label>
                         <div class="invalid-feedback">
                             <span>Dado inválido</span>
                         </div>

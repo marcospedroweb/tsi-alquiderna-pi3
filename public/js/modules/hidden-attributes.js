@@ -1,11 +1,11 @@
 export default function initHiddenAttributes() {
 
     const itemClassesId = {
-        armadura: ['1', '2', '3'],
-        armaFisica: ['4', '5', '6'],
-        armaMagica: ['4', '7'],
-        pocoes: ['8', '9', '10'],
-        grimorio: ['11'],
+        armadura: ['1', '2', '3', '12', '13', '14'],
+        armaFisica: ['4', '5', '6', '15'],
+        armaMagica: ['4', '7', '15'],
+        pocoes: ['8', '9', '10', '15', '16', '17', '18'],
+        grimorio: ['11', '15'],
     }
 
     const selectcategoryChosen = document.querySelector("[data-category]");
@@ -15,7 +15,7 @@ export default function initHiddenAttributes() {
     const divInputPhysicalProtection = document.querySelector("#div-input-physical-protection");
     const divInputMagicProtection = document.querySelector("#div-input-magic-protection");
     const divInputPhysicalAttack = document.querySelector("#div-input-physical-attack");
-    const divInputMagicAttack = document.querySelector("#div-input-physical-magic");
+    const divInputMagicAttack = document.querySelector("#div-input-magic-attack");
     const divInputMana = document.querySelector("#div-input-mana");
 
     function removeInputsAndClasses(optionsSelectClasses) {
@@ -39,7 +39,6 @@ export default function initHiddenAttributes() {
 
 
     if (selectcategoryChosen && divInputLife && divInputSpeed && divInputstrength && divInputPhysicalProtection && divInputMagicProtection && divInputPhysicalAttack && divInputMagicAttack && divInputMana) {
-
         selectcategoryChosen.addEventListener("change", () => {
             const selectItemClasses = document.querySelector('select[name="itemClass_id"]');
             if (selectItemClasses.classList.contains("d-none"))
@@ -58,7 +57,7 @@ export default function initHiddenAttributes() {
                 //Tira a classe [d-none] de todas as classes relacionadas a armadura
                 itemClassesId.armadura.forEach(elementCLass => {
                     optionsSelectClasses.forEach(elementOption => {
-                        if (elementCLass == elementOption.value | elementOption.value == '12')
+                        if (elementCLass == elementOption.value)
                             elementOption.classList.remove('d-none');
                     });
                 });
@@ -73,7 +72,7 @@ export default function initHiddenAttributes() {
                 //Tira a classe [d-none] de todas as classes relacionadas a armadura
                 itemClassesId.armaFisica.forEach(elementCLass => {
                     optionsSelectClasses.forEach(elementOption => {
-                        if (elementCLass == elementOption.value | elementOption.value == '12')
+                        if (elementCLass == elementOption.value)
                             elementOption.classList.remove('d-none');
                     });
                 });
@@ -87,7 +86,7 @@ export default function initHiddenAttributes() {
                 //Tira a classe [d-none] de todas as classes relacionadas a armadura
                 itemClassesId.pocoes.forEach(elementCLass => {
                     optionsSelectClasses.forEach(elementOption => {
-                        if (elementCLass == elementOption.value | elementOption.value == '12')
+                        if (elementCLass == elementOption.value)
                             elementOption.classList.remove('d-none');
                     });
                 });
@@ -101,7 +100,7 @@ export default function initHiddenAttributes() {
 
                 itemClassesId.grimorio.forEach(elementCLass => {
                     optionsSelectClasses.forEach(elementOption => {
-                        if (elementCLass == elementOption.value | elementOption.value == '12')
+                        if (elementCLass == elementOption.value)
                             elementOption.classList.remove('d-none');
                     });
                 });
