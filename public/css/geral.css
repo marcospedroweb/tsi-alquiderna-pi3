@@ -91,6 +91,12 @@ p {
     transition: all .25s ease-out;
 }
 
+.btn-primary.active {
+    background-color: var(--btn-hover) !important;
+    color: var(--btn-hover-text-color) !important;
+    transition: all .25s ease-out;
+}
+
 .btn-primary:hover {
     background-color: var(--btn-hover) !important;
     color: var(--btn-hover-text-color) !important;

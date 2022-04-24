@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="my-5">
-        <span>Quantidade de produtos: {{ count($products) }} cadastrados</span>
+        <span>Quantidade de produtos: {{ $products->total() }} cadastrados</span>
         <div class="row">
             <div class="col">
                 <span class="d-block">Armaduras leves: {{ count($lightArmors) }}</span>
@@ -87,17 +87,35 @@
                                             </svg>
                                             <span>{{ $product->magic_protection }}</span>
                                         </div>
-                                    @elseif($product->Category->name === 'Poção' && $product->ItemClass->name === 'Vida')
+                                    @elseif($product->Category->name === 'Poção' && $product->ItemClass->name === 'vida')
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="bi bi-heart-fill"></i>
                                             <span>{{ $product->life }}</span>
                                         </div>
-                                    @elseif($product->Category->name === 'Poção' && $product->ItemClass->name === 'Força')
+                                    @elseif($product->Category->name === 'Poção' && $product->ItemClass->name === 'força')
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="bi bi-shield-slash-fill"></i>
                                             <span>{{ $product->physical_attack }}</span>
                                         </div>
-                                    @elseif($product->Category->name === 'Poção' && $product->ItemClass->name === 'Mana')
+                                    @elseif($product->Category->name === 'Poção' && $product->ItemClass->name === 'mana')
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-droplet"></i>
+                                            <span>{{ $product->mana }}</span>
+                                        </div>
+                                    @elseif($product->Category->name === 'Poção' && $product->ItemClass->name === 'agilidade')
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-person-running"></i>
+                                            <span>{{ $product->speed }}</span>
+                                        </div>
+                                    @elseif($product->Category->name === 'Poção' && $product->ItemClass->name === 'kit')
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="bi bi-heart-fill"></i>
+                                            <span>{{ $product->life }}</span>
+                                        </div>
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-person-running"></i>
+                                            <span>{{ $product->speed }}</span>
+                                        </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-droplet"></i>
                                             <span>{{ $product->mana }}</span>
@@ -189,5 +207,6 @@
                 </div>
             </div>
         @endforeach
+        {{ $products->links('vendor.pagination.bootstrap-5') }}
     </div>
 @endsection

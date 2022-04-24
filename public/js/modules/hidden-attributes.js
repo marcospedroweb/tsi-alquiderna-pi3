@@ -3,8 +3,8 @@ export default function initHiddenAttributes() {
     const itemClassesId = {
         armadura: ['1', '2', '3', '12', '13', '14'],
         armaFisica: ['4', '5', '6', '15'],
-        armaMagica: ['4', '7', '15'],
-        pocoes: ['8', '9', '10', '15', '16', '17', '18'],
+        armaMagica: ['7', '15'],
+        pocoes: ['8', '9', '10', '15', '17'],
         grimorio: ['11', '15'],
     }
 
@@ -71,6 +71,13 @@ export default function initHiddenAttributes() {
 
                 //Tira a classe [d-none] de todas as classes relacionadas a armadura
                 itemClassesId.armaFisica.forEach(elementCLass => {
+                    optionsSelectClasses.forEach(elementOption => {
+                        if (elementCLass == elementOption.value)
+                            elementOption.classList.remove('d-none');
+                    });
+                });
+
+                itemClassesId.armaMagica.forEach(elementCLass => {
                     optionsSelectClasses.forEach(elementOption => {
                         if (elementCLass == elementOption.value)
                             elementOption.classList.remove('d-none');

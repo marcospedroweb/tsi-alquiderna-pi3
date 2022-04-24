@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function index()
     {
         return view('product.index')->with([
-            'products' => Product::all(),
+            'products' => Product::orderBy('created_at', 'DESC')->paginate(12),
             'lightArmors' => Product::categoryProducts('Armadura', 'leve'),
             'mediumArmors' => Product::categoryProducts('Armadura', 'média'),
             'heavyArmors' => Product::categoryProducts('Armadura', 'pesada'),

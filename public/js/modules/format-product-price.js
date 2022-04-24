@@ -7,11 +7,13 @@ export default function initFormatProductPrice() {
     }
 
     productPrice.forEach(element => {
-        element.textContent = formatPrice(element);
+        if (element.textContent.length > 3)
+            element.textContent = formatPrice(element);
     });
 
     productDiscountPrice.forEach(element => {
-        element.textContent = formatPrice(element);
+        if (element.textContent.length > 3)
+            element.textContent = formatPrice(element);
     });
 
 }
