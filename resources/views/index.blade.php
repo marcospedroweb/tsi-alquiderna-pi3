@@ -139,7 +139,7 @@
                                     <div class="card-product-price">
                                         <div class="d-flex flex-column align-items-end">
                                             @if ($newProduct->discount_price !== 0.0)
-                                                <p class="text-decoration-line-through">R$ <span
+                                                <p class="text-decoration-line-through product-discount-price">R$ <span
                                                         class="product-price">{{ $newProduct->price }}</span></p>
                                                 <p class="p-product-price">R$ <span
                                                         class="product-discount-price">{{ $newProduct->discount_price }}
@@ -277,7 +277,7 @@
                                     <div class="card-product-price">
                                         <div class="d-flex flex-column align-items-end">
                                             @if ($heavyArmor->discount_price !== 0.0)
-                                                <p class="text-decoration-line-through">R$ <span
+                                                <p class="text-decoration-line-through original-price">R$ <span
                                                         class="product-price">{{ $heavyArmor->price }}</span></p>
                                                 <p class="p-product-price">R$ <span
                                                         class="product-discount-price">{{ $heavyArmor->discount_price }}

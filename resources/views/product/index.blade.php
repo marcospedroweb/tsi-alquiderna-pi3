@@ -138,7 +138,7 @@
                                 <div class="card-product-view-price">
                                     <div class="d-flex flex-column align-items-end">
                                         @if ($product->discount_price !== 0.0)
-                                            <p class="text-decoration-line-through">R$ <span
+                                            <p class="text-decoration-line-through original-price">R$ <span
                                                     class="product-price">{{ $product->price }}</span></p>
                                             <p class="p-product-price">R$ <span
                                                     class="product-discount-price">{{ $product->discount_price }}
