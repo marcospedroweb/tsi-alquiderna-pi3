@@ -63,22 +63,40 @@ class Product extends Model
         // Varios produtos pertencem a varias tags
     }
 
-    public static function newProducts()
-    {
-        return DB::table('products')->where('new', 1)->get();
-    }
-
-    public static function categoryProducts(string $category_name, string $itemClass_name)
-    {
-        return DB::table('products')
-            ->where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
-            ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)->get();
-    }
-
     public function hasTag($tag_id)
     {
         return in_array($tag_id, $this->Tags->pluck('id')->toArray());
         // [in_array($variavel, o que eu busco)]
         // [$this->Tags->pluck('id')->toArray())] vai procurar a coluna 'id' no meu array/obj ($tag_id), retornando true (Se aquele produto tiver aquela tag) ou false (Se aquela tag não estar naquele produto)
+    }
+
+    public static function newProducts()
+    {
+        return DB::table('products')->where('new', 1)->limit(5)->get();
+    }
+
+    public static function whatsCategory(int $category_id)
+    {
+        return DB::table('categories')
+            ->where('id', $category_id)->first()->name;
+    }
+
+    public static function whatsItemClass(int $itemClass_id)
+    {
+        return DB::table('item_classes')
+            ->where('id', $itemClass_id)->first()->name;
+    }
+
+    public static function whatsSouceWebsite(int $souceWebsite_id)
+    {
+        return DB::table('source_websites')
+            ->where('id', $souceWebsite_id)->first()->name;
+    }
+
+    public static function categoryProducts(string $category_name, string $itemClass_name)
+    {
+        return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+            ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+            ->get();
     }
 }
