@@ -50,8 +50,8 @@
                         <div
                             class="card-product-view-text w-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column">
                             <div class="d-flex flex-column">
-                                <h3 style="word-wrap: break-word;">
-                                    @if ($product->new === '1')
+                                <h3 style="word-wrap: break-word;" class="d-flex flex-column">
+                                    @if ($product->new === 1)
                                         <span class="novidade">novo</span>
                                     @endif
                                     {{ $product->name }}

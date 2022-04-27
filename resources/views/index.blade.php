@@ -45,8 +45,8 @@
                             <div
                                 class="card-product-text w-100 h-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column justify-content-end">
                                 <div class="d-flex flex-column">
-                                    <h3 style="word-wrap: break-word;">
-                                        @if ($newProduct->new === '1')
+                                    <h3 style="word-wrap: break-word;" class="d-flex flex-column">
+                                        @if ($newProduct->new === 1)
                                             <span class="novidade">novo</span>
                                         @endif
                                         <span class="product-name">{{ $newProduct->name }}</span>
@@ -183,14 +183,15 @@
                             <div
                                 class="card-product-text w-100 h-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column justify-content-end">
                                 <div class="d-flex flex-column">
-                                    <h3 style="word-wrap: break-word;">
-                                        @if ($heavyArmor->new === '1')
+                                    <h3 style="word-wrap: break-word;" class="d-flex flex-column">
+                                        @if ($heavyArmor->new === 1)
                                             <span class="novidade">novo</span>
                                         @endif
                                         <span class="product-name">{{ $heavyArmor->name }}</span>
                                     </h3>
                                     <p><span class="product-category">{{ $heavyArmor->Category->name }}</span>
-                                        <span class="product-item-class">{{ $heavyArmor->ItemClass->name }}</span>, nível
+                                        <span class="product-item-class">{{ $heavyArmor->ItemClass->name }}</span>,
+                                        nível
                                         <span class="product-level">{{ $heavyArmor->lvlMin }}</span>
                                     </p>
                                 </div>
