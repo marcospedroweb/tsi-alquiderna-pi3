@@ -12,7 +12,7 @@ class eCommerceController extends Controller
     {
         return view('index')->with([
             'newProducts' => Product::where('new', 1)->take(7)->get(),
-            'heavyArmors' => Product::categoryProducts('Armadura', 'pesada'),
+            'heavyArmors' => Product::filterProductBy('Armadura', 'pesada'),
         ]);
     }
 

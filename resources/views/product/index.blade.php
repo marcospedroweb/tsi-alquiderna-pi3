@@ -41,6 +41,47 @@
             </div>
         </div>
     </div>
+    <div class="my-3 d-flex flex-column justify-content-center align-items-start">
+        <h3>Filtrado por: <span class="filtered-by">nenhum</span></h3>
+        <div class="d-flex justify-content-center align-items-center">
+            <form action="{{ route('product.filterBy') }}" method="GET" class="form-filter-by">
+                @csrf
+                <div class="dropdown">
+                    <button class="btn btn-primary  dropdown-toggle" type="button" id="filter-by-armor"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Armadura
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="filter-by-armor">
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Armadura-none">Todas
+                                armaduras</button>
+                        </li>
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Armadura-leve">Armaduras leves</button>
+                        </li>
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Armadura-média">Armaduras médias</button>
+                        </li>
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Armadura-pesada">Armaduras pesadas</button>
+                        </li>
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Armadura-kit">Armaduras kits</button>
+                        </li>
+                        <input type="hidden" class="btn" name="filterByOrderByColumn">
+                        <input type="hidden" class="btn" name="filterByOrderByValue">
+                        <input type="hidden" class="btn" name="filterByCategory">
+                        <input type="hidden" class="btn" name="filterByItemClass">
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="row justify-content-between align-items-center mb-6">
         @foreach ($products as $product)
             <div class="col col-lg-4 row bg-secondary p-3 flex-column justify-content-center align-items-center mb-4">

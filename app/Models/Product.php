@@ -93,10 +93,26 @@ class Product extends Model
             ->where('id', $souceWebsite_id)->first()->name;
     }
 
-    public static function categoryProducts(string $category_name, string $itemClass_name)
+    public static function filterProductBy(string $category_name, string $itemClass_name = '', string $orderByColumn = '', string $orderByValue = '')
     {
-        return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
-            ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
-            ->get();
+        if ($orderByColumn && $orderByValue) {
+            if ($category_name && $itemClass_name)
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->get();
+            else if ($category_name)
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->get();
+        } else {
+            if ($category_name && $itemClass_name)
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->paginate(12);
+            else if ($category_name)
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->get();
+        }
     }
 }

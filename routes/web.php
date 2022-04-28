@@ -74,7 +74,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/sourceWebsite/forceDelete/{sourceWebsite}', [SourceWebsiteController::class, 'forceDelete'])->name('sourceWebsite.forceDelete'); // Restaura do soft delete
 
     //product
-    Route::get('/product', [ProductController::class, 'index'])->name('product.index'); //armazena no banco
+    Route::get('/product', [ProductController::class, 'index'])->name('product.index');
+
     Route::get('/product/create', [ProductController::class, 'create'])->name('product.create'); // Retorna a pagina para create novo dado
     Route::post('/product/create/', [ProductController::class, 'store'])->name('product.store'); //armazena no banco
     Route::get('/product/destroy/{product}', [ProductController::class, 'destroy'])->name('product.destroy'); // "Apaga do banco"
@@ -85,6 +86,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/product/forceDelete/{product}', [ProductController::class, 'forceDelete'])->name('product.forceDelete'); // Restaura do soft delete
 
     Route::get('/product/json/{category}/{itemClass}', [eCommerceController::class, 'returnJSONOf'])->name('product.returnJSONOf'); // Restaura do soft delete
+
+    Route::post('/product/filterBy/', [ProductController::class, 'filterBy'])->name('product.filterBy'); // Restaura do soft delete
 
 
 });

@@ -18,26 +18,27 @@ class ProductController extends Controller
      */
     public function index()
     {
+
         return view('product.index')->with([
             'products' => Product::orderBy('created_at', 'DESC')->paginate(12),
-            'lightArmors' => Product::categoryProducts('Armadura', 'leve'),
-            'mediumArmors' => Product::categoryProducts('Armadura', 'média'),
-            'heavyArmors' => Product::categoryProducts('Armadura', 'pesada'),
-            'kitsLightArmors' => Product::categoryProducts('Armadura', 'leve - kit'),
-            'kitsMediumArmors' => Product::categoryProducts('Armadura', 'média - kit'),
-            'kitsHeavyArmors' => Product::categoryProducts('Armadura', 'pesada - kit'),
-            'swords' => Product::categoryProducts('Arma física', 'espada'),
-            'axes' => Product::categoryProducts('Arma física', 'machado'),
-            'bows' => Product::categoryProducts('Arma física', 'arco'),
-            'kitsPhysicalWeapons' => Product::categoryProducts('Arma física', 'kit'),
-            'wands' => Product::categoryProducts('Arma mágica', 'varinha'),
-            'kitsMagicWeapons' => Product::categoryProducts('Arma mágica', 'kit'),
-            'lifePotions' => Product::categoryProducts('Poção', 'vida'),
-            'strengthPotions' => Product::categoryProducts('Poção', 'força'),
-            'manaPotions' => Product::categoryProducts('Poção', 'mana'),
-            'kitsPotions' => Product::categoryProducts('Poção', 'kit'),
-            'grimoires' => Product::categoryProducts('Grimório', 'mágico'),
-            'kitsGrimoires' => Product::categoryProducts('Grimório', 'kit'),
+            'lightArmors' => Product::filterProductBy('Armadura', 'leve'),
+            'mediumArmors' => Product::filterProductBy('Armadura', 'média'),
+            'heavyArmors' => Product::filterProductBy('Armadura', 'pesada'),
+            'kitsLightArmors' => Product::filterProductBy('Armadura', 'leve - kit'),
+            'kitsMediumArmors' => Product::filterProductBy('Armadura', 'média - kit'),
+            'kitsHeavyArmors' => Product::filterProductBy('Armadura', 'pesada - kit'),
+            'swords' => Product::filterProductBy('Arma física', 'espada'),
+            'axes' => Product::filterProductBy('Arma física', 'machado'),
+            'bows' => Product::filterProductBy('Arma física', 'arco'),
+            'kitsPhysicalWeapons' => Product::filterProductBy('Arma física', 'kit'),
+            'wands' => Product::filterProductBy('Arma mágica', 'varinha'),
+            'kitsMagicWeapons' => Product::filterProductBy('Arma mágica', 'kit'),
+            'lifePotions' => Product::filterProductBy('Poção', 'vida'),
+            'strengthPotions' => Product::filterProductBy('Poção', 'força'),
+            'manaPotions' => Product::filterProductBy('Poção', 'mana'),
+            'kitsPotions' => Product::filterProductBy('Poção', 'kit'),
+            'grimoires' => Product::filterProductBy('Grimório', 'mágico'),
+            'kitsGrimoires' => Product::filterProductBy('Grimório', 'kit'),
 
         ]);
     }
@@ -189,5 +190,17 @@ class ProductController extends Controller
         $product->forceDelete(); // Apaga totalmente aquele dado
         session()->flash('success', 'Produto deletado PERMANENTEMENTE com sucesso'); //[session()->flash()] consiste em uma flash message, mostra a mensagem para o usuario rapidamente, depois apaga isso da memoria
         return redirect(route('product.trash'));
+    }
+
+    public function filterBy($request)
+    {
+        // dd($request);
+        $category = $request->filterByCategory ?? '';
+        $itemClass = $request->filterByItemClass ?? '';
+        $orderByColumn = $request->filterByOrderByColumn ?? '';
+        $orderByValue = $request->filterByOrderByValue ?? '';
+
+        $products = Product::filterProductBy($category, $itemClass, $orderByColumn, $orderByValue);
+        return $products;
     }
 }
