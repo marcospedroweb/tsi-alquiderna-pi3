@@ -13,39 +13,51 @@
         <span>Quantidade de produtos: {{ $products->total() }} cadastrados</span>
         <div class="row">
             <div class="col">
-                <span class="d-block">Armaduras leves: {{ count($lightArmors) }}</span>
-                <span class="d-block">Armaduras médias: {{ count($mediumArmors) }}</span>
-                <span class="d-block">Armaduras pesadas: {{ count($heavyArmors) }}</span>
+                <span class="d-block">Armaduras leves: {{ count($allProductsByCategory['lightArmors']) }}</span>
+                <span class="d-block">Armaduras médias: {{ count($allProductsByCategory['mediumArmors']) }}</span>
+                <span class="d-block">Armaduras pesadas: {{ count($allProductsByCategory['heavyArmors']) }}</span>
                 <span class="d-block">kits armaduras:
-                    {{ count($kitsLightArmors) + count($kitsMediumArmors) + count($kitsHeavyArmors) }}</span>
+                    {{ count($allProductsByCategory['kitsLightArmors']) +count($allProductsByCategory['kitsMediumArmors']) +count($allProductsByCategory['kitsHeavyArmors']) }}</span>
             </div>
             <div class="col">
-                <span class="d-block">espadas: {{ count($swords) }}</span>
-                <span class="d-block">machados: {{ count($axes) }}</span>
-                <span class="d-block">arcos: {{ count($bows) }}</span>
-                <span class="d-block">kits armas físicas: {{ count($kitsPhysicalWeapons) }}</span>
+                <span class="d-block">espadas: {{ count($allProductsByCategory['swords']) }}</span>
+                <span class="d-block">machados: {{ count($allProductsByCategory['axes']) }}</span>
+                <span class="d-block">arcos: {{ count($allProductsByCategory['bows']) }}</span>
+                <span class="d-block">kits armas físicas:
+                    {{ count($allProductsByCategory['kitsPhysicalWeapons']) }}</span>
             </div>
             <div class="col">
-                <span class="d-block">varinhas: {{ count($wands) }}</span>
-                <span class="d-block">kits armas mágicas: {{ count($kitsMagicWeapons) }}</span>
+                <span class="d-block">varinhas: {{ count($allProductsByCategory['wands']) }}</span>
+                <span class="d-block">kits armas mágicas:
+                    {{ count($allProductsByCategory['kitsMagicWeapons']) }}</span>
             </div>
             <div class="col">
-                <span class="d-block">poções de Vida: {{ count($lifePotions) }}</span>
-                <span class="d-block">poções de Força: {{ count($strengthPotions) }}</span>
-                <span class="d-block">poções de Mana: {{ count($manaPotions) }}</span>
-                <span class="d-block">kits de poções: {{ count($kitsPotions) }}</span>
+                <span class="d-block">poções de Vida: {{ count($allProductsByCategory['lifePotions']) }}</span>
+                <span class="d-block">poções de Força:
+                    {{ count($allProductsByCategory['strengthPotions']) }}</span>
+                <span class="d-block">poções de Mana: {{ count($allProductsByCategory['manaPotions']) }}</span>
+                <span class="d-block">kits de poções: {{ count($allProductsByCategory['kitsPotions']) }}</span>
             </div>
             <div class="col">
-                <span class="d-block">poções de grimórios: {{ count($grimoires) }}</span>
-                <span class="d-block">kits grimorios: {{ count($kitsGrimoires) }}</span>
+                <span class="d-block">poções de grimórios:
+                    {{ count($allProductsByCategory['grimoires']) }}</span>
+                <span class="d-block">kits grimorios: {{ count($allProductsByCategory['kitsGrimoires']) }}</span>
             </div>
         </div>
     </div>
     <div class="my-3 d-flex flex-column justify-content-center align-items-start">
-        <h3>Filtrado por: <span class="filtered-by">nenhum</span></h3>
-        <div class="d-flex justify-content-center align-items-center">
-            <form action="{{ route('product.filterBy') }}" method="GET" class="form-filter-by">
-                @csrf
+        @if (isset($filterByCategory) && isset($filterByItemClass) && $filterByItemClass != '')
+            <h3>Filtrado por: <span class="filtered-by">{{ $filterByCategory }} - {{ $filterByItemClass }}</span>
+            </h3>
+        @elseif (isset($filterByCategory))
+            <h3>Filtrado por: <span class="filtered-by">{{ $filterByCategory }}</span></h3>
+        @else
+            <h3>Filtrado por: <span class="filtered-by">nenhum</span></h3>
+        @endif
+        <form action="{{ route('product.filter') }}" method="POST"
+            class="form-filter-by d-flex justify-content-between align-items-center w-100">
+            @csrf
+            <div class="d-flex justify-content-center align-items-center">
                 <div class="dropdown">
                     <button class="btn btn-primary  dropdown-toggle" type="button" id="filter-by-armor"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -73,14 +85,147 @@
                             <button type="submit" class="btn" name="filterByCategory"
                                 value="none-none-Armadura-kit">Armaduras kits</button>
                         </li>
-                        <input type="hidden" class="btn" name="filterByOrderByColumn">
-                        <input type="hidden" class="btn" name="filterByOrderByValue">
-                        <input type="hidden" class="btn" name="filterByCategory">
-                        <input type="hidden" class="btn" name="filterByItemClass">
                     </ul>
                 </div>
-            </form>
-        </div>
+                <div class="dropdown">
+                    <button class="btn btn-primary  dropdown-toggle" type="button" id="filter-by-armor"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Armas físicas
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="filter-by-armor">
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Arma física-none">Todas
+                                Armas físicas</button>
+                        </li>
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Arma física-espada">Espadas</button>
+                        </li>
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Arma física-machado">Machados</button>
+                        </li>
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Arma física-arco">Arcos</button>
+                        </li>
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Arma física-kit">kits</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-primary  dropdown-toggle" type="button" id="filter-by-armor"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Armas mágicas
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="filter-by-armor">
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Arma mágica-none">Todas
+                                Armas mágicas</button>
+                        </li>
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Arma mágica-varinha">Varinha</button>
+                        </li>
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Arma mágica-kit">kits</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-primary  dropdown-toggle" type="button" id="filter-by-armor"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Poções
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="filter-by-armor">
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Poção-none">Todas
+                                poções</button>
+                        </li>
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Poção-vida">Poções de vida</button>
+                        </li>
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Poção-força">Poções de força</button>
+                        </li>
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Poção-mana">Poções de mana</button>
+                        </li>
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Poção-kit">kits</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-primary  dropdown-toggle" type="button" id="filter-by-armor"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Grimórios
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="filter-by-armor">
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Grimório-none">Todas os grimórios</button>
+                        </li>
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Grimório-mágico">mágico</button>
+                        </li>
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="none-none-Grimório-kit">kits</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="dropdown">
+                    <button class="btn btn-primary  dropdown-toggle" type="button" id="filter-by-armor"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Ordenado por:
+                        <span class="fw-bold">
+                            {{ isset($filterByOrderByColumn) && $filterByOrderByColumn ? $filterByOrderByColumn . ' - ' : 'nenhum' }}
+                            {{ isset($filterByOrderByValue) && $filterByOrderByValue ? $filterByOrderByValue : '' }}
+                        </span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="filter-by-armor">
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="name-ASC-none-none">Ordenar por Nome (A - Z)</button>
+                        </li>
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="name-DESC-none-none">Ordenar por Nome (Z - A)</button>
+                        </li>
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="price-ASC-none-none">Ordenar por preço crescente</button>
+                        </li>
+                        <li class="dropdown-item">
+                            <button type="submit" class="btn" name="filterByCategory"
+                                value="price-DESC-none-none">Ordenar por preço decrescente</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <input type="hidden" class="btn" name="filterByOrderByColumn"
+                value="{{ isset($filterByOrderByColumn) && $filterByOrderByColumn ? $filterByOrderByColumn : '' }}">
+            <input type="hidden" class="btn" name="filterByOrderByValue"
+                value="{{ isset($filterByOrderByValue) && $filterByOrderByValue ? $filterByOrderByValue : '' }}">
+            <input type="hidden" class="btn" name="filterByCategory"
+                value="{{ isset($filterByCategory) && $filterByCategory ? $filterByCategory : '' }}">
+            <input type="hidden" class="btn" name="filterByItemClass"
+                value="{{ isset($filterByItemClass) && $filterByItemClass ? $filterByItemClass : '' }}">
+        </form>
     </div>
     <div class="row justify-content-between align-items-center mb-6">
         @foreach ($products as $product)

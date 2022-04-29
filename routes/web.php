@@ -73,9 +73,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/sourceWebsite/trash/restore/{sourceWebsite}', [SourceWebsiteController::class, 'restore'])->name('sourceWebsite.restore'); // Restaura do soft delete
     Route::get('/sourceWebsite/forceDelete/{sourceWebsite}', [SourceWebsiteController::class, 'forceDelete'])->name('sourceWebsite.forceDelete'); // Restaura do soft delete
 
-    //product
+    //[ADMIN] product
     Route::get('/product', [ProductController::class, 'index'])->name('product.index');
-
+    Route::post('/product/filter', [ProductController::class, 'filterBy'])->name('product.filter');
     Route::get('/product/create', [ProductController::class, 'create'])->name('product.create'); // Retorna a pagina para create novo dado
     Route::post('/product/create/', [ProductController::class, 'store'])->name('product.store'); //armazena no banco
     Route::get('/product/destroy/{product}', [ProductController::class, 'destroy'])->name('product.destroy'); // "Apaga do banco"
@@ -87,7 +87,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/product/json/{category}/{itemClass}', [eCommerceController::class, 'returnJSONOf'])->name('product.returnJSONOf'); // Restaura do soft delete
 
-    Route::post('/product/filterBy/', [ProductController::class, 'filterBy'])->name('product.filterBy'); // Restaura do soft delete
-
-
+    Route::post('/product/filterBy/', [ProductController::class, 'filterBy'])->name('product.filterBy');
 });
+
+//[User] Product
+Route::get('/product/{category}', [eCommerceController::class, 'productCategory'])->name('product.category');

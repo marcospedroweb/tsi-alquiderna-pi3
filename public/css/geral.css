@@ -123,9 +123,18 @@ p {
     text-decoration: none;
 }
 
+.dropdown+.dropdown {
+    margin-left: 1rem;
+}
+
 .dropdown-item:active {
     background-color: var(--nav-color) !important;
 
+}
+
+.dropdown-item button[name='filterByCategory'] {
+    width: 100%;
+    text-align: start;
 }
 
 .div-product-info h5 {

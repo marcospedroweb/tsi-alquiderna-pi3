@@ -21,25 +21,7 @@ class ProductController extends Controller
 
         return view('product.index')->with([
             'products' => Product::orderBy('created_at', 'DESC')->paginate(12),
-            'lightArmors' => Product::filterProductBy('Armadura', 'leve'),
-            'mediumArmors' => Product::filterProductBy('Armadura', 'média'),
-            'heavyArmors' => Product::filterProductBy('Armadura', 'pesada'),
-            'kitsLightArmors' => Product::filterProductBy('Armadura', 'leve - kit'),
-            'kitsMediumArmors' => Product::filterProductBy('Armadura', 'média - kit'),
-            'kitsHeavyArmors' => Product::filterProductBy('Armadura', 'pesada - kit'),
-            'swords' => Product::filterProductBy('Arma física', 'espada'),
-            'axes' => Product::filterProductBy('Arma física', 'machado'),
-            'bows' => Product::filterProductBy('Arma física', 'arco'),
-            'kitsPhysicalWeapons' => Product::filterProductBy('Arma física', 'kit'),
-            'wands' => Product::filterProductBy('Arma mágica', 'varinha'),
-            'kitsMagicWeapons' => Product::filterProductBy('Arma mágica', 'kit'),
-            'lifePotions' => Product::filterProductBy('Poção', 'vida'),
-            'strengthPotions' => Product::filterProductBy('Poção', 'força'),
-            'manaPotions' => Product::filterProductBy('Poção', 'mana'),
-            'kitsPotions' => Product::filterProductBy('Poção', 'kit'),
-            'grimoires' => Product::filterProductBy('Grimório', 'mágico'),
-            'kitsGrimoires' => Product::filterProductBy('Grimório', 'kit'),
-
+            'allProductsByCategory' => Product::returnAllProductsByCategory(),
         ]);
     }
 
@@ -192,15 +174,32 @@ class ProductController extends Controller
         return redirect(route('product.trash'));
     }
 
-    public function filterBy($request)
+
+    public function filterBy(Request $request)
     {
-        // dd($request);
         $category = $request->filterByCategory ?? '';
         $itemClass = $request->filterByItemClass ?? '';
         $orderByColumn = $request->filterByOrderByColumn ?? '';
         $orderByValue = $request->filterByOrderByValue ?? '';
 
         $products = Product::filterProductBy($category, $itemClass, $orderByColumn, $orderByValue);
-        return $products;
+
+        switch ($orderByValue) {
+            case 'DESC':
+                $orderByValue = 'decrescente';
+                break;
+            case 'ASC':
+                $orderByValue = 'crescente';
+                break;
+        }
+
+        return view('product.index')->with([
+            'filterByOrderByColumn' => $orderByColumn,
+            'filterByOrderByValue' => $orderByValue,
+            'filterByCategory' => $category,
+            'filterByItemClass' => $itemClass,
+            'products' => $products,
+            'allProductsByCategory' => Product::returnAllProductsByCategory(),
+        ]);
     }
 }

@@ -79,19 +79,24 @@
                         <div class="collapse navbar-collapse" id="navegadorPrincipal">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" aria-current="page" href="#">Armaduras</a>
+                                    <a class="nav-link text-white" aria-current="page"
+                                        href="{{ route('product.category', 'Armadura') }}">Armaduras</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" aria-current="page" href="#">Armas físicas</a>
+                                    <a class="nav-link text-white" aria-current="page"
+                                        href="{{ route('product.category', 'Arma física') }}">Armas físicas</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" aria-current="page" href="#">Armas mágicas</a>
+                                    <a class="nav-link text-white" aria-current="page"
+                                        href="{{ route('product.category', 'Arma mágica') }}">Armas mágicas</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" aria-current="page" href="#">Poções</a>
+                                    <a class="nav-link text-white" aria-current="page"
+                                        href="{{ route('product.category', 'Poção') }}">Poções</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" aria-current="page" href="#">Grimorios</a>
+                                    <a class="nav-link text-white" aria-current="page"
+                                        href="{{ route('product.category', 'Grimório') }}">Grimorios</a>
                                 </li>
                             </ul>
                         </div>
