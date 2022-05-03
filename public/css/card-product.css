@@ -153,12 +153,14 @@
     box-shadow: none !important;
 }
 
-.carousel-control-prev-icon:not(#mainCarousel>.carousel-control-prev-icon) {
+.carousel-control-prev-icon:not(#mainCarousel>.carousel-control-prev-icon),
+.carousel-control-next-icon:not(#mainCarousel>.carousel-control-next-icon) {
     opacity: 0;
     transition: opacity .25s ease-in;
 }
 
-.carousel-control-prev-icon.show {
+.carousel-control-prev-icon.show,
+.carousel-control-next-icon.show {
     opacity: 1 !important;
 }
 
