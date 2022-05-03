@@ -13,22 +13,41 @@ export default function initScrollCards() {
         if (slideTo === 'left') {
 
             if (dataShowCard.carouselShowCard == -1) {
-                if (carouselTarget.querySelector('.carousel-control-next-icon').classList.contains('show')) {
-                    carouselTarget.querySelector('.carousel-control-next-icon').classList.toggle('show');
+                dataShowCard.carouselShowCard = totalOfCards;
+                console.log(dataShowCard.carouselShowCard != totalOfCards && dataShowCard.carouselShowCard != '4')
+                if (dataShowCard.carouselShowCard != '4') {
+                    if (carouselTarget.querySelector('.carousel-control-prev-icon').classList.contains('d-none')) {
+                        carouselTarget.querySelector('.carousel-control-prev-icon').classList.toggle('show');
+                        setTimeout(() => {
+                            carouselTarget.querySelector('.carousel-control-prev-icon').classList.toggle('d-none');
+                        }, 300);
+                    }
+                } else if (dataShowCard.carouselShowCard == '4') {
+                    if (!carouselTarget.querySelector('.carousel-control-prev-icon').classList.contains('d-none')) {
+                        carouselTarget.querySelector('.carousel-control-prev-icon').classList.toggle('show');
+                        setTimeout(() => {
+                            carouselTarget.querySelector('.carousel-control-prev-icon').classList.toggle('d-none');
+                        }, 300);
+                    }
+                }
+
+
+                if (!carouselTarget.querySelector('.carousel-control-next-icon').classList.contains('show')) {
+                    carouselTarget.querySelector('.carousel-control-next-icon').classList.toggle('d-none');
                     setTimeout(() => {
-                        carouselTarget.querySelector('.carousel-control-next-icon').classList.toggle('d-none');
+                        carouselTarget.querySelector('.carousel-control-next-icon').classList.toggle('show');
                     }, 50);
                 }
-                dataShowCard.carouselShowCard = totalOfCards;
+
                 translateValueData.translateValue = `-${convertNumberToPositive(translateValueData.translateValue) - 53}`;
             } else {
                 dataShowCard.carouselShowCard = parseInt(dataShowCard.carouselShowCard) - 1;
                 if (dataShowCard.carouselShowCard == 4) {
                     if (!carouselTarget.querySelector('.carousel-control-prev-icon').classList.contains('d-none')) {
-                        carouselTarget.querySelector('.carousel-control-prev-icon').classList.toggle('d-none');
+                        carouselTarget.querySelector('.carousel-control-prev-icon').classList.toggle('show');
                         setTimeout(() => {
-                            carouselTarget.querySelector('.carousel-control-prev-icon').classList.toggle('show');
-                        }, 50);
+                            carouselTarget.querySelector('.carousel-control-prev-icon').classList.toggle('d-none');
+                        }, 300);
                     }
                     translateValueData.translateValue = 0;
                 } else {
@@ -40,9 +59,9 @@ export default function initScrollCards() {
         } else {
             if (dataShowCard.carouselShowCard == -1) {
                 if (!carouselTarget.querySelector('.carousel-control-prev-icon').classList.contains('d-none')) {
-                    carouselTarget.querySelector('.carousel-control-prev-icon').classList.toggle('d-none');
+                    carouselTarget.querySelector('.carousel-control-prev-icon').classList.toggle('show');
                     setTimeout(() => {
-                        carouselTarget.querySelector('.carousel-control-prev-icon').classList.toggle('show');
+                        carouselTarget.querySelector('.carousel-control-prev-icon').classList.toggle('d-none');
                     }, 50);
                 }
 
@@ -64,11 +83,20 @@ export default function initScrollCards() {
 
 
             } else {
+                if (dataShowCard.carouselShowCard == '4') {
+                    if (carouselTarget.querySelector('.carousel-control-prev-icon').classList.contains('d-none')) {
+                        carouselTarget.querySelector('.carousel-control-prev-icon').classList.toggle('d-none');
+                        setTimeout(() => {
+                            carouselTarget.querySelector('.carousel-control-prev-icon').classList.toggle('show');
+                        }, 50);
+                    }
+                }
+
                 if (carouselTarget.querySelector('.carousel-control-next-icon').classList.contains('show')) {
                     carouselTarget.querySelector('.carousel-control-next-icon').classList.toggle('show');
                     setTimeout(() => {
                         carouselTarget.querySelector('.carousel-control-next-icon').classList.toggle('d-none');
-                    }, 50);
+                    }, 300);
                 }
 
                 dataShowCard.carouselShowCard = -1;

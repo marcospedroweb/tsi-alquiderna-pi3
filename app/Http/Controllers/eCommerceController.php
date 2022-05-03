@@ -27,7 +27,7 @@ class eCommerceController extends Controller
     public function productCategory($category_name)
     {
         $allProductsByCategory = Product::filterProductBy($category_name, '', 'name', 'DESC');
-        $newProductsByCategory = Product::filterProductBy($category_name, '', 'new', 'DESC', 30);
+        $newProductsByCategory = Product::filterProductBy($category_name, '', 'new', 'DESC', 7);
         $beginnerProductsByCategory = Product::filterProductByColumn($category_name, '', 'recommendation', 'ini', 7);
         $mediumProductsByCategory = Product::filterProductByColumn($category_name, '', 'recommendation', 'int', 7);
         $advancedProductsByCategory = Product::filterProductByColumn($category_name, '', 'recommendation', 'avan', 7);

@@ -29,14 +29,14 @@
             <span class="visually-hidden">Previous</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="carousel-control-next-icon show" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
     </section>
     {{-- Carousel de produtos --}}
     <section class="mb-6">
         <h2 class="mb-3">Novidades</h2>
-        <div id="productCarouselNews" class="carousel-products position-relative mb-6">
+        <div id="productCarouselNews" data-translate-value='0' class="carousel-products position-relative mb-6">
             <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
                 @foreach ($newProducts as $newProduct)
                     <div class="card-product position-relative overflow-hidden mx-auto">
@@ -166,7 +166,7 @@
             <button class="carousel-products-control-next btn position-absolute top-50 end-0 translate-middle-y"
                 data-carousel-slide="next">
                 <span
-                    class="carousel-control-next-icon carousel-product-icon {{ count($newProducts) < 4 ? 'd-none' : '' }}"
+                    class="carousel-control-next-icon show carousel-product-icon {{ count($newProducts) < 4 ? 'd-none' : '' }}"
                     aria-hidden="true" data-carousel-target="#productCarouselNews"></span>
                 <span class="visually-hidden">Next</span>
             </button>
@@ -174,7 +174,7 @@
     </section>
     <section class="mb-6">
         <h2 class="mb-3">Armaduras pesadas</h2>
-        <div id="productCarouselHeavyArmors" class="carousel-products position-relative mb-6">
+        <div id="productCarouselHeavyArmors" data-translate-value='0' class="carousel-products position-relative mb-6">
             <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
                 @foreach ($heavyArmors as $heavyArmor)
                     <div class="card-product position-relative overflow-hidden mx-auto">
@@ -315,7 +315,7 @@
             <button class="carousel-products-control-next btn position-absolute top-50 end-0 translate-middle-y"
                 data-carousel-slide="next">
                 <span
-                    class="carousel-control-next-icon carousel-product-icon {{ count($heavyArmors) < 4 ? 'd-none' : '' }}"
+                    class="carousel-control-next-icon show carousel-product-icon {{ count($heavyArmors) < 4 ? 'd-none' : '' }}"
                     aria-hidden="true" data-carousel-target="#productCarouselHeavyArmors"></span>
                 <span class="visually-hidden">Next</span>
             </button>
