@@ -84,6 +84,39 @@ p {
     font-size: 1.25rem;
 }
 
+.nav-item+.nav-item {
+    margin-left: 8px !important;
+}
+
+.nav-link {
+    color: #e7e7e7 !important;
+    transition: all .25s ease-out;
+}
+
+.nav-link:hover {
+    color: #fff !important;
+}
+
+.nav-link.active {
+    color: #fff !important;
+    position: relative;
+    font-weight: 600;
+}
+
+.nav-link.active::before {
+    position: absolute;
+    content: '';
+    width: calc(inherit - 16px);
+    height: 2px;
+    background-color: #fff;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    margin: 0 auto;
+}
+
+
 .btn-primary {
     border: 0;
     background-color: var(--btn-static) !important;

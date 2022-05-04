@@ -148,15 +148,15 @@ class Product extends Model
                 break;
             case 'Poção':
                 $allProductsByItemClass = array(
-                    'life' => Product::filterProductBy($category_name, 'vida', 'name', 'DESC'),
-                    'mana' => Product::filterProductBy($category_name, 'mana', 'name', 'DESC'),
-                    'speed' => Product::filterProductBy($category_name, 'agilidade', 'name', 'DESC'),
-                    'strength' => Product::filterProductBy($category_name, 'força', 'name', 'DESC'),
+                    'potion-life' => Product::filterProductBy($category_name, 'vida', 'name', 'DESC'),
+                    'potion-mana' => Product::filterProductBy($category_name, 'mana', 'name', 'DESC'),
+                    'potion-speed' => Product::filterProductBy($category_name, 'agilidade', 'name', 'DESC'),
+                    'potion-strength' => Product::filterProductBy($category_name, 'força', 'name', 'DESC'),
                 );
                 break;
             case 'Grimório':
                 $allProductsByItemClass = array(
-                    'mágico' => Product::filterProductBy($category_name, 'mágico', 'name', 'DESC'),
+                    'grimoire-magic' => Product::filterProductBy($category_name, 'mágico', 'name', 'DESC'),
                 );
                 break;
         }

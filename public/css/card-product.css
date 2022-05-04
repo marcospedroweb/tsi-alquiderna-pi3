@@ -1,9 +1,52 @@
+.item-class-options a {
+    text-decoration: none;
+    color: var(--nav-color);
+    font-weight: bold;
+    transition: color .25s ease-out;
+}
+
+.item-class-options .option-item-class:hover a {
+    color: #825511 !important;
+}
+
+.option-item-class+.option-item-class {
+    margin-left: 1.25rem;
+}
+
+.item-class-options .div-item-class-image {
+    background-color: #323232;
+    border-radius: 4px;
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.item-class-options .div-item-class-image img {
+    object-fit: cover;
+    object-position: center center;
+    transition: transform .25s ease-out;
+}
+
+.item-class-options .option-item-class:hover .div-item-class-image img {
+    transform: scale(1.1);
+}
+
+.option-item-class span {
+    max-width: 200px;
+    word-wrap: break-word;
+    font-size: 1.25rem;
+}
+
 .carousel-products .card-product {
     min-width: 348px;
+    min-height: 388px;
+    max-width: 348px;
     max-height: 388px;
     background-color: #323232;
     transition: all .25s ease-out;
     cursor: pointer;
+    border-radius: 4px;
 }
 
 .card-product-view {

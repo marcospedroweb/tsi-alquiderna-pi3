@@ -79,24 +79,29 @@
                         <div class="collapse navbar-collapse" id="navegadorPrincipal">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" aria-current="page"
+                                    <a class="nav-link text-white {{ isset($category_name) && $category_name === 'Armadura' ? 'active' : '' }}"
+                                        aria-current="page"
                                         href="{{ route('product.category', 'Armadura') }}">Armaduras</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" aria-current="page"
+                                    <a class="nav-link text-white {{ isset($category_name) && $category_name === 'Arma física' ? 'active' : '' }}"
+                                        aria-current="page"
                                         href="{{ route('product.category', 'Arma física') }}">Armas físicas</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" aria-current="page"
+                                    <a class="nav-link text-white {{ isset($category_name) && $category_name === 'Arma mágica' ? 'active' : '' }}"
+                                        aria-current="page"
                                         href="{{ route('product.category', 'Arma mágica') }}">Armas mágicas</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" aria-current="page"
+                                    <a class="nav-link text-white {{ isset($category_name) && $category_name === 'Poção' ? 'active' : '' }}"
+                                        aria-current="page"
                                         href="{{ route('product.category', 'Poção') }}">Poções</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" aria-current="page"
-                                        href="{{ route('product.category', 'Grimório') }}">Grimorios</a>
+                                    <a class="nav-link text-white {{ isset($category_name) && $category_name === 'Grimório' ? 'active' : '' }}"
+                                        aria-current="page"
+                                        href="{{ route('product.category', 'Grimório') }}">Grimórios</a>
                                 </li>
                             </ul>
                         </div>

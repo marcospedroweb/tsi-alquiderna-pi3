@@ -1,5 +1,147 @@
 @extends('layouts.app')
 @section('content')
+    <section class="mt-5 mb-6">
+        <div class="item-class-options d-flex justify-content-center align-items-center">
+            @if ($category_name === 'Armadura')
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'leve']) }}">
+                        <div class="div-item-class-image overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Armadura-leve.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span>
+                            Armaduras leve
+                        </span>
+                    </a>
+                </div>
+                <div class="option-item-class d-flex flex-column justif-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'média']) }}">
+                        <div class="div-item-class-image overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Armadura-média.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span>
+                            Armaduras média
+                        </span>
+                    </a>
+                </div>
+                <div class="option-item-class d-flex flex-column justif-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'pesada']) }}">
+                        <div class="div-item-class-image overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Armadura-pesada.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span>
+                            Armaduras pesada
+                        </span>
+                    </a>
+                </div>
+            @elseif($category_name === 'Arma física')
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'espada']) }}">
+                        <div class="div-item-class-image overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Arma física-espada.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span>
+                            Espadas
+                        </span>
+                    </a>
+                </div>
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'machado']) }}">
+                        <div class="div-item-class-image overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Arma física-machado.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span>
+                            Machados
+                        </span>
+                    </a>
+                </div>
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'machado']) }}">
+                        <div class="div-item-class-image overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Arma física-arco.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span>
+                            Arcos
+                        </span>
+                    </a>
+                </div>
+            @elseif($category_name === 'Arma mágica')
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'arco']) }}">
+                        <div class="div-item-class-image overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Arma mágica-varinha.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span>
+                            Varinhas
+                        </span>
+                    </a>
+                </div>
+            @elseif($category_name === 'Poção')
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'vida']) }}">
+                        <div class="div-item-class-image overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Poção-vida.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span>
+                            Poção de vida
+                        </span>
+                    </a>
+                </div>
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'mana']) }}">
+                        <div class="div-item-class-image overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Poção-mana.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span>
+                            Poção de mana
+                        </span>
+                    </a>
+                </div>
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'força']) }}">
+                        <div class="div-item-class-image overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Poção-força.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span>
+                            Poção de força
+                        </span>
+                    </a>
+                </div>
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'agilidade']) }}">
+                        <div class="div-item-class-image overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Poção-agilidade.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span>
+                            Poção de agilidade
+                        </span>
+                    </a>
+                </div>
+            @else
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Grimório', 'itemClass' => 'mágico']) }}">
+                        <div class="div-item-class-image overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Grimório-mágico.png') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span>
+                            Mágicos
+                        </span>
+                    </a>
+                </div>
+            @endif
+        </div>
+    </section>
     <section class="mb-6">
         <img src="https://via.placeholder.com/1296x624.png" alt="" class="mb-4">
         <div class="d-flex">
@@ -11,9 +153,9 @@
     <section class="mb-6">
         <h2 class="mb-3">Novidades de {{ $category_name }}s</h2>
         <div id="productCarouselNews" data-translate-value='0' class="carousel-products position-relative mb-6">
-            <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
+            <div class="carousel-products-inner d-flex justify-content-start overflow-hidden" data-carousel-show-card="4">
                 @foreach ($newProductsByCategory as $newProduct)
-                    <div class="card-product position-relative overflow-hidden mx-auto">
+                    <div class="card-product position-relative overflow-hidden">
                         <a href="{{ route('product.index') }}">
                             <img src='{{ asset("$newProduct->image") }}' class="img-fluid">
                             <div
@@ -264,7 +406,7 @@
                 @else
                     <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
                         <a href="{{ route('product.index') }}" class="link-card-product">
-                            <img src='{{ asset('images-for-cards/image-for-cards-Grimório-mágico.jpg') }}'
+                            <img src='{{ asset('images-for-cards/image-for-cards-Grimório-mágico.png') }}'
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
@@ -293,9 +435,9 @@
     <section class="mb-6">
         <h2 class="mb-3">{{ $category_name }}s em promoção</h2>
         <div id="productCarouselonSale" data-translate-value='0' class="carousel-products position-relative mb-6">
-            <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
+            <div class="carousel-products-inner d-flex justify-content-start overflow-hidden" data-carousel-show-card="4">
                 @foreach ($productsOnSaleByCategory as $productsOnSale)
-                    <div class="card-product position-relative overflow-hidden mx-auto">
+                    <div class="card-product position-relative overflow-hidden">
                         <a href="{{ route('product.index') }}">
                             <img src='{{ asset("$productsOnSale->image") }}' class="img-fluid">
                             <div
@@ -457,7 +599,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">espadas em
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">espadas em
                                         promoção</span></span>
                             </div>
                         </a>
@@ -468,7 +610,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">machados em
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">machados em
                                         promoção</span></span>
                             </div>
                         </a>
@@ -479,7 +621,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">arcos em
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">arcos em
                                         promoção</span></span>
                             </div>
                         </a>
@@ -491,7 +633,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">varinha em
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">varinha em
                                         promoção</span></span>
                             </div>
                         </a>
@@ -503,7 +645,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">poções de
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">poções de
                                         vida em promoção</span></span>
                             </div>
                         </a>
@@ -514,7 +656,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">poções de
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">poções de
                                         mana em promoção</span></span>
                             </div>
                         </a>
@@ -525,7 +667,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">poções de
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">poções de
                                         força em promoção</span></span>
                             </div>
                         </a>
@@ -536,7 +678,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">poções de
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">poções de
                                         agilidade em promoção</span></span>
                             </div>
                         </a>
@@ -544,11 +686,11 @@
                 @else
                     <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
                         <a href="{{ route('product.index') }}" class="link-card-product">
-                            <img src='{{ asset('images-for-cards/image-for-cards-Grimório-mágico.jpg') }}'
+                            <img src='{{ asset('images-for-cards/image-for-cards-Grimório-mágico.png') }}'
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">grimórios em
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">grimórios em
                                         promoção</span></span>
                             </div>
                         </a>
@@ -573,9 +715,9 @@
     <section class="mb-6">
         <h2 class="mb-3">{{ $category_name }}s para iniciantes</h2>
         <div id="productCarouselForBeginners" data-translate-value='0' class="carousel-products position-relative mb-6">
-            <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
+            <div class="carousel-products-inner d-flex justify-content-start overflow-hidden" data-carousel-show-card="4">
                 @foreach ($beginnerProductsByCategory as $begginerProduct)
-                    <div class="card-product position-relative overflow-hidden mx-auto">
+                    <div class="card-product position-relative overflow-hidden">
                         <a href="{{ route('product.index') }}">
                             <img src='{{ asset("$begginerProduct->image") }}' class="img-fluid">
                             <div
@@ -744,7 +886,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">espadas para
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">espadas para
                                         iniciantes</span></span>
                             </div>
                         </a>
@@ -755,7 +897,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">machados para
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">machados para
                                         iniciantes</span></span>
                             </div>
                         </a>
@@ -766,7 +908,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">arcos para
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">arcos para
                                         iniciantes</span></span>
                             </div>
                         </a>
@@ -778,7 +920,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">varinhas para
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">varinhas para
                                         iniciantes</span></span>
                             </div>
                         </a>
@@ -790,7 +932,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">poções de
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">poções de
                                         vida para iniciantes</span></span>
                             </div>
                         </a>
@@ -801,7 +943,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">poções de
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">poções de
                                         mana para iniciantes</span></span>
                             </div>
                         </a>
@@ -812,7 +954,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">poções de
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">poções de
                                         força para iniciantes</span></span>
                             </div>
                         </a>
@@ -823,7 +965,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais<span class="fw-bold">poções de
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">poções de
                                         agilidade para iniciantes</span></span>
                             </div>
                         </a>
@@ -831,11 +973,12 @@
                 @else
                     <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
                         <a href="{{ route('product.index') }}" class="link-card-product">
-                            <img src='{{ asset('images-for-cards/image-for-cards-Grimório-mágico.jpg') }}'
+                            <img src='{{ asset('images-for-cards/image-for-cards-Grimório-mágico.png') }}'
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais<span class="fw-bold">grimórios para
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">grimórios
+                                        para
                                         iniciantes</span></span>
                             </div>
                         </a>
@@ -862,9 +1005,10 @@
             <h2 class="mb-3">Armaduras leves</h2>
             <div id="productCarouselLightArmors" data-translate-value='0' data-translate-value='0'
                 class="carousel-products position-relative mb-6">
-                <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
+                <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
+                    data-carousel-show-card="4">
                     @foreach ($productsByItemClass['lightArmors'] as $lightArmor)
-                        <div class="card-product position-relative overflow-hidden mx-auto">
+                        <div class="card-product position-relative overflow-hidden">
                             <a href="{{ route('product.index') }}">
                                 <img src='{{ asset("$lightArmor->image") }}' class="img-fluid">
                                 <div
@@ -939,7 +1083,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">armaduras
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">armaduras
                                         leves</span></span>
                             </div>
                         </a>
@@ -964,9 +1108,10 @@
             <h2 class="mb-3">Armaduras médias</h2>
             <div id="productCarouselMediumArmors" data-translate-value='0'
                 class="carousel-products position-relative mb-6">
-                <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
+                <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
+                    data-carousel-show-card="4">
                     @foreach ($productsByItemClass['mediumArmors'] as $mediumArmor)
-                        <div class="card-product position-relative overflow-hidden mx-auto">
+                        <div class="card-product position-relative overflow-hidden">
                             <a href="{{ route('product.index') }}">
                                 <img src='{{ asset("$mediumArmor->image") }}' class="img-fluid">
                                 <div
@@ -1042,7 +1187,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">armaduras
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">armaduras
                                         médias</span></span>
                             </div>
                         </a>
@@ -1066,9 +1211,10 @@
         <section class="mb-6">
             <h2 class="mb-3">Armaduras pesadas</h2>
             <div id="productCarouselHeavyArmors" data-translate-value='0' class="carousel-products position-relative mb-6">
-                <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
+                <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
+                    data-carousel-show-card="4">
                     @foreach ($productsByItemClass['heavyArmors'] as $heavyArmor)
-                        <div class="card-product position-relative overflow-hidden mx-auto">
+                        <div class="card-product position-relative overflow-hidden">
                             <a href="{{ route('product.index') }}">
                                 <img src='{{ asset("$heavyArmor->image") }}' class="img-fluid">
                                 <div
@@ -1143,7 +1289,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">armaduras
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">armaduras
                                         pesadas</span></span>
                             </div>
                         </a>
@@ -1168,9 +1314,10 @@
         <section class="mb-6">
             <h2 class="mb-3">Espadas</h2>
             <div id="productCarouselSwords" data-translate-value='0' class="carousel-products position-relative mb-6">
-                <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
+                <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
+                    data-carousel-show-card="4">
                     @foreach ($productsByItemClass['swords'] as $sword)
-                        <div class="card-product position-relative overflow-hidden mx-auto">
+                        <div class="card-product position-relative overflow-hidden">
                             <a href="{{ route('product.index') }}">
                                 <img src='{{ asset("$sword->image") }}' class="img-fluid">
                                 <div
@@ -1257,9 +1404,10 @@
         <section class="mb-6">
             <h2 class="mb-3">Machados</h2>
             <div id="productCarouselAxes" data-translate-value='0' class="carousel-products position-relative mb-6">
-                <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
+                <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
+                    data-carousel-show-card="4">
                     @foreach ($productsByItemClass['axes'] as $axe)
-                        <div class="card-product position-relative overflow-hidden mx-auto">
+                        <div class="card-product position-relative overflow-hidden">
                             <a href="{{ route('product.index') }}">
                                 <img src='{{ asset("$axe->image") }}' class="img-fluid">
                                 <div
@@ -1346,9 +1494,10 @@
         <section class="mb-6">
             <h2 class="mb-3">Arcos</h2>
             <div id="productCarouselBows" data-translate-value='0' class="carousel-products position-relative mb-6">
-                <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
+                <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
+                    data-carousel-show-card="4">
                     @foreach ($productsByItemClass['bows'] as $bow)
-                        <div class="card-product position-relative overflow-hidden mx-auto">
+                        <div class="card-product position-relative overflow-hidden">
                             <a href="{{ route('product.index') }}">
                                 <img src='{{ asset("$bow->image") }}' class="img-fluid">
                                 <div
@@ -1436,9 +1585,10 @@
         <section class="mb-6">
             <h2 class="mb-3">Varinhas</h2>
             <div id="productCarouselWands" data-translate-value='0' class="carousel-products position-relative mb-6">
-                <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
+                <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
+                    data-carousel-show-card="4">
                     @foreach ($productsByItemClass['wands'] as $wand)
-                        <div class="card-product position-relative overflow-hidden mx-auto">
+                        <div class="card-product position-relative overflow-hidden">
                             <a href="{{ route('product.index') }}">
                                 <img src='{{ asset("$wand->image") }}' class="img-fluid">
                                 <div
@@ -1527,9 +1677,10 @@
             <h2 class="mb-3">Poções de vida</h2>
             <div id="productCarouselPotionOfLife" data-translate-value='0'
                 class="carousel-products position-relative mb-6">
-                <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
+                <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
+                    data-carousel-show-card="4">
                     @foreach ($productsByItemClass['potion-life'] as $potionLife)
-                        <div class="card-product position-relative overflow-hidden mx-auto">
+                        <div class="card-product position-relative overflow-hidden">
                             <a href="{{ route('product.index') }}">
                                 <img src='{{ asset("$potionLife->image") }}' class="img-fluid">
                                 <div
@@ -1582,7 +1733,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">Poções de
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">Poções de
                                         vida</span></span>
                             </div>
                         </a>
@@ -1607,9 +1758,10 @@
             <h2 class="mb-3">Poções de mana</h2>
             <div id="productCarouselPotionOfMana" data-translate-value='0'
                 class="carousel-products position-relative mb-6">
-                <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
+                <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
+                    data-carousel-show-card="4">
                     @foreach ($productsByItemClass['potion-mana'] as $potionMana)
-                        <div class="card-product position-relative overflow-hidden mx-auto">
+                        <div class="card-product position-relative overflow-hidden">
                             <a href="{{ route('product.index') }}">
                                 <img src='{{ asset("$potionMana->image") }}' class="img-fluid">
                                 <div
@@ -1662,7 +1814,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">Poções de
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">Poções de
                                         mana</span></span>
                             </div>
                         </a>
@@ -1687,9 +1839,10 @@
             <h2 class="mb-3">Poções de força</h2>
             <div id="productCarouselPotionOfStrength" data-translate-value='0'
                 class="carousel-products position-relative mb-6">
-                <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
+                <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
+                    data-carousel-show-card="4">
                     @foreach ($productsByItemClass['potion-strength'] as $potionStrength)
-                        <div class="card-product position-relative overflow-hidden mx-auto">
+                        <div class="card-product position-relative overflow-hidden">
                             <a href="{{ route('product.index') }}">
                                 <img src='{{ asset("$potionStrength->image") }}' class="img-fluid">
                                 <div
@@ -1745,7 +1898,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">Poções de
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">Poções de
                                         força</span></span>
                             </div>
                         </a>
@@ -1770,9 +1923,10 @@
             <h2 class="mb-3">Poções de agilidade</h2>
             <div id="productCarouselPotionOfSpeed" data-translate-value='0'
                 class="carousel-products position-relative mb-6">
-                <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
+                <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
+                    data-carousel-show-card="4">
                     @foreach ($productsByItemClass['potion-speed'] as $potionSpeed)
-                        <div class="card-product position-relative overflow-hidden mx-auto">
+                        <div class="card-product position-relative overflow-hidden">
                             <a href="{{ route('product.index') }}">
                                 <img src='{{ asset("$potionSpeed->image") }}' class="img-fluid">
                                 <div
@@ -1826,7 +1980,7 @@
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">Poções de
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">Poções de
                                         agilidade</span></span>
                             </div>
                         </a>
@@ -1851,9 +2005,10 @@
         <section class="mb-6">
             <h2 class="mb-3">Grimórios</h2>
             <div id="productCarouselGrimoire" data-translate-value='0' class="carousel-products position-relative mb-6">
-                <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
-                    @foreach ($productsByItemClass['grimoire'] as $grimoire)
-                        <div class="card-product position-relative overflow-hidden mx-auto">
+                <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
+                    data-carousel-show-card="4">
+                    @foreach ($productsByItemClass['grimoire-magic'] as $grimoire)
+                        <div class="card-product position-relative overflow-hidden">
                             <a href="{{ route('product.index') }}">
                                 <img src='{{ asset("$grimoire->image") }}' class="img-fluid">
                                 <div
@@ -1912,7 +2067,7 @@
                     @endforeach
                     <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
                         <a href="{{ route('product.index') }}" class="link-card-product">
-                            <img src='{{ asset('images-for-cards/image-for-cards-Grimório-mágico.jpg') }}'
+                            <img src='{{ asset('images-for-cards/image-for-cards-Grimório-mágico.png') }}'
                                 class="img-fluid">
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
@@ -1931,7 +2086,7 @@
                 <button class="carousel-products-control-next btn position-absolute top-50 end-0 translate-middle-y"
                     data-carousel-slide="next">
                     <span
-                        class="carousel-control-next-icon show carousel-product-icon {{ count($productsByItemClass['grimoire']) < 4 ? 'd-none' : '' }}"
+                        class="carousel-control-next-icon show carousel-product-icon {{ count($productsByItemClass['grimoire-magic']) < 4 ? 'd-none' : '' }}"
                         aria-hidden="true" data-carousel-target="#productCarouselGrimoire"></span>
                     <span class="visually-hidden">Next</span>
                 </button>

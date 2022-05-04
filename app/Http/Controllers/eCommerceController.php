@@ -46,4 +46,15 @@ class eCommerceController extends Controller
             'productsByItemClass' => $productsByItemClass,
         ]);
     }
+
+    public function productItemClass($category_name, $itemClass_name)
+    {
+        $allProducts = Product::filterProductBy($category_name, $itemClass_name, 'name', 'DESC');
+
+        return view('product.itemClass')->with([
+            'category_name' => $category_name,
+            'itemClass_name' => $itemClass_name,
+            'allProducts' => $allProducts,
+        ]);
+    }
 }

@@ -92,3 +92,4 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 //[User] Product
 Route::get('/product/{category}', [eCommerceController::class, 'productCategory'])->name('product.category');
+Route::get('/product/{category}/{itemClass}', [eCommerceController::class, 'productItemClass'])->name('product.itemClass');
