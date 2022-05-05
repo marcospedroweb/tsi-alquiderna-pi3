@@ -101,7 +101,7 @@ class Product extends Model
         return Product::where('new', 1)->paginate(7);
     }
 
-    public static function filterProductBy(string $category_name, string $itemClass_name = '', string $orderByColumn = 'name', string $orderByValue = 'DESC', int $paginate = 12)
+    public static function filterProductBy(string $category_name, string $itemClass_name = '', string $orderByColumn = 'name', string $orderByValue = 'DESC', int $paginate = 12,)
     {
         if ($orderByColumn && $orderByValue) {
             if ($category_name && $itemClass_name)
@@ -176,4 +176,12 @@ class Product extends Model
                 ->where($whereColumn, $whereValue)
                 ->paginate($paginate);
     }
+
+    // public function filterProductWithoutPaginate(array $dados)
+    // {
+    //     return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+    //         ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+    //         ->where($whereColumn, $whereValue)
+    //         ->paginate($paginate);
+    // }
 }

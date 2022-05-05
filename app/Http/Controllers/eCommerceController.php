@@ -17,11 +17,14 @@ class eCommerceController extends Controller
         ]);
     }
 
-    public function returnJSONOf(string $categoryName, string $itemClassName)
+    public function returnJSONOf(Request $dados)
     {
-        $products = Product::filterProductBy($categoryName, $itemClassName);
-        $products = json_encode($products);
-        return $products;
+        $teste = json_decode($dados);
+
+        return $dados->orderByAttributes;
+        // $products = Product::filterProductBy($categoryName, $itemClassName);
+        // $products = json_encode($products);
+        // return $products;
     }
 
     public function productCategory($category_name)
@@ -50,10 +53,29 @@ class eCommerceController extends Controller
     public function productItemClass($category_name, $itemClass_name)
     {
         $allProducts = Product::filterProductBy($category_name, $itemClass_name, 'name', 'DESC');
+        $category_name_edited = '';
+        $itemClass_name_edited = '';
+
+        if ($category_name === 'Armadura')
+            $category_name_edited = 'Armaduras';
+        else if ($category_name === 'Poção')
+            $category_name_edited = str_replace($category_name, 'Poção', 'Poções');
+        else if ($category_name === 'Grimório' && $itemClass_name === 'mágico')
+            $category_name_edited = 'Grimórios';
+        else if ($category_name === 'Arma física' && $itemClass_name === 'espada')
+            $itemClass_name_edited = 'Espadas';
+        else if ($category_name === 'Arma física' && $itemClass_name === 'machado')
+            $itemClass_name_edited = 'Machados';
+        else if ($category_name === 'Arma física' && $itemClass_name === 'arco')
+            $itemClass_name_edited = 'Arcos';
+        else
+            $itemClass_name_edited = 'Varinhas';
 
         return view('product.itemClass')->with([
+            'category_name_edited' => $category_name_edited,
             'category_name' => $category_name,
             'itemClass_name' => $itemClass_name,
+            'itemClass_name_edited' => $itemClass_name_edited,
             'allProducts' => $allProducts,
         ]);
     }

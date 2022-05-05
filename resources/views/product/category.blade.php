@@ -60,7 +60,7 @@
                     </a>
                 </div>
                 <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
-                    <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'machado']) }}">
+                    <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'arco']) }}">
                         <div class="div-item-class-image overflow-hidden">
                             <img src="{{ asset('images-for-cards/image-for-cards-Arma física-arco.jpg') }}"
                                 class="img-fluid" alt="">
@@ -72,7 +72,7 @@
                 </div>
             @elseif($category_name === 'Arma mágica')
                 <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
-                    <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'arco']) }}">
+                    <a href="{{ route('product.itemClass', ['category' => 'Arma mágica', 'itemClass' => 'varinha']) }}">
                         <div class="div-item-class-image overflow-hidden">
                             <img src="{{ asset('images-for-cards/image-for-cards-Arma mágica-varinha.jpg') }}"
                                 class="img-fluid" alt="">
@@ -151,7 +151,7 @@
         <img src="https://via.placeholder.com/1296x624.png" alt="" class="mt-4">
     </section>
     <section class="mb-6">
-        <h2 class="mb-3">Novidades de {{ $category_name }}s</h2>
+        <h2 class="mb-3 h2">Novidades de {{ $category_name }}s</h2>
         <div id="productCarouselNews" data-translate-value='0' class="carousel-products position-relative mb-6">
             <div class="carousel-products-inner d-flex justify-content-start overflow-hidden" data-carousel-show-card="4">
                 @foreach ($newProductsByCategory as $newProduct)
@@ -433,7 +433,7 @@
         </div>
     </section>
     <section class="mb-6">
-        <h2 class="mb-3">{{ $category_name }}s em promoção</h2>
+        <h2 class="mb-3 h2">{{ $category_name }}s em promoção</h2>
         <div id="productCarouselonSale" data-translate-value='0' class="carousel-products position-relative mb-6">
             <div class="carousel-products-inner d-flex justify-content-start overflow-hidden" data-carousel-show-card="4">
                 @foreach ($productsOnSaleByCategory as $productsOnSale)
@@ -713,7 +713,7 @@
         </div>
     </section>
     <section class="mb-6">
-        <h2 class="mb-3">{{ $category_name }}s para iniciantes</h2>
+        <h2 class="mb-3 h2">{{ $category_name }}s para iniciantes</h2>
         <div id="productCarouselForBeginners" data-translate-value='0' class="carousel-products position-relative mb-6">
             <div class="carousel-products-inner d-flex justify-content-start overflow-hidden" data-carousel-show-card="4">
                 @foreach ($beginnerProductsByCategory as $begginerProduct)
@@ -1002,7 +1002,7 @@
     </section>
     @if ($category_name === 'Armadura')
         <section class="mb-6">
-            <h2 class="mb-3">Armaduras leves</h2>
+            <h2 class="mb-3 h2">Armaduras leves</h2>
             <div id="productCarouselLightArmors" data-translate-value='0' data-translate-value='0'
                 class="carousel-products position-relative mb-6">
                 <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
@@ -1105,7 +1105,7 @@
             </div>
         </section>
         <section class="mb-6">
-            <h2 class="mb-3">Armaduras médias</h2>
+            <h2 class="mb-3 h2">Armaduras médias</h2>
             <div id="productCarouselMediumArmors" data-translate-value='0'
                 class="carousel-products position-relative mb-6">
                 <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
@@ -1209,7 +1209,7 @@
             </div>
         </section>
         <section class="mb-6">
-            <h2 class="mb-3">Armaduras pesadas</h2>
+            <h2 class="mb-3 h2">Armaduras pesadas</h2>
             <div id="productCarouselHeavyArmors" data-translate-value='0' class="carousel-products position-relative mb-6">
                 <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
                     data-carousel-show-card="4">
@@ -1312,7 +1312,7 @@
         </section>
     @elseif ($category_name === 'Arma física')
         <section class="mb-6">
-            <h2 class="mb-3">Espadas</h2>
+            <h2 class="mb-3 h2">Espadas</h2>
             <div id="productCarouselSwords" data-translate-value='0' class="carousel-products position-relative mb-6">
                 <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
                     data-carousel-show-card="4">
@@ -1402,7 +1402,7 @@
             </div>
         </section>
         <section class="mb-6">
-            <h2 class="mb-3">Machados</h2>
+            <h2 class="mb-3 h2">Machados</h2>
             <div id="productCarouselAxes" data-translate-value='0' class="carousel-products position-relative mb-6">
                 <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
                     data-carousel-show-card="4">
@@ -1492,7 +1492,7 @@
             </div>
         </section>
         <section class="mb-6">
-            <h2 class="mb-3">Arcos</h2>
+            <h2 class="mb-3 h2">Arcos</h2>
             <div id="productCarouselBows" data-translate-value='0' class="carousel-products position-relative mb-6">
                 <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
                     data-carousel-show-card="4">
@@ -1583,7 +1583,7 @@
         </section>
     @elseif ($category_name === 'Arma mágica')
         <section class="mb-6">
-            <h2 class="mb-3">Varinhas</h2>
+            <h2 class="mb-3 h2">Varinhas</h2>
             <div id="productCarouselWands" data-translate-value='0' class="carousel-products position-relative mb-6">
                 <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
                     data-carousel-show-card="4">
@@ -1674,7 +1674,7 @@
         </section>
     @elseif ($category_name === 'Poção')
         <section class="mb-6">
-            <h2 class="mb-3">Poções de vida</h2>
+            <h2 class="mb-3 h2">Poções de vida</h2>
             <div id="productCarouselPotionOfLife" data-translate-value='0'
                 class="carousel-products position-relative mb-6">
                 <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
@@ -1755,7 +1755,7 @@
             </div>
         </section>
         <section class="mb-6">
-            <h2 class="mb-3">Poções de mana</h2>
+            <h2 class="mb-3 h2">Poções de mana</h2>
             <div id="productCarouselPotionOfMana" data-translate-value='0'
                 class="carousel-products position-relative mb-6">
                 <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
@@ -1836,7 +1836,7 @@
             </div>
         </section>
         <section class="mb-6">
-            <h2 class="mb-3">Poções de força</h2>
+            <h2 class="mb-3 h2">Poções de força</h2>
             <div id="productCarouselPotionOfStrength" data-translate-value='0'
                 class="carousel-products position-relative mb-6">
                 <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
@@ -1920,7 +1920,7 @@
             </div>
         </section>
         <section class="mb-6">
-            <h2 class="mb-3">Poções de agilidade</h2>
+            <h2 class="mb-3 h2">Poções de agilidade</h2>
             <div id="productCarouselPotionOfSpeed" data-translate-value='0'
                 class="carousel-products position-relative mb-6">
                 <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
@@ -2003,7 +2003,7 @@
         </section>
     @else
         <section class="mb-6">
-            <h2 class="mb-3">Grimórios</h2>
+            <h2 class="mb-3 h2">Grimórios</h2>
             <div id="productCarouselGrimoire" data-translate-value='0' class="carousel-products position-relative mb-6">
                 <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
                     data-carousel-show-card="4">

@@ -35,7 +35,7 @@
     </section>
     {{-- Carousel de produtos --}}
     <section class="mb-6">
-        <h2 class="mb-3">Novidades</h2>
+        <h2 class="mb-3 h2">Novidades</h2>
         <div id="productCarouselNews" data-translate-value='0' class="carousel-products position-relative mb-6">
             <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
                 @foreach ($newProducts as $newProduct)
@@ -173,7 +173,7 @@
         </div>
     </section>
     <section class="mb-6">
-        <h2 class="mb-3">Armaduras pesadas</h2>
+        <h2 class="mb-3 h2">Armaduras pesadas</h2>
         <div id="productCarouselHeavyArmors" data-translate-value='0' class="carousel-products position-relative mb-6">
             <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
                 @foreach ($heavyArmors as $heavyArmor)

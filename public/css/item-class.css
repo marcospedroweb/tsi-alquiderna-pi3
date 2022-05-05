@@ -1,0 +1,24 @@
+#div-filter {
+    border-radius: 8px;
+    background-color: #F0F0F0;
+    border: 1px solid #989898;
+}
+
+.filter-order-by-option+.filter-order-by-option {
+    margin-left: 32px;
+}
+
+/* PAGINATION */
+.page-link {
+    color: var(--btn-active-text-color) !important;
+}
+
+.page-item.active .page-link {
+    border: 1px solid var(--btn-hover);
+    background-color: var(--btn-static);
+    color: var(--btn-active-text-color);
+}
+
+.page-item .page-link:focus {
+    box-shadow: 0 0 0 0.25rem rgb(235, 213, 101, .25) !important;
+}

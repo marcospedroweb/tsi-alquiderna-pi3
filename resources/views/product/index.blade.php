@@ -17,7 +17,7 @@
                 <span class="d-block">Armaduras médias: {{ count($allProductsByCategory['mediumArmors']) }}</span>
                 <span class="d-block">Armaduras pesadas: {{ count($allProductsByCategory['heavyArmors']) }}</span>
                 <span class="d-block">kits armaduras:
-                    {{ count($allProductsByCategory['kitsLightArmors']) +count($allProductsByCategory['kitsMediumArmors']) +count($allProductsByCategory['kitsHeavyArmors']) }}</span>
+                    {{ count($allProductsByCategory['kitsLightArmors']) + count($allProductsByCategory['kitsMediumArmors']) + count($allProductsByCategory['kitsHeavyArmors']) }}</span>
             </div>
             <div class="col">
                 <span class="d-block">espadas: {{ count($allProductsByCategory['swords']) }}</span>

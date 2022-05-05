@@ -23,10 +23,12 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/eb4109d4de.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/script.js') }}" type="module" defer></script>
+
     <link rel="stylesheet" href="{{ asset('./css/style.css') }}">
 </head>
 
 <body>
+    <input type="hidden" value="{{ csrf_token() }}" id="token-laravel">
     <header id="header">
         <div class="container-xxl">
             <nav class="navbar navbar-expand-lg navbar-light">
