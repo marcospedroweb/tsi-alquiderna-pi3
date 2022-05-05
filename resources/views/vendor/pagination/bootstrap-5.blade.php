@@ -1,4 +1,15 @@
 @if ($paginator->hasPages())
+    @foreach ($elements as $element)
+        <input type="hidden" value="{{ count($element) }}" id="totalOfPages">
+    @endforeach
+    <input type="hidden" value="{{ $paginator->firstItem() }}" id="showingStartingNumber">
+    <input type="hidden" value="{{ $paginator->lastItem() }}" id="showingFinalNumber">
+    <input type="hidden" value="{{ $paginator->total() }}" id="totalOfProducts">
+
+    <input type="hidden" value="{{ $paginator->onFirstPage() }}" id="actualPage">
+    <input type="hidden" value="{{ $paginator->onFirstPage() + 1 }}" id="nextPage">
+    <input type="hidden" value="{{ $paginator->lastPage() }}" id="lastPage">
+
     <nav class="d-flex justify-items-center justify-content-between">
         <div class="d-flex justify-content-between flex-fill d-sm-none">
             <ul class="pagination">

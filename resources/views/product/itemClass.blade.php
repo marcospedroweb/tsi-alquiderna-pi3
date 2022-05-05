@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('content')
+    <input type="hidden" value="{{ $category_name }}" id="categoryName">
+    <input type="hidden" value="{{ $itemClass_name }}" id="itemClassName">
     <section class="container-xxl sticky-top section-filter">
-        <div class="bg-white py-2 d-flex flex-column justify-content-center align-items-center">
+        <form class="bg-white py-2 d-flex flex-column justify-content-center align-items-center" id="form-filter">
             <div class="d-flex justify-content-between align-items-center w-100">
                 <div>
                     @if ($category_name === 'Armadura' || $category_name === 'Grimório')
@@ -112,12 +114,12 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary align-self-end">
+                    <button class="btn btn-primary align-self-end" id="btn-filter">
                         Filtrar
                     </button>
                 </div>
             </div>
-        </div>
+        </form>
     </section>
     <div class="container-xxl">
         <div class="row div-cards-products mt-4">

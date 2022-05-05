@@ -117,9 +117,11 @@ class Product extends Model
             if ($category_name && $itemClass_name)
                 return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
                     ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orderBy('name', 'DESC')
                     ->paginate($paginate);
             else if ($category_name)
                 return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->orderBy('name', 'DESC')
                     ->paginate($paginate);
         }
     }
@@ -177,11 +179,27 @@ class Product extends Model
                 ->paginate($paginate);
     }
 
-    // public function filterProductWithoutPaginate(array $dados)
-    // {
-    //     return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
-    //         ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
-    //         ->where($whereColumn, $whereValue)
-    //         ->paginate($paginate);
-    // }
+    public static function filterProductWithoutPaginate($data, string $category_name, string $itemClass_name)
+    {
+        $changePage = $data['changePage'] ?? '';
+        $orderCards = $data['ordeCards'] ?? '';
+
+        if ($changePage && $orderCards) {
+            // return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+            //     ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+            //     ->where($whereColumn, $whereValue)
+            //     ->paginate($paginate);
+        } else if ($changePage) {
+            $changePageValue = $data['changePageValue'];
+
+            if ($changePageValue == '2') {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->skip(12)
+                    ->take(12)
+                    ->orderBy('name', 'DESC')
+                    ->get();
+            }
+        }
+    }
 }

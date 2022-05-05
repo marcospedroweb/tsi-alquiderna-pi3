@@ -17,11 +17,45 @@ class eCommerceController extends Controller
         ]);
     }
 
-    public function returnJSONOf(Request $dados)
+    public function returnJSONOf(Request $data)
     {
-        $teste = json_decode($dados);
+        $changePage = $data['changePage'] ?? '';
+        $orderCards = $data['ordeCards'] ?? '';
 
-        return $dados->orderByAttributes;
+        if ($changePage && $orderCards) {
+            $totalOfPages = $data['totalOfPages'] ?? '';
+            $startingNumber = $data['startingNumber'] ?? '';
+            $finalNumber = $data['finalNumber'] ?? '';
+            $actualPage = $data['actualPage'] ?? '';
+            $nextPage = $data['nextPage'] ?? '';
+            $lastPage = $data['lastPage'] ?? '';
+
+            $orderByPrice = $data['orderByPrice'] ?? '';
+            $orderByName = $data['orderByName'] ?? '';
+            $orderByOnSale = $data['orderByOnSale'] ?? '';
+            $orderByLvlMin = $data['orderByLvlMin'] ?? '';
+            $orderByNews = $data['orderByNews'] ?? '';
+            $orderByAttributes = $data['orderByAttributes'] ?? '';
+
+            // $products = Product::filterProductWithoutPaginate();
+        } else if ($changePage) {
+
+            $category_name = $data['category_name'] ?? '';
+            $itemClass_name = $data['itemClass_name'] ?? '';
+
+            $totalOfPages = $data['totalOfPages'] ?? '';
+            $startingNumber = $data['startingNumber'] ?? '';
+            $finalNumber = $data['finalNumber'] ?? '';
+            $actualPage = $data['actualPage'] ?? '';
+            $nextPage = $data['nextPage'] ?? '';
+            $lastPage = $data['lastPage'] ?? '';
+
+            $products = Product::filterProductWithoutPaginate($data, $category_name, $itemClass_name);
+        }
+
+        return $products;
+
+
         // $products = Product::filterProductBy($categoryName, $itemClassName);
         // $products = json_encode($products);
         // return $products;

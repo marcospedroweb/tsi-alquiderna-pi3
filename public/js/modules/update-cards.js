@@ -1,16 +1,14 @@
+import initChangePage from "./change-page.js";
+
 export default function initUpdateCards() {
 
 }
 
-// async function returnJSON() {
-//     let actualUrl = window.location.href;
-//     actualUrl = actualUrl.slice(0, actualUrl.indexOf('/', 7));
-//     const jsonProdutos = await fetch(`${actualUrl}/product/json/Armadura/média`);
-//     return jsonProdutos;
-// }
+const formFilter = document.querySelector('#form-filter');
+
+
 
 async function returnJSON() {
-
     let initFetch = {
         headers: {
             "Content-Type": "application/json",
@@ -53,17 +51,19 @@ async function returnJSON() {
                 mana: 100,
                 strength: 100,
             },
+            changePage: false,
+            changePageValue: '',
+            orderCards: false,
         }),
     }
 
-    let teste = fetch('/product/json', initFetch);
-    return teste;
+    const fetchProducts = fetch('/product/json', initFetch);
+    return fetchProducts;
 }
 
-if (false) {
-
+function returnProductsFormated() {
     const produtosPromisse = new Promise((resolve, reject) => {
-        const objectProducts = returnJSON();
+        const objectProducts = products;
         if (objectProducts)
             resolve(objectProducts);
         else
@@ -73,9 +73,53 @@ if (false) {
     produtosPromisse
         .then((r) => r.text())
         .then((json) => {
-            console.log(json);
+            return json;
         }).catch(reject => {
             console.log(reject)
         });
 }
+
+function returnNewCardsProducts() {
+    const cardProductClone = cardProductsTemplate.cloneNode(true);
+
+}
+
+if (formFilter) {
+    const cardProductsTemplate = document.querySelector('.card-product');
+    let products;
+    const btnFilter = document.querySelector('#btn-filter');
+    // Inputs
+    const totalOfPages = document.querySelector('#totalOfPages');
+    const showingStartingNumber = document.querySelector('#showingStartingNumber');
+    const showingFinalNumber = document.querySelector('#showingFinalNumber');
+    const totalOfProducts = document.querySelector('#totalOfProducts');
+    const actualPage = document.querySelector('#actualPage');
+    const nextPage = document.querySelector('#nextPage');
+    const lastPage = document.querySelector('#lastPage');
+    const categoryName = document.querySelector('#categoryName');
+    const itemClassName = document.querySelector('#itemClassName');
+
+    const pageLinks = document.querySelectorAll('a.page-link');
+    pageLinks.forEach(element => {
+        element.addEventListener('click', (event) => {
+            event.preventDefault();
+            const targetText = event.target.textContent;
+
+            if (targetText == nextPage.value) {
+                products = initChangePage(actualPage.value, nextPage.value, lastPage.value, nextPage.value, categoryName.value, itemClassName.value);
+
+                products = returnProductsFormated();
+
+            }
+        });
+    });
+
+
+
+    formFilter.addEventListener('submit', () => {
+
+    });
+
+}
+
 
