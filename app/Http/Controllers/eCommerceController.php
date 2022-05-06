@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 
+
 class eCommerceController extends Controller
 {
     public function index()
@@ -84,8 +85,9 @@ class eCommerceController extends Controller
         ]);
     }
 
-    public function productItemClass($category_name, $itemClass_name)
+    public function productItemClass($category_name, $itemClass_name, Request $request)
     {
+        // dd($request->sort);
         $allProducts = Product::filterProductBy($category_name, $itemClass_name, 'name', 'DESC');
         $category_name_edited = '';
         $itemClass_name_edited = '';
@@ -106,6 +108,7 @@ class eCommerceController extends Controller
             $itemClass_name_edited = 'Varinhas';
 
         return view('product.itemClass')->with([
+            'checked' => $request->has('filter') ? $request->filter : [],
             'category_name_edited' => $category_name_edited,
             'category_name' => $category_name,
             'itemClass_name' => $itemClass_name,

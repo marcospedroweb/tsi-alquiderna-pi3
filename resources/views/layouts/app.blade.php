@@ -28,7 +28,6 @@
 </head>
 
 <body>
-    <input type="hidden" value="{{ csrf_token() }}" id="token-laravel">
     <header id="header">
         <div class="container-xxl">
             <nav class="navbar navbar-expand-lg navbar-light">

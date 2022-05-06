@@ -1,12 +1,25 @@
+#div-filter-checkbox {}
+
+#div-filter-checkbox .sticky-top {
+    top: 80px !important;
+}
+
+.filter-title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.25rem !important;
+}
+
+.filter-subtitle {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem !important;
+}
+
 #div-filter {
     border-radius: 8px;
     background-color: #F0F0F0;
     border: 1px solid #989898;
 }
 
-.filter-order-by-option+.filter-order-by-option {
-    margin-left: 32px;
-}
 
 /* PAGINATION */
 .page-link {

@@ -93,3 +93,4 @@ Route::POST('/product/json', [eCommerceController::class, 'returnJSONOf'])->name
 //[User] Product
 Route::get('/product/{category}', [eCommerceController::class, 'productCategory'])->name('product.category');
 Route::get('/product/{category}/{itemClass}', [eCommerceController::class, 'productItemClass'])->name('product.itemClass');
+Route::get('/product/{category}/{itemClass}{teste?}', [eCommerceController::class, 'productItemClass'])->name('product.itemClass.orderBy');
