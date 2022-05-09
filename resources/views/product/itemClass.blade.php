@@ -1,3 +1,4 @@
+@dd($teste)
 @extends('layouts.app')
 @section('content')
     <input type="hidden" value="{{ $category_name }}" id="categoryName">

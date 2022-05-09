@@ -116,12 +116,254 @@ class Product extends Model
 
     public static function filterProductByFilters(array $filters, string $category_name, string $itemClass_name = '', string $orderByColumn = 'name', string $orderByValue = 'DESC')
     {
-        if ($filters['lvl-min-0'])
-            return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
-                ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
-                ->where('lvlMin', 0)
-                ->orderBy($orderByColumn, $orderByValue)
-                ->paginate(12);
+        $lvlMin0 = '';
+        $lvlMin31 = '';
+        $lvlMin61 = '';
+        $new = '';
+        $onSale = '';
+
+        if (array_search('lvlMin-', $filters)) {
+            $lvlMin0 = array_search('lvlMin-0', $filters) ? 0 : '';
+            $lvlMin31 = array_search('lvlMin-31', $filters) ? 31 : '';
+            $lvlMin61 = array_search('lvlMin-61', $filters) ? 61 : '';
+        }
+        if (array_search('new', $filters))
+            $new = 'new';
+        if (array_search('discount_price-0', $filters))
+            $onSale = 'discount_price';
+
+        if ($lvlMin0 == 0 && $lvlMin31 && $lvlMin61) {
+            if ($new && $onSale) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 0)
+                    ->orWhere('lvlMin', 31)
+                    ->orWhere('lvlMin', 61)
+                    ->orWhere('new', 1)
+                    ->orWhere('discount_price', '!=', 0.0)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else if ($new) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 0)
+                    ->orWhere('lvlMin', 31)
+                    ->orWhere('lvlMin', 61)
+                    ->orWhere('new', 1)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else if ($onSale) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 0)
+                    ->orWhere('lvlMin', 31)
+                    ->orWhere('lvlMin', 61)
+                    ->orWhere('discount_price', '!=', 0.0)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 0)
+                    ->orWhere('lvlMin', 31)
+                    ->orWhere('lvlMin', 61)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            }
+        } elseif ($lvlMin0 == 0 && $lvlMin31) {
+            if ($new && $onSale) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 0)
+                    ->orWhere('lvlMin', 31)
+                    ->orWhere('new', 1)
+                    ->orWhere('discount_price', '!=', 0.0)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else if ($new) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 0)
+                    ->orWhere('lvlMin', 31)
+                    ->orWhere('new', 1)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else if ($onSale) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 0)
+                    ->orWhere('lvlMin', 31)
+                    ->orWhere('discount_price', '!=', 0.0)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 0)
+                    ->orWhere('lvlMin', 31)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            }
+        } elseif ($lvlMin31 && $lvlMin61) {
+            if ($new && $onSale) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 31)
+                    ->orWhere('lvlMin', 61)
+                    ->orWhere('new', 1)
+                    ->orWhere('discount_price', '!=', 0.0)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else if ($new) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 31)
+                    ->orWhere('lvlMin', 61)
+                    ->orWhere('new', 1)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else if ($onSale) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 31)
+                    ->orWhere('lvlMin', 61)
+                    ->orWhere('discount_price', '!=', 0.0)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 31)
+                    ->orWhere('lvlMin', 61)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            }
+        } else if ($lvlMin0 == 0 && $lvlMin61) {
+            if ($new && $onSale) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 0)
+                    ->orWhere('lvlMin', 61)
+                    ->orWhere('new', 1)
+                    ->orWhere('discount_price', '!=', 0.0)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else if ($new) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 0)
+                    ->orWhere('lvlMin', 61)
+                    ->orWhere('new', 1)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else if ($onSale) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 0)
+                    ->orWhere('lvlMin', 61)
+                    ->orWhere('discount_price', '!=', 0.0)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 0)
+                    ->orWhere('lvlMin', 61)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            }
+        } else if ($lvlMin0) {
+            if ($new && $onSale) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 0)
+                    ->orWhere('new', 1)
+                    ->orWhere('discount_price', '!=', 0.0)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else if ($new) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 0)
+                    ->orWhere('new', 1)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else if ($onSale) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 0)
+                    ->orWhere('discount_price', '!=', 0.0)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 0)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            }
+        } else if ($lvlMin31) {
+            if ($new && $onSale) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 31)
+                    ->orWhere('new', 1)
+                    ->orWhere('discount_price', '!=', 0.0)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else if ($new) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 31)
+                    ->orWhere('new', 1)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else if ($onSale) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 31)
+                    ->orWhere('discount_price', '!=', 0.0)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 31)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            }
+        } else {
+            if ($new && $onSale) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 61)
+                    ->orWhere('new', 1)
+                    ->orWhere('discount_price', '!=', 0.0)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else if ($new) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 61)
+                    ->orWhere('new', 1)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else if ($onSale) {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 0)
+                    ->orWhere('lvlMin', 61)
+                    ->orWhere('discount_price', '!=', 0.0)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            } else {
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orWhere('lvlMin', 61)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate(12);
+            }
+        }
     }
 
     public static function filterProductByItemClass($category_name)

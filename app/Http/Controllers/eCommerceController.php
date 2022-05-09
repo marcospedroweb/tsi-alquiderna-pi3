@@ -102,20 +102,39 @@ class eCommerceController extends Controller
                 $orderByValue = 'DESC';
             }
 
-            if ($request->has('filter')) {
+            if ($request->has('filter') && (!empty($request->filter))) {
                 $filters = [];
-                array_push($filters, array_search('lvl-min-0', $request->filter) ? 'lvl-min-0' : 0);
-                array_push($filters, array_search('lvl-min-31', $request->filter,) ? 'lvl-min-31' : 0);
-                array_push($filters, array_search('lvl-min-61', $request->filter) ? 'lvl-min-61' : 0);
+                array_push($filters, array_search('lvl-min-0', $request->filter) ? 'lvlMin-0' : 0);
+                array_push($filters, array_search('lvl-min-31', $request->filter,) ? 'lvlMin-31' : 0);
+                array_push($filters, array_search('lvl-min-61', $request->filter) ? 'lvlMin-61' : 0);
                 array_push($filters, array_search('new', $request->filter) ? 'new' : 0);
-                array_push($filters, array_search('onSale', $request->filter) ? 'onSale' : 0);
+                array_push($filters, array_search('onSale', $request->filter) ? 'discount_price-0' : 0);
 
-                $allProducts = Product::filterProductByFilters($request->filter, $category_name, $itemClass_name, $orderByColumn, $orderByValue);
+                $allProducts = Product::filterProductByFilters($filters, $category_name, $itemClass_name, $orderByColumn, $orderByValue);
             } else {
-                $allProducts = Product::filterProductByFilters($request->filter, $category_name, $itemClass_name, $orderByColumn, $orderByValue);
+                $allProducts = Product::filterProductBy($category_name, $itemClass_name, $orderByColumn, $orderByValue);
             }
         } else {
-            $allProducts = Product::filterProductBy($category_name, $itemClass_name, 'name', 'ASC');
+            if ($request->has('filter') && (!empty($request->filter))) {
+                $filters = [
+                    'lvlMin0' => [0, 0],
+                    'lvlMin31' => [0, 0],
+                    'lvlMin61' => [0, 0],
+                    'new' => [0, 0],
+                    'onSale' => [0, 0],
+                ];
+                // if(array_search('lvl-min-0', $request->filter))
+                // $filters['lvlMin']
+                array_push($filters, array_search('lvl-min-0', $request->filter) ? 'lvlMin-0' : 0);
+                array_push($filters, array_search('lvl-min-31', $request->filter) ? 'lvlMin-31' : 0);
+                array_push($filters, array_search('lvl-min-61', $request->filter) ? 'lvlMin-61' : 0);
+                array_push($filters, array_search('new', $request->filter) ? 'new' : 0);
+                array_push($filters, array_search('onSale', $request->filter) ? 'discount_price-0' : 0);
+
+                $allProducts = Product::filterProductByFilters($filters, $category_name, $itemClass_name, 'name', 'ASC');
+            } else {
+                $allProducts = Product::filterProductBy($category_name, $itemClass_name, 'name', 'ASC');
+            }
         }
 
         $category_name_edited = '';
@@ -137,6 +156,7 @@ class eCommerceController extends Controller
             $itemClass_name_edited = 'Varinhas';
 
         return view('product.itemClass')->with([
+            'teste' =>  array_search('lvl-min-0', $request->filter) == false,
             'checked' => $request->has('filter') ? $request->filter : [],
             'category_name_edited' => $category_name_edited,
             'category_name' => $category_name,
