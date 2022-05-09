@@ -14,7 +14,6 @@ export default function initScrollCards() {
 
             if (dataShowCard.carouselShowCard == -1) {
                 dataShowCard.carouselShowCard = totalOfCards;
-                console.log(dataShowCard.carouselShowCard != totalOfCards && dataShowCard.carouselShowCard != '4')
                 if (dataShowCard.carouselShowCard != '4') {
                     if (carouselTarget.querySelector('.carousel-control-prev-icon').classList.contains('d-none')) {
                         carouselTarget.querySelector('.carousel-control-prev-icon').classList.toggle('show');

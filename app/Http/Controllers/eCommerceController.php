@@ -87,8 +87,37 @@ class eCommerceController extends Controller
 
     public function productItemClass($category_name, $itemClass_name, Request $request)
     {
-        // dd($request->sort);
-        $allProducts = Product::filterProductBy($category_name, $itemClass_name, 'name', 'DESC');
+        if ($request->sort) {
+            if (strrpos($request->sort, 'price') === 0 && strrpos($request->sort, 'asc')) {
+                $orderByColumn = 'price';
+                $orderByValue = 'ASC';
+            } else if (strrpos($request->sort, 'price') === 0 && strrpos($request->sort, 'desc')) {
+                $orderByColumn = 'price';
+                $orderByValue = 'DESC';
+            } else if (strrpos($request->sort, 'name') === 0 && strrpos($request->sort, 'asc')) {
+                $orderByColumn = 'name';
+                $orderByValue = 'ASC';
+            } else {
+                $orderByColumn = 'name';
+                $orderByValue = 'DESC';
+            }
+
+            if ($request->has('filter')) {
+                $filters = [];
+                array_push($filters, array_search('lvl-min-0', $request->filter) ? 'lvl-min-0' : 0);
+                array_push($filters, array_search('lvl-min-31', $request->filter,) ? 'lvl-min-31' : 0);
+                array_push($filters, array_search('lvl-min-61', $request->filter) ? 'lvl-min-61' : 0);
+                array_push($filters, array_search('new', $request->filter) ? 'new' : 0);
+                array_push($filters, array_search('onSale', $request->filter) ? 'onSale' : 0);
+
+                $allProducts = Product::filterProductByFilters($request->filter, $category_name, $itemClass_name, $orderByColumn, $orderByValue);
+            } else {
+                $allProducts = Product::filterProductByFilters($request->filter, $category_name, $itemClass_name, $orderByColumn, $orderByValue);
+            }
+        } else {
+            $allProducts = Product::filterProductBy($category_name, $itemClass_name, 'name', 'ASC');
+        }
+
         $category_name_edited = '';
         $itemClass_name_edited = '';
 

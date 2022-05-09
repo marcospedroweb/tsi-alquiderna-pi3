@@ -3,9 +3,7 @@
     <input type="hidden" value="{{ $category_name }}" id="categoryName">
     <input type="hidden" value="{{ $itemClass_name }}" id="itemClassName">
     <section class="container-xxl bg-white sticky-top section-filter">
-        <form method="GET"
-            action="{{ route('product.itemClass', ['category' => $category_name, 'itemClass' => $itemClass_name]) }}"
-            class="py-2 d-flex flex-column justify-content-center align-items-center" id="form-filter">
+        <div class="py-2 d-flex flex-column justify-content-center align-items-center">
             @csrf
             <div class="d-flex justify-content-between align-items-center w-100">
                 <div>
@@ -19,26 +17,53 @@
                 </div>
                 <div>
                     <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownOrderBy"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Ordenado por: {{ isset($sortBy) && $sortBy != '' ? $sortBy : 'Nome (A - Z)' }}
-                        </button>
+                        @if (request()->sort === 'price_asc')
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownOrderBy"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Ordenado por: Preço menor para maior
+                            </button>
+                        @elseif (request()->sort === 'price_desc')
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownOrderBy"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Ordenado por: Preço maior para menor
+                            </button>
+                        @elseif (request()->sort === 'name_asc')
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownOrderBy"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Ordenado por: Nome (A - Z)
+                            </button>
+                        @elseif (request()->sort === 'name_desc')
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownOrderBy"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Ordenado por: Nome (Z - A)
+                            </button>
+                        @else
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownOrderBy"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Ordenado por: Nome (A - Z)
+                            </button>
+                        @endif
                         <ul class="dropdown-menu" aria-labelledby="dropdownOrderBy">
-                            <li><a class="dropdown-item" href="{{ URL::current() . '?sort=price_asc' }}">Preço - menor
+                            <li><a class="dropdown-item {{ request()->sort === 'price_asc' ? 'disabled' : '' }}"
+                                    href="{{ URL::current() . '?sort=price_asc' }}">Preço - menor
                                     para
                                     maior</a></li>
-                            <li><a class="dropdown-item" href="{{ URL::current() . '?sort=price_desc' }}">Preço - maior
+                            <li><a class="dropdown-item {{ request()->sort === 'price_desc' ? 'disabled' : '' }}"
+                                    href="{{ URL::current() . '?sort=price_desc' }}">Preço -
+                                    maior
                                     para
                                     menor</a></li>
-                            <li><a class="dropdown-item" href="{{ URL::current() . '?sort=name_asc' }}">Nome (A -
+                            <li><a class="dropdown-item {{ !isset(request()->sort) || request()->sort === 'name_asc' ? 'disabled' : '' }}"
+                                    href="{{ URL::current() . '?sort=name_asc' }}">Nome (A -
                                     Z)</a></li>
-                            <li><a class="dropdown-item" href="{{ URL::current() . '?sort=name_desc' }}">Nome (Z -
+                            <li><a class="dropdown-item {{ request()->sort === 'name_desc' ? 'disabled' : '' }}"
+                                    href="{{ URL::current() . '?sort=name_desc' }}">Nome (Z -
                                     A)</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
     </section>
     <div class="container-xxl">
         <div class="row mt-4">

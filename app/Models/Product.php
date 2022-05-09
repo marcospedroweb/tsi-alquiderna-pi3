@@ -103,27 +103,25 @@ class Product extends Model
 
     public static function filterProductBy(string $category_name, string $itemClass_name = '', string $orderByColumn = 'name', string $orderByValue = 'DESC', int $paginate = 12,)
     {
-        if ($orderByColumn && $orderByValue) {
-            if ($category_name && $itemClass_name)
-                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
-                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
-                    ->orderBy($orderByColumn, $orderByValue)
-                    ->paginate($paginate);
-            else if ($category_name)
-                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
-                    ->orderBy($orderByColumn, $orderByValue)
-                    ->paginate($paginate);
-        } else {
-            if ($category_name && $itemClass_name)
-                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
-                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
-                    ->orderBy('name', 'DESC')
-                    ->paginate($paginate);
-            else if ($category_name)
-                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
-                    ->orderBy('name', 'DESC')
-                    ->paginate($paginate);
-        }
+        if ($category_name && $itemClass_name)
+            return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                ->orderBy($orderByColumn, $orderByValue)
+                ->paginate($paginate);
+        else if ($category_name)
+            return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                ->orderBy($orderByColumn, $orderByValue)
+                ->paginate($paginate);
+    }
+
+    public static function filterProductByFilters(array $filters, string $category_name, string $itemClass_name = '', string $orderByColumn = 'name', string $orderByValue = 'DESC')
+    {
+        if ($filters['lvl-min-0'])
+            return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                ->where('lvlMin', 0)
+                ->orderBy($orderByColumn, $orderByValue)
+                ->paginate(12);
     }
 
     public static function filterProductByItemClass($category_name)
@@ -177,29 +175,5 @@ class Product extends Model
             return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
                 ->where($whereColumn, $whereValue)
                 ->paginate($paginate);
-    }
-
-    public static function filterProductWithoutPaginate($data, string $category_name, string $itemClass_name)
-    {
-        $changePage = $data['changePage'] ?? '';
-        $orderCards = $data['ordeCards'] ?? '';
-
-        if ($changePage && $orderCards) {
-            // return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
-            //     ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
-            //     ->where($whereColumn, $whereValue)
-            //     ->paginate($paginate);
-        } else if ($changePage) {
-            $changePageValue = $data['changePageValue'];
-
-            if ($changePageValue == '2') {
-                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
-                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
-                    ->skip(12)
-                    ->take(12)
-                    ->orderBy('name', 'DESC')
-                    ->get();
-            }
-        }
     }
 }
