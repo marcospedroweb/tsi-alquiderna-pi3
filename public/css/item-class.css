@@ -1,6 +1,5 @@
-#div-filter-checkbox {}
-
 #div-filter-checkbox .sticky-top {
+    z-index: 999;
     top: 80px !important;
 }
 
@@ -34,4 +33,15 @@
 
 .page-item .page-link:focus {
     box-shadow: 0 0 0 0.25rem rgb(235, 213, 101, .25) !important;
+}
+
+#no-products {
+    margin-top: 7rem;
+}
+
+#no-products>span {
+    border-radius: 8px;
+    padding: 24px;
+    background-color: var(--btn-static);
+    font-weight: bold;
 }
