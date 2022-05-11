@@ -1,4 +1,5 @@
 /* BOOTSTRAP*/
+/* Margins and paddings*/
 .pb-5 {
     padding-bottom: 2rem !important;
 }
@@ -19,6 +20,7 @@
     margin-bottom: 4rem !important;
 }
 
+/*Typography*/
 .h1 {
     font-size: 1.75rem !important;
 }
@@ -43,13 +45,7 @@ span.h2 {
     font-size: 1.25rem !important;
 }
 
-.bg-secondary {
-    background-color: #fcfcfc !important;
-    border: 2px solid var(--nav-color);
-    border-radius: 8px;
-}
-
-/* BANNERS */
+/* BANNERS Display*/
 .display-5 {
     /* Banners main*/
     font-weight: bold;
@@ -62,11 +58,20 @@ span.h2 {
     font-size: 1.75rem;
 }
 
+/*Backgrounds*/
+.bg-secondary {
+    background-color: #fcfcfc !important;
+    border: 2px solid var(--nav-color);
+    border-radius: 8px;
+}
+
+
 .banner p {
     /* Banners paragraph*/
     font-size: 1.25rem;
 }
 
+/* NAV */
 .nav-item+.nav-item {
     margin-left: 8px !important;
 }
@@ -99,6 +104,7 @@ span.h2 {
     margin: 0 auto;
 }
 
+/* BTNs */
 
 .btn-primary {
     border: 0;
@@ -139,6 +145,21 @@ span.h2 {
     text-decoration: none;
 }
 
+/* Form */
+.form-text {
+    color: #e0e0e0;
+}
+
+/* Links */
+.link-primary {
+    color: #fff;
+}
+
+.link-secondary {
+    color: var(--btn-static);
+}
+
+/* Dropdown */
 .dropdown+.dropdown {
     margin-left: 1rem;
 }

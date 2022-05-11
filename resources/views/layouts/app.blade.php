@@ -68,7 +68,6 @@
                                     d="M1085.28 170.128L1082.11 167.536L1076.92 170.128C1073.18 168.976 1070.3 166.096 1068.86 161.2V85.744C1070.88 77.968 1074.04 70.768 1078.65 63.568L1078.08 62.416L1070.01 68.752L1029.12 55.216C1020.19 63.568 1010.11 67.312 999.452 66.448L995.708 66.16L1009.53 102.16C990.524 119.152 981.02 136.432 981.02 154.288C981.02 166.096 987.932 178.48 1001.47 191.152H1002.91L1042.08 159.76C1042.08 173.872 1048.12 184.24 1060.51 190.864L1085.28 170.128ZM1042.08 115.984L1012.41 101.584L1000.32 68.752L1042.08 84.304V115.984ZM1042.36 152.272L1020.76 170.704C1009.53 159.472 1004.06 147.376 1004.06 134.416C1004.06 125.488 1006.94 115.984 1012.41 106.192L1042.36 121.168V152.272Z"
                                     fill="white" />
                             </svg>
-
                         </a>
                     </div>
                     <div>
@@ -210,35 +209,40 @@
 
                 </a>
                 <div class="d-flex justify-content-around align-items-center w-100">
-                    <ul class="list-unstyled">Armaduras
-                        <li><a href="#">Armadura leve</a></li>
-                        <li><a href="#">Armadura média</a></li>
-                        <li><a href="#">Armadura pesada</a></li>
-                        <li><a href="#">Kits com armadura</a></li>
+                    <ul class="list-unstyled">
+                        <a href="" class="link-primary">Armaduras</a>
+                        <li><a href="#" class="link-secondary">Armadura leve</a></li>
+                        <li><a href="#" class="link-secondary">Armadura média</a></li>
+                        <li><a href="#" class="link-secondary">Armadura pesada</a></li>
+                        <li><a href="#" class="link-secondary">Kits com armadura</a></li>
                     </ul>
-                    <ul class="list-unstyled">Armas físicas
-                        <li><a href="#">Espadas</a></li>
-                        <li><a href="#">Machados</a></li>
-                        <li><a href="#">Arcos</a></li>
-                        <li><a href="#">Kits com arma físicas</a></li>
+                    <ul class="list-unstyled" class="link-primary">
+                        <a href="" class="link-primary">Armas físicas</a>
+                        <li><a href="#" class="link-secondary">Espadas</a></li>
+                        <li><a href="#" class="link-secondary">Machados</a></li>
+                        <li><a href="#" class="link-secondary">Arcos</a></li>
+                        <li><a href="#" class="link-secondary">Kits com arma físicas</a></li>
                     </ul>
-                    <ul class="list-unstyled">Armas mágicas
-                        <li><a href="#">Espadas</a></li>
-                        <li><a href="#">Machados</a></li>
-                        <li><a href="#">Arcos</a></li>
-                        <li><a href="#">Kits com armas mágicas</a></li>
+                    <ul class="list-unstyled" class="link-primary">
+                        <a href="" class="link-primary">Armas mágicas</a>
+                        <li><a href="#" class="link-secondary">Espadas</a></li>
+                        <li><a href="#" class="link-secondary">Machados</a></li>
+                        <li><a href="#" class="link-secondary">Arcos</a></li>
+                        <li><a href="#" class="link-secondary">Kits com armas mágicas</a></li>
                     </ul>
-                    <ul class="list-unstyled">Poções
-                        <li><a href="#">Poção de vida</a></li>
-                        <li><a href="#">Poção de mana</a></li>
-                        <li><a href="#">Poção de força</a></li>
-                        <li><a href="#">Kits com poções</a></li>
+                    <ul class="list-unstyled" class="link-primary">
+                        <a href="" class="link-primary">Poções</a>
+                        <li><a href="#" class="link-secondary">Poção de vida</a></li>
+                        <li><a href="#" class="link-secondary">Poção de mana</a></li>
+                        <li><a href="#" class="link-secondary">Poção de força</a></li>
+                        <li><a href="#" class="link-secondary">Kits com poções</a></li>
                     </ul>
-                    <ul class="list-unstyled">Grimório
-                        <li><a href="#">Grimorio elemental</a></li>
-                        <li><a href="#">Grimorio de invocação</a></li>
-                        <li><a href="#">Grimorio de poder</a></li>
-                        <li><a href="#">Kits com grimório</a></li>
+                    <ul class="list-unstyled" class="link-primary">
+                        <a href="" class="link-primary">Grimório</a>
+                        <li><a href="#" class="link-secondary">Grimorio elemental</a></li>
+                        <li><a href="#" class="link-secondary">Grimorio de invocação</a></li>
+                        <li><a href="#" class="link-secondary">Grimorio de poder</a></li>
+                        <li><a href="#" class="link-secondary">Kits com grimório</a></li>
                     </ul>
                 </div>
                 <div class="text-center pb-6">
