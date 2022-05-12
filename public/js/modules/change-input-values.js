@@ -22,9 +22,12 @@ export default function initChangeInputValues() {
                 const inputItemClass = event.target.querySelector('[name="filterByItemClass"]') || '';
                 const valuesOfInputs = event.submitter.value.split('-');
 
-                const conditionCategoryItemClass = inputCategory && valuesOfInputs[2] !== 'none' && inputItemClass && valuesOfInputs[3] !== 'none';
-                const codigitionItemClass = inputCategory && valuesOfInputs[2] !== 'none';
-                const coditionOrderColumnOrderValue = inputOrderByColumn && valuesOfInputs[0] !== 'none' && inputOrderByValue && valuesOfInputs[1] !== 'none';
+                for (let i = 1; i <= 4; i++)
+                    valuesOfInputs[i] = valuesOfInputs[i] === 'none' ? '' : valuesOfInputs[i];
+
+                const conditionCategoryItemClass = inputCategory && valuesOfInputs[2] && inputItemClass && valuesOfInputs[3];
+                const codigitionItemClass = inputCategory && valuesOfInputs[2];
+                const coditionOrderColumnOrderValue = inputOrderByColumn && valuesOfInputs[0] && inputOrderByValue && valuesOfInputs[1];
 
                 if (conditionCategoryItemClass) {
                     hasOrderBy(coditionOrderColumnOrderValue, inputOrderByColumn, inputOrderByValue, valuesOfInputs);
@@ -35,6 +38,7 @@ export default function initChangeInputValues() {
                     hasOrderBy(coditionOrderColumnOrderValue, inputOrderByColumn, inputOrderByValue, valuesOfInputs);
 
                     inputCategory.value = valuesOfInputs[2];
+                    inputItemClass.value = valuesOfInputs[3];
                 } else {
                     hasOrderBy(coditionOrderColumnOrderValue, inputOrderByColumn, inputOrderByValue, valuesOfInputs);
                 }

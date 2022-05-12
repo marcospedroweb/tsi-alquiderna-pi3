@@ -15,6 +15,10 @@ class eCommerceController extends Controller
         return view('index')->with([
             'newProducts' => Product::where('new', 1)->take(7)->get(),
             'heavyArmors' => Product::filterProductBy('Armadura', 'pesada'),
+            'productBigBanner1' => Product::where('id', 23)->get(),
+            'productSmallBanner1' => Product::where('id', 48)->get(),
+            'productSmallBanner2' => Product::where('id', 47)->get(),
+            'productBigBanner2' => Product::where('id', 17)->get(),
         ]);
     }
 
