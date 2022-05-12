@@ -242,9 +242,15 @@
                                     @endif
                                     {{ $product->name }}
                                 </h3>
-                                <p>{{ $product->Category->name }} {{ $product->ItemClass->name }}, nível
-                                    {{ $product->lvlMin }}
-                                </p>
+                                @if ($product->kit === 1)
+                                    <p>(Kit) {{ $product->Category->name }} {{ $product->ItemClass->name }}, nível
+                                        {{ $product->lvlMin }}
+                                    </p>
+                                @else
+                                    <p>{{ $product->Category->name }} {{ $product->ItemClass->name }}, nível
+                                        {{ $product->lvlMin }}
+                                    </p>
+                                @endif
                             </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="attributes d-flex justify-content-between align-items-center">
@@ -341,6 +347,7 @@
                     </div>
                 </div>
                 <div class="div-product-info col justify-content-center align-items-center">
+                    <h1>{{ $product->id }}</h1>
                     <h3 class="h3 mb-3 fw-bold text-center">Photo tirada por <a
                             href="{{ $product->author_link }}">{{ $product->author_name }}</a> em <a
                             href="{{ $product->source_website_link }}">{{ $product->SourceWebsite->name }}</a>

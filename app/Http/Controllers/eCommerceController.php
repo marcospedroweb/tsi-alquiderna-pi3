@@ -113,6 +113,8 @@ class eCommerceController extends Controller
                         array_push($filters, array('new', 1));
                     else if (strrpos($filter, 'onSale-'))
                         array_push($filters, array('discount_price', 0.0));
+                    else if (strrpos($filter, 'kit-'))
+                        array_push($filters, array('kit', 1));
                 }
 
                 $allProducts = Product::filterProductByFilters($filters, $category_name, $itemClass_name, $orderByColumn, $orderByValue);
@@ -131,6 +133,8 @@ class eCommerceController extends Controller
                         array_push($filters, array('new', 1));
                     else if (strrpos($filter, 'onSale-'))
                         array_push($filters, array('discount_price', 0.0));
+                    else if (strrpos($filter, 'kit-'))
+                        array_push($filters, array('kit', 1));
                 }
 
                 $allProducts = Product::filterProductByFilters($filters, $category_name, $itemClass_name, 'name', 'ASC');

@@ -122,6 +122,16 @@
                             </label>
                         </div>
                     </div>
+                    <div class="filter-option mt-3">
+                        <h4 class="filter-subtitle">Kit</h4>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="filter[]" value="filter-kit-true" id="kit"
+                                {{ in_array('filter-kit-true', $checked) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="kit">
+                                Produto com kit
+                            </label>
+                        </div>
+                    </div>
                     <div class="mt-3">
                         <button type="submit" class="btn btn-primary">
                             Filtrar

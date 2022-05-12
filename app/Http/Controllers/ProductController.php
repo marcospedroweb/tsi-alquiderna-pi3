@@ -177,6 +177,7 @@ class ProductController extends Controller
 
     public function filterBy(Request $request)
     {
+        //filter product/admin
         $category = $request->filterByCategory ?? '';
         $itemClass = $request->filterByItemClass ?? '';
         $orderByColumn = $request->filterByOrderByColumn ?? '';

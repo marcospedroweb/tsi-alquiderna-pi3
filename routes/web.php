@@ -74,18 +74,18 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/sourceWebsite/forceDelete/{sourceWebsite}', [SourceWebsiteController::class, 'forceDelete'])->name('sourceWebsite.forceDelete'); // Restaura do soft delete
 
     //[ADMIN] product
-    Route::get('/product', [ProductController::class, 'index'])->name('product.index');
-    Route::post('/product/filter', [ProductController::class, 'filterBy'])->name('product.filter');
-    Route::get('/product/create', [ProductController::class, 'create'])->name('product.create'); // Retorna a pagina para create novo dado
-    Route::post('/product/create/', [ProductController::class, 'store'])->name('product.store'); //armazena no banco
-    Route::get('/product/destroy/{product}', [ProductController::class, 'destroy'])->name('product.destroy'); // "Apaga do banco"
-    Route::get('/product/edit/{product}', [ProductController::class, 'edit'])->name('product.edit'); // Vizualiza pagina para edit, já com os dados
-    Route::put('/product/edit/{product}', [ProductController::class, 'update'])->name('product.update'); // Atualiza no banco com as informações
-    Route::get('/product/trash', [ProductController::class, 'trash'])->name('product.trash'); //Vizualiza todos os itens com softdelete
-    Route::get('/product/trash/restore/{product}', [ProductController::class, 'restore'])->name('product.restore'); // Restaura do soft delete
-    Route::get('/product/forceDelete/{product}', [ProductController::class, 'forceDelete'])->name('product.forceDelete'); // Restaura do soft delete
+    Route::get('/product/admin', [ProductController::class, 'index'])->name('product.index');
+    Route::post('/product/admin/filter', [ProductController::class, 'filterBy'])->name('product.filter');
+    Route::get('/product/admin/create', [ProductController::class, 'create'])->name('product.create'); // Retorna a pagina para create novo dado
+    Route::post('/product/admin/create/', [ProductController::class, 'store'])->name('product.store'); //armazena no banco
+    Route::get('/product/admin/destroy/{product}', [ProductController::class, 'destroy'])->name('product.destroy'); // "Apaga do banco"
+    Route::get('/product/admin/edit/{product}', [ProductController::class, 'edit'])->name('product.edit'); // Vizualiza pagina para edit, já com os dados
+    Route::put('/product/admin/edit/{product}', [ProductController::class, 'update'])->name('product.update'); // Atualiza no banco com as informações
+    Route::get('/product/admin/trash', [ProductController::class, 'trash'])->name('product.trash'); //Vizualiza todos os itens com softdelete
+    Route::get('/product/admin/trash/restore/{product}', [ProductController::class, 'restore'])->name('product.restore'); // Restaura do soft delete
+    Route::get('/product/admin/forceDelete/{product}', [ProductController::class, 'forceDelete'])->name('product.forceDelete'); // Restaura do soft delete
 
-    Route::post('/product/filterBy/', [ProductController::class, 'filterBy'])->name('product.filterBy');
+    Route::post('/product/admin/filterBy/', [ProductController::class, 'filterBy'])->name('product.filterBy');
 });
 
 Route::POST('/product/json', [eCommerceController::class, 'returnJSONOf'])->name('product.returnJSONOf'); // Restaura do soft delete
@@ -93,4 +93,5 @@ Route::POST('/product/json', [eCommerceController::class, 'returnJSONOf'])->name
 //[User] Product
 Route::get('/product/{category}', [eCommerceController::class, 'productCategory'])->name('product.category');
 Route::get('/product/{category}/{itemClass}', [eCommerceController::class, 'productItemClass'])->name('product.itemClass');
-Route::get('/product/{category}/{itemClass}{teste?}', [eCommerceController::class, 'productItemClass'])->name('product.itemClass.orderBy');
+Route::get('/product/show/{product}', [eCommerceController::class, 'productItemClass'])->name('product.show');
+// Route::get('/product/{category}/{itemClass}{teste?}', [eCommerceController::class, 'productItemClass'])->name('product.itemClass.orderBy');

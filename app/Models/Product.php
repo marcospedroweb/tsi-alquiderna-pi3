@@ -63,22 +63,15 @@ class Product extends Model
         // Varios produtos pertencem a varias tags
     }
 
-    public function hasTag($tag_id)
-    {
-        return in_array($tag_id, $this->Tags->pluck('id')->toArray());
-        // [in_array($variavel, o que eu busco)]
-        // [$this->Tags->pluck('id')->toArray())] vai procurar a coluna 'id' no meu array/obj ($tag_id), retornando true (Se aquele produto tiver aquela tag) ou false (Se aquela tag não estar naquele produto)
-    }
-
     public static function returnAllProductsByCategory()
     {
         $allCategories = [
             'lightArmors' => Product::filterProductBy('Armadura', 'leve'),
             'mediumArmors' => Product::filterProductBy('Armadura', 'média'),
             'heavyArmors' => Product::filterProductBy('Armadura', 'pesada'),
-            'kitsLightArmors' => Product::filterProductBy('Armadura', 'leve - kit'),
-            'kitsMediumArmors' => Product::filterProductBy('Armadura', 'média - kit'),
-            'kitsHeavyArmors' => Product::filterProductBy('Armadura', 'pesada - kit'),
+            'kitsLightArmors' => Product::filterProductBy('Armadura', 'leve', 'none', 'none', 12, 'kit'),
+            'kitsMediumArmors' => Product::filterProductBy('Armadura', 'média', 'none', 'none', 12, 'kit'),
+            'kitsHeavyArmors' => Product::filterProductBy('Armadura', 'pesada', 'none', 'none', 12, 'kit'),
             'swords' => Product::filterProductBy('Arma física', 'espada'),
             'axes' => Product::filterProductBy('Arma física', 'machado'),
             'bows' => Product::filterProductBy('Arma física', 'arco'),
@@ -96,20 +89,34 @@ class Product extends Model
         return $allCategories;
     }
 
-    public function newProducts()
+    public static function filterProductBy(string $category_name, string $itemClass_name = '', string $orderByColumn = 'name', string $orderByValue = 'ASC', int $paginate = 12, bool $kit = false)
     {
-        return Product::where('new', 1)->paginate(7);
-    }
+        if ($orderByColumn === 'none')
+            $orderByColumn = 'name';
+        if ($orderByValue === 'none')
+            $orderByValue = 'ASC';
 
-    public static function filterProductBy(string $category_name, string $itemClass_name = '', string $orderByColumn = 'name', string $orderByValue = 'DESC', int $paginate = 12,)
-    {
         if ($category_name && $itemClass_name)
-            return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
-                ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
-                ->orderBy($orderByColumn, $orderByValue)
-                ->paginate($paginate);
+            if ($kit)
+                return Product::where('kit', 1)
+                    ->where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate($paginate);
+            else if ($itemClass_name === 'kit')
+                return Product::where('kit', 1)
+                    ->where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate($paginate);
+            else
+                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                    ->orderBy($orderByColumn, $orderByValue)
+                    ->paginate($paginate);
         else if ($category_name)
             return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                ->orWhere('kit', 1)
+                ->where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
                 ->orderBy($orderByColumn, $orderByValue)
                 ->paginate($paginate);
     }
@@ -118,7 +125,18 @@ class Product extends Model
     {
         $numberFilters = count($filters);
 
-        if ($numberFilters === 5)
+        if ($numberFilters === 6) {
+            return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+                ->where($filters[0][0], strpos($filters[0][0], 'price') ? '!=' : '=', $filters[0][1])
+                ->where($filters[1][0], strpos($filters[1][0], 'price') ? '!=' : '=', $filters[1][1])
+                ->where($filters[2][0], strpos($filters[2][0], 'price') ? '!=' : '=', $filters[2][1])
+                ->where($filters[3][0], strpos($filters[3][0], 'price') ? '!=' : '=', $filters[3][1])
+                ->where($filters[4][0], strpos($filters[4][0], 'price') ? '!=' : '=', $filters[4][1])
+                ->where($filters[5][0], strpos($filters[5][0], 'price') ? '!=' : '=', $filters[5][1])
+                ->orderBy($orderByColumn, $orderByValue)
+                ->paginate(12);
+        } else if ($numberFilters === 5)
             return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
                 ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
                 ->where($filters[0][0], strpos($filters[0][0], 'price') ? '!=' : '=', $filters[0][1])
@@ -165,7 +183,7 @@ class Product extends Model
         switch ($category_name) {
             case 'Armadura':
                 $allProductsByItemClass = array(
-                    'lightArmors' => Product::filterProductBy($category_name, 'leve', 'name', 'DESC', 7),
+                    'lightArmors' => Product::filterProductBy($category_name, 'leve', 'name', 'DESC'),
                     'mediumArmors' => Product::filterProductBy($category_name, 'média', 'name', 'DESC'),
                     'heavyArmors' => Product::filterProductBy($category_name, 'pesada', 'name', 'DESC'),
                 );
