@@ -91,6 +91,7 @@ class Product extends Model
 
     public static function filterProductBy(string $category_name, string $itemClass_name = '', string $orderByColumn = 'name', string $orderByValue = 'ASC', int $paginate = 12, bool $kit = false)
     {
+        // dd($category_name);
         if ($orderByColumn === 'none')
             $orderByColumn = 'name';
         if ($orderByValue === 'none')

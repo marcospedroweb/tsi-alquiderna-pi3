@@ -15,10 +15,10 @@ class eCommerceController extends Controller
         return view('index')->with([
             'newProducts' => Product::where('new', 1)->take(7)->get(),
             'heavyArmors' => Product::filterProductBy('Armadura', 'pesada'),
-            'productBigBanner1' => Product::where('id', 23)->get(),
-            'productSmallBanner1' => Product::where('id', 48)->get(),
-            'productSmallBanner2' => Product::where('id', 47)->get(),
-            'productBigBanner2' => Product::where('id', 17)->get(),
+            'productBigBanner1' => Product::where('id', 23)->first(),
+            'productSmallBanner1' => Product::where('id', 48)->first(),
+            'productSmallBanner2' => Product::where('id', 47)->first(),
+            'productBigBanner2' => Product::where('id', 17)->first(),
         ]);
     }
 
@@ -68,6 +68,7 @@ class eCommerceController extends Controller
 
     public function productCategory($category_name)
     {
+        //Page category
         $allProductsByCategory = Product::filterProductBy($category_name, '', 'name', 'DESC');
         $newProductsByCategory = Product::filterProductBy($category_name, '', 'new', 'DESC', 7);
         $beginnerProductsByCategory = Product::filterProductByColumn($category_name, '', 'recommendation', 'ini', 7);
@@ -75,6 +76,62 @@ class eCommerceController extends Controller
         $advancedProductsByCategory = Product::filterProductByColumn($category_name, '', 'recommendation', 'avan', 7);
         $productsOnSaleByCategory = Product::filterProductByColumn($category_name, '', 'sale', 1, 7);
         $productsByItemClass = Product::filterProductByItemClass($category_name);
+
+        /* Banners */
+        switch ($category_name) {
+            case 'Armadura':
+                $productBigBanner1 = Product::where('id', 72)->first();
+                $productSmallBanner1 = '';
+                $productSmallBanner2 = '';
+                $productBigBanner2 = Product::where('id', 88)->first();
+                $productBigBanner3 = '';
+                $productSmallBanner3 = '';
+                $productSmallBanner4 = '';
+                $productBigBanner4 = '';
+                break;
+            case 'Arma física':
+                $productBigBanner1 = '';
+                $productSmallBanner1 = '';
+                $productSmallBanner2 = '';
+                $productBigBanner2 = '';
+                $productBigBanner3 = '';
+                $productSmallBanner3 = '';
+                $productSmallBanner4 = '';
+                $productBigBanner4 = '';
+                break;
+            case 'Arma mágica':
+                $productBigBanner1 = '';
+                $productSmallBanner1 = '';
+                $productSmallBanner2 = '';
+                $productBigBanner2 = '';
+                $productBigBanner3 = '';
+                $productSmallBanner3 = '';
+                $productSmallBanner4 = '';
+                $productBigBanner4 = '';
+                break;
+            case 'Poção':
+                $productBigBanner1 = '';
+                $productSmallBanner1 = '';
+                $productSmallBanner2 = '';
+                $productBigBanner2 = '';
+                $productBigBanner3 = '';
+                $productSmallBanner3 = '';
+                $productSmallBanner4 = '';
+                $productBigBanner4 = '';
+                break;
+            case 'Grimório':
+                $productBigBanner1 = '';
+                $productSmallBanner1 = '';
+                $productSmallBanner2 = '';
+                $productBigBanner2 = '';
+                $productBigBanner3 = '';
+                $productSmallBanner3 = '';
+                $productSmallBanner4 = '';
+                $productBigBanner4 = '';
+                break;
+            default:
+                dd('erro');
+        }
 
 
         return view('product.category')->with([
@@ -86,6 +143,14 @@ class eCommerceController extends Controller
             'advancedProductsByCategory' => $advancedProductsByCategory,
             'productsOnSaleByCategory' => $productsOnSaleByCategory,
             'productsByItemClass' => $productsByItemClass,
+            'productBigBanner1' => $productBigBanner1,
+            'productSmallBanner1' => $productSmallBanner1,
+            'productSmallBanner2' => $productSmallBanner2,
+            'productBigBanner2' => $productBigBanner2,
+            'productBigBanner3' => $productBigBanner3,
+            'productSmallBanner3' => $productSmallBanner3,
+            'productSmallBanner4' => $productSmallBanner4,
+            'productBigBanner4' => $productBigBanner4,
         ]);
     }
 

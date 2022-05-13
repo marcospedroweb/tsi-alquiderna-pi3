@@ -12,6 +12,5 @@ initScrollCards();
 initReplaceRecommendation();
 initChangeInputPrice();
 initFormatProductPrice();
-initChangeInputValues();
 
 

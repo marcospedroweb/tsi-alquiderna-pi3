@@ -16,11 +16,39 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $products = '';
+        if ($request->sort) {
+            if (strrpos($request->sort, 'price') === 0 && strrpos($request->sort, 'asc')) {
+                $orderByColumn = 'price';
+                $orderByValue = 'ASC';
+            } else if (strrpos($request->sort, 'price') === 0 && strrpos($request->sort, 'desc')) {
+                $orderByColumn = 'price';
+                $orderByValue = 'DESC';
+            } else if (strrpos($request->sort, 'name') === 0 && strrpos($request->sort, 'asc')) {
+                $orderByColumn = 'name';
+                $orderByValue = 'ASC';
+            } else {
+                $orderByColumn = 'name';
+                $orderByValue = 'DESC';
+            }
+
+            if ($request->category && $request->itemClass)
+                $products = Product::filterProductBy($request->category, $request->itemClass, $orderByColumn, $orderByValue);
+            else
+                $products = Product::orderBy($orderByColumn, $orderByValue)->paginate(12);
+        } else if ($request->category) {
+            if ($request->itemClass)
+                $products = Product::filterProductBy($request->category, $request->itemClass, 'created_at', 'DESC');
+            else
+                $products = Product::filterProductBy($request->category, '', 'created_at', 'DESC');
+        } else {
+            $products = Product::orderBy('created_at', 'DESC')->paginate(12);
+        }
 
         return view('product.index')->with([
-            'products' => Product::orderBy('created_at', 'DESC')->paginate(12),
+            'products' => $products,
             'allProductsByCategory' => Product::returnAllProductsByCategory(),
         ]);
     }
@@ -172,36 +200,5 @@ class ProductController extends Controller
         $product->forceDelete(); // Apaga totalmente aquele dado
         session()->flash('success', 'Produto deletado PERMANENTEMENTE com sucesso'); //[session()->flash()] consiste em uma flash message, mostra a mensagem para o usuario rapidamente, depois apaga isso da memoria
         return redirect(route('product.trash'));
-    }
-
-
-    public function filterBy(Request $request)
-    {
-        // dd($request);
-        //filter product/admin
-        $category = $request->filterByCategory ?? '';
-        $itemClass = $request->filterByItemClass ?? '';
-        $orderByColumn = $request->filterByOrderByColumn ?? '';
-        $orderByValue = $request->filterByOrderByValue ?? '';
-
-        $products = Product::filterProductBy($category, $itemClass, $orderByColumn, $orderByValue);
-
-        switch ($orderByValue) {
-            case 'DESC':
-                $orderByValue = 'decrescente';
-                break;
-            case 'ASC':
-                $orderByValue = 'crescente';
-                break;
-        }
-
-        return view('product.index')->with([
-            'filterByOrderByColumn' => $orderByColumn,
-            'filterByOrderByValue' => $orderByValue,
-            'filterByCategory' => $category,
-            'filterByItemClass' => $itemClass,
-            'products' => $products,
-            'allProductsByCategory' => Product::returnAllProductsByCategory(),
-        ]);
     }
 }

@@ -21,7 +21,21 @@
 }
 
 .big-banner-full .div-product-price .original-price {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-weight: 700;
+    font-size: 1.25rem !important;
     font-weight: 500;
+}
+
+.big-banner-full .div-product-price .original-price::before {
+    content: 'R$';
+    font-weight: 500;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem !important;
+    margin-top: 1px;
+    margin-right: 4px;
 }
 
 .big-banner-full .div-product-price .p-product-price,
@@ -42,6 +56,7 @@
     font-weight: 700;
     font-size: 1.25rem !important;
     margin-top: 4px;
+    margin-right: 4px;
 }
 
 /* Banner text right */

@@ -45,18 +45,32 @@
             </div>
         </div>
     </div>
+    @php
+    $url = URL::current() . '?';
+    if (isset(request()->category) && isset(request()->itemClass)) {
+        if (isset(request()->sort)) {
+            $url = $url . ('&category=' . request()->category) . ('&itemClass=' . request()->itemClass) . ('&sort=' . request()->sort);
+        } else {
+            $url = $url . ('&category=' . request()->category) . ('&itemClass=' . request()->itemClass);
+        }
+    } elseif (isset(request()->category)) {
+        if (isset(request()->sort)) {
+            $url = $url . ('&category=' . request()->category) . ('&sort=' . request()->sort);
+        } else {
+            $url = $url . ('&category=' . request()->category);
+        }
+    }
+    @endphp
     <div class="my-3 d-flex flex-column justify-content-center align-items-start">
-        @if (isset($filterByCategory) && isset($filterByItemClass) && $filterByItemClass != '')
-            <h3>Filtrado por: <span class="filtered-by">{{ $filterByCategory }} - {{ $filterByItemClass }}</span>
-            </h3>
-        @elseif (isset($filterByCategory))
-            <h3>Filtrado por: <span class="filtered-by">{{ $filterByCategory }}</span></h3>
+        @if (request()->category && request()->itemClass)
+            <h3>Filtrado por: <span class="filtered-by">{{ request()->category }} -
+                    {{ request()->itemClass }}</span></h3>
+        @elseif(request()->category)
+            <h3>Filtrado por: <span class="filtered-by">{{ request()->category }} - nenhum</span></h3>
         @else
             <h3>Filtrado por: <span class="filtered-by">nenhum</span></h3>
         @endif
-        <form action="{{ route('product.filter') }}" method="POST"
-            class="form-filter-by d-flex justify-content-between align-items-center w-100">
-            @csrf
+        <div class="form-filter-by d-flex justify-content-between align-items-center w-100">
             <div class="d-flex justify-content-center align-items-center">
                 <div class="dropdown">
                     <button class="btn btn-primary  dropdown-toggle" type="button" id="filter-by-armor"
@@ -64,26 +78,24 @@
                         Armadura
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="filter-by-armor">
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Armadura-none">Todas
-                                armaduras</button>
+                        <li>
+                            <a class="dropdown-item" href="{{ $url . '&category=Armadura' }}">Todas
+                                armaduras</a>
                         </li>
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Armadura-leve">Armaduras leves</button>
+                        <li>
+                            <a class="dropdown-item" href="{{ $url . '&category=Armadura&itemClass=leve' }}">Armaduras
+                                leve</a>
                         </li>
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Armadura-média">Armaduras médias</button>
+                        <li>
+                            <a class="dropdown-item" href="{{ $url . '&category=Armadura&itemClass=média' }}">Armaduras
+                                média</a>
                         </li>
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Armadura-pesada">Armaduras pesadas</button>
+                        <li>
+                            <a class="dropdown-item" href="{{ $url . '&category=Armadura&itemClass=pesada' }}">Armaduras
+                                pesada</a>
                         </li>
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Armadura-kit">Armaduras kits</button>
+                        <li>
+                            <a class="dropdown-item" href="{{ $url . '&category=Armadura&itemClass=kit' }}">kits</a>
                         </li>
                     </ul>
                 </div>
@@ -93,26 +105,24 @@
                         Armas físicas
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="filter-by-armor">
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Arma física-none">Todas
-                                Armas físicas</button>
+                        <li>
+                            <a class="dropdown-item" href="{{ $url . '&category=Arma física' }}">Todas
+                                arma físicas</a>
                         </li>
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Arma física-espada">Espadas</button>
+                        <li>
+                            <a class="dropdown-item"
+                                href="{{ $url . '&category=Arma física&itemClass=espada' }}">Espadas</a>
                         </li>
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Arma física-machado">Machados</button>
+                        <li>
+                            <a class="dropdown-item"
+                                href="{{ $url . '&category=Arma física&itemClass=machado' }}">Machados</a>
                         </li>
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Arma física-arco">Arcos</button>
+                        <li>
+                            <a class="dropdown-item"
+                                href="{{ $url . '&category=Arma física&itemClass=arco' }}">Arcos</a>
                         </li>
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Arma física-kit">kits</button>
+                        <li>
+                            <a class="dropdown-item" href="{{ $url . '&category=Arma física&itemClass=kit' }}">kits</a>
                         </li>
                     </ul>
                 </div>
@@ -122,18 +132,13 @@
                         Armas mágicas
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="filter-by-armor">
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Arma mágica-none">Todas
-                                Armas mágicas</button>
+                        <li>
+                            <a class="dropdown-item" href="{{ $url . '&category=Arma mágica' }}">Todas
+                                armas mágicas</a>
                         </li>
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Arma mágica-varinha">Varinha</button>
-                        </li>
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Arma mágica-kit">kits</button>
+                        <li>
+                            <a class="dropdown-item"
+                                href="{{ $url . '&category=Arma mágica&itemClass=varinha' }}">Varinhas</a>
                         </li>
                     </ul>
                 </div>
@@ -143,26 +148,25 @@
                         Poções
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="filter-by-armor">
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Poção-none">Todas
-                                poções</button>
+                        <li>
+                            <a class="dropdown-item" href="{{ $url . '&category=Poção' }}">Todas
+                                armas mágicas</a>
                         </li>
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Poção-vida">Poções de vida</button>
+                        <li>
+                            <a class="dropdown-item" href="{{ $url . '&category=Poção&itemClass=vida' }}">Vida</a>
                         </li>
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Poção-força">Poções de força</button>
+                        <li>
+                            <a class="dropdown-item" href="{{ $url . '&category=Poção&itemClass=mana' }}">Mana</a>
                         </li>
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Poção-mana">Poções de mana</button>
+                        <li>
+                            <a class="dropdown-item"
+                                href="{{ $url . '&category=Poção&itemClass=agilidade' }}">Agilidade</a>
                         </li>
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Poção-kit">kits</button>
+                        <li>
+                            <a class="dropdown-item" href="{{ $url . '&category=Poção&itemClass=força' }}">Força</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ $url . '&category=Poção&itemClass=kit' }}">kits</a>
                         </li>
                     </ul>
                 </div>
@@ -172,17 +176,16 @@
                         Grimórios
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="filter-by-armor">
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Grimório-none">Todas os grimórios</button>
+                        <li>
+                            <a class="dropdown-item" href="{{ $url . '&category=Poção' }}">Todos os
+                                grimórios</a>
                         </li>
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Grimório-mágico">mágico</button>
+                        <li>
+                            <a class="dropdown-item"
+                                href="{{ $url . '&category=Grimório&itemClass=mágico' }}">Mágicos</a>
                         </li>
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="none-none-Grimório-kit">kits</button>
+                        <li>
+                            <a class="dropdown-item" href="{{ $url . '&category=Grimório&itemClass=mágico' }}">Kits</a>
                         </li>
                     </ul>
                 </div>
@@ -193,39 +196,35 @@
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Ordenado por:
                         <span class="fw-bold">
-                            {{ isset($filterByOrderByColumn) && $filterByOrderByColumn ? $filterByOrderByColumn . ' - ' : 'nenhum' }}
-                            {{ isset($filterByOrderByValue) && $filterByOrderByValue ? $filterByOrderByValue : '' }}
+                            @if (isset(request()->sort) && request()->sort === 'price_asc')
+                                Preço - menor para maior
+                            @elseif(isset(request()->sort) && request()->sort === 'price_desc')
+                                Preço - maior para menor
+                            @elseif(isset(request()->sort) && request()->sort === 'name_asc')
+                                Nome (A - Z)
+                            @elseif(isset(request()->sort) && request()->sort === 'name_asc')
+                                Nome (Z - A)
+                            @else
+                                Data de criação - menor para maior
+                            @endif
                         </span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="filter-by-armor">
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="name-ASC-none-none">Ordenar por Nome (A - Z)</button>
-                        </li>
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="name-DESC-none-none">Ordenar por Nome (Z - A)</button>
-                        </li>
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="price-ASC-none-none">Ordenar por preço crescente</button>
-                        </li>
-                        <li class="dropdown-item">
-                            <button type="submit" class="btn" name="filterByCategory"
-                                value="price-DESC-none-none">Ordenar por preço decrescente</button>
-                        </li>
+                        <li><a class="dropdown-item {{ request()->sort === 'price_asc' ? 'disabled' : '' }}"
+                                href="{{ $url . '&sort=name_asc' }}">Ordenar por Nome (A
+                                - Z)</a></li>
+                        <li><a class="dropdown-item {{ request()->sort === 'price_asc' ? 'disabled' : '' }}"
+                                href="{{ $url . '&sort=name_desc' }}">Ordenar por Nome (Z - A)</a></li>
+                        <li><a class="dropdown-item {{ request()->sort === 'price_asc' ? 'disabled' : '' }}"
+                                href="{{ $url . '&sort=price_asc' }}">Preço - menor
+                                para
+                                maior</a></li>
+                        <li><a class="dropdown-item {{ request()->sort === 'price_asc' ? 'disabled' : '' }}"
+                                href="{{ $url . '&sort=price_desc' }}">Preço - maior para menor</a></li>
                     </ul>
                 </div>
             </div>
-            <input type="hidden" class="btn" name="filterByOrderByColumn"
-                value="{{ isset($filterByOrderByColumn) && $filterByOrderByColumn ? $filterByOrderByColumn : '' }}">
-            <input type="hidden" class="btn" name="filterByOrderByValue"
-                value="{{ isset($filterByOrderByValue) && $filterByOrderByValue ? $filterByOrderByValue : '' }}">
-            <input type="hidden" class="btn" name="filterByCategory"
-                value="{{ isset($filterByCategory) && $filterByCategory ? $filterByCategory : '' }}">
-            <input type="hidden" class="btn" name="filterByItemClass"
-                value="{{ isset($filterByItemClass) && $filterByItemClass ? $filterByItemClass : '' }}">
-        </form>
+        </div>
     </div>
     <div class="row justify-content-between align-items-center mb-6">
         @foreach ($products as $product)
@@ -347,7 +346,7 @@
                     </div>
                 </div>
                 <div class="div-product-info col justify-content-center align-items-center">
-                    <h1>{{ $product->id }}</h1>
+                    {{-- <h1>{{ $product->id }}</h1> --}}
                     <h3 class="h3 mb-3 fw-bold text-center">Photo tirada por <a
                             href="{{ $product->author_link }}">{{ $product->author_name }}</a> em <a
                             href="{{ $product->source_website_link }}">{{ $product->SourceWebsite->name }}</a>
