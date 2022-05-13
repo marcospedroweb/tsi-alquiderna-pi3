@@ -322,17 +322,22 @@
         </div>
     </section>
     <section class="mb-6">
-        <div class="big-banner-right row d-flex justify-content-center align-items-center mb-4 position-relative">
+        <div
+            class="{{ $category_name === 'Armadura' ? 'big-banner-right' : 'big-banner-full' }} row d-flex justify-content-center align-items-center mb-4 position-relative">
             {{-- <img src="https://via.placeholder.com/1296x624.png" alt=""> --}}
             <img src="{{ asset('images-banners/index-big-banner-1.png') }}" alt="">
             <div
                 class="col-6 position-absolute top-50 end-0 translate-middle-y row flex-column justify-content-center align-items-center me-4">
                 <div class="div-text-call col-12 d-flex flex-column justify-content-center align-items-center">
-                    <h2 class="big-banner-right-call">Texto chamativo do produto</h2>
-                    <p class="big-banner-right-call-paragraph">Paragrafo do produto</p>
+                    <h2 class="{{ $category_name === 'Armadura' ? 'big-banner-right' : 'big-banner-full' }}-call">Texto
+                        chamativo do produto</h2>
+                    <p
+                        class="{{ $category_name === 'Armadura' ? 'big-banner-right' : 'big-banner-full' }}-call-paragraph">
+                        Paragrafo do produto</p>
                 </div>
                 <div class="col-12 row flex-column justify-content-center align-items-center">
-                    <div class="col big-banner-right-text d-flex flex-column justify-content-end">
+                    <div
+                        class="col {{ $category_name === 'Armadura' ? 'big-banner-right' : 'big-banner-full' }}-text d-flex flex-column justify-content-end">
                         <div class="d-flex flex-column">
                             <h3 style="word-wrap: break-word;" class="d-flex flex-column">
                                 @if ($heavyArmor->new === 1)
@@ -553,20 +558,25 @@
                 </div>
             </div>
         </div>
-        <div class="big-banner-right row d-flex justify-content-center align-items-center mb-4 position-relative">
+        <div
+            class="{{ $category_name === 'Armadura' ? 'big-banner-right' : 'big-banner-full' }} row d-flex justify-content-center align-items-center mb-4 position-relative">
             <img src="{{ asset('images-banners/index-big-banner-1.png') }}" alt="">
             <div
                 class="col-6 position-absolute top-50 end-0 translate-middle-y row flex-column justify-content-center align-items-center me-4">
                 <div class="div-text-call col-12 d-flex flex-column justify-content-center align-items-center">
                     <div class="w-100 text-start">
-                        <h2 class="big-banner-right-call">O brilho chama novamente</h2>
+                        <h2 class="{{ $category_name === 'Armadura' ? 'big-banner-right' : 'big-banner-full' }}-call">O
+                            brilho chama novamente</h2>
                     </div>
-                    <p class="big-banner-right-call-paragraph">Uma espada, não se sabe quem a forjou ou quem a encontrou,
+                    <p
+                        class="{{ $category_name === 'Armadura' ? 'big-banner-right' : 'big-banner-full' }}-call-paragraph">
+                        Uma espada, não se sabe quem a forjou ou quem a encontrou,
                         mas ela emiti um grande poder.
                     </p>
                 </div>
                 <div class="col-12 row flex-column justify-content-center align-items-center">
-                    <div class="col big-banner-right-text d-flex flex-column justify-content-end">
+                    <div
+                        class="col {{ $category_name === 'Armadura' ? 'big-banner-right' : 'big-banner-full' }}-text d-flex flex-column justify-content-end">
                         <div class="d-flex flex-column">
                             <h3 style="word-wrap: break-word;" class="d-flex flex-column">
                                 @if ($heavyArmor->new === 1)
@@ -920,19 +930,24 @@
                 </div>
             </div>
         </div>
-        <div class="big-banner-right row d-flex justify-content-center align-items-center mb-4 position-relative">
+        <div
+            class="{{ $category_name === 'Armadura' ? 'big-banner-right' : 'big-banner-full' }} row d-flex justify-content-center align-items-center mb-4 position-relative">
             <img src="{{ asset('images-banners/index-big-banner-2.png') }}" alt="">
             <div
                 class="col-6 position-absolute top-50 end-0 translate-middle-y row flex-column justify-content-center align-items-center me-4">
                 <div class="div-text-call col-12 d-flex flex-column justify-content-center align-items-center">
                     <div class="w-100 text-start">
-                        <h2 class="big-banner-right-call">Está começando agora?</h2>
+                        <h2 class="{{ $category_name === 'Armadura' ? 'big-banner-right' : 'big-banner-full' }}-call">
+                            Está começando agora?</h2>
                     </div>
-                    <p class="big-banner-right-call-paragraph">Adquira agora o kit de armadura para aventureiros iniciantes
+                    <p
+                        class="{{ $category_name === 'Armadura' ? 'big-banner-right' : 'big-banner-full' }}-call-paragraph">
+                        Adquira agora o kit de armadura para aventureiros iniciantes
                         e ganhe um escudo.</p>
                 </div>
                 <div class="col-12 row flex-column justify-content-center align-items-center">
-                    <div class="col big-banner-right-text d-flex flex-column justify-content-end">
+                    <div
+                        class="col {{ $category_name === 'Armadura' ? 'big-banner-right' : 'big-banner-full' }}-text d-flex flex-column justify-content-end">
                         <div class="d-flex flex-column">
                             <h3 style="word-wrap: break-word;" class="d-flex flex-column">
                                 @if ($heavyArmor->new === 1)
