@@ -160,6 +160,10 @@ span.h2 {
 }
 
 /* Dropdown */
+.dropdown-menu {
+    z-index: 1021;
+}
+
 .dropdown+.dropdown {
     margin-left: 1rem;
 }
