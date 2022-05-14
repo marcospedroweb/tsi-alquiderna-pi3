@@ -20,7 +20,8 @@
     font-size: 1.25rem;
 }
 
-.big-banner-full .div-product-price .original-price {
+.big-banner-full .div-product-price .original-price,
+.small-banner .div-product-price .original-price {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -29,7 +30,8 @@
     font-weight: 500;
 }
 
-.big-banner-full .div-product-price .original-price::before {
+.big-banner-full .div-product-price .original-price::before,
+.small-banner .div-product-price .original-price::before {
     content: 'R$';
     font-weight: 500;
     font-family: 'Open Sans', sans-serif;

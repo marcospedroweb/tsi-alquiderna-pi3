@@ -19,6 +19,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $products = '';
+
         if ($request->sort) {
             if (strrpos($request->sort, 'price') === 0 && strrpos($request->sort, 'asc')) {
                 $orderByColumn = 'price';
@@ -34,20 +35,39 @@ class ProductController extends Controller
                 $orderByValue = 'DESC';
             }
 
-            if ($request->category && $request->itemClass)
-                $products = Product::filterProductBy($request->category, $request->itemClass, $orderByColumn, $orderByValue);
-            else
+            if ($request->has('filter') && (!empty($request->filter))) {
+
+                if (isset($request->filter['category']) && (!empty($request->filter['category'])))
+                    if (isset($request->filter['itemClass']) && (!empty($request->filter['itemClass'])))
+                        $products = Product::filterProductBy($request->filter['category'], $request->filter['itemClass'], $orderByColumn, $orderByValue);
+                    else
+                        $products = Product::filterProductBy($request->filter['category'], '', $orderByColumn, $orderByValue);
+                else {
+                    $request->filter['itemClass'] = '';
+                    $products = Product::orderBy('created_at', 'DESC')->paginate(12);
+                }
+            } else {
                 $products = Product::orderBy($orderByColumn, $orderByValue)->paginate(12);
-        } else if ($request->category) {
-            if ($request->itemClass)
-                $products = Product::filterProductBy($request->category, $request->itemClass, 'created_at', 'DESC');
-            else
-                $products = Product::filterProductBy($request->category, '', 'created_at', 'DESC');
+            }
         } else {
-            $products = Product::orderBy('created_at', 'DESC')->paginate(12);
+
+            if ($request->has('filter') && (!empty($request->filter))) {
+                if (isset($request->filter['category']) && (!empty($request->filter['category'])))
+                    if (isset($request->filter['itemClass']) && (!empty($request->filter['itemClass'])))
+                        $products = Product::filterProductBy($request->filter['category'], $request->filter['itemClass']);
+                    else
+                        $products = Product::filterProductBy($request->filter['category'], '');
+                else {
+                    $request->filter['itemClass'] = '';
+                    $products = Product::orderBy('created_at', 'DESC')->paginate(12);
+                }
+            } else {
+                $products = Product::orderBy('created_at', 'DESC')->paginate(12);
+            }
         }
 
         return view('product.index')->with([
+            'checked' => $request->has('filter') ? $request->filter : ['category' => '', 'itemClass' => ''],
             'products' => $products,
             'allProductsByCategory' => Product::returnAllProductsByCategory(),
         ]);

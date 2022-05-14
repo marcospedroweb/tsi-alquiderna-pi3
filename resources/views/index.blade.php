@@ -139,7 +139,7 @@
                                     <div class="card-product-price">
                                         <div class="d-flex flex-column align-items-end">
                                             @if ($newProduct->discount_price !== 0.0)
-                                                <p class="text-decoration-line-through product-discount-price">R$ <span
+                                                <p class="text-decoration-line-through original-price">R$ <span
                                                         class="product-price">{{ $newProduct->price }}</span></p>
                                                 <p class="p-product-price">R$ <span
                                                         class="product-discount-price">{{ $newProduct->discount_price }}
@@ -669,8 +669,7 @@
                                 <div class="d-flex flex-column align-items-end me-2">
                                     @if ($productBigBanner1->discount_price !== 0.0)
                                         <p class="text-decoration-line-through original-price">
-                                            {{ $productBigBanner1->price }}
-                                        </p>
+                                            {{ $productBigBanner1->price }}</p>
                                         <p class="p-product-price m-0">{{ $productBigBanner1->discount_price }}</p>
                                     @else
                                         <p class="p-product-price m-0">{{ $productBigBanner1->price }}</p>
@@ -1063,8 +1062,7 @@
                                 <div class="d-flex flex-column align-items-end me-2">
                                     @if ($productBigBanner2->discount_price !== 0.0)
                                         <p class="text-decoration-line-through original-price">
-                                            {{ $productBigBanner2->price }}
-                                        </p>
+                                            {{ $productBigBanner2->price }}</p>
                                         <p class="p-product-price m-0">{{ $productBigBanner2->discount_price }}</p>
                                     @else
                                         <p class="p-product-price m-0">{{ $productBigBanner2->price }}</p>

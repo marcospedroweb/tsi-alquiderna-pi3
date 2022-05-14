@@ -232,7 +232,6 @@ class eCommerceController extends Controller
 
 
         return view('product.itemClass')->with([
-            // 'teste' => strpos($filters[0][0], ''),
             'checked' => $request->has('filter') ? $request->filter : [],
             'category_name_edited' => $category_name_edited,
             'category_name' => $category_name,

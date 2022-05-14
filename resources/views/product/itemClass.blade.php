@@ -44,33 +44,41 @@
                             </button>
                         @endif
                         @php
-                            $actualUrl = URL::current() . '?';
 
-                            if (isset(request()->sort)) {
-                                $actualUrl = $actualUrl . ('&sort=' . request()->sort);
+                            if (!strpos(URL::full(), '?')) {
+                                $currentUrl = URL::current() . '?';
+                            } else {
+                                $currentUrl = URL::full();
+                            }
+
+                            if (isset(request()->sort) && !strpos($currentUrl, 'sort=')) {
+                                $currentUrl = $currentUrl . ('&sort=' . request()->sort);
+                            } elseif (isset(request()->sort) && strpos($currentUrl, 'sort=') && !strpos($currentUrl, request()->sort)) {
+                                $currentUrl = str_replace(request()->sort, $currentUrl);
                             }
 
                             if (isset(request()->filter)) {
                                 foreach (request()->filter as $filter) {
-                                    $actualUrl = $actualUrl . ('filter%5B%5D=' . $filter . '&');
+                                    $currentUrl = $currentUrl . ('filter%5B%5D=' . $filter . '&');
                                 }
                             }
+
                         @endphp
                         <ul class="dropdown-menu" aria-labelledby="dropdownOrderBy">
                             <li><a class="dropdown-item {{ request()->sort === 'price_asc' ? 'disabled' : '' }}"
-                                    href="{{ $actualUrl . '&sort=price_asc' }}">Preço - menor
+                                    href="{{ $currentUrl . '&sort=price_asc' }}">Preço - menor
                                     para
                                     maior</a></li>
                             <li><a class="dropdown-item {{ request()->sort === 'price_desc' ? 'disabled' : '' }}"
-                                    href="{{ $actualUrl . '&sort=price_desc' }}">Preço -
+                                    href="{{ $currentUrl . '&sort=price_desc' }}">Preço -
                                     maior
                                     para
                                     menor</a></li>
                             <li><a class="dropdown-item {{ !isset(request()->sort) || request()->sort === 'name_asc' ? 'disabled' : '' }}"
-                                    href="{{ $actualUrl . '&sort=name_asc' }}">Nome (A -
+                                    href="{{ $currentUrl . '&sort=name_asc' }}">Nome (A -
                                     Z)</a></li>
                             <li><a class="dropdown-item {{ request()->sort === 'name_desc' ? 'disabled' : '' }}"
-                                    href="{{ $actualUrl . '&sort=name_desc' }}">Nome (Z -
+                                    href="{{ $currentUrl . '&sort=name_desc' }}">Nome (Z -
                                     A)</a></li>
                         </ul>
                     </div>
@@ -302,7 +310,7 @@
                     @endif
                 </div>
                 <div class="mb-6">
-                    {{ $allProducts->links('vendor.pagination.bootstrap-5', ['actualUrl' => $actualUrl]) }}
+                    {{ $allProducts->links('vendor.pagination.bootstrap-5', ['actualUrl' => $currentUrl]) }}
                 </div>
             </div>
         </div>
