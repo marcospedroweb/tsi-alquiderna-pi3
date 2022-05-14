@@ -81,10 +81,10 @@ class eCommerceController extends Controller
         switch ($category_name) {
             case 'Armadura':
                 $productBigBanner1 = Product::where('id', 72)->first();
-                $productSmallBanner1 = '';
-                $productSmallBanner2 = '';
+                $productSmallBanner1 = Product::where('id', 84)->first();
+                $productSmallBanner2 = Product::where('id', 109)->first();
                 $productBigBanner2 = Product::where('id', 88)->first();
-                $productBigBanner3 = '';
+                $productBigBanner3 = Product::where('id', 100)->first();
                 $productSmallBanner3 = '';
                 $productSmallBanner4 = '';
                 $productBigBanner4 = '';

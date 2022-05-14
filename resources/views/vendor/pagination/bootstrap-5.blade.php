@@ -49,10 +49,18 @@
                             <span class="page-link" aria-hidden="true">&lsaquo;</span>
                         </li>
                     @else
-                        <li class="page-item">
-                            <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev"
-                                aria-label="@lang('pagination.previous')">&lsaquo;</a>
-                        </li>
+                        @if (isset($actualUrl))
+                            <li class="page-item">
+                                <a class="page-link"
+                                    href="{{ $actualUrl . '&page=' . (substr($paginator->previousPageUrl(), -2, 1) === '=' ? substr($paginator->previousPageUrl(), -1) : substr($paginator->previousPageUrl(), -2)) }}"
+                                    rel="prev" aria-label="@lang('pagination.previous')">&lsaquo;</a>
+                            </li>
+                        @else
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev"
+                                    aria-label="@lang('pagination.previous')">&lsaquo;</a>
+                            </li>
+                        @endif
                     @endif
 
                     {{-- Pagination Elements --}}
@@ -70,8 +78,14 @@
                                     <li class="page-item active" aria-current="page"><span
                                             class="page-link">{{ $page }}</span></li>
                                 @else
-                                    <li class="page-item"><a class="page-link"
-                                            href="{{ $url }}">{{ $page }}</a></li>
+                                    @if (isset($actualUrl))
+                                        <li class="page-item"><a class="page-link"
+                                                href="{{ $actualUrl . '&page=' . (substr($url, -2, 1) === '=' ? substr($url, -1) : substr($url, -2)) }}">{{ $page }}</a>
+                                        </li>
+                                    @else
+                                        <li class="page-item"><a class="page-link"
+                                                href="{{ $url }}">{{ $page }}</a></li>
+                                    @endif
                                 @endif
                             @endforeach
                         @endif
@@ -80,8 +94,14 @@
                     {{-- Next Page Link --}}
                     @if ($paginator->hasMorePages())
                         <li class="page-item">
-                            <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next"
-                                aria-label="@lang('pagination.next')">&rsaquo;</a>
+                            @if (isset($actualUrl))
+                                <a class="page-link"
+                                    href="{{ $actualUrl . '&page=' . (substr($paginator->nextPageUrl(), -2, 1) === '=' ? substr($paginator->nextPageUrl(), -1) : substr($paginator->nextPageUrl(), -2)) }}"
+                                    rel="next" aria-label="@lang('pagination.next')">&rsaquo;</a>
+                            @else
+                                <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next"
+                                    aria-label="@lang('pagination.next')">&rsaquo;</a>
+                            @endif
                         </li>
                     @else
                         <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
