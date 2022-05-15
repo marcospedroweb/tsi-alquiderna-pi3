@@ -1,3 +1,33 @@
+.div-item-class-image.item-class-selected {
+    position: relative;
+}
+
+.item-class-options .option-item-class:hover .div-item-class-image.item-class-selected img {
+    transform: scale(1);
+}
+
+.div-item-class-image.item-class-selected::before {
+    position: absolute;
+    content: '';
+    width: 200px;
+    height: 200px;
+    background-color: rgba(18, 11, 0, .8);
+    z-index: 1000;
+}
+
+.div-item-class-image.item-class-selected:hover::before {
+    position: absolute;
+    content: '';
+    width: 200px;
+    height: 200px;
+    background-color: rgba(18, 11, 0, .8);
+}
+
+.section-filter {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+
 #div-filter-checkbox .sticky-top {
     z-index: 999;
     top: 80px !important;

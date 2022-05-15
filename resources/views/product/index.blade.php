@@ -39,7 +39,7 @@
                 <span class="d-block">kits de poções: {{ count($allProductsByCategory['kitsPotions']) }}</span>
             </div>
             <div class="col">
-                <span class="d-block">poções de grimórios:
+                <span class="d-block">Grimórios:
                     {{ count($allProductsByCategory['grimoires']) }}</span>
                 <span class="d-block">kits grimorios: {{ count($allProductsByCategory['kitsGrimoires']) }}</span>
             </div>

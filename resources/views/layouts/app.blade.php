@@ -208,41 +208,48 @@
                     </svg>
 
                 </a>
-                <div class="d-flex justify-content-around align-items-center w-100">
+                <div class="d-flex justify-content-around align-items-start w-100 mb-4">
                     <ul class="list-unstyled">
-                        <a href="" class="link-primary">Armaduras</a>
-                        <li><a href="#" class="link-secondary">Armadura leve</a></li>
-                        <li><a href="#" class="link-secondary">Armadura média</a></li>
-                        <li><a href="#" class="link-secondary">Armadura pesada</a></li>
-                        <li><a href="#" class="link-secondary">Kits com armadura</a></li>
+                        <a href="{{ route('product.category', ['category' => 'Armadura']) }}"
+                            class="link-primary">Armaduras</a>
+                        <li><a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'leve']) }}"
+                                class="link-secondary">Armadura leve</a></li>
+                        <li><a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'média']) }}"
+                                class="link-secondary">Armadura média</a></li>
+                        <li><a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'pesada']) }}"
+                                class="link-secondary">Armadura pesada</a></li>
                     </ul>
                     <ul class="list-unstyled" class="link-primary">
-                        <a href="" class="link-primary">Armas físicas</a>
-                        <li><a href="#" class="link-secondary">Espadas</a></li>
-                        <li><a href="#" class="link-secondary">Machados</a></li>
-                        <li><a href="#" class="link-secondary">Arcos</a></li>
-                        <li><a href="#" class="link-secondary">Kits com arma físicas</a></li>
+                        <a href="{{ route('product.category', ['category' => 'Arma física']) }}"
+                            class="link-primary">Armas físicas</a>
+                        <li><a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'espada']) }}"
+                                class="link-secondary">Espada</a></li>
+                        <li><a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'machado']) }}"
+                                class="link-secondary">Machado</a></li>
+                        <li><a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'arco']) }}"
+                                class="link-secondary">Arco</a></li>
                     </ul>
                     <ul class="list-unstyled" class="link-primary">
-                        <a href="" class="link-primary">Armas mágicas</a>
-                        <li><a href="#" class="link-secondary">Espadas</a></li>
-                        <li><a href="#" class="link-secondary">Machados</a></li>
-                        <li><a href="#" class="link-secondary">Arcos</a></li>
-                        <li><a href="#" class="link-secondary">Kits com armas mágicas</a></li>
+                        <a href="{{ route('product.category', ['category' => 'Arma mágica']) }}"
+                            class="link-primary">Armas mágicas</a>
+                        <li><a href="{{ route('product.itemClass', ['category' => 'Arma mágica', 'itemClass' => 'varinha']) }}"
+                                class="link-secondary">Varinha</a></li>
                     </ul>
                     <ul class="list-unstyled" class="link-primary">
-                        <a href="" class="link-primary">Poções</a>
-                        <li><a href="#" class="link-secondary">Poção de vida</a></li>
-                        <li><a href="#" class="link-secondary">Poção de mana</a></li>
-                        <li><a href="#" class="link-secondary">Poção de força</a></li>
-                        <li><a href="#" class="link-secondary">Kits com poções</a></li>
+                        <a href="{{ route('product.category', ['category' => 'Poção']) }}"
+                            class="link-primary">Poções</a>
+                        <li><a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'vida']) }}"
+                                class="link-secondary">Poção de vida</a></li>
+                        <li><a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'mana']) }}"
+                                class="link-secondary">Poção de mana</a></li>
+                        <li><a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'força']) }}"
+                                class="link-secondary">Poção de força</a></li>
                     </ul>
                     <ul class="list-unstyled" class="link-primary">
-                        <a href="" class="link-primary">Grimório</a>
-                        <li><a href="#" class="link-secondary">Grimorio elemental</a></li>
-                        <li><a href="#" class="link-secondary">Grimorio de invocação</a></li>
-                        <li><a href="#" class="link-secondary">Grimorio de poder</a></li>
-                        <li><a href="#" class="link-secondary">Kits com grimório</a></li>
+                        <a href="{{ route('product.category', ['category' => 'Grimório']) }}"
+                            class="link-primary">Grimório</a>
+                        <li><a href="{{ route('product.itemClass', ['category' => 'Grimório', 'itemClass' => 'mágico']) }}"
+                                class="link-secondary">Mágico</a></li>
                     </ul>
                 </div>
                 <div class="text-center pb-6">

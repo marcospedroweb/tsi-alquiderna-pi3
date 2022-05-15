@@ -153,10 +153,25 @@ span.h2 {
 /* Links */
 .link-primary {
     color: #fff;
+    font-weight: 500;
+    transition: color .25 ease-out;
+    text-decoration: none;
+}
+
+.link-primary:hover {
+    color: #f5efd0;
+    font-weight: 500;
+
 }
 
 .link-secondary {
-    color: var(--btn-static);
+    transition: color .25 ease-out;
+    color: #e3e3e3;
+    text-decoration: none;
+}
+
+.link-secondary:hover {
+    color: #f5ddba;
 }
 
 /* Dropdown */

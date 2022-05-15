@@ -90,7 +90,7 @@
                                 class="img-fluid" alt="">
                         </div>
                         <span>
-                            Poção de vida
+                            Poções de vida
                         </span>
                     </a>
                 </div>
@@ -101,7 +101,7 @@
                                 class="img-fluid" alt="">
                         </div>
                         <span>
-                            Poção de mana
+                            Poções de mana
                         </span>
                     </a>
                 </div>
@@ -112,7 +112,7 @@
                                 class="img-fluid" alt="">
                         </div>
                         <span>
-                            Poção de força
+                            Poções de força
                         </span>
                     </a>
                 </div>
@@ -123,7 +123,7 @@
                                 class="img-fluid" alt="">
                         </div>
                         <span>
-                            Poção de agilidade
+                            Poções de agilidade
                         </span>
                     </a>
                 </div>
@@ -135,7 +135,7 @@
                                 class="img-fluid" alt="">
                         </div>
                         <span>
-                            Mágicos
+                            Grimórios mágicos
                         </span>
                     </a>
                 </div>
@@ -143,116 +143,251 @@
         </div>
     </section>
     <section class="mb-6">
-        <div class="big-banner-full row d-flex justify-content-center align-items-center mb-4 position-relative">
-            <img src="{{ asset('images-banners/' . $category_name . '-big-banner-1.png') }}" alt="imagem banner">
-            <div
-                class="col-10 position-absolute top-0 start-50 translate-middle-x row flex-column justify-content-center align-items-center">
-                <div class="col-12 d-flex flex-column justify-content-center align-items-center">
-                    <h2 class="big-banner-full-heading">Nome do produto</h2>
-                    <p class="big-banner-full-category-item-class">Categoria item class</p>
-                </div>
-                <div class="col-12 row justify-content-between align-items-center">
-                    <div class="col-3">
-                        <div class="attributes d-flex justify-content-between align-items-center">
-                            @if ($productBigBanner1->Category->name === 'Armadura')
-                                <div class="attribute d-flex justify-content-center align-items-center">
-                                    <i class="bi bi-heart-fill"></i>
-                                    <span class="product-attribute-life">{{ $productBigBanner1->life }}</span>
-                                </div>
-                                <div class="attribute d-flex justify-content-center align-items-center">
-                                    <i class="fa-solid fa-person-running"></i>
-                                    <span class="product-attribute-speed">{{ $productBigBanner1->speed }}</span>
-                                </div>
-                                <div class="attribute d-flex justify-content-center align-items-center">
-                                    <i class="bi bi-shield-slash-fill"></i>
-                                    <span
-                                        class="product-attribute-physical-protection">{{ $productBigBanner1->physical_protection }}</span>
-                                </div>
-                                <div class="attribute d-flex justify-content-center align-items-center">
-                                    <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
-                                            fill="#771CA3" />
-                                        <path
-                                            d="M5.01007 12.33C6.76007 14.5 10.1301 14.57 11.9701 12.4C12.2001 12.13 12.0501 11.72 11.7101 11.66C10.4201 11.45 9.23007 10.68 8.53007 9.46003C7.82007 8.24003 7.75007 6.83003 8.21007 5.60003C8.33007 5.27003 8.05006 4.94003 7.70006 5.00003C4.36006 5.62003 2.81007 9.61003 5.01007 12.33Z"
-                                            fill="#771CA3" />
-                                    </svg>
-                                    <span
-                                        class="product-attribute-magic-protection">{{ $productBigBanner1->magic_protection }}</span>
-                                </div>
-                            @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'vida')
-                                <div class="attribute d-flex justify-content-center align-items-center">
-                                    <i class="bi bi-heart-fill"></i>
-                                    <span class="product-attribute-life">{{ $productBigBanner1->life }}</span>
-                                </div>
-                            @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'força')
-                                <div class="attribute d-flex justify-content-center align-items-center">
-                                    <i class="bi bi-shield-slash-fill"></i>
-                                    <span
-                                        class="product-attribute-physical-attack">{{ $productBigBanner1->physical_attack }}</span>
-                                </div>
-                            @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'mana')
-                                <div class="attribute d-flex justify-content-center align-items-center">
-                                    <i class="fa-solid fa-droplet"></i>
-                                    <span class="product-attribute-mana">{{ $productBigBanner1->mana }}</span>
-                                </div>
-                            @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'agilidade')
-                                <div class="attribute d-flex justify-content-center align-items-center">
-                                    <i class="fa-solid fa-person-running"></i>
-                                    <span class="product-attribute-speed">{{ $productBigBanner1->speed }}</span>
-                                </div>
-                            @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'kit')
-                                <div class="attribute d-flex justify-content-center align-items-center">
-                                    <i class="bi bi-heart-fill"></i>
-                                    <span class="product-attribute-life">{{ $productBigBanner1->life }}</span>
-                                </div>
-                                <div class="attribute d-flex justify-content-center align-items-center">
-                                    <i class="fa-solid fa-person-running"></i>
-                                    <span class="product-attribute-speed">{{ $productBigBanner1->speed }}</span>
-                                </div>
-                                <div class="attribute d-flex justify-content-center align-items-center">
-                                    <i class="fa-solid fa-droplet"></i>
-                                    <span class="product-attribute-mana">{{ $productBigBanner1->mana }}</span>
-                                </div>
-                            @else
-                                <div class="attribute d-flex justify-content-center align-items-center">
-                                    <i class="fa-solid fa-user-slash"></i>
-                                    <span
-                                        class="product-attribute-physical-attack">{{ $productBigBanner1->physical_attack }}</span>
-                                </div>
-                                <div class="attribute d-flex justify-content-center align-items-center">
-                                    <i class="fa-solid fa-wand-sparkles"></i>
-                                    <span
-                                        class="product-attribute-magic-attack">{{ $productBigBanner1->magic_attack }}</span>
-                                </div>
-                                <div class="attribute d-flex justify-content-center align-items-center">
-                                    <i class="fa-solid fa-droplet"></i>
-                                    <span class="product-attribute-mana">{{ $productBigBanner1->mana }}</span>
-                                </div>
-                            @endif
+        @if ($category_name === 'Arma física')
+            <div class="big-banner-full row d-flex justify-content-center align-items-center mb-4 position-relative">
+                <img src="{{ asset('images-banners/' . $category_name . '-big-banner-1.png') }}" alt="">
+                <div
+                    class="col-6 position-absolute top-50 end-0 translate-middle-y row flex-column justify-content-center align-items-center me-4">
+                    <div class="div-text-call col-12 d-flex flex-column justify-content-center align-items-center">
+                        <div class="w-100 text-start">
+                            <h2 class="big-banner-full-call">O
+                                brilho chama novamente</h2>
                         </div>
+                        <p class="big-banner-full-call-paragraph">
+                            Uma espada, não se sabe quem a forjou ou quem a encontrou,
+                            mas ela emiti um grande poder.
+                        </p>
                     </div>
-                    <div class="col d-flex justify-content-end align-items-center big-banner-full-buy">
-                        <div class="div-product-price d-flex justify-content-center align-items-center">
-                            <div class="d-flex flex-column align-items-end me-2">
-                                @if ($productBigBanner1->discount_price !== 0.0)
-                                    <p class="text-decoration-line-through original-price">
-                                        {{ $productBigBanner1->price }}</p>
-                                    <p class="p-product-price m-0">{{ $productBigBanner1->discount_price }}</p>
-                                @else
-                                    <p class="p-product-price m-0">{{ $productBigBanner1->price }}</p>
-                                @endif
+                    <div class="col-12 row flex-column justify-content-center align-items-center">
+                        <div class="col big-banner-full-text d-flex flex-column justify-content-end">
+                            <div class="d-flex flex-column">
+                                <h3 style="word-wrap: break-word;" class="d-flex flex-column">
+                                    @if ($productBigBanner1->new === 1)
+                                        <span class="novidade">novo</span>
+                                    @endif
+                                    <span class="product-name">{{ $productBigBanner1->name }}</span>
+                                </h3>
+                                <p class="product-category-item-class"><span
+                                        class="product-category">{{ $productBigBanner1->Category->name }}</span>
+                                    <span class="product-item-class">{{ $productBigBanner1->ItemClass->name }}</span>,
+                                    nível
+                                    <span class="product-level">{{ $productBigBanner1->lvlMin }}</span>
+                                </p>
                             </div>
-                            <div>
-                                <a href="{{ route('product.show', $productBigBanner1->id) }}" class="btn btn-primary">Ver
-                                    produto</a>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="attributes d-flex justify-content-between align-items-center">
+                                    @if ($productBigBanner1->Category->name === 'Armadura')
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="bi bi-heart-fill"></i>
+                                            <span class="product-attribute-life">{{ $productBigBanner1->life }}</span>
+                                        </div>
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-person-running"></i>
+                                            <span class="product-attribute-speed">{{ $productBigBanner1->speed }}</span>
+                                        </div>
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="bi bi-shield-slash-fill"></i>
+                                            <span
+                                                class="product-attribute-physical-protection">{{ $productBigBanner1->physical_protection }}</span>
+                                        </div>
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
+                                                    fill="#771CA3" />
+                                                <path
+                                                    d="M5.01007 12.33C6.76007 14.5 10.1301 14.57 11.9701 12.4C12.2001 12.13 12.0501 11.72 11.7101 11.66C10.4201 11.45 9.23007 10.68 8.53007 9.46003C7.82007 8.24003 7.75007 6.83003 8.21007 5.60003C8.33007 5.27003 8.05006 4.94003 7.70006 5.00003C4.36006 5.62003 2.81007 9.61003 5.01007 12.33Z"
+                                                    fill="#771CA3" />
+                                            </svg>
+                                            <span
+                                                class="product-attribute-magic-protection">{{ $productBigBanner1->magic_protection }}</span>
+                                        </div>
+                                    @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'vida')
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="bi bi-heart-fill"></i>
+                                            <span class="product-attribute-life">{{ $productBigBanner1->life }}</span>
+                                        </div>
+                                    @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'força')
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="bi bi-shield-slash-fill"></i>
+                                            <span
+                                                class="product-attribute-physical-attack">{{ $productBigBanner1->physical_attack }}</span>
+                                        </div>
+                                    @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'mana')
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-droplet"></i>
+                                            <span class="product-attribute-mana">{{ $productBigBanner1->mana }}</span>
+                                        </div>
+                                    @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'agilidade')
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-person-running"></i>
+                                            <span class="product-attribute-speed">{{ $productBigBanner1->speed }}</span>
+                                        </div>
+                                    @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'kit')
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="bi bi-heart-fill"></i>
+                                            <span class="product-attribute-life">{{ $productBigBanner1->life }}</span>
+                                        </div>
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-person-running"></i>
+                                            <span class="product-attribute-speed">{{ $productBigBanner1->speed }}</span>
+                                        </div>
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-droplet"></i>
+                                            <span class="product-attribute-mana">{{ $productBigBanner1->mana }}</span>
+                                        </div>
+                                    @else
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-user-slash"></i>
+                                            <span
+                                                class="product-attribute-physical-attack">{{ $productBigBanner1->physical_attack }}</span>
+                                        </div>
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-wand-sparkles"></i>
+                                            <span
+                                                class="product-attribute-magic-attack">{{ $productBigBanner1->magic_attack }}</span>
+                                        </div>
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-droplet"></i>
+                                            <span class="product-attribute-mana">{{ $productBigBanner1->mana }}</span>
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="div-product-price d-flex justify-content-center align-items-center">
+                                    <div class="d-flex flex-column align-items-end me-2">
+                                        @if ($productBigBanner1->discount_price !== 0.0)
+                                            <p class="text-decoration-line-through original-price">
+                                                {{ $productBigBanner1->price }}</p>
+                                            <p class="p-product-price m-0">{{ $productBigBanner1->discount_price }}</p>
+                                        @else
+                                            <p class="p-product-price m-0">{{ $productBigBanner1->price }}</p>
+                                        @endif
+                                    </div>
+                                    <div class="ms-1">
+                                        <a href="{{ route('product.show', $productBigBanner1->id) }}"
+                                            class="btn btn-primary">Ver produto</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @else
+            <div class="big-banner-full row d-flex justify-content-center align-items-center mb-4 position-relative">
+                <img src="{{ asset('images-banners/' . $category_name . '-big-banner-1.png') }}" alt="imagem banner">
+                <div
+                    class="col-10 position-absolute top-0 start-50 translate-middle-x row flex-column justify-content-center align-items-center">
+                    <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+                        <h2 class="big-banner-full-heading">{{ $productBigBanner1->name }}</h2>
+                        <p class="big-banner-full-category-item-class">{{ $productBigBanner1->Category->name }}
+                            {{ $productBigBanner1->ItemClass->name }}, nível {{ $productBigBanner1->lvlMin }}</p>
+                    </div>
+                    <div class="col-12 row justify-content-between align-items-center">
+                        <div class="{{ $category_name === 'Armadura' ? 'col-3' : 'col-2' }}">
+                            <div class="attributes d-flex justify-content-between align-items-center">
+                                @if ($productBigBanner1->Category->name === 'Armadura')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-heart-fill"></i>
+                                        <span class="product-attribute-life">{{ $productBigBanner1->life }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-person-running"></i>
+                                        <span class="product-attribute-speed">{{ $productBigBanner1->speed }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-shield-slash-fill"></i>
+                                        <span
+                                            class="product-attribute-physical-protection">{{ $productBigBanner1->physical_protection }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
+                                                fill="#771CA3" />
+                                            <path
+                                                d="M5.01007 12.33C6.76007 14.5 10.1301 14.57 11.9701 12.4C12.2001 12.13 12.0501 11.72 11.7101 11.66C10.4201 11.45 9.23007 10.68 8.53007 9.46003C7.82007 8.24003 7.75007 6.83003 8.21007 5.60003C8.33007 5.27003 8.05006 4.94003 7.70006 5.00003C4.36006 5.62003 2.81007 9.61003 5.01007 12.33Z"
+                                                fill="#771CA3" />
+                                        </svg>
+                                        <span
+                                            class="product-attribute-magic-protection">{{ $productBigBanner1->magic_protection }}</span>
+                                    </div>
+                                @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'vida')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-heart-fill"></i>
+                                        <span class="product-attribute-life">{{ $productBigBanner1->life }}</span>
+                                    </div>
+                                @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'força')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-shield-slash-fill"></i>
+                                        <span
+                                            class="product-attribute-physical-attack">{{ $productBigBanner1->physical_attack }}</span>
+                                    </div>
+                                @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'mana')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-droplet"></i>
+                                        <span class="product-attribute-mana">{{ $productBigBanner1->mana }}</span>
+                                    </div>
+                                @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'agilidade')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-person-running"></i>
+                                        <span class="product-attribute-speed">{{ $productBigBanner1->speed }}</span>
+                                    </div>
+                                @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'kit')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-heart-fill"></i>
+                                        <span class="product-attribute-life">{{ $productBigBanner1->life }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-person-running"></i>
+                                        <span class="product-attribute-speed">{{ $productBigBanner1->speed }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-droplet"></i>
+                                        <span class="product-attribute-mana">{{ $productBigBanner1->mana }}</span>
+                                    </div>
+                                @else
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-user-slash"></i>
+                                        <span
+                                            class="product-attribute-physical-attack">{{ $productBigBanner1->physical_attack }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-wand-sparkles"></i>
+                                        <span
+                                            class="product-attribute-magic-attack">{{ $productBigBanner1->magic_attack }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-droplet"></i>
+                                        <span class="product-attribute-mana">{{ $productBigBanner1->mana }}</span>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col d-flex justify-content-end align-items-center big-banner-full-buy">
+                            <div class="div-product-price d-flex justify-content-center align-items-center">
+                                <div class="d-flex flex-column align-items-end me-2">
+                                    @if ($productBigBanner1->discount_price !== 0.0)
+                                        <p class="text-decoration-line-through original-price">
+                                            {{ $productBigBanner1->price }}</p>
+                                        <p class="p-product-price m-0">{{ $productBigBanner1->discount_price }}</p>
+                                    @else
+                                        <p class="p-product-price m-0">{{ $productBigBanner1->price }}</p>
+                                    @endif
+                                </div>
+                                <div>
+                                    <a href="{{ route('product.show', $productBigBanner1->id) }}"
+                                        class="btn btn-primary">Ver
+                                        produto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
         <div class="row justify-content-between align-items-center mb-4">
             <div class="col-6">
                 <div class="small-banner row justify-content-center align-items-center position-relative">
@@ -430,7 +565,8 @@
                                     @elseif($productSmallBanner2->Category->name === 'Poção' && $productSmallBanner2->ItemClass->name === 'vida')
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="bi bi-heart-fill"></i>
-                                            <span class="product-attribute-life">{{ $productSmallBanner2->life }}</span>
+                                            <span
+                                                class="product-attribute-life">{{ $productSmallBanner2->life }}</span>
                                         </div>
                                     @elseif($productSmallBanner2->Category->name === 'Poção' && $productSmallBanner2->ItemClass->name === 'força')
                                         <div class="attribute d-flex justify-content-center align-items-center">
@@ -441,7 +577,8 @@
                                     @elseif($productSmallBanner2->Category->name === 'Poção' && $productSmallBanner2->ItemClass->name === 'mana')
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-droplet"></i>
-                                            <span class="product-attribute-mana">{{ $productSmallBanner2->mana }}</span>
+                                            <span
+                                                class="product-attribute-mana">{{ $productSmallBanner2->mana }}</span>
                                         </div>
                                     @elseif($productSmallBanner2->Category->name === 'Poção' && $productSmallBanner2->ItemClass->name === 'agilidade')
                                         <div class="attribute d-flex justify-content-center align-items-center">
@@ -452,7 +589,8 @@
                                     @elseif($productSmallBanner2->Category->name === 'Poção' && $productSmallBanner2->ItemClass->name === 'kit')
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="bi bi-heart-fill"></i>
-                                            <span class="product-attribute-life">{{ $productSmallBanner2->life }}</span>
+                                            <span
+                                                class="product-attribute-life">{{ $productSmallBanner2->life }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-person-running"></i>
@@ -461,7 +599,8 @@
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-droplet"></i>
-                                            <span class="product-attribute-mana">{{ $productSmallBanner2->mana }}</span>
+                                            <span
+                                                class="product-attribute-mana">{{ $productSmallBanner2->mana }}</span>
                                         </div>
                                     @else
                                         <div class="attribute d-flex justify-content-center align-items-center">
@@ -476,7 +615,8 @@
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-droplet"></i>
-                                            <span class="product-attribute-mana">{{ $productSmallBanner2->mana }}</span>
+                                            <span
+                                                class="product-attribute-mana">{{ $productSmallBanner2->mana }}</span>
                                         </div>
                                     @endif
                                 </div>
@@ -508,11 +648,12 @@
             <div
                 class="col-10 position-absolute top-0 start-50 translate-middle-x row flex-column justify-content-center align-items-center">
                 <div class="col-12 d-flex flex-column justify-content-center align-items-center">
-                    <h2 class="big-banner-full-heading">Nome do produto</h2>
-                    <p class="big-banner-full-category-item-class">Categoria item class</p>
+                    <h2 class="big-banner-full-heading">{{ $productBigBanner2->name }}</h2>
+                    <p class="big-banner-full-category-item-class">{{ $productBigBanner2->Category->name }}
+                        {{ $productBigBanner2->ItemClass->name }}, nível {{ $productBigBanner2->lvlMin }}</p>
                 </div>
                 <div class="col-12 row justify-content-between align-items-center">
-                    <div class="col-3">
+                    <div class="{{ $category_name === 'Armadura' ? 'col-3' : 'col-2' }}">
                         <div class="attributes d-flex justify-content-between align-items-center">
                             @if ($productBigBanner2->Category->name === 'Armadura')
                                 <div class="attribute d-flex justify-content-center align-items-center">
@@ -2559,48 +2700,284 @@
                 </button>
             </div>
         </section>
-        <section class="mb-6">
-            <div class="big-banner-right row d-flex justify-content-center align-items-center mb-4 position-relative">
-                {{-- <img src="{{ asset('images-banners/' . $category_name . '-big-banner-1') }}" alt="imagem banner"> --}}
-                <img src="{{ asset('images-banners/index-big-banner-1.png') }}" alt="">
+    @endif
+    <section class="mb-6">
+        @if ($category_name === 'Armadura')
+            <div class="big-banner-right row justify-content-center align-items-center mb-4 position-relative">
+                <img src="{{ asset('images-banners/' . $category_name . '-big-banner-3.png') }}" alt="Imagem do banner">
                 <div
                     class="col-6 position-absolute top-50 end-0 translate-middle-y row flex-column justify-content-center align-items-center me-4">
-                    <div class="div-text-call col-12 d-flex flex-column justify-content-center align-items-center">
-                        <h2 class="big-banner-right-call">Texto chamativo do produto</h2>
-                        <p class="big-banner-right-call-paragraph">Paragrafo do produto</p>
+                    <div class="div-text-call col-12 d-flex flex-column justify-content-center align-items-start">
+                        <h2 class="big-banner-right-call">Quem irá iluminar o caminho?</h2>
+                        <p class="big-banner-right-call-paragraph">Armadura de ouro completamente resistente.</p>
                     </div>
                     <div class="col-12 row flex-column justify-content-center align-items-center">
-                        <div class="col big-banner-right-text d-flex flex-column justify-content-end">
+                        <div class="d-flex flex-column">
+                            <h3 style="word-wrap: break-word;" class="d-flex flex-column">
+                                @if ($productBigBanner3->new === 1)
+                                    <span class="novidade">novo</span>
+                                @endif
+                                <span class="product-name">{{ $productBigBanner3->name }}</span>
+                            </h3>
+                            <p><span class="product-category">{{ $productBigBanner3->Category->name }}</span>
+                                <span class="product-item-class">{{ $productBigBanner3->ItemClass->name }}</span>,
+                                nível
+                                <span class="product-level">{{ $productBigBanner3->lvlMin }}</span>
+                            </p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="attributes d-flex justify-content-between align-items-center">
+                                @if ($productBigBanner3->Category->name === 'Armadura')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-heart-fill"></i>
+                                        <span class="product-attribute-life">{{ $productBigBanner3->life }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-person-running"></i>
+                                        <span class="product-attribute-speed">{{ $productBigBanner3->speed }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-shield-slash-fill"></i>
+                                        <span
+                                            class="product-attribute-physical-protection">{{ $productBigBanner3->physical_protection }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
+                                                fill="#771CA3" />
+                                            <path
+                                                d="M5.01007 12.33C6.76007 14.5 10.1301 14.57 11.9701 12.4C12.2001 12.13 12.0501 11.72 11.7101 11.66C10.4201 11.45 9.23007 10.68 8.53007 9.46003C7.82007 8.24003 7.75007 6.83003 8.21007 5.60003C8.33007 5.27003 8.05006 4.94003 7.70006 5.00003C4.36006 5.62003 2.81007 9.61003 5.01007 12.33Z"
+                                                fill="#771CA3" />
+                                        </svg>
+                                        <span
+                                            class="product-attribute-magic-protection">{{ $productBigBanner3->magic_protection }}</span>
+                                    </div>
+                                @elseif($productBigBanner3->Category->name === 'Poção' && $productBigBanner3->ItemClass->name === 'vida')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-heart-fill"></i>
+                                        <span class="product-attribute-life">{{ $productBigBanner3->life }}</span>
+                                    </div>
+                                @elseif($productBigBanner3->Category->name === 'Poção' && $productBigBanner3->ItemClass->name === 'força')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-shield-slash-fill"></i>
+                                        <span
+                                            class="product-attribute-physical-attack">{{ $productBigBanner3->physical_attack }}</span>
+                                    </div>
+                                @elseif($productBigBanner3->Category->name === 'Poção' && $productBigBanner3->ItemClass->name === 'mana')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-droplet"></i>
+                                        <span class="product-attribute-mana">{{ $productBigBanner3->mana }}</span>
+                                    </div>
+                                @elseif($productBigBanner3->Category->name === 'Poção' && $productBigBanner3->ItemClass->name === 'agilidade')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-person-running"></i>
+                                        <span class="product-attribute-speed">{{ $productBigBanner3->speed }}</span>
+                                    </div>
+                                @elseif($productBigBanner3->Category->name === 'Poção' && $productBigBanner3->ItemClass->name === 'kit')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-heart-fill"></i>
+                                        <span class="product-attribute-life">{{ $productBigBanner3->life }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-person-running"></i>
+                                        <span class="product-attribute-speed">{{ $productBigBanner3->speed }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-droplet"></i>
+                                        <span class="product-attribute-mana">{{ $productBigBanner3->mana }}</span>
+                                    </div>
+                                @else
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-user-slash"></i>
+                                        <span
+                                            class="product-attribute-physical-attack">{{ $productBigBanner3->physical_attack }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-wand-sparkles"></i>
+                                        <span
+                                            class="product-attribute-magic-attack">{{ $productBigBanner3->magic_attack }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-droplet"></i>
+                                        <span class="product-attribute-mana">{{ $productBigBanner3->mana }}</span>
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="div-product-price d-flex justify-content-center align-items-center">
+                                <div class="d-flex flex-column align-items-end me-2">
+                                    @if ($productBigBanner3->discount_price !== 0.0)
+                                        <p class="text-decoration-line-through original-price">
+                                            {{ $productBigBanner3->price }}</p>
+                                        <p class="p-product-price m-0">{{ $productBigBanner3->discount_price }}
+                                        </p>
+                                    @else
+                                        <p class="p-product-price m-0">{{ $productBigBanner3->price }}</p>
+                                    @endif
+                                </div>
+                                <div>
+                                    <a href="{{ route('product.show', $productBigBanner3->id) }}"
+                                        class="btn btn-primary">Ver
+                                        produto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @else
+            <div class="big-banner-full row d-flex justify-content-center align-items-center mb-4 position-relative">
+                <img src="{{ asset('images-banners/' . $category_name . '-big-banner-3.png') }}" alt="imagem banner">
+                <div
+                    class="col-10 position-absolute top-0 start-50 translate-middle-x row flex-column justify-content-center align-items-center">
+                    <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+                        <h2 class="big-banner-full-heading">{{ $productBigBanner3->name }}</h2>
+                        <p class="big-banner-full-category-item-class">{{ $productBigBanner3->Category->name }}
+                            {{ $productBigBanner3->ItemClass->name }}, nível {{ $productBigBanner3->lvlMin }}</p>
+                    </div>
+                    <div class="col-12 row justify-content-between align-items-center">
+                        <div class="{{ $category_name === 'Armadura' ? 'col-3' : 'col-2' }}">
+                            <div class="attributes d-flex justify-content-between align-items-center">
+                                @if ($productBigBanner3->Category->name === 'Armadura')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-heart-fill"></i>
+                                        <span class="product-attribute-life">{{ $productBigBanner3->life }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-person-running"></i>
+                                        <span class="product-attribute-speed">{{ $productBigBanner3->speed }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-shield-slash-fill"></i>
+                                        <span
+                                            class="product-attribute-physical-protection">{{ $productBigBanner3->physical_protection }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
+                                                fill="#771CA3" />
+                                            <path
+                                                d="M5.01007 12.33C6.76007 14.5 10.1301 14.57 11.9701 12.4C12.2001 12.13 12.0501 11.72 11.7101 11.66C10.4201 11.45 9.23007 10.68 8.53007 9.46003C7.82007 8.24003 7.75007 6.83003 8.21007 5.60003C8.33007 5.27003 8.05006 4.94003 7.70006 5.00003C4.36006 5.62003 2.81007 9.61003 5.01007 12.33Z"
+                                                fill="#771CA3" />
+                                        </svg>
+                                        <span
+                                            class="product-attribute-magic-protection">{{ $productBigBanner3->magic_protection }}</span>
+                                    </div>
+                                @elseif($productBigBanner3->Category->name === 'Poção' && $productBigBanner3->ItemClass->name === 'vida')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-heart-fill"></i>
+                                        <span class="product-attribute-life">{{ $productBigBanner3->life }}</span>
+                                    </div>
+                                @elseif($productBigBanner3->Category->name === 'Poção' && $productBigBanner3->ItemClass->name === 'força')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-shield-slash-fill"></i>
+                                        <span
+                                            class="product-attribute-physical-attack">{{ $productBigBanner3->physical_attack }}</span>
+                                    </div>
+                                @elseif($productBigBanner3->Category->name === 'Poção' && $productBigBanner3->ItemClass->name === 'mana')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-droplet"></i>
+                                        <span class="product-attribute-mana">{{ $productBigBanner3->mana }}</span>
+                                    </div>
+                                @elseif($productBigBanner3->Category->name === 'Poção' && $productBigBanner3->ItemClass->name === 'agilidade')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-person-running"></i>
+                                        <span class="product-attribute-speed">{{ $productBigBanner3->speed }}</span>
+                                    </div>
+                                @elseif($productBigBanner3->Category->name === 'Poção' && $productBigBanner3->ItemClass->name === 'kit')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-heart-fill"></i>
+                                        <span class="product-attribute-life">{{ $productBigBanner3->life }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-person-running"></i>
+                                        <span class="product-attribute-speed">{{ $productBigBanner3->speed }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-droplet"></i>
+                                        <span class="product-attribute-mana">{{ $productBigBanner3->mana }}</span>
+                                    </div>
+                                @else
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-user-slash"></i>
+                                        <span
+                                            class="product-attribute-physical-attack">{{ $productBigBanner3->physical_attack }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-wand-sparkles"></i>
+                                        <span
+                                            class="product-attribute-magic-attack">{{ $productBigBanner3->magic_attack }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-droplet"></i>
+                                        <span class="product-attribute-mana">{{ $productBigBanner3->mana }}</span>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col d-flex justify-content-end align-items-center big-banner-full-buy">
+                            <div class="div-product-price d-flex justify-content-center align-items-center">
+                                <div class="d-flex flex-column align-items-end me-2">
+                                    @if ($productBigBanner3->discount_price !== 0.0)
+                                        <p class="text-decoration-line-through original-price">
+                                            {{ $productBigBanner3->price }}</p>
+                                        <p class="p-product-price m-0">{{ $productBigBanner3->discount_price }}</p>
+                                    @else
+                                        <p class="p-product-price m-0">{{ $productBigBanner3->price }}</p>
+                                    @endif
+                                </div>
+                                <div>
+                                    <a href="{{ route('product.show', $productBigBanner3->id) }}"
+                                        class="btn btn-primary">Ver
+                                        produto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+        <div class="row justify-content-between align-items-center mb-4">
+            <div class="col-6">
+                <div class="small-banner row justify-content-center align-items-center position-relative">
+                    <img src="{{ asset('images-banners/' . $category_name . '-small-banner-3.png') }}" alt="">
+                    <div
+                        class="col-12 position-absolute bottom-0 start-50 translate-middle-x row flex-column justify-content-center align-items-center mb-4 mx-auto">
+                        <div class="small-banner-text w-100 h-100  d-flex flex-column justify-content-end">
                             <div class="d-flex flex-column">
                                 <h3 style="word-wrap: break-word;" class="d-flex flex-column">
-                                    @if ($productBigBanner3->new === 1)
+                                    @if ($productSmallBanner3->new === 1)
                                         <span class="novidade">novo</span>
                                     @endif
-                                    <span class="product-name">{{ $productBigBanner3->name }}</span>
+                                    <span class="product-name">{{ $productSmallBanner3->name }}</span>
                                 </h3>
-                                <p class="product-category-item-class"><span
-                                        class="product-category">{{ $productBigBanner3->Category->name }}</span>
-                                    <span class="product-item-class">{{ $productBigBanner3->ItemClass->name }}</span>,
+                                <p><span class="product-category">{{ $productSmallBanner3->Category->name }}</span>
+                                    <span
+                                        class="product-item-class">{{ $productSmallBanner3->ItemClass->name }}</span>,
                                     nível
-                                    <span class="product-level">{{ $productBigBanner3->lvlMin }}</span>
+                                    <span class="product-level">{{ $productSmallBanner3->lvlMin }}</span>
                                 </p>
                             </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="attributes d-flex justify-content-between align-items-center">
-                                    @if ($productBigBanner3->Category->name === 'Armadura')
+                                    @if ($productSmallBanner3->Category->name === 'Armadura')
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="bi bi-heart-fill"></i>
-                                            <span class="product-attribute-life">{{ $productBigBanner3->life }}</span>
+                                            <span
+                                                class="product-attribute-life">{{ $productSmallBanner3->life }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-person-running"></i>
                                             <span
-                                                class="product-attribute-speed">{{ $productBigBanner3->speed }}</span>
+                                                class="product-attribute-speed">{{ $productSmallBanner3->speed }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="bi bi-shield-slash-fill"></i>
                                             <span
-                                                class="product-attribute-physical-protection">{{ $productBigBanner3->physical_protection }}</span>
+                                                class="product-attribute-physical-protection">{{ $productSmallBanner3->physical_protection }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
@@ -2613,75 +2990,79 @@
                                                     fill="#771CA3" />
                                             </svg>
                                             <span
-                                                class="product-attribute-magic-protection">{{ $productBigBanner3->magic_protection }}</span>
+                                                class="product-attribute-magic-protection">{{ $productSmallBanner3->magic_protection }}</span>
                                         </div>
-                                    @elseif($productBigBanner3->Category->name === 'Poção' && $productBigBanner3->ItemClass->name === 'vida')
+                                    @elseif($productSmallBanner3->Category->name === 'Poção' && $productSmallBanner3->ItemClass->name === 'vida')
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="bi bi-heart-fill"></i>
-                                            <span class="product-attribute-life">{{ $productBigBanner3->life }}</span>
+                                            <span
+                                                class="product-attribute-life">{{ $productSmallBanner3->life }}</span>
                                         </div>
-                                    @elseif($productBigBanner3->Category->name === 'Poção' && $productBigBanner3->ItemClass->name === 'força')
+                                    @elseif($productSmallBanner3->Category->name === 'Poção' && $productSmallBanner3->ItemClass->name === 'força')
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="bi bi-shield-slash-fill"></i>
                                             <span
-                                                class="product-attribute-physical-attack">{{ $productBigBanner3->physical_attack }}</span>
+                                                class="product-attribute-physical-attack">{{ $productSmallBanner3->physical_attack }}</span>
                                         </div>
-                                    @elseif($productBigBanner3->Category->name === 'Poção' && $productBigBanner3->ItemClass->name === 'mana')
+                                    @elseif($productSmallBanner3->Category->name === 'Poção' && $productSmallBanner3->ItemClass->name === 'mana')
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-droplet"></i>
-                                            <span class="product-attribute-mana">{{ $productBigBanner3->mana }}</span>
+                                            <span
+                                                class="product-attribute-mana">{{ $productSmallBanner3->mana }}</span>
                                         </div>
-                                    @elseif($productBigBanner3->Category->name === 'Poção' && $productBigBanner3->ItemClass->name === 'agilidade')
+                                    @elseif($productSmallBanner3->Category->name === 'Poção' && $productSmallBanner3->ItemClass->name === 'agilidade')
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-person-running"></i>
                                             <span
-                                                class="product-attribute-speed">{{ $productBigBanner3->speed }}</span>
+                                                class="product-attribute-speed">{{ $productSmallBanner3->speed }}</span>
                                         </div>
-                                    @elseif($productBigBanner3->Category->name === 'Poção' && $productBigBanner3->ItemClass->name === 'kit')
+                                    @elseif($productSmallBanner3->Category->name === 'Poção' && $productSmallBanner3->ItemClass->name === 'kit')
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="bi bi-heart-fill"></i>
-                                            <span class="product-attribute-life">{{ $productBigBanner3->life }}</span>
+                                            <span
+                                                class="product-attribute-life">{{ $productSmallBanner3->life }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-person-running"></i>
                                             <span
-                                                class="product-attribute-speed">{{ $productBigBanner3->speed }}</span>
+                                                class="product-attribute-speed">{{ $productSmallBanner3->speed }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-droplet"></i>
-                                            <span class="product-attribute-mana">{{ $productBigBanner3->mana }}</span>
+                                            <span
+                                                class="product-attribute-mana">{{ $productSmallBanner3->mana }}</span>
                                         </div>
                                     @else
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-user-slash"></i>
                                             <span
-                                                class="product-attribute-physical-attack">{{ $productBigBanner3->physical_attack }}</span>
+                                                class="product-attribute-physical-attack">{{ $productSmallBanner3->physical_attack }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-wand-sparkles"></i>
                                             <span
-                                                class="product-attribute-magic-attack">{{ $productBigBanner3->magic_attack }}</span>
+                                                class="product-attribute-magic-attack">{{ $productSmallBanner3->magic_attack }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-droplet"></i>
-                                            <span class="product-attribute-mana">{{ $productBigBanner3->mana }}</span>
+                                            <span
+                                                class="product-attribute-mana">{{ $productSmallBanner3->mana }}</span>
                                         </div>
                                     @endif
                                 </div>
                                 <div class="div-product-price d-flex justify-content-center align-items-center">
                                     <div class="d-flex flex-column align-items-end me-2">
-                                        @if ($productBigBanner3->discount_price !== 0.0)
+                                        @if ($productSmallBanner3->discount_price !== 0.0)
                                             <p class="text-decoration-line-through original-price">
-                                                {{ $productBigBanner3->price }}
-                                            </p>
-                                            <p class="p-product-price m-0">{{ $productBigBanner3->discount_price }}
+                                                {{ $productSmallBanner3->price }}</p>
+                                            <p class="p-product-price m-0">{{ $productSmallBanner3->discount_price }}
                                             </p>
                                         @else
-                                            <p class="p-product-price m-0">{{ $productBigBanner3->price }}</p>
+                                            <p class="p-product-price m-0">{{ $productSmallBanner3->price }}</p>
                                         @endif
                                     </div>
                                     <div>
-                                        <a href="{{ route('product.show', $productBigBanner3->id) }}"
+                                        <a href="{{ route('product.show', $productSmallBanner3->id) }}"
                                             class="btn btn-primary">Ver
                                             produto</a>
                                     </div>
@@ -2691,312 +3072,43 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-between align-items-center mb-4">
-                <div class="col-6">
-                    <div class="small-banner row justify-content-center align-items-center position-relative">
-                        <img src="{{ asset('images-banners/index-small-banner-1.png') }}" alt="">
-                        <div
-                            class="col-12 position-absolute bottom-0 start-50 translate-middle-x row flex-column justify-content-center align-items-center mb-4 mx-auto">
-                            <div class="small-banner-text w-100 h-100  d-flex flex-column justify-content-end">
-                                <div class="d-flex flex-column">
-                                    <h3 style="word-wrap: break-word;" class="d-flex flex-column">
-                                        @if ($productSmallBanner3->new === 1)
-                                            <span class="novidade">novo</span>
-                                        @endif
-                                        <span class="product-name">{{ $productSmallBanner3->name }}</span>
-                                    </h3>
-                                    <p><span
-                                            class="product-category">{{ $productSmallBanner3->Category->name }}</span>
-                                        <span
-                                            class="product-item-class">{{ $productSmallBanner3->ItemClass->name }}</span>,
-                                        nível
-                                        <span class="product-level">{{ $productSmallBanner3->lvlMin }}</span>
-                                    </p>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="attributes d-flex justify-content-between align-items-center">
-                                        @if ($productSmallBanner3->Category->name === 'Armadura')
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="bi bi-heart-fill"></i>
-                                                <span
-                                                    class="product-attribute-life">{{ $productSmallBanner3->life }}</span>
-                                            </div>
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="fa-solid fa-person-running"></i>
-                                                <span
-                                                    class="product-attribute-speed">{{ $productSmallBanner3->speed }}</span>
-                                            </div>
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="bi bi-shield-slash-fill"></i>
-                                                <span
-                                                    class="product-attribute-physical-protection">{{ $productSmallBanner3->physical_protection }}</span>
-                                            </div>
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
-                                                        fill="#771CA3" />
-                                                    <path
-                                                        d="M5.01007 12.33C6.76007 14.5 10.1301 14.57 11.9701 12.4C12.2001 12.13 12.0501 11.72 11.7101 11.66C10.4201 11.45 9.23007 10.68 8.53007 9.46003C7.82007 8.24003 7.75007 6.83003 8.21007 5.60003C8.33007 5.27003 8.05006 4.94003 7.70006 5.00003C4.36006 5.62003 2.81007 9.61003 5.01007 12.33Z"
-                                                        fill="#771CA3" />
-                                                </svg>
-                                                <span
-                                                    class="product-attribute-magic-protection">{{ $productSmallBanner3->magic_protection }}</span>
-                                            </div>
-                                        @elseif($productSmallBanner3->Category->name === 'Poção' && $productSmallBanner3->ItemClass->name === 'vida')
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="bi bi-heart-fill"></i>
-                                                <span
-                                                    class="product-attribute-life">{{ $productSmallBanner3->life }}</span>
-                                            </div>
-                                        @elseif($productSmallBanner3->Category->name === 'Poção' && $productSmallBanner3->ItemClass->name === 'força')
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="bi bi-shield-slash-fill"></i>
-                                                <span
-                                                    class="product-attribute-physical-attack">{{ $productSmallBanner3->physical_attack }}</span>
-                                            </div>
-                                        @elseif($productSmallBanner3->Category->name === 'Poção' && $productSmallBanner3->ItemClass->name === 'mana')
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="fa-solid fa-droplet"></i>
-                                                <span
-                                                    class="product-attribute-mana">{{ $productSmallBanner3->mana }}</span>
-                                            </div>
-                                        @elseif($productSmallBanner3->Category->name === 'Poção' && $productSmallBanner3->ItemClass->name === 'agilidade')
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="fa-solid fa-person-running"></i>
-                                                <span
-                                                    class="product-attribute-speed">{{ $productSmallBanner3->speed }}</span>
-                                            </div>
-                                        @elseif($productSmallBanner3->Category->name === 'Poção' && $productSmallBanner3->ItemClass->name === 'kit')
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="bi bi-heart-fill"></i>
-                                                <span
-                                                    class="product-attribute-life">{{ $productSmallBanner3->life }}</span>
-                                            </div>
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="fa-solid fa-person-running"></i>
-                                                <span
-                                                    class="product-attribute-speed">{{ $productSmallBanner3->speed }}</span>
-                                            </div>
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="fa-solid fa-droplet"></i>
-                                                <span
-                                                    class="product-attribute-mana">{{ $productSmallBanner3->mana }}</span>
-                                            </div>
-                                        @else
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="fa-solid fa-user-slash"></i>
-                                                <span
-                                                    class="product-attribute-physical-attack">{{ $productSmallBanner3->physical_attack }}</span>
-                                            </div>
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="fa-solid fa-wand-sparkles"></i>
-                                                <span
-                                                    class="product-attribute-magic-attack">{{ $productSmallBanner3->magic_attack }}</span>
-                                            </div>
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="fa-solid fa-droplet"></i>
-                                                <span
-                                                    class="product-attribute-mana">{{ $productSmallBanner3->mana }}</span>
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <div class="div-product-price d-flex justify-content-center align-items-center">
-                                        <div class="d-flex flex-column align-items-end me-2">
-                                            @if ($productSmallBanner3->discount_price !== 0.0)
-                                                <p class="text-decoration-line-through original-price">
-                                                    {{ $productSmallBanner3->price }}</p>
-                                                <p class="p-product-price m-0">
-                                                    {{ $productSmallBanner3->discount_price }}</p>
-                                            @else
-                                                <p class="p-product-price m-0">{{ $productSmallBanner3->price }}</p>
-                                            @endif
-                                        </div>
-                                        <div>
-                                            <a href="{{ route('product.show', $productSmallBanner3->id) }}"
-                                                class="btn btn-primary">Ver
-                                                produto</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="small-banner row justify-content-center align-items-center position-relative">
-                        <img src="{{ asset('images-banners/index-small-banner-2.png') }}" alt="">
-                        <div
-                            class="col-12 position-absolute bottom-0 start-50 translate-middle-x row flex-column justify-content-center align-items-center mb-4 mx-auto">
-                            <div class="small-banner-text w-100 h-100  d-flex flex-column justify-content-end">
-                                <div class="d-flex flex-column">
-                                    <h3 style="word-wrap: break-word;" class="d-flex flex-column">
-                                        @if ($productSmallBanner4->new === 1)
-                                            <span class="novidade">novo</span>
-                                        @endif
-                                        <span class="product-name">{{ $productSmallBanner4->name }}</span>
-                                    </h3>
-                                    <p><span
-                                            class="product-category">{{ $productSmallBanner4->Category->name }}</span>
-                                        <span
-                                            class="product-item-class">{{ $productSmallBanner4->ItemClass->name }}</span>,
-                                        nível
-                                        <span class="product-level">{{ $productSmallBanner4->lvlMin }}</span>
-                                    </p>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="attributes d-flex justify-content-between align-items-center">
-                                        @if ($productSmallBanner4->Category->name === 'Armadura')
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="bi bi-heart-fill"></i>
-                                                <span
-                                                    class="product-attribute-life">{{ $productSmallBanner4->life }}</span>
-                                            </div>
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="fa-solid fa-person-running"></i>
-                                                <span
-                                                    class="product-attribute-speed">{{ $productSmallBanner4->speed }}</span>
-                                            </div>
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="bi bi-shield-slash-fill"></i>
-                                                <span
-                                                    class="product-attribute-physical-protection">{{ $productSmallBanner4->physical_protection }}</span>
-                                            </div>
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
-                                                        fill="#771CA3" />
-                                                    <path
-                                                        d="M5.01007 12.33C6.76007 14.5 10.1301 14.57 11.9701 12.4C12.2001 12.13 12.0501 11.72 11.7101 11.66C10.4201 11.45 9.23007 10.68 8.53007 9.46003C7.82007 8.24003 7.75007 6.83003 8.21007 5.60003C8.33007 5.27003 8.05006 4.94003 7.70006 5.00003C4.36006 5.62003 2.81007 9.61003 5.01007 12.33Z"
-                                                        fill="#771CA3" />
-                                                </svg>
-                                                <span
-                                                    class="product-attribute-magic-protection">{{ $productSmallBanner4->magic_protection }}</span>
-                                            </div>
-                                        @elseif($productSmallBanner4->Category->name === 'Poção' && $productSmallBanner4->ItemClass->name === 'vida')
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="bi bi-heart-fill"></i>
-                                                <span
-                                                    class="product-attribute-life">{{ $productSmallBanner4->life }}</span>
-                                            </div>
-                                        @elseif($productSmallBanner4->Category->name === 'Poção' && $productSmallBanner4->ItemClass->name === 'força')
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="bi bi-shield-slash-fill"></i>
-                                                <span
-                                                    class="product-attribute-physical-attack">{{ $productSmallBanner4->physical_attack }}</span>
-                                            </div>
-                                        @elseif($productSmallBanner4->Category->name === 'Poção' && $productSmallBanner4->ItemClass->name === 'mana')
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="fa-solid fa-droplet"></i>
-                                                <span
-                                                    class="product-attribute-mana">{{ $productSmallBanner4->mana }}</span>
-                                            </div>
-                                        @elseif($productSmallBanner4->Category->name === 'Poção' && $productSmallBanner4->ItemClass->name === 'agilidade')
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="fa-solid fa-person-running"></i>
-                                                <span
-                                                    class="product-attribute-speed">{{ $productSmallBanner4->speed }}</span>
-                                            </div>
-                                        @elseif($productSmallBanner4->Category->name === 'Poção' && $productSmallBanner4->ItemClass->name === 'kit')
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="bi bi-heart-fill"></i>
-                                                <span
-                                                    class="product-attribute-life">{{ $productSmallBanner4->life }}</span>
-                                            </div>
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="fa-solid fa-person-running"></i>
-                                                <span
-                                                    class="product-attribute-speed">{{ $productSmallBanner4->speed }}</span>
-                                            </div>
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="fa-solid fa-droplet"></i>
-                                                <span
-                                                    class="product-attribute-mana">{{ $productSmallBanner4->mana }}</span>
-                                            </div>
-                                        @else
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="fa-solid fa-user-slash"></i>
-                                                <span
-                                                    class="product-attribute-physical-attack">{{ $productSmallBanner4->physical_attack }}</span>
-                                            </div>
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="fa-solid fa-wand-sparkles"></i>
-                                                <span
-                                                    class="product-attribute-magic-attack">{{ $productSmallBanner4->magic_attack }}</span>
-                                            </div>
-                                            <div class="attribute d-flex justify-content-center align-items-center">
-                                                <i class="fa-solid fa-droplet"></i>
-                                                <span
-                                                    class="product-attribute-mana">{{ $productSmallBanner4->mana }}</span>
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <div class="div-product-price d-flex justify-content-center align-items-center">
-                                        <div class="d-flex flex-column align-items-end me-2">
-                                            @if ($productSmallBanner4->discount_price !== 0.0)
-                                                <p class="text-decoration-line-through original-price">
-                                                    {{ $productSmallBanner4->price }}</p>
-                                                <p class="p-product-price m-0">
-                                                    {{ $productSmallBanner4->discount_price }}</p>
-                                            @else
-                                                <p class="p-product-price m-0">{{ $productBigBanner4->price }}</p>
-                                            @endif
-                                        </div>
-                                        <div>
-                                            <a href="{{ route('product.show', $productSmallBanner4->id) }}"
-                                                class="btn btn-primary">Ver
-                                                produto</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="big-banner-right row d-flex justify-content-center align-items-center mb-4 position-relative">
-                <img src="{{ asset('images-banners/index-big-banner-1.png') }}" alt="">
-                <div
-                    class="col-6 position-absolute top-50 end-0 translate-middle-y row flex-column justify-content-center align-items-center me-4">
-                    <div class="div-text-call col-12 d-flex flex-column justify-content-center align-items-center">
-                        <h2 class="big-banner-right-call">Texto chamativo do produto</h2>
-                        <p class="big-banner-right-call-paragraph">Paragrafo do produto</p>
-                    </div>
-                    <div class="col-12 row flex-column justify-content-center align-items-center">
-                        <div class="col big-banner-right-text d-flex flex-column justify-content-end">
+            <div class="col-6">
+                <div class="small-banner row justify-content-center align-items-center position-relative">
+                    <img src="{{ asset('images-banners/' . $category_name . '-small-banner-4.png') }}" alt="">
+                    <div
+                        class="col-12 position-absolute bottom-0 start-50 translate-middle-x row flex-column justify-content-center align-items-center mb-4 mx-auto">
+                        <div class="small-banner-text w-100 h-100  d-flex flex-column justify-content-end">
                             <div class="d-flex flex-column">
                                 <h3 style="word-wrap: break-word;" class="d-flex flex-column">
-                                    @if ($productBigBanner4->new === 1)
+                                    @if ($productSmallBanner4->new === 1)
                                         <span class="novidade">novo</span>
                                     @endif
-                                    <span class="product-name">{{ $productBigBanner4->name }}</span>
+                                    <span class="product-name">{{ $productSmallBanner4->name }}</span>
                                 </h3>
-                                <p class="product-category-item-class"><span
-                                        class="product-category">{{ $productBigBanner4->Category->name }}</span>
-                                    <span class="product-item-class">{{ $productBigBanner4->ItemClass->name }}</span>,
+                                <p><span class="product-category">{{ $productSmallBanner4->Category->name }}</span>
+                                    <span
+                                        class="product-item-class">{{ $productSmallBanner4->ItemClass->name }}</span>,
                                     nível
-                                    <span class="product-level">{{ $productBigBanner4->lvlMin }}</span>
+                                    <span class="product-level">{{ $productSmallBanner4->lvlMin }}</span>
                                 </p>
                             </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="attributes d-flex justify-content-between align-items-center">
-                                    @if ($productBigBanner4->Category->name === 'Armadura')
+                                    @if ($productSmallBanner4->Category->name === 'Armadura')
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="bi bi-heart-fill"></i>
-                                            <span class="product-attribute-life">{{ $productBigBanner4->life }}</span>
+                                            <span
+                                                class="product-attribute-life">{{ $productSmallBanner4->life }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-person-running"></i>
                                             <span
-                                                class="product-attribute-speed">{{ $productBigBanner4->speed }}</span>
+                                                class="product-attribute-speed">{{ $productSmallBanner4->speed }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="bi bi-shield-slash-fill"></i>
                                             <span
-                                                class="product-attribute-physical-protection">{{ $productBigBanner4->physical_protection }}</span>
+                                                class="product-attribute-physical-protection">{{ $productSmallBanner4->physical_protection }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
@@ -3009,71 +3121,75 @@
                                                     fill="#771CA3" />
                                             </svg>
                                             <span
-                                                class="product-attribute-magic-protection">{{ $productBigBanner4->magic_protection }}</span>
+                                                class="product-attribute-magic-protection">{{ $productSmallBanner4->magic_protection }}</span>
                                         </div>
-                                    @elseif($productBigBanner4->Category->name === 'Poção' && $productBigBanner4->ItemClass->name === 'vida')
+                                    @elseif($productSmallBanner4->Category->name === 'Poção' && $productSmallBanner4->ItemClass->name === 'vida')
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="bi bi-heart-fill"></i>
-                                            <span class="product-attribute-life">{{ $productBigBanner4->life }}</span>
+                                            <span
+                                                class="product-attribute-life">{{ $productSmallBanner4->life }}</span>
                                         </div>
-                                    @elseif($productBigBanner4->Category->name === 'Poção' && $productBigBanner4->ItemClass->name === 'força')
+                                    @elseif($productSmallBanner4->Category->name === 'Poção' && $productSmallBanner4->ItemClass->name === 'força')
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="bi bi-shield-slash-fill"></i>
                                             <span
-                                                class="product-attribute-physical-attack">{{ $productBigBanner4->physical_attack }}</span>
+                                                class="product-attribute-physical-attack">{{ $productSmallBanner4->physical_attack }}</span>
                                         </div>
-                                    @elseif($productBigBanner4->Category->name === 'Poção' && $productBigBanner4->ItemClass->name === 'mana')
+                                    @elseif($productSmallBanner4->Category->name === 'Poção' && $productSmallBanner4->ItemClass->name === 'mana')
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-droplet"></i>
-                                            <span class="product-attribute-mana">{{ $productBigBanner4->mana }}</span>
+                                            <span
+                                                class="product-attribute-mana">{{ $productSmallBanner4->mana }}</span>
                                         </div>
-                                    @elseif($productBigBanner4->Category->name === 'Poção' && $productBigBanner4->ItemClass->name === 'agilidade')
+                                    @elseif($productSmallBanner4->Category->name === 'Poção' && $productSmallBanner4->ItemClass->name === 'agilidade')
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-person-running"></i>
                                             <span
-                                                class="product-attribute-speed">{{ $productBigBanner4->speed }}</span>
+                                                class="product-attribute-speed">{{ $productSmallBanner4->speed }}</span>
                                         </div>
-                                    @elseif($productBigBanner4->Category->name === 'Poção' && $productBigBanner4->ItemClass->name === 'kit')
+                                    @elseif($productSmallBanner4->Category->name === 'Poção' && $productSmallBanner4->ItemClass->name === 'kit')
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="bi bi-heart-fill"></i>
-                                            <span class="product-attribute-life">{{ $productBigBanner4->life }}</span>
+                                            <span
+                                                class="product-attribute-life">{{ $productSmallBanner4->life }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-person-running"></i>
                                             <span
-                                                class="product-attribute-speed">{{ $productBigBanner4->speed }}</span>
+                                                class="product-attribute-speed">{{ $productSmallBanner4->speed }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-droplet"></i>
-                                            <span class="product-attribute-mana">{{ $productBigBanner4->mana }}</span>
+                                            <span
+                                                class="product-attribute-mana">{{ $productSmallBanner4->mana }}</span>
                                         </div>
                                     @else
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-user-slash"></i>
                                             <span
-                                                class="product-attribute-physical-attack">{{ $productBigBanner4->physical_attack }}</span>
+                                                class="product-attribute-physical-attack">{{ $productSmallBanner4->physical_attack }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-wand-sparkles"></i>
                                             <span
-                                                class="product-attribute-magic-attack">{{ $productBigBanner4->magic_attack }}</span>
+                                                class="product-attribute-magic-attack">{{ $productSmallBanner4->magic_attack }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-droplet"></i>
-                                            <span class="product-attribute-mana">{{ $productBigBanner4->mana }}</span>
+                                            <span
+                                                class="product-attribute-mana">{{ $productSmallBanner4->mana }}</span>
                                         </div>
                                     @endif
                                 </div>
                                 <div class="div-product-price d-flex justify-content-center align-items-center">
                                     <div class="d-flex flex-column align-items-end me-2">
-                                        @if ($productBigBanner4->discount_price !== 0.0)
+                                        @if ($productSmallBanner4->discount_price !== 0.0)
                                             <p class="text-decoration-line-through original-price">
-                                                {{ $productBigBanner4->price }}
-                                            </p>
-                                            <p class="p-product-price m-0">{{ $productBigBanner4->discount_price }}
+                                                {{ $productSmallBanner4->price }}</p>
+                                            <p class="p-product-price m-0">{{ $productSmallBanner4->discount_price }}
                                             </p>
                                         @else
-                                            <p class="p-product-price m-0">{{ $productBigBanner4->price }}</p>
+                                            <p class="p-product-price m-0">{{ $productSmallBanner4->price }}</p>
                                         @endif
                                     </div>
                                     <div>
@@ -3087,6 +3203,244 @@
                     </div>
                 </div>
             </div>
-        </section>
-    @endif
+        </div>
+        @if ($category_name === 'Armadura')
+            <div class="big-banner-right row justify-content-center align-items-center mb-4 position-relative">
+                <img src="{{ asset('images-banners/' . $category_name . '-big-banner-4.png') }}" alt="Imagem do banner">
+                <div
+                    class="col-6 position-absolute top-50 end-0 translate-middle-y row flex-column justify-content-center align-items-center me-4">
+                    <div class="div-text-call col-12 d-flex flex-column justify-content-center align-items-start">
+                        <h2 class="big-banner-right-call">Honre aqueles que se foram</h2>
+                        <p class="big-banner-right-call-paragraph">Armadura com visual simples, porém extremamente
+                            poderosa em seus atributos</p>
+                    </div>
+                    <div class="col-12 row flex-column justify-content-center align-items-center">
+                        <div class="d-flex flex-column">
+                            <h3 style="word-wrap: break-word;" class="d-flex flex-column">
+                                @if ($productBigBanner4->new === 1)
+                                    <span class="novidade">novo</span>
+                                @endif
+                                <span class="product-name">{{ $productBigBanner4->name }}</span>
+                            </h3>
+                            <p><span class="product-category">{{ $productBigBanner4->Category->name }}</span>
+                                <span class="product-item-class">{{ $productBigBanner4->ItemClass->name }}</span>,
+                                nível
+                                <span class="product-level">{{ $productBigBanner4->lvlMin }}</span>
+                            </p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="attributes d-flex justify-content-between align-items-center">
+                                @if ($productBigBanner4->Category->name === 'Armadura')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-heart-fill"></i>
+                                        <span class="product-attribute-life">{{ $productBigBanner4->life }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-person-running"></i>
+                                        <span class="product-attribute-speed">{{ $productBigBanner4->speed }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-shield-slash-fill"></i>
+                                        <span
+                                            class="product-attribute-physical-protection">{{ $productBigBanner4->physical_protection }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
+                                                fill="#771CA3" />
+                                            <path
+                                                d="M5.01007 12.33C6.76007 14.5 10.1301 14.57 11.9701 12.4C12.2001 12.13 12.0501 11.72 11.7101 11.66C10.4201 11.45 9.23007 10.68 8.53007 9.46003C7.82007 8.24003 7.75007 6.83003 8.21007 5.60003C8.33007 5.27003 8.05006 4.94003 7.70006 5.00003C4.36006 5.62003 2.81007 9.61003 5.01007 12.33Z"
+                                                fill="#771CA3" />
+                                        </svg>
+                                        <span
+                                            class="product-attribute-magic-protection">{{ $productBigBanner4->magic_protection }}</span>
+                                    </div>
+                                @elseif($productBigBanner4->Category->name === 'Poção' && $productBigBanner4->ItemClass->name === 'vida')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-heart-fill"></i>
+                                        <span class="product-attribute-life">{{ $productBigBanner4->life }}</span>
+                                    </div>
+                                @elseif($productBigBanner4->Category->name === 'Poção' && $productBigBanner4->ItemClass->name === 'força')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-shield-slash-fill"></i>
+                                        <span
+                                            class="product-attribute-physical-attack">{{ $productBigBanner4->physical_attack }}</span>
+                                    </div>
+                                @elseif($productBigBanner4->Category->name === 'Poção' && $productBigBanner4->ItemClass->name === 'mana')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-droplet"></i>
+                                        <span class="product-attribute-mana">{{ $productBigBanner4->mana }}</span>
+                                    </div>
+                                @elseif($productBigBanner4->Category->name === 'Poção' && $productBigBanner4->ItemClass->name === 'agilidade')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-person-running"></i>
+                                        <span class="product-attribute-speed">{{ $productBigBanner4->speed }}</span>
+                                    </div>
+                                @elseif($productBigBanner4->Category->name === 'Poção' && $productBigBanner4->ItemClass->name === 'kit')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-heart-fill"></i>
+                                        <span class="product-attribute-life">{{ $productBigBanner4->life }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-person-running"></i>
+                                        <span class="product-attribute-speed">{{ $productBigBanner4->speed }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-droplet"></i>
+                                        <span class="product-attribute-mana">{{ $productBigBanner4->mana }}</span>
+                                    </div>
+                                @else
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-user-slash"></i>
+                                        <span
+                                            class="product-attribute-physical-attack">{{ $productBigBanner4->physical_attack }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-wand-sparkles"></i>
+                                        <span
+                                            class="product-attribute-magic-attack">{{ $productBigBanner4->magic_attack }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-droplet"></i>
+                                        <span class="product-attribute-mana">{{ $productBigBanner4->mana }}</span>
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="div-product-price d-flex justify-content-center align-items-center">
+                                <div class="d-flex flex-column align-items-end me-2">
+                                    @if ($productBigBanner4->discount_price !== 0.0)
+                                        <p class="text-decoration-line-through original-price">
+                                            {{ $productBigBanner4->price }}</p>
+                                        <p class="p-product-price m-0">{{ $productBigBanner4->discount_price }}
+                                        </p>
+                                    @else
+                                        <p class="p-product-price m-0">{{ $productBigBanner4->price }}</p>
+                                    @endif
+                                </div>
+                                <div>
+                                    <a href="{{ route('product.show', $productBigBanner4->id) }}"
+                                        class="btn btn-primary">Ver
+                                        produto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @else
+            <div class="big-banner-full row d-flex justify-content-center align-items-center mb-4 position-relative">
+                <img src="{{ asset('images-banners/' . $category_name . '-big-banner-4.png') }}" alt="imagem banner">
+                <div
+                    class="col-10 position-absolute top-0 start-50 translate-middle-x row flex-column justify-content-center align-items-center">
+                    <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+                        <h2 class="big-banner-full-heading">{{ $productBigBanner4->name }}</h2>
+                        <p class="big-banner-full-category-item-class">{{ $productBigBanner4->Category->name }}
+                            {{ $productBigBanner4->ItemClass->name }}, nível {{ $productBigBanner4->lvlMin }}</p>
+                    </div>
+                    <div class="col-12 row justify-content-between align-items-center">
+                        <div class="{{ $category_name === 'Armadura' ? 'col-3' : 'col-2' }}">
+                            <div class="attributes d-flex justify-content-between align-items-center">
+                                @if ($productBigBanner4->Category->name === 'Armadura')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-heart-fill"></i>
+                                        <span class="product-attribute-life">{{ $productBigBanner4->life }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-person-running"></i>
+                                        <span class="product-attribute-speed">{{ $productBigBanner4->speed }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-shield-slash-fill"></i>
+                                        <span
+                                            class="product-attribute-physical-protection">{{ $productBigBanner4->physical_protection }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
+                                                fill="#771CA3" />
+                                            <path
+                                                d="M5.01007 12.33C6.76007 14.5 10.1301 14.57 11.9701 12.4C12.2001 12.13 12.0501 11.72 11.7101 11.66C10.4201 11.45 9.23007 10.68 8.53007 9.46003C7.82007 8.24003 7.75007 6.83003 8.21007 5.60003C8.33007 5.27003 8.05006 4.94003 7.70006 5.00003C4.36006 5.62003 2.81007 9.61003 5.01007 12.33Z"
+                                                fill="#771CA3" />
+                                        </svg>
+                                        <span
+                                            class="product-attribute-magic-protection">{{ $productBigBanner4->magic_protection }}</span>
+                                    </div>
+                                @elseif($productBigBanner4->Category->name === 'Poção' && $productBigBanner4->ItemClass->name === 'vida')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-heart-fill"></i>
+                                        <span class="product-attribute-life">{{ $productBigBanner4->life }}</span>
+                                    </div>
+                                @elseif($productBigBanner4->Category->name === 'Poção' && $productBigBanner4->ItemClass->name === 'força')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-shield-slash-fill"></i>
+                                        <span
+                                            class="product-attribute-physical-attack">{{ $productBigBanner4->physical_attack }}</span>
+                                    </div>
+                                @elseif($productBigBanner4->Category->name === 'Poção' && $productBigBanner4->ItemClass->name === 'mana')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-droplet"></i>
+                                        <span class="product-attribute-mana">{{ $productBigBanner4->mana }}</span>
+                                    </div>
+                                @elseif($productBigBanner4->Category->name === 'Poção' && $productBigBanner4->ItemClass->name === 'agilidade')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-person-running"></i>
+                                        <span class="product-attribute-speed">{{ $productBigBanner4->speed }}</span>
+                                    </div>
+                                @elseif($productBigBanner4->Category->name === 'Poção' && $productBigBanner4->ItemClass->name === 'kit')
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="bi bi-heart-fill"></i>
+                                        <span class="product-attribute-life">{{ $productBigBanner4->life }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-person-running"></i>
+                                        <span class="product-attribute-speed">{{ $productBigBanner4->speed }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-droplet"></i>
+                                        <span class="product-attribute-mana">{{ $productBigBanner4->mana }}</span>
+                                    </div>
+                                @else
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-user-slash"></i>
+                                        <span
+                                            class="product-attribute-physical-attack">{{ $productBigBanner4->physical_attack }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-wand-sparkles"></i>
+                                        <span
+                                            class="product-attribute-magic-attack">{{ $productBigBanner4->magic_attack }}</span>
+                                    </div>
+                                    <div class="attribute d-flex justify-content-center align-items-center">
+                                        <i class="fa-solid fa-droplet"></i>
+                                        <span class="product-attribute-mana">{{ $productBigBanner4->mana }}</span>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col d-flex justify-content-end align-items-center big-banner-full-buy">
+                            <div class="div-product-price d-flex justify-content-center align-items-center">
+                                <div class="d-flex flex-column align-items-end me-2">
+                                    @if ($productBigBanner4->discount_price !== 0.0)
+                                        <p class="text-decoration-line-through original-price">
+                                            {{ $productBigBanner4->price }}</p>
+                                        <p class="p-product-price m-0">{{ $productBigBanner4->discount_price }}</p>
+                                    @else
+                                        <p class="p-product-price m-0">{{ $productBigBanner4->price }}</p>
+                                    @endif
+                                </div>
+                                <div>
+                                    <a href="{{ route('product.show', $productBigBanner4->id) }}"
+                                        class="btn btn-primary">Ver produto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+    </section>
 @endsection

@@ -63,10 +63,6 @@ p {
     margin-left: 24px;
 }
 
-.section-filter {
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
-
 /* CAROUSEL */
 .carousel-products-inner {
     min-height: 400px;

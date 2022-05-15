@@ -28,15 +28,11 @@ class ProductController extends Controller
 
         if ($request->has('filter'))
             if (isset($request->filter['category']) && $request->filter['category']  && isset($request->filter['itemClass']) && $request->filter['itemClass']) {
-                $products = $products->where('category_id', DB::table('categories')->where('name', $request->filter['category'])->first()->id)
-                    ->where('itemClass_id', DB::table('item_classes')->where('name', $request->filter['itemClass'])->first()->id);
-                // $category_name = request('filter%5Bcategory%5D');
-                // $itemClass_name = request('filter%5BitemClass%5D');
+                $products = Product::filterProductBy($request->filter['category'], $request->filter['itemClass'], 'return');
             } else if (isset($request->filter['category']) && $request->filter['category']) {
-                $products = $products->where('category_id', DB::table('categories')->where('name', $request->filter['category'])->first()->id);
+                $products = Product::filterProductBy($request->filter['category'], 'return');
             }
-        // $category_name = request('filter%5Bcategory%5D');
-        // dd('teste');
+
         if ($request->has('sort')) {
             if (strrpos($request->sort, 'price') === 0 && strrpos($request->sort, 'asc')) {
                 $orderByColumn = 'price';
@@ -54,7 +50,9 @@ class ProductController extends Controller
 
             $products = $products->orderBy($orderByColumn, $orderByValue);
         }
+
         $products = $products->paginate(12);
+
         if (isset($request->filter['category']) && $request->filter['category'])
             $products = $products->appends('filter[category]', $request->filter['category']);
 

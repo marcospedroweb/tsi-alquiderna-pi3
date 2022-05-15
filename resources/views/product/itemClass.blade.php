@@ -2,6 +2,178 @@
 @section('content')
     <input type="hidden" value="{{ $category_name }}" id="categoryName">
     <input type="hidden" value="{{ $itemClass_name }}" id="itemClassName">
+    <section class="mt-4 mb-6">
+        <div class="item-class-options d-flex justify-content-center align-items-start">
+            @if ($category_name === 'Armadura')
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'leve']) }}"
+                        class="disabled">
+                        <div
+                            class="div-item-class-image {{ $itemClass_name === 'leve' ? 'item-class-selected' : '' }} overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Armadura-leve.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span class="d-flex flex-column text-center">
+                            <span class="{{ $itemClass_name === 'leve' ? 'fw-normal' : '' }}">Armaduras
+                                leve</span>
+                            <span class="{{ $itemClass_name === 'leve' ? '' : 'd-none' }}">Selecionado</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="option-item-class d-flex flex-column justif-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'média']) }}">
+                        <div
+                            class="div-item-class-image {{ $itemClass_name === 'média' ? 'item-class-selected' : '' }} overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Armadura-média.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span class="d-flex flex-column text-center">
+                            <span class="{{ $itemClass_name === 'média' ? 'fw-normal' : '' }}">Armaduras
+                                média</span>
+                            <span class="{{ $itemClass_name === 'média' ? '' : 'd-none' }}">Selecionado</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="option-item-class d-flex flex-column justif-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'pesada']) }}">
+                        <div
+                            class="div-item-class-image {{ $itemClass_name === 'pesada' ? 'item-class-selected' : '' }} overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Armadura-pesada.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span class="d-flex flex-column text-center">
+                            <span class="{{ $itemClass_name === 'pesada' ? 'fw-normal' : '' }}">Armaduras
+                                pesada</span>
+                            <span class="{{ $itemClass_name === 'pesada' ? '' : 'd-none' }}">Selecionado</span>
+                        </span>
+                    </a>
+                </div>
+            @elseif($category_name === 'Arma física')
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'espada']) }}">
+                        <div
+                            class="div-item-class-image {{ $itemClass_name === 'espada' ? 'item-class-selected' : '' }} overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Arma física-espada.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span class="d-flex flex-column text-center">
+                            <span class="{{ $itemClass_name === 'espada' ? 'fw-normal' : '' }}">Espadas</span>
+                            <span class="{{ $itemClass_name === 'espada' ? '' : 'd-none' }}">Selecionado</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'machado']) }}">
+                        <div
+                            class="div-item-class-image {{ $itemClass_name === 'machado' ? 'item-class-selected' : '' }} overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Arma física-machado.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span class="d-flex flex-column text-center">
+                            <span class="{{ $itemClass_name === 'machado' ? 'fw-normal' : '' }}">Machados</span>
+                            <span class="{{ $itemClass_name === 'machado' ? '' : 'd-none' }}">Selecionado</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'arco']) }}">
+                        <div
+                            class="div-item-class-image {{ $itemClass_name === 'arco' ? 'item-class-selected' : '' }} overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Arma física-arco.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span class="d-flex flex-column text-center">
+                            <span class="{{ $itemClass_name === 'arco' ? 'fw-normal' : '' }}">Arcos</span>
+                            <span class="{{ $itemClass_name === 'arco' ? '' : 'd-none' }}">Selecionado</span>
+                        </span>
+                    </a>
+                </div>
+            @elseif($category_name === 'Arma mágica')
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Arma mágica', 'itemClass' => 'varinha']) }}">
+                        <div
+                            class="div-item-class-image {{ $itemClass_name === 'varinha' ? 'item-class-selected' : '' }} overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Arma mágica-varinha.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span class="d-flex flex-column text-center">
+                            <span class="{{ $itemClass_name === 'varinha' ? 'fw-normal' : '' }}">Varinhas</span>
+                            <span class="{{ $itemClass_name === 'varinha' ? '' : 'd-none' }}">Selecionado</span>
+                        </span>
+                    </a>
+                </div>
+            @elseif($category_name === 'Poção')
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'vida']) }}">
+                        <div
+                            class="div-item-class-image {{ $itemClass_name === 'vida' ? 'item-class-selected' : '' }} overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Poção-vida.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span class="d-flex flex-column text-center">
+                            <span class="{{ $itemClass_name === 'vida' ? 'fw-normal' : '' }}">Poções de vida</span>
+                            <span class="{{ $itemClass_name === 'vida' ? '' : 'd-none' }}">Selecionado</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'mana']) }}">
+                        <div
+                            class="div-item-class-image {{ $itemClass_name === 'mana' ? 'item-class-selected' : '' }} overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Poção-mana.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span class="d-flex flex-column text-center">
+                            <span class="{{ $itemClass_name === 'mana' ? 'fw-normal' : '' }}">Poções de mana</span>
+                            <span class="{{ $itemClass_name === 'mana' ? '' : 'd-none' }}">Selecionado</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'força']) }}">
+                        <div
+                            class="div-item-class-image {{ $itemClass_name === 'força' ? 'item-class-selected' : '' }} overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Poção-força.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span class="d-flex flex-column text-center">
+                            <span class="{{ $itemClass_name === 'força' ? 'fw-normal' : '' }}">Poções de força</span>
+                            <span class="{{ $itemClass_name === 'força' ? '' : 'd-none' }}">Selecionado</span>
+                        </span>
+                    </a>
+                </div>
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'agilidade']) }}">
+                        <div
+                            class="div-item-class-image {{ $itemClass_name === 'agilidade' ? 'item-class-selected' : '' }} overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Poção-agilidade.jpg') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span class="d-flex flex-column text-center">
+                            <span class="{{ $itemClass_name === 'agilidade' ? 'fw-normal' : '' }}">Poções de
+                                agilidade</span>
+                            <span class="{{ $itemClass_name === 'agilidade' ? '' : 'd-none' }}">Selecionado</span>
+                        </span>
+                    </a>
+                </div>
+            @else
+                <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">
+                    <a href="{{ route('product.itemClass', ['category' => 'Grimório', 'itemClass' => 'mágico']) }}">
+                        <div
+                            class="div-item-class-image {{ $itemClass_name === 'mágico' ? 'item-class-selected' : '' }} overflow-hidden">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Grimório-mágico.png') }}"
+                                class="img-fluid" alt="">
+                        </div>
+                        <span class="d-flex flex-column text-center">
+                            <span class="{{ $itemClass_name === 'mágico' ? 'fw-normal' : '' }}">Grimórios
+                                mágicos</span>
+                            <span class="{{ $itemClass_name === 'mágico' ? '' : 'd-none' }}">Selecionado</span>
+                        </span>
+                    </a>
+                </div>
+            @endif
+        </div>
+    </section>
     <section class="container-xxl bg-white sticky-top section-filter">
         <div class="py-2 d-flex flex-column justify-content-center align-items-center">
             @csrf
@@ -101,8 +273,8 @@
                     <div class="filter-option mt-3">
                         <h4 class="filter-subtitle">Novidades</h4>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="filter[]" value="filter-new-true" id="new"
-                                {{ in_array('filter-new-true', $checked) ? 'checked' : '' }}>
+                            <input class="form-check-input" type="checkbox" name="filter[]" value="filter-new-true"
+                                id="new" {{ in_array('filter-new-true', $checked) ? 'checked' : '' }}>
                             <label class="form-check-label" for="new">
                                 Lançamento
                             </label>
@@ -121,8 +293,8 @@
                     <div class="filter-option mt-3">
                         <h4 class="filter-subtitle">Kit</h4>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="filter[]" value="filter-kit-true" id="kit"
-                                {{ in_array('filter-kit-true', $checked) ? 'checked' : '' }}>
+                            <input class="form-check-input" type="checkbox" name="filter[]" value="filter-kit-true"
+                                id="kit" {{ in_array('filter-kit-true', $checked) ? 'checked' : '' }}>
                             <label class="form-check-label" for="kit">
                                 Produto com kit
                             </label>
