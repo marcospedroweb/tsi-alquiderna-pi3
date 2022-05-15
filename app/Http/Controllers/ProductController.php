@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\ItemClass;
 use App\Models\SourceWebsite;
+
+
 
 class ProductController extends Controller
 {
@@ -18,9 +21,23 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $products = '';
 
-        if ($request->sort) {
+        $products = new Product;
+        $orderByColumn = 'created_at';
+        $orderByValue = 'DESC';
+
+        if ($request->has('filter'))
+            if (isset($request->filter['category']) && $request->filter['category']  && isset($request->filter['itemClass']) && $request->filter['itemClass']) {
+                $products = $products->where('category_id', DB::table('categories')->where('name', $request->filter['category'])->first()->id)
+                    ->where('itemClass_id', DB::table('item_classes')->where('name', $request->filter['itemClass'])->first()->id);
+                // $category_name = request('filter%5Bcategory%5D');
+                // $itemClass_name = request('filter%5BitemClass%5D');
+            } else if (isset($request->filter['category']) && $request->filter['category']) {
+                $products = $products->where('category_id', DB::table('categories')->where('name', $request->filter['category'])->first()->id);
+            }
+        // $category_name = request('filter%5Bcategory%5D');
+        // dd('teste');
+        if ($request->has('sort')) {
             if (strrpos($request->sort, 'price') === 0 && strrpos($request->sort, 'asc')) {
                 $orderByColumn = 'price';
                 $orderByValue = 'ASC';
@@ -35,36 +52,16 @@ class ProductController extends Controller
                 $orderByValue = 'DESC';
             }
 
-            if ($request->has('filter') && (!empty($request->filter))) {
-
-                if (isset($request->filter['category']) && (!empty($request->filter['category'])))
-                    if (isset($request->filter['itemClass']) && (!empty($request->filter['itemClass'])))
-                        $products = Product::filterProductBy($request->filter['category'], $request->filter['itemClass'], $orderByColumn, $orderByValue);
-                    else
-                        $products = Product::filterProductBy($request->filter['category'], '', $orderByColumn, $orderByValue);
-                else {
-                    $request->filter['itemClass'] = '';
-                    $products = Product::orderBy('created_at', 'DESC')->paginate(12);
-                }
-            } else {
-                $products = Product::orderBy($orderByColumn, $orderByValue)->paginate(12);
-            }
-        } else {
-
-            if ($request->has('filter') && (!empty($request->filter))) {
-                if (isset($request->filter['category']) && (!empty($request->filter['category'])))
-                    if (isset($request->filter['itemClass']) && (!empty($request->filter['itemClass'])))
-                        $products = Product::filterProductBy($request->filter['category'], $request->filter['itemClass']);
-                    else
-                        $products = Product::filterProductBy($request->filter['category'], '');
-                else {
-                    $request->filter['itemClass'] = '';
-                    $products = Product::orderBy('created_at', 'DESC')->paginate(12);
-                }
-            } else {
-                $products = Product::orderBy('created_at', 'DESC')->paginate(12);
-            }
+            $products = $products->orderBy($orderByColumn, $orderByValue);
         }
+        $products = $products->paginate(12);
+        if (isset($request->filter['category']) && $request->filter['category'])
+            $products = $products->appends('filter[category]', $request->filter['category']);
+
+        if (isset($request->filter['itemClass']) && $request->filter['itemClass'])
+            $products = $products->appends('filter[itemClass]', $request->filter['itemClass']);
+        if (isset($request->sort) && $request->sort)
+            $products = $products->appends('sort', $request->sort);
 
         return view('product.index')->with([
             'checked' => $request->has('filter') ? $request->filter : ['category' => '', 'itemClass' => ''],

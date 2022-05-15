@@ -17,22 +17,22 @@
                 </div>
                 <div>
                     <div class="dropdown">
-                        @if (request()->sort === 'price_asc')
+                        @if (isset($_GET['sort']) && $_GET['sort'] === 'price_asc')
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownOrderBy"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Ordenado por: Preço menor para maior
                             </button>
-                        @elseif (request()->sort === 'price_desc')
+                        @elseif (isset($_GET['sort']) && $_GET['sort'] === 'price_desc')
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownOrderBy"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Ordenado por: Preço maior para menor
                             </button>
-                        @elseif (request()->sort === 'name_asc')
+                        @elseif (isset($_GET['sort']) && $_GET['sort'] === 'name_asc')
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownOrderBy"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Ordenado por: Nome (A - Z)
                             </button>
-                        @elseif (request()->sort === 'name_desc')
+                        @elseif (isset($_GET['sort']) && $_GET['sort'] === 'name_desc')
                             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownOrderBy"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Ordenado por: Nome (Z - A)
@@ -45,40 +45,31 @@
                         @endif
                         @php
 
-                            if (!strpos(URL::full(), '?')) {
-                                $currentUrl = URL::current() . '?';
-                            } else {
-                                $currentUrl = URL::full();
+                            $requestCategory_name = '';
+                            $requestItemClass_name = '';
+                            if (isset(request()->filter['category']) && request()->filter['category']) {
+                                $requestCategory_name = request()->filter['category'];
                             }
-
-                            if (isset(request()->sort) && !strpos($currentUrl, 'sort=')) {
-                                $currentUrl = $currentUrl . ('&sort=' . request()->sort);
-                            } elseif (isset(request()->sort) && strpos($currentUrl, 'sort=') && !strpos($currentUrl, request()->sort)) {
-                                $currentUrl = str_replace(request()->sort, $currentUrl);
-                            }
-
-                            if (isset(request()->filter)) {
-                                foreach (request()->filter as $filter) {
-                                    $currentUrl = $currentUrl . ('filter%5B%5D=' . $filter . '&');
-                                }
+                            if (isset(request()->filter['itemClass']) && request()->filter['itemClass']) {
+                                $requestItemClass_name = request()->filter['itemClass'];
                             }
 
                         @endphp
                         <ul class="dropdown-menu" aria-labelledby="dropdownOrderBy">
-                            <li><a class="dropdown-item {{ request()->sort === 'price_asc' ? 'disabled' : '' }}"
-                                    href="{{ $currentUrl . '&sort=price_asc' }}">Preço - menor
+                            <li><a class="dropdown-item {{ isset($_GET['sort']) && $_GET['sort'] === 'price_asc' ? 'disabled' : '' }}"
+                                    href="{{ '&sort=price_asc' }}">Preço - menor
                                     para
                                     maior</a></li>
-                            <li><a class="dropdown-item {{ request()->sort === 'price_desc' ? 'disabled' : '' }}"
-                                    href="{{ $currentUrl . '&sort=price_desc' }}">Preço -
+                            <li><a class="dropdown-item {{ isset($_GET['sort']) && $_GET['sort'] === 'price_desc' ? 'disabled' : '' }}"
+                                    href="{{ '&sort=price_desc' }}">Preço -
                                     maior
                                     para
                                     menor</a></li>
-                            <li><a class="dropdown-item {{ !isset(request()->sort) || request()->sort === 'name_asc' ? 'disabled' : '' }}"
-                                    href="{{ $currentUrl . '&sort=name_asc' }}">Nome (A -
+                            <li><a class="dropdown-item {{ !isset(request()->sort) || (isset($_GET['sort']) && $_GET['sort'] === 'name_asc') ? 'disabled' : '' }}"
+                                    href="{{ '&sort=name_asc' }}">Nome (A -
                                     Z)</a></li>
-                            <li><a class="dropdown-item {{ request()->sort === 'name_desc' ? 'disabled' : '' }}"
-                                    href="{{ $currentUrl . '&sort=name_desc' }}">Nome (Z -
+                            <li><a class="dropdown-item {{ isset($_GET['sort']) && $_GET['sort'] === 'name_desc' ? 'disabled' : '' }}"
+                                    href="{{ '&sort=name_desc' }}">Nome (Z -
                                     A)</a></li>
                         </ul>
                     </div>
@@ -310,7 +301,7 @@
                     @endif
                 </div>
                 <div class="mb-6">
-                    {{ $allProducts->links('vendor.pagination.bootstrap-5', ['actualUrl' => $currentUrl]) }}
+                    {{ $allProducts->links('vendor.pagination.bootstrap-5') }}
                 </div>
             </div>
         </div>

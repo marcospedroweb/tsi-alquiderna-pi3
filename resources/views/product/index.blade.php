@@ -70,13 +70,13 @@
                     data-bs-toggle="dropdown" aria-expanded="false">
                     Ordenado por:
                     <span class="fw-bold">
-                        @if (isset(request()->sort) && request()->sort === 'price_asc')
+                        @if (isset($_GET['sort']) && $_GET['sort'] === 'price_asc')
                             Preço - menor para maior
-                        @elseif(isset(request()->sort) && request()->sort === 'price_desc')
+                        @elseif(isset($_GET['sort']) && $_GET['sort'] === 'price_desc')
                             Preço - maior para menor
-                        @elseif(isset(request()->sort) && request()->sort === 'name_asc')
+                        @elseif(isset($_GET['sort']) && $_GET['sort'] === 'name_asc')
                             Nome (A - Z)
-                        @elseif(isset(request()->sort) && request()->sort === 'name_asc')
+                        @elseif(isset($_GET['sort']) && $_GET['sort'] === 'name_desc')
                             Nome (Z - A)
                         @else
                             Data de criação - menor para maior
@@ -84,31 +84,31 @@
                     </span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="filter-by-armor">
-                    <li><button class="btn dropdown-item {{ request()->sort === 'name_asc' ? 'disabled' : '' }}"
-                            name="sort" value="name_asc">Ordenar por Nome
-                            (A
-                            - Z)</button></li>
-                    <li><button class="btn dropdown-item {{ request()->sort === 'name_desc' ? 'disabled' : '' }}"
-                            name="sort" value="name_desc">Ordenar por
-                            Nome (Z - A)</button></li>
-                    <li><button class="btn dropdown-item {{ request()->sort === 'price_asc' ? 'disabled' : '' }}"
-                            name="sort" value="price_asc">Preço - menor
-                            para
-                            maior</button></li>
-                    <li><button class="btn dropdown-item {{ request()->sort === 'price_desc' ? 'disabled' : '' }}"
-                            name="sort" value="price_desc">Preço - maior
-                            para menor</button></li>
-                    {{-- <li><a class="dropdown-item {{ request()->sort === 'name_asc' ? 'disabled' : '' }}"
-                            href="{{ URL::current() . '&sort=name_asc' }}">Ordenar por Nome (A
+                    @php
+                        $requestCategory_name = '';
+                        $requestItemClass_name = '';
+                        if (isset(request()->filter['category']) && request()->filter['category']) {
+                            $requestCategory_name = request()->filter['category'];
+                        }
+                        if (isset(request()->filter['itemClass']) && request()->filter['itemClass']) {
+                            $requestItemClass_name = request()->filter['itemClass'];
+                        }
+                    @endphp
+                    <li><a class="dropdown-item {{ isset($_GET['sort']) && $_GET['sort'] === 'name_asc' ? 'disabled' : '' }}"
+                            href="{{ route('product.index', ['filter[category]' => $requestCategory_name, 'filter[itemClass]' => $requestItemClass_name, 'sort' => 'name_asc']) }}">Ordenar
+                            por Nome (A
                             - Z)</a></li>
-                    <li><a class="dropdown-item {{ request()->sort === 'name_desc' ? 'disabled' : '' }}"
-                            href="{{ URL::current() . '&sort=name_desc' }}">Ordenar por Nome (Z - A)</a></li>
-                    <li><a class="dropdown-item {{ request()->sort === 'price_asc' ? 'disabled' : '' }}"
-                            href="{{ URL::current() . '&sort=price_asc' }}">Preço - menor
+                    <li><a class="dropdown-item {{ isset($_GET['sort']) && $_GET['sort'] === 'name_desc' ? 'disabled' : '' }}"
+                            href="{{ route('product.index', ['filter[category]' => $requestCategory_name, 'filter[itemClass]' => $requestItemClass_name, 'sort' => 'name_desc']) }}">Ordenar
+                            por Nome (Z - A)</a></li>
+                    <li><a class="dropdown-item {{ isset($_GET['sort']) && $_GET['sort'] === 'price_asc' ? 'disabled' : '' }}"
+                            href="{{ route('product.index', ['filter[category]' => $requestCategory_name, 'filter[itemClass]' => $requestItemClass_name, 'sort' => 'price_asc']) }}">Preço
+                            - menor
                             para
                             maior</a></li>
-                    <li><a class="dropdown-item {{ request()->sort === 'price_desc' ? 'disabled' : '' }}"
-                            href="{{ URL::current() . '&sort=price_desc' }}">Preço - maior para menor</a></li> --}}
+                    <li><a class="dropdown-item {{ isset($_GET['sort']) && $_GET['sort'] === 'price_desc' ? 'disabled' : '' }}"
+                            href="{{ route('product.index', ['filter[category]' => $requestCategory_name, 'filter[itemClass]' => $requestItemClass_name, 'sort' => 'price_desc']) }}">Preço
+                            - maior para menor</a></li>
                 </ul>
             </div>
         </div>
@@ -468,7 +468,7 @@
                     </div>
                 </div>
             @endforeach
-            {{ $products->links('vendor.bootstrap-5', ['category' => $checked['category'], 'itemClass' => $checked['itemClass'], 'sort' => request()->sort]) }}
+            {{ $products->links('vendor.bootstrap-5') }}
         @else
             <div class="d-flex justify-content-center aling-items-center" id="no-products">
                 <span>Não foi encontrado nenhum produto com os filtros</span>

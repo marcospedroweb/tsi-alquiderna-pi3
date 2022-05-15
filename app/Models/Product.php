@@ -91,35 +91,52 @@ class Product extends Model
 
     public static function filterProductBy(string $category_name, string $itemClass_name = '', string $orderByColumn = 'name', string $orderByValue = 'ASC', int $paginate = 12, bool $kit = false)
     {
-        // dd($category_name);
+        $filterProductBy = new Product;
         if ($orderByColumn === 'none')
             $orderByColumn = 'name';
         if ($orderByValue === 'none')
             $orderByValue = 'ASC';
 
-        if ($category_name && $itemClass_name)
-            if ($kit)
-                return Product::where('kit', 1)
-                    ->where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
-                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
-                    ->orderBy($orderByColumn, $orderByValue)
-                    ->paginate($paginate);
-            else if ($itemClass_name === 'kit')
-                return Product::where('kit', 1)
-                    ->where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
-                    ->orderBy($orderByColumn, $orderByValue)
-                    ->paginate($paginate);
-            else
-                return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
-                    ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
-                    ->orderBy($orderByColumn, $orderByValue)
-                    ->paginate($paginate);
-        else if ($category_name)
-            return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
-                ->orWhere('kit', 1)
-                ->where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
-                ->orderBy($orderByColumn, $orderByValue)
-                ->paginate($paginate);
+        if ($category_name)
+            $filterProductBy =  $filterProductBy->where('category_id', DB::table('categories')->where('name', $category_name)->first()->id);
+
+        if ($itemClass_name !== 'kit' && $itemClass_name)
+            $filterProductBy =  $filterProductBy->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id);
+
+        if ($kit || $itemClass_name === 'kit')
+            $filterProductBy =  $filterProductBy->where('kit', 1);
+
+        if ($orderByColumn && $orderByValue)
+            $filterProductBy =  $filterProductBy->orderBy($orderByColumn, $orderByValue);
+
+        if ($paginate)
+            $filterProductBy =  $filterProductBy->paginate($paginate);
+
+        return $filterProductBy;
+
+        // if ($category_name && $itemClass_name)
+        //     if ($kit)
+        //         return Product::where('kit', 1)
+        //             ->where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+        //             ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+        //             ->orderBy($orderByColumn, $orderByValue)
+        //             ->paginate($paginate);
+        //     else if ($itemClass_name === 'kit')
+        //         return Product::where('kit', 1)
+        //             ->where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+        //             ->orderBy($orderByColumn, $orderByValue)
+        //             ->paginate($paginate);
+        //     else
+        //         return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+        //             ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id)
+        //             ->orderBy($orderByColumn, $orderByValue)
+        //             ->paginate($paginate);
+        // else if ($category_name)
+        //     return Product::where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+        //         ->orWhere('kit', 1)
+        //         ->where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+        //         ->orderBy($orderByColumn, $orderByValue)
+        //         ->paginate($paginate);
     }
 
     public static function filterProductByFilters(array $filters, string $category_name, string $itemClass_name = '', string $orderByColumn = 'name', string $orderByValue = 'DESC')
