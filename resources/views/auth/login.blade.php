@@ -137,7 +137,7 @@
                             autocomplete="new-password" minlength="8" maxlength="20" />
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Criar conta</button>
+                        <button type="submit" class="btn btn-primary">Fazer login</button>
                     </div>
                 </form>
                 <span id="span-separator"></span>

@@ -230,6 +230,11 @@ class eCommerceController extends Controller
         else
             $itemClass_name_edited = 'Varinhas';
 
+        if ($request->has('filter'))
+            $allProducts = $allProducts->appends(['filter' => $request->has('filter') ? $request->filter : []]);
+        if ($request->sort)
+            $allProducts = $allProducts->appends(['sort' => $request->sort]);
+
 
         return view('product.itemClass')->with([
             'checked' => $request->has('filter') ? $request->filter : [],
