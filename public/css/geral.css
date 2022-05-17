@@ -1,0 +1,87 @@
+:root {
+    --nav-color: #70470A;
+    --footer-color: #fff;
+    --header-text-color: #000;
+    --subHeader-text-color: #000;
+    --paragraph-text-color: #000;
+    --btn-static: #EBD565;
+    --btn-hover: #c7b246;
+    --btn-active: #ffe978;
+    --btn-static-text-color: #4A1B00;
+    --btn-hover-text-color: #210c00;
+    --btn-active-text-color: #4A1B00;
+    --body-background: #fcf5eb;
+}
+
+/* GENERAL */
+
+body {
+    background-color: var(--body-background);
+}
+
+/* TYPOGRAPHY */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+}
+
+/* Elements */
+p,
+span {
+    font-family: 'Open Sans', sans-serif;
+}
+
+p {
+    font-size: 1rem !important;
+}
+
+/* header */
+#header {
+    background-color: var(--nav-color);
+    color: #fff;
+}
+
+#btn-bag {
+    color: #fff;
+}
+
+/* Product card */
+.product-info {
+    width: 100%;
+    background-color: #FAFAFA;
+    padding: .5rem;
+    border: 1px solid #505050;
+    border-radius: 8px;
+}
+
+.product-info+.product-info {
+    margin-left: 24px;
+}
+
+/* CAROUSEL */
+.carousel-products-inner {
+    min-height: 400px;
+}
+
+.card-product+.card-product {
+    margin-left: 24px;
+}
+
+
+.carousel-products .card-product .image-product:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: var(--nav-color);
+}
+
+.list-unstyled {
+    color: #fff;
+}
