@@ -40,7 +40,7 @@
             <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
                 @foreach ($newProducts as $newProduct)
                     <div class="card-product position-relative overflow-hidden mx-auto">
-                        <a href="{{ route('product.index') }}">
+                        <a href="{{ route('product.show', $newProduct->id) }}">
                             <img src='{{ asset("$newProduct->image") }}' class="img-fluid">
                             <div
                                 class="card-product-text w-100 h-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column justify-content-end">

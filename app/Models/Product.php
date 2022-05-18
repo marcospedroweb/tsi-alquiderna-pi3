@@ -89,7 +89,7 @@ class Product extends Model
         return $allCategories;
     }
 
-    public static function filterProductBy(string $category_name, string $itemClass_name = '', string $orderByColumn = 'name', string $orderByValue = 'ASC', int $paginate = 12, bool $kit = false)
+    public static function filterProductBy(string $category_name, string $itemClass_name = '', string $orderByColumn = 'name', string $orderByValue = 'ASC', int $paginate = 12, string $kit = '')
     {
         $filterProductBy = new Product;
         if ($orderByColumn === 'none')
@@ -105,8 +105,15 @@ class Product extends Model
         elseif ($itemClass_name !== 'kit' && $itemClass_name)
             $filterProductBy =  $filterProductBy->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id);
 
-        if ($kit || $itemClass_name === 'kit')
+        if ($kit === 'onlyKits' || $itemClass_name === 'kit')
             $filterProductBy =  $filterProductBy->where('kit', 1);
+        else if ($kit === 'withKits' && $itemClass_name)
+            $filterProductBy =  $filterProductBy->orWhere('kit', 1)
+                ->where('category_id', DB::table('categories')->where('name', $category_name)->first()->id)
+                ->where('itemClass_id', DB::table('item_classes')->where('name', $itemClass_name)->first()->id);
+        else if ($kit === 'withKits' && $itemClass_name === '')
+            $filterProductBy =  $filterProductBy->orWhere('kit', 1)
+                ->where('category_id', DB::table('categories')->where('name', $category_name)->first()->id);
 
         if ($orderByColumn == 'return')
             return $filterProductBy;

@@ -245,4 +245,19 @@ class eCommerceController extends Controller
             'allProducts' => $allProducts,
         ]);
     }
+
+    public function productShow(Product $product)
+    {
+        // dd($product->ItemClass->name);
+        $productsWithSameCategory = Product::filterProductBy($product->Category->name, $product->ItemClass->name, 'price', 'ASC', 7, 'withKits');
+        $productsWithOtherCategory = [];
+
+        foreach (Category::all() as $category)
+            if ($product->Category->name !== $category->name)
+                array_push($productsWithOtherCategory, Product::filterProductBy($category->name, '', 'price', 'ASC', 7, 'withKits'));
+
+        return view('product.show', [
+            'mainProduct' => $product,
+        ]);
+    }
 }
