@@ -20,22 +20,38 @@
             <div class="col-6 overflow-hidden sticky-top" id="main-product-image">
                 <img src="{{ asset($mainProduct->image) }}" class="rounded" alt="imagem do produto">
             </div>
-            <form class="col-6 bg-white pt-3">
-                <h3 class="h3">Compre {{ $mainProduct->name }}</h3>
-                <div>
+            <form class="col-6 bg-white rounded">
+                <div class="p-3">
+                    <h3 class="h3">Compre {{ $mainProduct->name }}</h3>
                     <div class="mb-5">
                         <h4 class="h4">Calcular frete e prazo</h4>
                         <div class="mb-3 row">
                             <div class="col-3">
-                                <input type="number" class="form-control" id="input-cep" placeholder="00000-000"
-                                    minlength="8">
+                                <input type="number" class="form-control" id="input-cep" placeholder="00000-000" min="8"
+                                    max="8" pattern="\d{5}-\d{3}">
                             </div>
                             <div class="col">
                                 <button id="search-cep" class="btn btn-primary">Calcular frete</button>
                             </div>
                         </div>
-                        <div class="d-none" id="cep">
-                            <p>Entrega para <span class="street">00000-000</span></p>
+                        <div class="" id="cep">
+                            <p>Entrega para <span class="street fw-bold">Rua com algum nome completo aqui</span></p>
+                            <div id="div-cep-options">
+                                <div class="option-cep">
+                                    <i class="fa-solid fa-truck"></i>
+                                    <p>
+                                        <span><span>Receba até</span> 00 de dezembro</span>
+                                        <span>R$ 999,99</span>
+                                    </p>
+                                </div>
+                                <div class="option-cep">
+                                    <i class="fa-solid fa-truck"></i>
+                                    <p>
+                                        <span><span>Receba até</span> 00 de dezembro</span>
+                                        <span>R$ 999,99</span>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="mb-5" id="lvl">
@@ -45,33 +61,58 @@
                         </h4>
                         <div class="row">
                             <div class="col-4">
-                                <div class="block-lvl">
-                                    texto
+                                <div class="block-option form-check d-flex flex-column text-center p-2">
+                                    <input class="form-check-input mx-auto" type="radio" name="durability"
+                                        id="option-lvl-61" value="0">
+                                    <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-61">
+                                        Nível 61
+                                        <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                0</span></span>
+                                    </label>
                                 </div>
                             </div>
                             <div class="col-4">
-                                <div class="block-lvl">
-                                    texto
+                                <div class="block-option form-check d-flex flex-column text-center p-2">
+                                    <input class="form-check-input mx-auto" type="radio" name="durability"
+                                        id="option-lvl-70" value="300">
+                                    <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-70">
+                                        Nível 70
+                                        <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                300</span></span>
+                                    </label>
                                 </div>
                             </div>
                             <div class="col-4">
-                                <div class="block-lvl">
-                                    texto
+                                <div class="block-option form-check d-flex flex-column text-center p-2">
+                                    <input class="form-check-input mx-auto" type="radio" name="durability"
+                                        id="option-lvl-80" value="600">
+                                    <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-80">
+                                        Nível 80
+                                        <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                600</span></span>
+                                    </label>
                                 </div>
                             </div>
-                            <div class="col-4 mt-2">
-                                <div class="block-lvl">
-                                    texto
+                            <div class="col-4 mt-3">
+                                <div class="block-option form-check d-flex flex-column text-center p-2">
+                                    <input class="form-check-input mx-auto" type="radio" name="durability"
+                                        id="option-lvl-90" value="900">
+                                    <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-90">
+                                        Nível 90
+                                        <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                900</span></span>
+                                    </label>
                                 </div>
                             </div>
-                            <div class="col-4 mt-2">
-                                <div class="block-lvl">
-                                    texto
-                                </div>
-                            </div>
-                            <div class="col-4 mt-2">
-                                <div class="block-lvl">
-                                    texto
+                            <div class="col-4 mt-3">
+                                <div class="block-option form-check d-flex flex-column text-center p-2">
+                                    <input class="form-check-input mx-auto" type="radio" name="durability"
+                                        id="option-lvl-100" value="1200">
+                                    <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-100">
+                                        Nível 100
+                                        <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                1200</span></span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -80,9 +121,9 @@
                             {{ $mainProduct->Category->name }} será afetada pelo nível</small>
                     </div>
                     <div class="mb-5" id="enchant">
-                        <h4 class="h4">Encantar produto</h4>
+                        <h4 class="h4">Encantar produto?</h4>
                         <div class="row flex-column justify-content-center align-items-center">
-                            <div class="col-10">
+                            <div class="col-12">
                                 <select class="form-select" aria-label="encantar">
                                     <option disabled>Encantar produto?</option>
                                     <option value="0" selected>Não</option>
@@ -90,8 +131,13 @@
                                 </select>
                             </div>
                             <div class="col-10">
-                                <div class="d-none">
-
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input" type="checkbox" name="enchant-life" value="300"
+                                        id="enchant-checkbox-life">
+                                    <label class="form-check-label d-flex flex-column" for="enchant-checkbox-life">
+                                        Vida
+                                        <span class="d-none mx-auto">+ 300</span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -100,32 +146,52 @@
                         <div class="p-4 rounded" id="purchase-description">
                             <h4 class="h4 fw-bold text-center">Descrição da compra</h4>
                             <ul class="list-unstyled">
-                                <li class="d-flex justify-content-between align-items-start my-2">
-                                    <span style="min-width: 132px"><i class="fa-solid fa-money-bill"
-                                            style="font-size:1.15rem"></i> Preço padrão</span>
-                                    <span><span>R$</span> <span style="min-width: 41px"
-                                            class="d-inline-block">9.999</span></span>
+                                <li
+                                    class="d-flex justify-content-start align-items-start mt-2 p-0 purchase-description-option">
+                                    <i class="fa-solid fa-money-bill"></i>
+                                    <span
+                                        class="purchase-description-info d-flex justify-content-start align-items-center flex-grow-1">
+                                        <span class="purchase-title">Preço padrão</span>
+                                        <span class="ms-auto">
+                                            <span class="purchase-price">R$ <span class="d-inline-block"
+                                                    style="min-width: 41px">9.999</span></span>
+                                        </span>
+                                    </span>
                                 </li>
-                                <li class="d-flex justify-content-between align-items-start my-2 py-2 position-relative">
-                                    <span class="separator position-absolute top-0 start-0 "></span>
-                                    <span style="min-width: 132px"><i class="fa-solid fa-bars-progress"
-                                            style="font-size:1.15rem"></i> Durabildade</span>
-                                    <span style="min-width: 118px">Nível 100</span>
-                                    <span><span>R$</span> <span style="min-width: 41px"
-                                            class="d-inline-block">9.999</span></span>
+                                <li
+                                    class="d-flex justify-content-start align-items-start mt-2 p-0 position-relative purchase-description-option">
+                                    <i class="fa-solid fa-bars-progress"></i>
+                                    <span
+                                        class="purchase-description-info d-flex justify-content-start align-items-center flex-grow-1">
+                                        <span class="purchase-title" style="min-width: 132px">
+                                            Durabildade</span>
+                                        <ul class="purchase-list-info" style="min-width: 124px">
+                                            <li>Nível 100</li>
+                                        </ul>
+                                        <span class="ms-auto">
+                                            <span class="purchase-price">R$ <span class="d-inline-block"
+                                                    style="min-width: 41px">9.999</span></span>
+                                        </span>
+                                    </span>
                                 </li>
-                                <li class="d-flex justify-content-between align-items-start pt-2 position-relative">
-                                    <span class="separator position-absolute top-0 start-0 "></span>
-                                    <span style="min-width: 132px"><i class="fa-solid fa-wand-magic-sparkles"></i>
-                                        Encantamento</span>
-                                    <ul class="list-unstyled" style="min-width: 118px">
-                                        <li>Vida</li>
-                                        <li>Agilidade</li>
-                                        <li>Proteção física</li>
-                                        <li>Proteção mágica</li>
-                                    </ul>
-                                    <span><span>R$</span> <span style="min-width: 41px"
-                                            class="d-inline-block">9.999</span></span>
+                                <li
+                                    class="d-flex justify-content-start align-items-start my-2 p-0 position-relative purchase-description-option">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                    <span
+                                        class="purchase-description-info d-flex justify-content-start align-items-start flex-grow-1">
+                                        <span class="purchase-title" style="min-width: 132px">
+                                            Encantamento</span>
+                                        <ul class="purchase-list-info" style="min-width: 124px">
+                                            <li>Vida</li>
+                                            <li>Agilidade</li>
+                                            <li>Proteção física</li>
+                                            <li>Proteção mágica</li>
+                                        </ul>
+                                        <span class="ms-auto">
+                                            <span class="purchase-price">R$ <span class="d-inline-block"
+                                                    style="min-width: 41px">9.999</span></span>
+                                        </span>
+                                    </span>
                                 </li>
                             </ul>
                         </div>
@@ -134,8 +200,9 @@
                         <a href="#" class="col-12 btn btn-primary mb-4">Continuar compra</a>
                         <div class="col-12 py-2 rounded" id="mark-product">
                             <h4>Ainda decidindo?</h4>
-                            <div>
-                                <p>Adicione esse produto a sua lista de desejos e você poderá voltar para ve-lo denovo</p>
+                            <div class="d-flex justify-content-center align-items-center mt-2">
+                                <p class="m-0">Adicione esse produto a sua lista de desejos e você poderá voltar
+                                    para ve-lo denovo</p>
                                 <i class="fa-regular fa-bookmark"></i>
                                 <i class="fa-solid fa-bookmark"></i>
                             </div>
@@ -156,32 +223,32 @@
                 <h3 class="h3">Nome do produto</h3>
                 <div class="row">
                     <div class="col-4">
-                        <div class="block-desc">
+                        <div class="block-option">
                             texto
                         </div>
                     </div>
                     <div class="col-4">
-                        <div class="block-desc">
+                        <div class="block-option">
                             texto
                         </div>
                     </div>
                     <div class="col-4">
-                        <div class="block-desc">
+                        <div class="block-option">
                             texto
                         </div>
                     </div>
                     <div class="col-4">
-                        <div class="block-desc">
+                        <div class="block-option">
                             texto
                         </div>
                     </div>
                     <div class="col-4">
-                        <div class="block-desc">
+                        <div class="block-option">
                             texto
                         </div>
                     </div>
                     <div class="col-4">
-                        <div class="block-desc">
+                        <div class="block-option">
                             texto
                         </div>
                     </div>

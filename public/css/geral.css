@@ -10,7 +10,9 @@
     --btn-static-text-color: #4A1B00;
     --btn-hover-text-color: #210c00;
     --btn-active-text-color: #4A1B00;
-    --body-background: #fcf5eb;
+    /* --body-background: #fcf5eb; */
+    --body-background: #f5ecdf;
+    --block-background: #e8e1d8;
 }
 
 /* GENERAL */
