@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
-    <section class="bg-primary sticky-top py-2" id="section-info">
+    <section class="bg-white sticky-top py-2" id="section-info">
         <div class="container-xxl ">
-            <div class="row justify-content-between align-items-center">
+            <div class="row justify-content-between align-items-center" id="product-sticky-banner">
                 <div class="col-8">
-                    <h2 class="h2 m-0">Nome do produto</h2>
+                    <h2 class="h2 m-0">{{ $mainProduct->name }}</h2>
                 </div>
                 <div class="col d-flex justify-content-end align-items-center">
                     <a href="#" class="link-primary me-2">Descrição</a>
@@ -21,20 +21,19 @@
                 <img src="{{ asset($mainProduct->image) }}" class="rounded" alt="imagem do produto">
             </div>
             <form class="col-6 bg-white rounded">
-                <div class="p-3">
-                    <h3 class="h3">Compre {{ $mainProduct->name }}</h3>
-                    <div class="mb-5">
+                <div class="py-3">
+                    <h3 class="h3 mb-5 text-center">Compre {{ $mainProduct->name }}</h3>
+                    <div class="mb-5 border">
                         <h4 class="h4">Calcular frete e prazo</h4>
                         <div class="mb-3 row">
                             <div class="col-3">
-                                <input type="number" class="form-control" id="input-cep" placeholder="00000-000" min="8"
-                                    max="8" pattern="\d{5}-\d{3}">
+                                <input type="tel" class="form-control" id="input-cep" placeholder="00000-000">
                             </div>
                             <div class="col">
-                                <button id="search-cep" class="btn btn-primary">Calcular frete</button>
+                                <button type="button" id="search-cep" class="btn btn-primary">Calcular frete</button>
                             </div>
                         </div>
-                        <div class="" id="cep">
+                        <div class="d-none" id="div-cep">
                             <p>Entrega para <span class="street fw-bold">Rua com algum nome completo aqui</span></p>
                             <div id="div-cep-options">
                                 <div class="option-cep">
@@ -54,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mb-5" id="lvl">
+                    <div class="mb-5 border" id="lvl">
                         <h4 class="h4">Escolha o nível
                             {{ $mainProduct->Category->name === 'Grimório' ? 'do' : 'da' }}
                             {{ $mainProduct->Category->name }}
@@ -120,28 +119,63 @@
                             {{ $mainProduct->Category->name === 'Grimório' ? 'do' : 'da' }}
                             {{ $mainProduct->Category->name }} será afetada pelo nível</small>
                     </div>
-                    <div class="mb-5" id="enchant">
-                        <h4 class="h4">Encantar produto?</h4>
-                        <div class="row flex-column justify-content-center align-items-center">
-                            <div class="col-12">
-                                <select class="form-select" aria-label="encantar">
-                                    <option disabled>Encantar produto?</option>
-                                    <option value="0" selected>Não</option>
-                                    <option value="1">Sim</option>
-                                </select>
-                            </div>
-                            <div class="col-10">
-                                <div class="form-check mt-3">
-                                    <input class="form-check-input" type="checkbox" name="enchant-life" value="300"
-                                        id="enchant-checkbox-life">
-                                    <label class="form-check-label d-flex flex-column" for="enchant-checkbox-life">
-                                        Vida
-                                        <span class="d-none mx-auto">+ 300</span>
-                                    </label>
+                    @if ($mainProduct->enchant)
+                        <div class="mb-5 border" id="enchant">
+                            <h4 class="h4">Encantar produto?</h4>
+                            <div class="row flex-column justify-content-center align-items-center">
+                                <div class="col-12">
+                                    <select class="form-select" aria-label="encantar">
+                                        <option disabled>Encantar produto?</option>
+                                        <option value="0" selected>Não</option>
+                                        <option value="1">Sim</option>
+                                    </select>
+                                </div>
+                                <div class="d-none col-10 d-flex justify-content-center align-items-start">
+                                    <div class="form-check mt-3 me-3">
+                                        <input class="form-check-input" type="checkbox" name="enchant-life" value="300"
+                                            id="enchant-checkbox-life">
+                                        <label
+                                            class="form-check-label d-flex flex-column justify-content-between align-items-start"
+                                            for="enchant-checkbox-life">
+                                            Vida
+                                            <span class="d-none">+ 300</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check mt-3 me-3">
+                                        <input class="form-check-input" type="checkbox" name="enchant-life" value="30"
+                                            id="enchant-checkbox-speed">
+                                        <label
+                                            class="form-check-label d-flex flex-column justify-content-between align-items-start"
+                                            for="enchant-checkbox-speed">
+                                            Agilidade
+
+                                            <span class="d-none">+ 30</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check mt-3 me-3">
+                                        <input class="form-check-input" type="checkbox" name="enchant-life" value="150"
+                                            id="enchant-checkbox-physical-protection">
+                                        <label
+                                            class="form-check-label d-flex flex-column justify-content-between align-items-start"
+                                            for="enchant-checkbox-physical-protection">
+                                            Proteção física
+                                            <span class="d-none">+ 150</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check mt-3 me-3">
+                                        <input class="form-check-input" type="checkbox" name="enchant-life" value="150"
+                                            id="enchant-checkbox-magic-protection">
+                                        <label
+                                            class="form-check-label d-flex flex-column justify-content-between align-items-start"
+                                            for="enchant-checkbox-magic-protection">
+                                            Proteção mágica
+                                            <span class="d-none">+ 150</span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                     <div class="d-flex justify-content-center mb-4">
                         <div class="p-4 rounded" id="purchase-description">
                             <h4 class="h4 fw-bold text-center">Descrição da compra</h4>

@@ -171,6 +171,11 @@
             </div>
         </div>
     </aside>
+    <div class="container-xxl mt-5 d-none" id="div-alert-user">
+        <div class="alert text-center">
+            <span></span>
+        </div>
+    </div>
     <main>
         <div class="container-xxl">
             @if (session()->get('success'))

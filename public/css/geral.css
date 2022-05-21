@@ -52,6 +52,24 @@ p {
     color: #fff;
 }
 
+/* Alert user */
+#div-alert-user {
+    position: fixed;
+    top: 32px;
+    z-index: 1100;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateY(-48px);
+    transition: opacity .25s ease-out;
+    transition: transform .25s ease-out;
+}
+
+#div-alert-user.show {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
 /* Product card */
 .product-info {
     width: 100%;

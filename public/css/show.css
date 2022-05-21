@@ -1,5 +1,25 @@
+.border {
+    border-radius: 8px;
+    padding: 16px;
+    padding: 16px;
+    border: 1px solid #aaa;
+}
+
 #section-info {
     z-index: 1000;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#product-sticky-banner .link-primary {
+    color: #404040;
+}
+
+#product-sticky-banner .link-primary:hover {
+    color: #000;
+}
+
+#product-sticky-banner .link-primary:active {
+    color: #555;
 }
 
 #main-product-image.sticky-top {
@@ -72,9 +92,13 @@
 }
 
 #lvl .block-option .durability-upgrade,
-#enchant .form-check-label span {
+#enchant .form-check span {
     color: #136006;
     font-weight: bold;
+}
+
+#enchant .form-check {
+    /* padding: 0; */
 }
 
 #purchase-description {
