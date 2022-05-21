@@ -7,7 +7,7 @@ export default function initFormatProductPrice() {
     }
 
     productPrice.forEach(element => {
-        if ((element.textContent.length) >= 4)
+        if ((element.textContent.length) >= 4 && element.textContent.indexOf('.') === -1)
             element.textContent = formatPrice(element);
     });
 

@@ -2,7 +2,7 @@
 @section('content')
     <input type="hidden" value="{{ $category_name }}" id="categoryName">
     <input type="hidden" value="{{ $itemClass_name }}" id="itemClassName">
-    <section class="mt-4 mb-6">
+    <section class="mt-4 mb-6 container-xxl">
         <div class="item-class-options d-flex justify-content-center align-items-start">
             @if ($category_name === 'Armadura')
                 <div class="option-item-class d-flex flex-column justify-content-center align-items-center text-center">

@@ -70,61 +70,154 @@
                             {{ $mainProduct->Category->name }}
                         </h4>
                         <div class="row">
-                            <div class="col-4">
-                                <div class="block-option form-check d-flex flex-column text-center p-2">
-                                    <input class="form-check-input mx-auto" type="radio" name="durability"
-                                        id="option-lvl-61" value="0">
-                                    <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-61">
-                                        Nível 61
-                                        <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
-                                                0</span></span>
-                                    </label>
+                            @if ($mainProduct->lvlMin === 0)
+                                <div class="col-4 lvl-min-option ">
+                                    <div class="block-option form-check d-flex flex-column text-center p-2">
+                                        <input class="form-check-input mx-auto" type="radio" name="durability"
+                                            id="option-lvl-0" value="0" required>
+                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-0">
+                                            Nível 0
+                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                    0</span></span>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="block-option form-check d-flex flex-column text-center p-2">
-                                    <input class="form-check-input mx-auto" type="radio" name="durability"
-                                        id="option-lvl-70" value="300">
-                                    <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-70">
-                                        Nível 70
-                                        <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
-                                                300</span></span>
-                                    </label>
+                                <div class="col-4 lvl-min-option ">
+                                    <div class="block-option form-check d-flex flex-column text-center p-2">
+                                        <input class="form-check-input mx-auto" type="radio" name="durability"
+                                            id="option-lvl-10" value="100" required>
+                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-10">
+                                            Nível 10
+                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                    100</span></span>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="block-option form-check d-flex flex-column text-center p-2">
-                                    <input class="form-check-input mx-auto" type="radio" name="durability"
-                                        id="option-lvl-80" value="600">
-                                    <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-80">
-                                        Nível 80
-                                        <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
-                                                600</span></span>
-                                    </label>
+                                <div class="col-4 lvl-min-option ">
+                                    <div class="block-option form-check d-flex flex-column text-center p-2">
+                                        <input class="form-check-input mx-auto" type="radio" name="durability"
+                                            id="option-lvl-20" value="200" required>
+                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-20">
+                                            Nível 10
+                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                    200</span></span>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-4 mt-3">
-                                <div class="block-option form-check d-flex flex-column text-center p-2">
-                                    <input class="form-check-input mx-auto" type="radio" name="durability"
-                                        id="option-lvl-90" value="900">
-                                    <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-90">
-                                        Nível 90
-                                        <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
-                                                900</span></span>
-                                    </label>
+                                <div class="col-4 lvl-min-option  mt-3">
+                                    <div class="block-option form-check d-flex flex-column text-center p-2">
+                                        <input class="form-check-input mx-auto" type="radio" name="durability"
+                                            id="option-lvl-30" value="300" required>
+                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-30">
+                                            Nível 30
+                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                    300</span></span>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-4 mt-3">
-                                <div class="block-option form-check d-flex flex-column text-center p-2">
-                                    <input class="form-check-input mx-auto" type="radio" name="durability"
-                                        id="option-lvl-100" value="1200">
-                                    <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-100">
-                                        Nível 100
-                                        <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
-                                                1200</span></span>
-                                    </label>
+                            @elseif($mainProduct->lvlMin === 31)
+                                <div class="col-4 lvl-min-option ">
+                                    <div class="block-option form-check d-flex flex-column text-center p-2">
+                                        <input class="form-check-input mx-auto" type="radio" name="durability"
+                                            id="option-lvl-31" value="0" required>
+                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-31">
+                                            Nível 31
+                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                    0</span></span>
+                                        </label>
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="col-4 lvl-min-option ">
+                                    <div class="block-option form-check d-flex flex-column text-center p-2">
+                                        <input class="form-check-input mx-auto" type="radio" name="durability"
+                                            id="option-lvl-40" value="200" required>
+                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-40">
+                                            Nível 40
+                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                    200</span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-4 lvl-min-option ">
+                                    <div class="block-option form-check d-flex flex-column text-center p-2">
+                                        <input class="form-check-input mx-auto" type="radio" name="durability"
+                                            id="option-lvl-50" value="0" required>
+                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-50">
+                                            Nível 50
+                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                    400</span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-4 lvl-min-option  mt-3">
+                                    <div class="block-option form-check d-flex flex-column text-center p-2">
+                                        <input class="form-check-input mx-auto" type="radio" name="durability"
+                                            id="option-lvl-60" value="0" required>
+                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-60">
+                                            Nível 60
+                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                    600</span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="col-4 lvl-min-option ">
+                                    <div class="block-option form-check d-flex flex-column text-center p-2">
+                                        <input class="form-check-input mx-auto" type="radio" name="durability"
+                                            id="option-lvl-61" value="0" required>
+                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-61">
+                                            Nível 61
+                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                    0</span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-4 lvl-min-option ">
+                                    <div class="block-option form-check d-flex flex-column text-center p-2">
+                                        <input class="form-check-input mx-auto" type="radio" name="durability"
+                                            id="option-lvl-70" value="300" required>
+                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-70">
+                                            Nível 70
+                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                    300</span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-4 lvl-min-option ">
+                                    <div class="block-option form-check d-flex flex-column text-center p-2">
+                                        <input class="form-check-input mx-auto" type="radio" name="durability"
+                                            id="option-lvl-80" value="600" required>
+                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-80">
+                                            Nível 80
+                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                    600</span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-4 lvl-min-option  mt-3">
+                                    <div class="block-option form-check d-flex flex-column text-center p-2">
+                                        <input class="form-check-input mx-auto" type="radio" name="durability"
+                                            id="option-lvl-90" value="900" required>
+                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-90">
+                                            Nível 90
+                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                    900</span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-4 lvl-min-option  mt-3">
+                                    <div class="block-option form-check d-flex flex-column text-center p-2">
+                                        <input class="form-check-input mx-auto" type="radio" name="durability"
+                                            id="option-lvl-100" value="1200" required>
+                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                            for="option-lvl-100">
+                                            Nível 100
+                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                    1200</span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                         <small class="d-inline-block mt-2">A durabilidade
                             {{ $mainProduct->Category->name === 'Grimório' ? 'do' : 'da' }}
@@ -135,53 +228,137 @@
                             <h4 class="h4">Encantar produto?</h4>
                             <div class="row flex-column justify-content-center align-items-center">
                                 <div class="col-12">
-                                    <select class="form-select" aria-label="encantar">
+                                    <select class="form-select" id="enchant-select" aria-label="encantar" required>
                                         <option disabled>Encantar produto?</option>
                                         <option value="0" selected>Não</option>
                                         <option value="1">Sim</option>
                                     </select>
                                 </div>
-                                <div class="d-none col-10 d-flex justify-content-center align-items-start">
-                                    <div class="form-check mt-3 me-3">
-                                        <input class="form-check-input" type="checkbox" name="enchant-life" value="300"
-                                            id="enchant-checkbox-life">
-                                        <label
-                                            class="form-check-label d-flex flex-column justify-content-between align-items-start"
-                                            for="enchant-checkbox-life">
-                                            Vida
-                                            <span class="d-none">+ 300</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check mt-3 me-3">
-                                        <input class="form-check-input" type="checkbox" name="enchant-life" value="30"
-                                            id="enchant-checkbox-speed">
-                                        <label
-                                            class="form-check-label d-flex flex-column justify-content-between align-items-start"
-                                            for="enchant-checkbox-speed">
-                                            Agilidade
-
-                                            <span class="d-none">+ 30</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check mt-3 me-3">
-                                        <input class="form-check-input" type="checkbox" name="enchant-life" value="150"
-                                            id="enchant-checkbox-physical-protection">
-                                        <label
-                                            class="form-check-label d-flex flex-column justify-content-between align-items-start"
-                                            for="enchant-checkbox-physical-protection">
-                                            Proteção física
-                                            <span class="d-none">+ 150</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-check mt-3 me-3">
-                                        <input class="form-check-input" type="checkbox" name="enchant-life" value="150"
-                                            id="enchant-checkbox-magic-protection">
-                                        <label
-                                            class="form-check-label d-flex flex-column justify-content-between align-items-start"
-                                            for="enchant-checkbox-magic-protection">
-                                            Proteção mágica
-                                            <span class="d-none">+ 150</span>
-                                        </label>
+                                <div class="col-11 d-none mt-4" id="div-enchant-types">
+                                    <h5 class="h5 text-center m-0">Encantamentos diponiveis</h5>
+                                    <div class="d-flex justify-content-center align-items-start">
+                                        @if ($mainProduct->Category->name === 'Armadura')
+                                            <div class="form-check mt-3 me-3 border">
+                                                <input class="form-check-input enchant-type" type="checkbox" name="life"
+                                                    value="300" id="enchant-checkbox-life">
+                                                <label
+                                                    class="form-check-label d-flex flex-column justify-content-between align-items-start"
+                                                    for="enchant-checkbox-life">
+                                                    Vida
+                                                    <span class="d-none">+ 300</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check mt-3 me-3 border">
+                                                <input class="form-check-input enchant-type" type="checkbox" name="speed"
+                                                    value="30" id="enchant-checkbox-speed">
+                                                <label
+                                                    class="form-check-label d-flex flex-column justify-content-between align-items-start"
+                                                    for="enchant-checkbox-speed">
+                                                    Agilidade
+                                                    <span class="d-none">+ 30</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check mt-3 me-3 border">
+                                                <input class="form-check-input enchant-type" type="checkbox"
+                                                    name="physical-protection" value="150"
+                                                    id="enchant-checkbox-physical-protection">
+                                                <label
+                                                    class="form-check-label d-flex flex-column justify-content-between align-items-start"
+                                                    for="enchant-checkbox-physical-protection">
+                                                    Proteção física
+                                                    <span class="d-none">+ 150</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check mt-3 me-3 border">
+                                                <input class="form-check-input enchant-type" type="checkbox"
+                                                    name="magic-protection" value="150"
+                                                    id="enchant-checkbox-magic-protection">
+                                                <label
+                                                    class="form-check-label d-flex flex-column justify-content-between align-items-start"
+                                                    for="enchant-checkbox-magic-protection">
+                                                    Proteção mágica
+                                                    <span class="d-none">+ 150</span>
+                                                </label>
+                                            </div>
+                                        @elseif($mainProduct->Category->name === 'Poção')
+                                            @if ($mainProduct->ItemClass->name === 'Vida')
+                                                <div class="form-check mt-3 me-3 border">
+                                                    <input class="form-check-input enchant-type" type="checkbox"
+                                                        name="life" value="100" id="enchant-checkbox-life">
+                                                    <label
+                                                        class="form-check-label d-flex flex-column justify-content-between align-items-start"
+                                                        for="enchant-checkbox-life">
+                                                        Vida
+                                                        <span class="d-none">+ 100</span>
+                                                    </label>
+                                                </div>
+                                            @elseif ($mainProduct->ItemClass->name === 'mana')
+                                                <div class="form-check mt-3 me-3 border">
+                                                    <input class="form-check-input enchant-type" type="checkbox"
+                                                        name="mana" value="200" id="enchant-checkbox-mana">
+                                                    <label
+                                                        class="form-check-label d-flex flex-column justify-content-between align-items-start"
+                                                        for="enchant-checkbox-mana">
+                                                        Mana
+                                                        <span class="d-none">+ 200</span>
+                                                    </label>
+                                                </div>
+                                            @elseif ($mainProduct->ItemClass->name === 'agilidade')
+                                                <div class="form-check mt-3 me-3 border">
+                                                    <input class="form-check-input enchant-type" type="checkbox"
+                                                        name="speed" value="30" id="enchant-checkbox-speed">
+                                                    <label
+                                                        class="form-check-label d-flex flex-column justify-content-between align-items-start"
+                                                        for="enchant-checkbox-speed">
+                                                        Agilidade
+                                                        <span class="d-none">+ 30</span>
+                                                    </label>
+                                                </div>
+                                            @elseif ($mainProduct->ItemClass->name === 'força')
+                                                <div class="form-check mt-3 me-3 border">
+                                                    <input class="form-check-input enchant-type" type="checkbox"
+                                                        name="strength" value="50" id="enchant-checkbox-physical-attack">
+                                                    <label
+                                                        class="form-check-label d-flex flex-column justify-content-between align-items-start"
+                                                        for="enchant-checkbox-physical-attack">
+                                                        Ataque física
+                                                        <span class="d-none">+ 50</span>
+                                                    </label>
+                                                </div>
+                                            @endif
+                                        @else
+                                            <div class="form-check mt-3 me-3 border">
+                                                <input class="form-check-input enchant-type" type="checkbox"
+                                                    name="physical-attack" value="100"
+                                                    id="enchant-checkbox-physical-attack">
+                                                <label
+                                                    class="form-check-label d-flex flex-column justify-content-between align-items-start"
+                                                    for="enchant-checkbox-physical-attack">
+                                                    Ataque física
+                                                    <span class="d-none">+ 100</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check mt-3 me-3 border">
+                                                <input class="form-check-input enchant-type" type="checkbox"
+                                                    name="magic-attack" value="100" id="enchant-checkbox-magic-attack">
+                                                <label
+                                                    class="form-check-label d-flex flex-column justify-content-between align-items-start"
+                                                    for="enchant-checkbox-magic-attack">
+                                                    Ataque mágico
+                                                    <span class="d-none">+ 100</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check mt-3 me-3 border">
+                                                <input class="form-check-input enchant-type" type="checkbox" name="mana"
+                                                    value="100" id="enchant-checkbox-mana">
+                                                <label
+                                                    class="form-check-label d-flex flex-column justify-content-between align-items-start"
+                                                    for="enchant-checkbox-mana">
+                                                    Mana
+                                                    <span class="d-none">+ 200</span>
+                                                </label>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -191,50 +368,83 @@
                         <div class="p-4 rounded" id="purchase-description">
                             <h4 class="h4 fw-bold text-center">Descrição da compra</h4>
                             <ul class="list-unstyled">
-                                <li
-                                    class="d-flex justify-content-start align-items-start mt-2 p-0 purchase-description-option">
+                                <li class="d-flex justify-content-start align-items-start mt-2 p-0 purchase-description-option"
+                                    id="item-default-price">
                                     <i class="fa-solid fa-money-bill"></i>
                                     <span
-                                        class="purchase-description-info d-flex justify-content-start align-items-center flex-grow-1">
+                                        class="purchase-description-info d-flex justify-content-start align-items-start flex-grow-1">
                                         <span class="purchase-title">Preço padrão</span>
-                                        <span class="ms-auto">
-                                            <span class="purchase-price">R$ <span class="d-inline-block"
-                                                    style="min-width: 41px">9.999</span></span>
+                                        <span class="ms-auto d-flex flex-column">
+                                            @if ($mainProduct->discount_price !== 0.0)
+                                                <span class="purchase-price text-decoration-line-through"
+                                                    style="font-size:.90rem;font-weight:500;">R$ <span
+                                                        class="product-price"
+                                                        style="min-width: 41px;">{{ $mainProduct->price }}</span></span>
+                                                <span class="purchase-price">R$ <span
+                                                        class="d-inline-block product-price only-price"
+                                                        style="min-width: 41px">{{ $mainProduct->discount_price }}</span></span>
+                                            @else
+                                                <span class="purchase-price">R$ <span
+                                                        class="d-inline-block product-price only-price"
+                                                        style="min-width: 41px">{{ $mainProduct->price }}</span></span>
+                                            @endif
                                         </span>
                                     </span>
                                 </li>
-                                <li
-                                    class="d-flex justify-content-start align-items-start mt-2 p-0 position-relative purchase-description-option">
+                                <li class="d-none d-flex justify-content-start align-items-start mt-2 p-0 position-relative purchase-description-option"
+                                    id="item-durability">
                                     <i class="fa-solid fa-bars-progress"></i>
                                     <span
                                         class="purchase-description-info d-flex justify-content-start align-items-center flex-grow-1">
                                         <span class="purchase-title" style="min-width: 132px">
                                             Durabildade</span>
                                         <ul class="purchase-list-info" style="min-width: 124px">
-                                            <li>Nível 100</li>
+                                            <li>Nível <span>100</span></li>
                                         </ul>
                                         <span class="ms-auto">
-                                            <span class="purchase-price">R$ <span class="d-inline-block"
-                                                    style="min-width: 41px">9.999</span></span>
+                                            <span class="purchase-price">R$ <span
+                                                    class="d-inline-block product-price only-price"
+                                                    style="min-width: 41px">9999</span></span>
                                         </span>
                                     </span>
                                 </li>
-                                <li
-                                    class="d-flex justify-content-start align-items-start my-2 p-0 position-relative purchase-description-option">
+                                <li class="d-none d-flex justify-content-start align-items-start my-2 p-0 position-relative purchase-description-option"
+                                    id="item-enchants">
                                     <i class="fa-solid fa-wand-magic-sparkles"></i>
                                     <span
                                         class="purchase-description-info d-flex justify-content-start align-items-start flex-grow-1">
                                         <span class="purchase-title" style="min-width: 132px">
                                             Encantamento</span>
                                         <ul class="purchase-list-info" style="min-width: 124px">
-                                            <li>Vida</li>
-                                            <li>Agilidade</li>
-                                            <li>Proteção física</li>
-                                            <li>Proteção mágica</li>
+                                            @if ($mainProduct->Category->name === 'Armadura')
+                                                <li class="d-none" data-enchant-name="life">Vida</li>
+                                                <li class="d-none" data-enchant-name="speed">Agilidade</li>
+                                                <li class="d-none" data-enchant-name="physical-protection">Proteção
+                                                    física</li>
+                                                <li class="d-none" data-enchant-name="magic-protection">Proteção
+                                                    mágica</li>
+                                            @elseif ($mainProduct->Category->name === 'Poção')
+                                                @if ($mainProduct->itemClass->name === 'vida')
+                                                    <li class="d-none" data-enchant-name="life">Vida</li>
+                                                @elseif($mainProduct->itemClass->name === 'mana')
+                                                    <li class="d-none" data-enchant-name="mana">Mana</li>
+                                                @elseif($mainProduct->itemClass->name === 'agilidade')
+                                                    <li class="d-none" data-enchant-name="speed">Agilidade</li>
+                                                @elseif($mainProduct->itemClass->name === 'força')
+                                                    <li class="d-none" data-enchant-name="strength">Ataque físico
+                                                    </li>
+                                                @endif
+                                            @else
+                                                <li class="d-none" data-enchant-name="physical-attack">Ataque
+                                                    físico</li>
+                                                <li class="d-none" data-enchant-name="magic-attack">Ataque mágico
+                                                </li>
+                                                <li class="d-none" data-enchant-name="mana">Mana</li>
+                                            @endif
                                         </ul>
                                         <span class="ms-auto">
-                                            <span class="purchase-price">R$ <span class="d-inline-block"
-                                                    style="min-width: 41px">9.999</span></span>
+                                            <span class="purchase-price">R$ <span class="d-inline-block only-price"
+                                                    style="min-width: 41px">0</span></span>
                                         </span>
                                     </span>
                                 </li>
@@ -242,7 +452,7 @@
                         </div>
                     </div>
                     <div class="p-4 row flex-column justify-content-center align-items-center">
-                        <a href="#" class="col-12 btn btn-primary mb-4">Continuar compra</a>
+                        <button type="submit" class="col-12 btn btn-primary mb-4">Continuar compra</button>
                         <div class="col-12 py-2 rounded" id="mark-product">
                             <h4>Ainda decidindo?</h4>
                             <div class="d-flex justify-content-center align-items-center mt-2">
