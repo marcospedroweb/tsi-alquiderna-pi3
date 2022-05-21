@@ -6,7 +6,9 @@ import initReplaceRecommendation from "./modules/replace-recommendation.js";
 import initScrollCards from "./modules/scroll-cards.js";
 import initShippingRates from "./modules/shipping-rates.js";
 import initValidateForm from "./modules/validate-form.js";
+import initWhatsMonth from "./modules/whats-month.js";
 
+initWhatsMonth();
 initAlertUser();
 initHiddenAttributes();
 initValidateForm();

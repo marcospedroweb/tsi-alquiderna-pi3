@@ -34,20 +34,31 @@
                             </div>
                         </div>
                         <div class="d-none" id="div-cep">
-                            <p>Entrega para <span class="street fw-bold">Rua com algum nome completo aqui</span></p>
+                            <p>Entrega para <span class="fw-bold" id="street">Rua com algum nome completo aqui</span>
+                            </p>
                             <div id="div-cep-options">
                                 <div class="option-cep">
                                     <i class="fa-solid fa-truck"></i>
                                     <p>
-                                        <span><span>Receba até</span> 00 de dezembro</span>
-                                        <span>R$ 999,99</span>
+                                        <span><span>Receba até</span> <span class="cep-date fw-normal">00 de
+                                                dezembro</span></span>
+                                        <span class="cep-price">R$ 999,99</span>
                                     </p>
                                 </div>
                                 <div class="option-cep">
                                     <i class="fa-solid fa-truck"></i>
                                     <p>
-                                        <span><span>Receba até</span> 00 de dezembro</span>
-                                        <span>R$ 999,99</span>
+                                        <span><span>Receba até</span> <span class="cep-date fw-normal">00 de
+                                                dezembro</span></span>
+                                        <span class="cep-price">R$ 999,99</span>
+                                    </p>
+                                </div>
+                                <div class="option-cep">
+                                    <i class="fa-solid fa-truck"></i>
+                                    <p>
+                                        <span><span>Receba até</span> <span class="cep-date fw-normal">00 de
+                                                dezembro</span></span>
+                                        <span class="cep-price">R$ 999,99</span>
                                     </p>
                                 </div>
                             </div>

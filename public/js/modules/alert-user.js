@@ -4,7 +4,6 @@ export default function initAlertUser(color, msg) {
 
     if (divAlertUser)
         if (color && msg) {
-            console.log('alert')
             const mainAlertUser = divAlertUser.querySelector('.alert');
             function removeAlertColor() {
                 alertColors.forEach(element => mainAlertUser.classList.remove(element));
