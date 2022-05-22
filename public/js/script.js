@@ -4,6 +4,7 @@ import initEnchantSelect from "./modules/enchant-select.js";
 import initFormatProductPrice from "./modules/format-product-price.js";
 import initHiddenAttributes from "./modules/hidden-attributes.js";
 import initLvlOptions from "./modules/lvl-options.js";
+import initMarkProduct from "./modules/mark-product.js";
 import initReplaceRecommendation from "./modules/replace-recommendation.js";
 import initScrollCards from "./modules/scroll-cards.js";
 import initShippingRates from "./modules/shipping-rates.js";
@@ -25,5 +26,6 @@ initUpdatePurchaseDescription();
 initLvlOptions();
 initShippingRates();
 initEnchantSelect();
+initMarkProduct();
 
 

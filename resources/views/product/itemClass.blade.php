@@ -313,7 +313,7 @@
                         @foreach ($allProducts as $product)
                             <div class="col-4">
                                 <div class="mb-4 card-product position-relative overflow-hidden mx-auto">
-                                    <a href="{{ route('product.index') }}">
+                                    <a href="{{ route('product.show', $product->id) }}">
                                         <img src='{{ asset("$product->image") }}' class="img-fluid">
                                         <div
                                             class="card-product-text w-100 h-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column justify-content-end">

@@ -22,50 +22,6 @@ class eCommerceController extends Controller
         ]);
     }
 
-    public function returnJSONOf(Request $data)
-    {
-        $changePage = $data['changePage'] ?? '';
-        $orderCards = $data['ordeCards'] ?? '';
-
-        if ($changePage && $orderCards) {
-            $totalOfPages = $data['totalOfPages'] ?? '';
-            $startingNumber = $data['startingNumber'] ?? '';
-            $finalNumber = $data['finalNumber'] ?? '';
-            $actualPage = $data['actualPage'] ?? '';
-            $nextPage = $data['nextPage'] ?? '';
-            $lastPage = $data['lastPage'] ?? '';
-
-            $orderByPrice = $data['orderByPrice'] ?? '';
-            $orderByName = $data['orderByName'] ?? '';
-            $orderByOnSale = $data['orderByOnSale'] ?? '';
-            $orderByLvlMin = $data['orderByLvlMin'] ?? '';
-            $orderByNews = $data['orderByNews'] ?? '';
-            $orderByAttributes = $data['orderByAttributes'] ?? '';
-
-            // $products = Product::filterProductWithoutPaginate();
-        } else if ($changePage) {
-
-            $category_name = $data['category_name'] ?? '';
-            $itemClass_name = $data['itemClass_name'] ?? '';
-
-            $totalOfPages = $data['totalOfPages'] ?? '';
-            $startingNumber = $data['startingNumber'] ?? '';
-            $finalNumber = $data['finalNumber'] ?? '';
-            $actualPage = $data['actualPage'] ?? '';
-            $nextPage = $data['nextPage'] ?? '';
-            $lastPage = $data['lastPage'] ?? '';
-
-            $products = Product::filterProductWithoutPaginate($data, $category_name, $itemClass_name);
-        }
-
-        return $products;
-
-
-        // $products = Product::filterProductBy($categoryName, $itemClassName);
-        // $products = json_encode($products);
-        // return $products;
-    }
-
     public function productCategory($category_name)
     {
         //Page category
@@ -264,5 +220,10 @@ class eCommerceController extends Controller
             'productsWithOtherCategory3' => $productsWithOtherCategory[2],
             'productsWithOtherCategory4' => $productsWithOtherCategory[3],
         ]);
+    }
+
+    public function productWarranty(Request $request)
+    {
+        dd($request);
     }
 }

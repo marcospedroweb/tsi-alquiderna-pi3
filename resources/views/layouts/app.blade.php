@@ -23,6 +23,9 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/eb4109d4de.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/script.js') }}" type="module" defer></script>
+    <!-- Google -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
     <link rel="stylesheet" href="{{ asset('./css/style.css') }}">
 </head>

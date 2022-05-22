@@ -85,6 +85,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/product/crud/trash/restore/{product}', [ProductController::class, 'restore'])->name('product.restore'); // Restaura do soft delete
     Route::get('/product/crud/forceDelete/{product}', [ProductController::class, 'forceDelete'])->name('product.forceDelete'); // Restaura do soft delete
 
+    Route::post('/product/warranty', [eCommerceController::class, 'productWarranty'])->name('product.warranty');
+});
+
+Route::middleware(['auth', 'user', 'admin'])->group(function () {
 });
 
 Route::POST('/product/json', [eCommerceController::class, 'returnJSONOf'])->name('product.returnJSONOf'); // Restaura do soft delete

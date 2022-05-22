@@ -1,8 +1,6 @@
 .border {
     border-radius: 8px;
     padding: 16px;
-    padding: 16px;
-    border: 1px solid #aaa;
 }
 
 #section-info {
@@ -36,6 +34,10 @@
     height: 500px;
     object-fit: cover;
     object-position: top center;
+}
+
+#main-form-buy h4 {
+    font-weight: 600;
 }
 
 /* Block Options*/
@@ -97,10 +99,7 @@
     font-weight: bold;
 }
 
-#enchant .form-check {
-    /* padding: 0; */
-}
-
+/* Purchase description */
 #purchase-description {
     border: 1px solid #aaa;
     width: 80%;
@@ -149,18 +148,47 @@
     background-color: var(--body-background);
 }
 
+#purchase-total-title,
+#purchase-total-price {
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: bold;
+}
+
+#purchase-total-price {
+    font-size: 1.25rem !important;
+}
+
+/* Product description*/
 #section-desc {
     background-color: #fff;
+}
+
+#section-desc .block-option {
+    min-height: 93.67px;
 }
 
 #section-desc .separator,
 #avaliation .col-12 .separator {
     padding: 0;
-    height: 80%;
+    height: 90%;
     width: 2px;
     background-color: #aaa;
 }
 
+#section-desc h4 {
+    font-size: 1.15rem !important;
+}
+
+#section-desc p {
+    margin: 0;
+    font-size: .95rem !important;
+}
+
+.item-class-name::first-letter {
+    text-transform: uppercase;
+}
+
+/* Section attributes */
 #section-attributes {
     background-color: #fff;
 }
@@ -170,6 +198,50 @@
     background-color: var(--body-background);
 }
 
+#section-attributes li+li {
+    margin-top: 16px;
+}
+
+#section-attributes .attribute-icon {
+    text-align: center;
+    min-width: 40px;
+    min-height: 46px;
+    padding: 8px;
+    border-right: 1px solid #dee2e6;
+    margin-right: 8px;
+}
+
+
+.attribute-icon>.bi-heart-fill {
+    color: #91140B;
+}
+
+.attribute-icon>.fa-person-running {
+    color: #3137D1;
+}
+
+.attribute-icon>.bi-shield-slash-fill,
+.attribute-icon>.fa-user-slash {
+    color: #D97B0E;
+}
+
+.attribute-icon>.material-symbols-outlined,
+.attribute-icon>.fa-wand-sparkles {
+    color: #771CA3 !important;
+}
+
+.attribute-icon>.fa-droplet {
+    color: #2663AB !important;
+}
+
+#section-attributes .attribute-value {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    min-height: 46px;
+    padding: 8px;
+    font-weight: 600;
+}
 
 .comment {
     background-color: var(--body-background);

@@ -10,7 +10,7 @@
                     <a href="#" class="link-primary me-2">Descrição</a>
                     <a href="#" class="link-primary me-2">Atributos</a>
                     <a href="#" class="link-primary me-2">Avaliações</a>
-                    <a href="#" class="btn btn-primary">Comprar</a>
+                    <a class="btn btn-primary">Comprar</a>
                 </div>
             </div>
         </div>
@@ -20,7 +20,9 @@
             <div class="col-6 overflow-hidden sticky-top" id="main-product-image">
                 <img src="{{ asset($mainProduct->image) }}" class="rounded" alt="imagem do produto">
             </div>
-            <form class="col-6 bg-white rounded">
+            <form action="{{ route('product.warranty') }}" method="POST" class="col-6 bg-white rounded"
+                id="main-form-buy">
+                @csrf
                 <div class="py-3">
                     <h3 class="h3 mb-5 text-center">Compre {{ $mainProduct->name }}</h3>
                     <div class="mb-5 border">
@@ -367,7 +369,7 @@
                     <div class="d-flex justify-content-center mb-4">
                         <div class="p-4 rounded" id="purchase-description">
                             <h4 class="h4 fw-bold text-center">Descrição da compra</h4>
-                            <ul class="list-unstyled">
+                            <ul class="list-unstyled pt-0">
                                 <li class="d-flex justify-content-start align-items-start mt-2 p-0 purchase-description-option"
                                     id="item-default-price">
                                     <i class="fa-solid fa-money-bill"></i>
@@ -404,7 +406,7 @@
                                         <span class="ms-auto">
                                             <span class="purchase-price">R$ <span
                                                     class="d-inline-block product-price only-price"
-                                                    style="min-width: 41px">9999</span></span>
+                                                    style="min-width: 41px">0</span></span>
                                         </span>
                                     </span>
                                 </li>
@@ -443,12 +445,37 @@
                                             @endif
                                         </ul>
                                         <span class="ms-auto">
-                                            <span class="purchase-price">R$ <span class="d-inline-block only-price"
+                                            <span class="purchase-price">R$ <span
+                                                    class="d-inline-block product-price only-price"
                                                     style="min-width: 41px">0</span></span>
                                         </span>
                                     </span>
                                 </li>
                             </ul>
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-10 d-flex justify-content-between align-items-center">
+                                    <h5 class="h5 m-0" id="purchase-total-title">Total</h5>
+                                    @if ($mainProduct->discount_price !== 0.0)
+                                        <p class="m-0" id="purchase-total-price">R$ <span
+                                                class="product-price">{{ $mainProduct->discount_price }}</span></p>
+                                    @else
+                                        <p class="m-0" id="purchase-total-price">R$ <span
+                                                class="product-price">{{ $mainProduct->price }}</span></p>
+                                    @endif
+                                </div>
+                            </div>
+                            <input type="hidden" name="product_id" value="{{ $mainProduct->id }}">
+                            @if ($mainProduct->discount_price !== 0.0)
+                                <input type="hidden" name="product_total_price"
+                                    value="{{ $mainProduct->discount_price }}">
+                                <input type="hidden" value="{{ $mainProduct->discount_price }}"
+                                    name="product_default_price">
+                            @else
+                                <input type="hidden" name="product_total_price" value="{{ $mainProduct->price }}">
+                                <input type="hidden" value="{{ $mainProduct->price }}" name="product_default_price">
+                            @endif
+                            <input type="hidden" name="product_lvl_price">
+                            <input type="hidden" name="product_enchant_price">
                         </div>
                     </div>
                     <div class="p-4 row flex-column justify-content-center align-items-center">
@@ -456,10 +483,12 @@
                         <div class="col-12 py-2 rounded" id="mark-product">
                             <h4>Ainda decidindo?</h4>
                             <div class="d-flex justify-content-center align-items-center mt-2">
-                                <p class="m-0">Adicione esse produto a sua lista de desejos e você poderá voltar
-                                    para ve-lo denovo</p>
-                                <i class="fa-regular fa-bookmark"></i>
-                                <i class="fa-solid fa-bookmark"></i>
+                                <p class="m-0 me-4">Adicione esse produto a sua lista de desejos e você poderá voltar
+                                    para ve-lô denovo</p>
+                                <div id="marks">
+                                    <i class="fa-regular fa-bookmark"></i>
+                                    <i class="d-none fa-solid fa-bookmark"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -468,43 +497,70 @@
         </div>
     </section>
     <section class="container-xxl mb-6 rounded" id="section-desc">
-        <div class="row justify-content-between align-items-center py-3 position-relative">
+        <div class="row justify-content-between align-items-start p-3 py-4 position-relative">
             <div class="col-6">
                 <h3 class="h3">Descrição do produto</h3>
                 <p>{{ $mainProduct->description }}</p>
             </div>
             <span class="separator position-absolute top-50 start-50 translate-middle"></span>
             <div class="col-6">
-                <h3 class="h3">Nome do produto</h3>
+                <h3 class="h3 mb-4">{{ $mainProduct->name }}</h3>
                 <div class="row">
                     <div class="col-4">
-                        <div class="block-option">
-                            texto
+                        <div class="block-option text-center p-2">
+                            <h4 class="h4 fw-bold">Encantamento</h4>
+                            @if ($mainProduct->enchant === 1)
+                                <p>Disponível</p>
+                            @else
+                                <p>ndisponível</p>
+                            @endif
                         </div>
                     </div>
                     <div class="col-4">
-                        <div class="block-option">
-                            texto
+                        <div class="block-option text-center p-2">
+                            <h4 class="h4 fw-bold">Níveis</h4>
+                            @if ($mainProduct->lvlMin === 0)
+                                <p>Níveis 0 a 30</p>
+                            @elseif ($mainProduct->lvlMin === 31)
+                                <p>Níveis 31 a 60</p>
+                            @else
+                                <p>Níveis 61 a 100</p>
+                            @endif
                         </div>
                     </div>
                     <div class="col-4">
-                        <div class="block-option">
-                            texto
+                        <div class="block-option text-center p-2">
+                            <h4 class="h4 fw-bold">Promoção</h4>
+                            @if ($mainProduct->discount_price !== 0.0)
+                                <p>Sim</p>
+                            @else
+                                <p>Não</p>
+                            @endif
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="block-option">
-                            texto
+                    <div class="col-4 mt-3">
+                        <div class="block-option text-center p-2">
+                            <h4 class="h4 fw-bold">Categoria</h4>
+                            <p>{{ $mainProduct->Category->name }}</p>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="block-option">
-                            texto
+                    <div class="col-4 mt-3">
+                        <div class="block-option text-center p-2">
+                            <h4 class="h4 fw-bold">Classe</h4>
+                            <p class="item-class-name">{{ $mainProduct->ItemClass->name }}</p>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="block-option">
-                            texto
+                    <div class="col-4 mt-3">
+                        <div class="block-option text-center p-2">
+                            <h4 class="h4 fw-bold">Recomendação</h4>
+                            @if ($mainProduct->recommendation === 'ini')
+                                <p>Recomendado para aventureiros iniciantes</p>
+                            @elseif ($mainProduct->recommendation === 'int')
+                                <p>Recomendado para aventureiros intermediários</p>
+                            @else
+                                <p>Recomendado para aventureiros avançados</p>
+                            @endif
+                            <p></p>
                         </div>
                     </div>
                 </div>
@@ -512,31 +568,51 @@
         </div>
     </section>
     <section class="container-xxl mb-6" id="section-attributes">
-        <div class="row justify-content-center align-items-end py-3 position-relative">
-            <div class="col-6 row justify-content-center align-items-center">
-                <h3 class="col-11 h3 ps-0">Atributos</h3>
-                <div class="col-4 mb-2"><i class="fa-solid fa-droplet"></i></div>
-                <div class="col-7 mb-2"><span>999</span></div>
-                <div class="col-4 mb-2"><i class="fa-solid fa-droplet"></i></div>
-                <div class="col-7 mb-2"><span>999</span></div>
-                <div class="col-4 mb-2"><i class="fa-solid fa-droplet"></i></div>
-                <div class="col-7 mb-2"><span>999</span></div>
-                <div class="col-4 mb-2"><i class="fa-solid fa-droplet"></i></div>
-                <div class="col-7 mb-2"><span>999</span></div>
+        <div class="row justify-content-center align-items-start p-3 py-4 position-relative">
+            <h3 class="col-12 h3 ps-0 ms-4">Atributos</h3>
+            <div class="col-6 justify-content-center align-items-start">
+                <ul class="list-unstyled">
+                    <li class="d-flex justify-content-between align-items-center border p-2">
+                        <span class="attribute-icon"><i class="bi bi-heart-fill"></i></span>
+                        <span class="attribute-value flex-grow-1">{{ $mainProduct->life }}</span>
+                    </li>
+                    <li class="d-flex justify-content-between align-items-center border p-2">
+                        <span class="attribute-icon"><i class="fa-solid fa-person-running"></i></span>
+                        <span class="attribute-value flex-grow-1">{{ $mainProduct->speed }}</span>
+                    </li>
+                    <li class="d-flex justify-content-between align-items-center border p-2">
+                        <span class="attribute-icon"><i class="bi bi-shield-slash-fill"></i></span>
+                        <span class="attribute-value flex-grow-1">{{ $mainProduct->physical_protection }}</span>
+                    </li>
+                    <li class="d-flex justify-content-between align-items-center border p-2">
+                        <span class="attribute-icon">
+                            <span class="material-symbols-outlined">
+                                shield_moon
+                            </span>
+                        </span>
+                        <span class="attribute-value flex-grow-1">{{ $mainProduct->magic_protection }}</span>
+                    </li>
+                </ul>
             </div>
-            <div class="col-6 row justify-content-center align-items-center">
-                <div class="col-4 mb-2"><i class="fa-solid fa-droplet"></i></div>
-                <div class="col-7 mb-2"><span>999</span></div>
-                <div class="col-4 mb-2"><i class="fa-solid fa-droplet"></i></div>
-                <div class="col-7 mb-2"><span>999</span></div>
-                <div class="col-4 mb-2"><i class="fa-solid fa-droplet"></i></div>
-                <div class="col-7 mb-2"><span>999</span></div>
-                <div class="col-4 mb-2"><i class="fa-solid fa-droplet"></i></div>
-                <div class="col-7 mb-2"><span>999</span></div>
+            <div class="col-6 justify-content-center align-items-start">
+                <ul class="list-unstyled">
+                    <li class="d-flex justify-content-between align-items-center border p-2">
+                        <span class="attribute-icon"><i class="fa-solid fa-user-slash"></i></span>
+                        <span class="attribute-value flex-grow-1">{{ $mainProduct->physical_attack }}</span>
+                    </li>
+                    <li class="d-flex justify-content-between align-items-center border p-2">
+                        <span class="attribute-icon"><i class="fa-solid fa-wand-sparkles"></i></span>
+                        <span class="attribute-value flex-grow-1">{{ $mainProduct->magic_attack }}</span>
+                    </li>
+                    <li class="d-flex justify-content-between align-items-center border p-2">
+                        <span class="attribute-icon"><i class="fa-solid fa-droplet"></i></span>
+                        <span class="attribute-value flex-grow-1">{{ $mainProduct->mana }}</span>
+                    </li>
+                </ul>
             </div>
         </div>
     </section>
-    <section class="container-xxl mb-6" id="avaliation">
+    <section class="container-xxl mb-6 d-none" id="avaliation">
         <h2 class="visually-hidden">Avaliações</h2>
         <div class="bg-white row justify-content-between align-items-center">
             <div class="col-12 row justify-content-between align-items-center position-relative my-4">
@@ -583,7 +659,7 @@
             </div>
         </div>
     </section>
-    {{-- <section class="container-xxl mb-6">
+    <section class="container-xxl mb-6">
         <h2 class="mb-3 h2">Produtos da mesma categoria, {{ $category_name }}</h2>
         <div id="productsWithSameCategory" data-translate-value='0' class="carousel-products position-relative mb-6">
             <div class="carousel-products-inner d-flex justify-content-start overflow-hidden" data-carousel-show-card="4">
@@ -628,7 +704,8 @@
                                         <div class="d-flex flex-column align-items-end">
                                             @if ($productSameCategory->discount_price !== 0.0)
                                                 <p class="text-decoration-line-through product-discount-price">R$
-                                                    <span class="product-price">{{ $productSameCategory->price }}</span>
+                                                    <span
+                                                        class="product-price">{{ $productSameCategory->price }}</span>
                                                 </p>
                                                 <p class="p-product-price">R$ <span
                                                         class="product-discount-price">{{ $productSameCategory->discount_price }}
@@ -651,7 +728,8 @@
                         <img src='{{ asset('images-for-cards/image-for-cards-Arma física-arco.jpg') }}'>
                         <div
                             class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                            <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">arcos</span></span>
+                            <span class="h2 text-white fw-normal">Ver mais <span
+                                    class="fw-bold">arcos</span></span>
                         </div>
                     </a>
                 </div>
@@ -707,7 +785,8 @@
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-droplet"></i>
-                                            <span class="product-attribute-mana">{{ $productOtherCategory->mana }}</span>
+                                            <span
+                                                class="product-attribute-mana">{{ $productOtherCategory->mana }}</span>
                                         </div>
                                     </div>
                                     <div class="card-product-price">
@@ -952,7 +1031,8 @@
                                         @endif
                                         <span class="product-name">{{ $productOtherCategory->name }}</span>
                                     </h3>
-                                    <p><span class="product-category">{{ $productOtherCategory->Category->name }}</span>
+                                    <p><span
+                                            class="product-category">{{ $productOtherCategory->Category->name }}</span>
                                         <span
                                             class="product-item-class">{{ $productOtherCategory->ItemClass->name }}</span>,
                                         nível
@@ -1025,5 +1105,5 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-    </section> --}}
+    </section>
 @endsection
