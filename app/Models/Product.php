@@ -57,10 +57,9 @@ class Product extends Model
         // Varios produtos podem pertecem a 1 site fonte
     }
 
-    public function Tags()
+    public function Cart()
     {
-        return $this->belongsToMany(Tag::class);
-        // Varios produtos pertencem a varias tags
+        return $this->belongsToMany(User::class)->using(Cart::class);
     }
 
     public static function returnAllProductsByCategory()

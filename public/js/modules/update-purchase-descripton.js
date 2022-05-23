@@ -8,7 +8,7 @@ export default function initUpdatePurchaseDescription(itemId, itemValue, price, 
     const enchantPrice = document.querySelector('#item-enchants .only-price');
     const purchaseTotalPrice = document.querySelector('#purchase-total-price span');
 
-    //Inputs price
+    //Hidden Inputs price
     const inputProductDefaultPrice = document.querySelector('input[name=product_default_price]');
     const inputProductLvlPrice = document.querySelector('input[name=product_lvl_price]');
     const inputProductEnchantPrice = document.querySelector('input[name=product_enchant_price]');

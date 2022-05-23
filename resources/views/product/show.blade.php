@@ -20,7 +20,7 @@
             <div class="col-6 overflow-hidden sticky-top" id="main-product-image">
                 <img src="{{ asset($mainProduct->image) }}" class="rounded" alt="imagem do produto">
             </div>
-            <form action="{{ route('product.warranty') }}" method="POST" class="col-6 bg-white rounded"
+            <form action="{{ route('cart.store', $mainProduct->id) }}" method="POST" class="col-6 bg-white rounded"
                 id="main-form-buy">
                 @csrf
                 <div class="py-3">
@@ -143,7 +143,7 @@
                                 <div class="col-4 lvl-min-option ">
                                     <div class="block-option form-check d-flex flex-column text-center p-2">
                                         <input class="form-check-input mx-auto" type="radio" name="durability"
-                                            id="option-lvl-50" value="0" required>
+                                            id="option-lvl-50" value="400" required>
                                         <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-50">
                                             Nível 50
                                             <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
@@ -154,7 +154,7 @@
                                 <div class="col-4 lvl-min-option  mt-3">
                                     <div class="block-option form-check d-flex flex-column text-center p-2">
                                         <input class="form-check-input mx-auto" type="radio" name="durability"
-                                            id="option-lvl-60" value="0" required>
+                                            id="option-lvl-60" value="600" required>
                                         <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-60">
                                             Nível 60
                                             <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
@@ -230,7 +230,8 @@
                             <h4 class="h4">Encantar produto?</h4>
                             <div class="row flex-column justify-content-center align-items-center">
                                 <div class="col-12">
-                                    <select class="form-select" id="enchant-select" aria-label="encantar" required>
+                                    <select class="form-select" name="enchant" id="enchant-select" aria-label="encantar"
+                                        required>
                                         <option disabled>Encantar produto?</option>
                                         <option value="0" selected>Não</option>
                                         <option value="1">Sim</option>
@@ -262,7 +263,7 @@
                                             </div>
                                             <div class="form-check mt-3 me-3 border">
                                                 <input class="form-check-input enchant-type" type="checkbox"
-                                                    name="physical-protection" value="150"
+                                                    name="physical_protection" value="150"
                                                     id="enchant-checkbox-physical-protection">
                                                 <label
                                                     class="form-check-label d-flex flex-column justify-content-between align-items-start"
@@ -273,7 +274,7 @@
                                             </div>
                                             <div class="form-check mt-3 me-3 border">
                                                 <input class="form-check-input enchant-type" type="checkbox"
-                                                    name="magic-protection" value="150"
+                                                    name="magic_protection" value="150"
                                                     id="enchant-checkbox-magic-protection">
                                                 <label
                                                     class="form-check-label d-flex flex-column justify-content-between align-items-start"
@@ -331,7 +332,7 @@
                                         @else
                                             <div class="form-check mt-3 me-3 border">
                                                 <input class="form-check-input enchant-type" type="checkbox"
-                                                    name="physical-attack" value="100"
+                                                    name="physical_attack" value="100"
                                                     id="enchant-checkbox-physical-attack">
                                                 <label
                                                     class="form-check-label d-flex flex-column justify-content-between align-items-start"
@@ -342,7 +343,7 @@
                                             </div>
                                             <div class="form-check mt-3 me-3 border">
                                                 <input class="form-check-input enchant-type" type="checkbox"
-                                                    name="magic-attack" value="100" id="enchant-checkbox-magic-attack">
+                                                    name="magic_attack" value="100" id="enchant-checkbox-magic-attack">
                                                 <label
                                                     class="form-check-label d-flex flex-column justify-content-between align-items-start"
                                                     for="enchant-checkbox-magic-attack">
@@ -421,9 +422,9 @@
                                             @if ($mainProduct->Category->name === 'Armadura')
                                                 <li class="d-none" data-enchant-name="life">Vida</li>
                                                 <li class="d-none" data-enchant-name="speed">Agilidade</li>
-                                                <li class="d-none" data-enchant-name="physical-protection">Proteção
+                                                <li class="d-none" data-enchant-name="physical_protection">Proteção
                                                     física</li>
-                                                <li class="d-none" data-enchant-name="magic-protection">Proteção
+                                                <li class="d-none" data-enchant-name="magic_protection">Proteção
                                                     mágica</li>
                                             @elseif ($mainProduct->Category->name === 'Poção')
                                                 @if ($mainProduct->itemClass->name === 'vida')
@@ -437,9 +438,9 @@
                                                     </li>
                                                 @endif
                                             @else
-                                                <li class="d-none" data-enchant-name="physical-attack">Ataque
+                                                <li class="d-none" data-enchant-name="physical_attack">Ataque
                                                     físico</li>
-                                                <li class="d-none" data-enchant-name="magic-attack">Ataque mágico
+                                                <li class="d-none" data-enchant-name="magic_attack">Ataque mágico
                                                 </li>
                                                 <li class="d-none" data-enchant-name="mana">Mana</li>
                                             @endif
@@ -464,7 +465,6 @@
                                     @endif
                                 </div>
                             </div>
-                            <input type="hidden" name="product_id" value="{{ $mainProduct->id }}">
                             @if ($mainProduct->discount_price !== 0.0)
                                 <input type="hidden" name="product_total_price"
                                     value="{{ $mainProduct->discount_price }}">
