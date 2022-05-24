@@ -7,6 +7,7 @@ import initLvlOptions from "./modules/lvl-options.js";
 import initMarkProduct from "./modules/mark-product.js";
 import initReplaceRecommendation from "./modules/replace-recommendation.js";
 import initScrollCards from "./modules/scroll-cards.js";
+import initSelectsGuarantee from "./modules/selects_guarantee.js";
 import initShippingRates from "./modules/shipping-rates.js";
 import initUpdatePurchaseDescription from "./modules/update-purchase-descripton.js";
 import initValidateForm from "./modules/validate-form.js";
@@ -26,6 +27,7 @@ initUpdatePurchaseDescription();
 initLvlOptions();
 initShippingRates();
 initEnchantSelect();
+initSelectsGuarantee();
 initMarkProduct();
 
 

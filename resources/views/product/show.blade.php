@@ -367,6 +367,105 @@
                             </div>
                         </div>
                     @endif
+                    <div class="mb-5 border" id="breakage_guarantee">
+                        <h4 class="h4">Adicionar garantia de quebra?</h4>
+                        <div class="row flex-column justify-content-center align-items-center">
+                            <div class="col-12">
+                                <select class="form-select" name="breakage_guarantee" id="breakage_guarantee_select"
+                                    aria-label="garantia" required>
+                                    <option disabled>Adicionar garantia de quebra?</option>
+                                    <option value="0" selected>Não</option>
+                                    <option value="1">Sim</option>
+                                </select>
+                            </div>
+                            <div class="col-12 row d-none" id="div_breakage_guarantee_months">
+                                <div class="col-4 mt-3">
+                                    <div class="block-option form-check d-flex flex-column text-center p-2">
+                                        <input class="form-check-input mx-auto" type="radio"
+                                            name="breakage_guarantee_months" id="option-breakage_guarantee_6" value="6"
+                                            required checked>
+                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                            for="option-breakage_guarantee_6">
+                                            Garantia básica
+                                            <span class="breakage_guarantee_upgrade">6 meses</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-4 mt-3">
+                                    <div class="block-option form-check d-flex flex-column text-center p-2">
+                                        <input class="form-check-input mx-auto" type="radio"
+                                            name="breakage_guarantee_months" id="option-breakage_guarantee_12" value="12"
+                                            required>
+                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                            for="option-breakage_guarantee_12">
+                                            Garantia extendida
+                                            <span class="breakage_guarantee_upgrade">12 meses</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-4 mt-3">
+                                    <div class="block-option form-check d-flex flex-column text-center p-2">
+                                        <input class="form-check-input mx-auto" type="radio"
+                                            name="breakage_guarantee_months" id="option-breakage_guarantee_24" value="24"
+                                            required>
+                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                            for="option-breakage_guarantee_24">
+                                            Garantia premium
+                                            <span class="breakage_guarantee_upgrade">24 meses</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-5 border" id="theft_guarantee">
+                        <h4 class="h4">Adicionar garantia de furto e/ou roubo?</h4>
+                        <div class="row flex-column justify-content-center align-items-center">
+                            <div class="col-12">
+                                <select class="form-select" name="theft_guarantee" id="theft_guarantee_select"
+                                    aria-label="garantia" required>
+                                    <option disabled>Adicionar garantia de quebra?</option>
+                                    <option value="0" selected>Não</option>
+                                    <option value="1">Sim</option>
+                                </select>
+                            </div>
+                            <div class="col-12 row d-none" id="div_theft_guarantee_months">
+                                <div class="col-4 mt-3">
+                                    <div class="block-option form-check d-flex flex-column text-center p-2">
+                                        <input class="form-check-input mx-auto" type="radio" name="theft_guarantee_months"
+                                            id="option-theft_guarantee_6" value="6" required checked>
+                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                            for="option-theft_guarantee_6">
+                                            Garantia básica
+                                            <span class="theft_guarantee_upgrade">6 meses</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-4 mt-3">
+                                    <div class="block-option form-check d-flex flex-column text-center p-2">
+                                        <input class="form-check-input mx-auto" type="radio" name="theft_guarantee_months"
+                                            id="option-theft_guarantee_12" value="12" required>
+                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                            for="option-theft_guarantee_12">
+                                            Garantia extendida
+                                            <span class="theft_guarantee_upgrade">12 meses</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-4 mt-3">
+                                    <div class="block-option form-check d-flex flex-column text-center p-2">
+                                        <input class="form-check-input mx-auto" type="radio" name="theft_guarantee_months"
+                                            id="option-theft_guarantee_24" value="24" required>
+                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                            for="option-theft_guarantee_24">
+                                            Garantia premium
+                                            <span class="theft_guarantee_upgrade">24 meses</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="d-flex justify-content-center mb-4">
                         <div class="p-4 rounded" id="purchase-description">
                             <h4 class="h4 fw-bold text-center">Descrição da compra</h4>
@@ -476,6 +575,8 @@
                             @endif
                             <input type="hidden" name="product_lvl_price">
                             <input type="hidden" name="product_enchant_price">
+                            <input type="hidden" name="product_breakage_guarantee_price">
+                            <input type="hidden" name="product_theft_guarantee_price">
                         </div>
                     </div>
                     <div class="p-4 row flex-column justify-content-center align-items-center">

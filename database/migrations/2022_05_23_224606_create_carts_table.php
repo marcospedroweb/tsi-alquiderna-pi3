@@ -29,8 +29,10 @@ return new class extends Migration
                 ->onDelete('cascade');
             $table->integer('units');
             $table->integer('level');
+            $table->integer('product_lvl_price');
             $table->integer('durability');
             $table->boolean('enchant')->default(0);
+            $table->integer('product_enchant_price');
             $table->integer('enchant_life')->default(0);
             $table->integer('enchant_mana')->default(0);
             $table->integer('enchant_speed')->default(0);
@@ -43,6 +45,7 @@ return new class extends Migration
             $table->integer('breakage_guarantee_months')->default(0);
             $table->boolean('theft_guarantee')->default(0);
             $table->integer('theft_guarantee_months')->default(0);
+            $table->integer('product_total_price');
             $table->timestamps();
         });
     }

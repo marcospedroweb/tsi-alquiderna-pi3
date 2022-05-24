@@ -44,11 +44,7 @@
 .block-option {
     border-radius: 8px;
     background-color: #f0f0f0;
-    /* background-color: var(--block-background); */
     border: 1px solid #aaa;
-    /* border-radius: 8px;
-    background-color: var(--block-background);
-    border: 2px solid #aaa; */
 }
 
 /* CEP */
@@ -97,6 +93,12 @@
 #enchant .form-check span {
     color: #136006;
     font-weight: bold;
+}
+
+/* Guarantee*/
+.breakage_guarantee_upgrade {
+    color: #136006;
+    font-weight: 600;
 }
 
 /* Purchase description */

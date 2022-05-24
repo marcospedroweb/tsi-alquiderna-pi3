@@ -14,8 +14,10 @@ class Cart extends Model
         'product_id',
         'units',
         'level',
+        'product_lvl_price',
         'durability',
         'enchant',
+        'product_enchant_price',
         'enchant_life',
         'enchant_mana',
         'enchant_speed',
@@ -28,5 +30,6 @@ class Cart extends Model
         'breakage_guarantee_months',
         'theft_guarantee',
         'theft_guarantee_months',
+        'product_total_price',
     ]; // Laravel preenchera essa coluna
 }
