@@ -1,6 +1,6 @@
 import initFormatProductPrice from "./format-product-price.js";
 
-export default function initUpdatePurchaseDescription(itemId, itemValue, price, actionListItem, checkboxs) {
+export default function initUpdatePurchaseDescription(itemId, itemValue, price, actionListItem, inputList, inputList2) {
 
     const purchaseDescription = document.querySelector('#purchase-description');
     const defaultPrice = document.querySelector('#item-default-price .only-price');
@@ -44,11 +44,8 @@ export default function initUpdatePurchaseDescription(itemId, itemValue, price, 
                     if (option.classList.contains('d-none'))
                         option.classList.toggle('d-none');
 
-                initFormatProductPrice();
-                updateTotalPrice();
-
             } else if (itemId === 'item-enchants') {
-                let contCheckboxs = 0;
+                let continputList = 0;
                 const option = document.querySelector('#item-enchants');
                 const lisListEnchant = option.querySelectorAll('.purchase-list-info li');
                 const spanPrice = option.querySelector('.only-price');
@@ -61,12 +58,12 @@ export default function initUpdatePurchaseDescription(itemId, itemValue, price, 
                             li.classList.toggle('d-none');
                 });
 
-                checkboxs.forEach(checkboxElement => {
-                    if (checkboxElement.checked)
-                        contCheckboxs++;
+                inputList.forEach(inputElement => {
+                    if (inputElement.checked)
+                        continputList++;
                 });
 
-                if (actionListItem === 'show' && contCheckboxs !== 0) {
+                if (actionListItem === 'show' && continputList !== 0) {
                     if (option.classList.contains('d-none'))
                         option.classList.toggle('d-none')
 
@@ -75,19 +72,85 @@ export default function initUpdatePurchaseDescription(itemId, itemValue, price, 
                         spanPrice.textContent = price;
                     else if (parseInt(spanPrice.textContent) !== 0)
                         spanPrice.textContent = parseInt(spanPrice.textContent) + price;
-                } else if (actionListItem === 'hidden' && contCheckboxs !== 0) {
+                } else if (actionListItem === 'hidden' && continputList !== 0) {
                     if (parseInt(spanPrice.textContent) !== 0) {
                         purchaseTotalPrice.textContent = parseInt(purchaseTotalPrice.textContent.replace('.', '')) - price;
                         spanPrice.textContent = parseInt(spanPrice.textContent) - price;
                     }
-                } else if (actionListItem === 'hidden' && contCheckboxs === 0) {
+                } else if (actionListItem === 'hidden' && continputList === 0) {
                     if (!option.classList.contains('d-none'))
                         option.classList.toggle('d-none')
                     spanPrice.textContent = 0;
                 }
 
-                updateTotalPrice();
+            } else if (itemId === 'item-guarantee') {
+
+                let continputList = 0;
+                const option = document.querySelector('#item-guarantee');
+                const lisListEnchant = option.querySelectorAll('.purchase-list-info li');
+                const spanPrice = option.querySelector('.only-price');
+                const breakagePrice = document.querySelector('input[name=product_breakage_guarantee_price]').value;
+                const theftPrice = document.querySelector('input[name=product_theft_guarantee_price]').value;
+
+                inputList.forEach(inputElement => {
+                    if (inputElement.checked)
+                        continputList++;
+                });
+
+                if (inputList2) {
+                    inputList2.forEach(inputElement => {
+                        if (inputElement.checked)
+                            continputList++;
+                    });
+                }
+
+                if (actionListItem === 'show' && continputList !== 0) {
+
+                    if (option.classList.contains('d-none'))
+                        option.classList.toggle('d-none');
+
+                    spanPrice.textContent = parseInt(breakagePrice) + parseInt(theftPrice);
+                    purchaseTotalPrice.textContent = parseInt(purchaseTotalPrice.textContent.replace('.', '')) + parseInt(spanPrice.textContent.replace('.', ''));
+
+                    lisListEnchant.forEach(li => {
+                        if (li.getAttribute('id') === 'li-' + itemValue)
+                            if (li.classList.contains('d-none'))
+                                li.classList.toggle('d-none');
+
+                    });
+
+                } else if (actionListItem === 'hidden' && continputList !== 0) {
+
+                    if (option.classList.contains('d-none'))
+                        option.classList.toggle('d-none');
+
+                    console.log(breakagePrice);
+                    if (itemValue === 'breakage_guarantee_months')
+                        spanPrice.textContent = parseInt(spanPrice.textContent.replace('.', '')) - parseInt(breakagePrice);
+                    else
+                        spanPrice.textContent = parseInt(spanPrice.textContent.replace('.', '')) - parseInt(theftPrice);
+
+                    purchaseTotalPrice.textContent = parseInt(purchaseTotalPrice.textContent.replace('.', '')) - parseInt(spanPrice.textContent.replace('.', ''));
+
+                    lisListEnchant.forEach(li => {
+                        if (li.getAttribute('id') === 'li-' + itemValue)
+                            if (!li.classList.contains('d-none'))
+                                li.classList.toggle('d-none');
+
+                    });
+                } else {
+
+                    spanPrice.textContent = parseInt(breakagePrice) - parseInt(theftPrice);
+                    purchaseTotalPrice.textContent = parseInt(purchaseTotalPrice.textContent.replace('.', '')) - parseInt(spanPrice.textContent);
+
+                    if (!option.classList.contains('d-none'))
+                        option.classList.toggle('d-none')
+                    spanPrice.textContent = 0;
+                }
+
             }
+    initFormatProductPrice();
+    updateTotalPrice();
 }
 
 

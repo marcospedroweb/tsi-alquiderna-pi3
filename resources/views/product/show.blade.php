@@ -383,7 +383,7 @@
                                     <div class="block-option form-check d-flex flex-column text-center p-2">
                                         <input class="form-check-input mx-auto" type="radio"
                                             name="breakage_guarantee_months" id="option-breakage_guarantee_6" value="6"
-                                            required checked>
+                                            required>
                                         <label class="form-check-label d-flex flex-column mt-3 fw-bold"
                                             for="option-breakage_guarantee_6">
                                             Garantia básica
@@ -433,7 +433,7 @@
                                 <div class="col-4 mt-3">
                                     <div class="block-option form-check d-flex flex-column text-center p-2">
                                         <input class="form-check-input mx-auto" type="radio" name="theft_guarantee_months"
-                                            id="option-theft_guarantee_6" value="6" required checked>
+                                            id="option-theft_guarantee_6" value="6" required>
                                         <label class="form-check-label d-flex flex-column mt-3 fw-bold"
                                             for="option-theft_guarantee_6">
                                             Garantia básica
@@ -551,6 +551,24 @@
                                         </span>
                                     </span>
                                 </li>
+                                <li class="d-none d-flex justify-content-start align-items-start my-2 p-0 position-relative purchase-description-option"
+                                    id="item-guarantee">
+                                    <i class="fa-solid fa-certificate"></i>
+                                    <span
+                                        class="purchase-description-info d-flex justify-content-start align-items-start flex-grow-1">
+                                        <span class="purchase-title" style="min-width: 132px">
+                                            Garantia</span>
+                                        <ul class="purchase-list-info" style="min-width: 124px">
+                                            <li class="d-none" id="li-breakage_guarantee_months">Quebra</li>
+                                            <li class="d-none" id="li-theft_guarantee_months">Furto ou roubo</li>
+                                        </ul>
+                                        <span class="ms-auto">
+                                            <span class="purchase-price">R$ <span
+                                                    class="d-inline-block product-price only-price"
+                                                    style="min-width: 41px"></span></span>
+                                        </span>
+                                    </span>
+                                </li>
                             </ul>
                             <div class="row justify-content-center align-items-center">
                                 <div class="col-10 d-flex justify-content-between align-items-center">
@@ -575,8 +593,8 @@
                             @endif
                             <input type="hidden" name="product_lvl_price">
                             <input type="hidden" name="product_enchant_price">
-                            <input type="hidden" name="product_breakage_guarantee_price">
-                            <input type="hidden" name="product_theft_guarantee_price">
+                            <input type="hidden" name="product_breakage_guarantee_price" value="0">
+                            <input type="hidden" name="product_theft_guarantee_price" value="0">
                         </div>
                     </div>
                     <div class="p-4 row flex-column justify-content-center align-items-center">
