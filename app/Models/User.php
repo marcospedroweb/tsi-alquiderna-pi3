@@ -42,11 +42,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function Cart()
-    {
-        return $this->belongsToMany(Product::class)->using(Cart::class);
-    }
-
     public function VerifyIsAdmin()
     {
         return $this->role == 'admin';

@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class CartController extends Controller
 {
+    public function index()
+    {
+        $items = Cart::where('user_id', Auth()->user()->id)->get();
+
+        return view('cart.index')->with('itens', $items);
+    }
+
     public function store(Product $product, Request $request)
     {
         $user = auth()->user();
@@ -23,50 +32,39 @@ class CartController extends Controller
                 'units' => $cart->units + 1,
             ]);
         } else {
-            if ($request->durability === 0)
-                $lvl = $product->lvlMin;
-            else if ($product->lvlMin === 0) {
-
-                for ($durability = 0; $durability <= 300; $durability += 100)
-                    if ($request->durability === $durability)
-                        $lvl = $durability / 10;
-            } else if ($product->lvlMin === 31) {
-
-                for ($durability = 200; $durability <= 600; $durability += 200)
-                    for ($lvlSelected = 40; $lvlSelected <= 60; $lvlSelected += 10)
-                        if ($request->durability === $durability)
-                            $lvl = $lvlSelected;
-            } else {
-
-                for ($durability = 300; $durability <= 1200; $durability += 300)
-                    for ($lvlSelected = 70; $lvlSelected <= 100; $lvlSelected += 10)
-                        if ($request->durability === $durability)
-                            $lvl = $lvlSelected;
-            }
 
             $cart = Cart::create([
                 'user_id' => $user->id,
                 'product_id' => $product->id,
                 'units' => 1,
-                'level' => $lvl,
+                'level' => $request->lvl_selected,
+                'product_lvl_price' => $request->product_lvl_price,
                 'durability' => $request->durability,
                 'enchant' => $request->enchant,
+                'product_enchant_price' => $request->product_enchant_price,
                 'enchant_life' => $request->life ?? 0,
-                'enchant_mana' => $request->mana,
-                'enchant_speed' => $request->speed,
-                'enchant_strength' => $request->strength,
-                'enchant_physical_protection' => $request->physical_protection,
-                'enchant_magic_protection' => $request->magic_protection,
-                'enchant_physical_attack' => $request->physical_attack,
-                'enchant_magic_attack' => $request->magic_attack,
+                'enchant_mana' => $request->mana ?? 0,
+                'enchant_speed' => $request->speed ?? 0,
+                'enchant_strength' => $request->strength ?? 0,
+                'enchant_physical_protection' => $request->physical_protection ?? 0,
+                'enchant_magic_protection' => $request->magic_protection ?? 0,
+                'enchant_physical_attack' => $request->physical_attack ?? 0,
+                'enchant_magic_attack' => $request->magic_attack ?? 0,
                 'breakage_guarantee' => $request->breakage_guarantee,
                 'breakage_guarantee_months' => $request->breakage_guarantee_months,
+                'product_breakage_price' => $request->product_breakage_guarantee_price,
                 'theft_guarantee' => $request->theft_guarantee,
                 'theft_guarantee_months' => $request->theft_guarantee_months,
+                'product_theft_price' => $request->product_theft_guarantee_price,
+                'product_total_price' => $request->product_total_price,
             ]);
         }
 
         session()->flash('success', 'O produto (' . $product->name . ') foi adicionado ao carrinho.');
-        return redirect()->back();
+        return redirect()->route('cart.index');
+    }
+
+    public function destroy()
+    {
     }
 }

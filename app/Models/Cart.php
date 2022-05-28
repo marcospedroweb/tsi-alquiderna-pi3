@@ -28,8 +28,15 @@ class Cart extends Model
         'enchant_magic_attack',
         'breakage_guarantee',
         'breakage_guarantee_months',
+        'product_breakage_price',
         'theft_guarantee',
         'theft_guarantee_months',
+        'product_theft_price',
         'product_total_price',
     ]; // Laravel preenchera essa coluna
+
+    public function Product()
+    {
+        return $this->belongsTo(Product::class, 'product_id', 'id');
+    }
 }

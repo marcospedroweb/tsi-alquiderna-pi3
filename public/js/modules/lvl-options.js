@@ -9,10 +9,12 @@ export default function initLvlOptions() {
         lvlMinOptions.forEach(element => {
             const checkbox = element.querySelector('input[type=radio]');
             checkbox.addEventListener('change', event => {
+                const inputLvlSelected = document.querySelector('input[name=lvl_selected]');
                 const checkboxId = event.target.getAttribute('id');
                 const lvl = checkboxId.replace('option-lvl-', '');
                 let price;
 
+                inputLvlSelected.value = lvl;
                 switch (parseInt(lvl)) {
                     case 0:
                         price = 0;

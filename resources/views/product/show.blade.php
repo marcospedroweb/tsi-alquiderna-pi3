@@ -221,6 +221,7 @@
                                 </div>
                             @endif
                         </div>
+                        <input type="hidden" name="lvl_selected">
                         <small class="d-inline-block mt-2">A durabilidade
                             {{ $mainProduct->Category->name === 'Grimório' ? 'do' : 'da' }}
                             {{ $mainProduct->Category->name }} será afetada pelo nível</small>
@@ -565,7 +566,7 @@
                                         <span class="ms-auto">
                                             <span class="purchase-price">R$ <span
                                                     class="d-inline-block product-price only-price"
-                                                    style="min-width: 41px"></span></span>
+                                                    style="min-width: 41px">0</span></span>
                                         </span>
                                     </span>
                                 </li>

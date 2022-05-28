@@ -43,8 +43,10 @@ return new class extends Migration
             $table->integer('enchant_magic_attack')->default(0);
             $table->boolean('breakage_guarantee')->default(0);
             $table->integer('breakage_guarantee_months')->default(0);
+            $table->integer('product_breakage_price')->default(0);
             $table->boolean('theft_guarantee')->default(0);
             $table->integer('theft_guarantee_months')->default(0);
+            $table->integer('product_theft_price')->default(0);
             $table->integer('product_total_price');
             $table->timestamps();
         });
