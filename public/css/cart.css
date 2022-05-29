@@ -1,0 +1,24 @@
+#td-product-info {
+    max-width: 380px;
+}
+
+#cart-product-info img {
+    max-width: 25%;
+}
+
+#cart-product-info h3 {
+    font-size: 1.5rem;
+}
+
+#units {
+    background-color: #f0f0f0;
+}
+
+#units.border {
+    padding: 8px;
+}
+
+#cart-product-price {
+    width: 100%;
+    word-wrap: normal;
+}

@@ -6,11 +6,10 @@
                 <div class="col-8">
                     <h2 class="h2 m-0">{{ $mainProduct->name }}</h2>
                 </div>
-                <div class="col d-flex justify-content-end align-items-center">
-                    <a href="#" class="link-primary me-2">Descrição</a>
-                    <a href="#" class="link-primary me-2">Atributos</a>
-                    <a href="#" class="link-primary me-2">Avaliações</a>
-                    <a class="btn btn-primary">Comprar</a>
+                <div class="col d-flex justify-content-end align-items-center" id="product-nav">
+                    <a href="#section-desc" class="link-primary me-2">Descrição</a>
+                    <a href="#section-attributes" class="link-primary me-3">Atributos</a>
+                    <a href="#main-form-buy" class="btn btn-primary">Comprar</a>
                 </div>
             </div>
         </div>

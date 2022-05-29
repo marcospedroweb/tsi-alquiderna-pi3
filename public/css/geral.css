@@ -48,8 +48,34 @@ p {
     color: #fff;
 }
 
+.btn-header {
+    color: #fff;
+    padding: 4px 8px;
+}
+
+.btn-header:hover i {
+    color: #ddd;
+}
+
 #btn-bag {
     color: #fff;
+}
+
+#btn-bag i {
+    font-size: 1.15rem;
+}
+
+#btn-bag .bg-primary {
+    background-color: var(--btn-static) !important;
+    color: var(--btn-static-text-color);
+}
+
+#btn-bag span {
+    padding: 2px 4px;
+    font-size: .6rem;
+    top: unset;
+    bottom: 2px;
+    right: 4px;
 }
 
 /* Alert user */

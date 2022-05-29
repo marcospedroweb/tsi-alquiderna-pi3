@@ -110,10 +110,23 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center align-items-center">
-                        <i class="fa-solid fa-magnifying-glass me-2"></i>
-                        <button class="btn p-0 m-0 me-2" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="btn-bag"><i
-                                class="bi bi-bag"></i></button>
+                        <button type="button" id="btn-search" class="btn-header btn">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                        @if (!Auth::check())
+                            <a href="{{ route('login') }}" class="btn" id="btn-bag">
+                                <i class="bi bi-bag"></i>
+                            </a>
+                        @else
+                            <a href="{{ route('cart.index') }}" class="btn-header btn position-relative "
+                                id="btn-bag">
+                                <i class="bi bi-bag"></i>
+                                <span class="position-absolute badge rounded-pill bg-primary">
+                                    {{ count(App\Models\Cart::NumberOfProductsInCart()) }}
+                                    <span class="visually-hidden">produtos na cesta</span>
+                                </span>
+                            </a>
+                        @endif
                         @if (!Auth::check())
                             <div class="d-flex justify-content-center align-items-center">
                                 <a href="{{ route('login') }}" class="btn-link">
@@ -122,7 +135,7 @@
                                 </a>
                             </div>
                         @elseif (Auth()->user()->VerifyIsAdmin())
-                            <div class="dropdown d-flex justify-content-center align-items-center">
+                            <div class="dropdown d-flex justify-content-center align-items-center ms-2">
                                 <button class="btn btn-link dropdown-toggle ps-0" type="button" id="dropdownMenuButton1"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-person-circle me-2"></i>
@@ -140,7 +153,7 @@
                                 </ul>
                             </div>
                         @else
-                            <div class="dropdown d-flex justify-content-center align-items-center">
+                            <div class="dropdown d-flex justify-content-center align-items-center ms-2">
                                 <button class="btn btn-link dropdown-toggle ps-0" type="button" id="dropdownMenuButton1"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-person-circle me-2"></i>
@@ -162,18 +175,6 @@
             </nav>
         </div>
     </header>
-    <aside>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-            <div class="offcanvas-header">
-                <h5 id="offcanvasRightLabel">Offcanvas right</h5>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                    aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                ...
-            </div>
-        </div>
-    </aside>
     <div class="container-xxl mt-5 d-none" id="div-alert-user">
         <div class="alert text-center">
             <span></span>

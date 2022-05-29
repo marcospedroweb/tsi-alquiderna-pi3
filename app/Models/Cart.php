@@ -39,4 +39,12 @@ class Cart extends Model
     {
         return $this->belongsTo(Product::class, 'product_id', 'id');
     }
+
+    public static function NumberOfProductsInCart(int $cart_id = 0)
+    {
+        if ($cart_id)
+            return Cart::where('user_id', Auth()->user()->id)->get();
+        else
+            return Cart::where('user_id', Auth()->user()->id)->get();
+    }
 }
