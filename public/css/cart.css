@@ -1,3 +1,7 @@
+.div-product-info {
+    max-width: 400px;
+}
+
 #td-product-info {
     max-width: 380px;
 }
@@ -18,7 +22,20 @@
     padding: 8px;
 }
 
+#div-input-units {
+    max-width: 50px;
+}
+
+input[name="units"] {
+    text-align: center;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #dee2e6;
+    background-color: #f0f0f0;
+}
+
 #cart-product-price {
+    padding: 10px 0;
     width: 100%;
     word-wrap: normal;
 }

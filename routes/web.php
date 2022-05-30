@@ -92,7 +92,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
-    Route::put('/cart/edit/unit/{value}', [CartController::class, 'updateUnit'])->name('cart.updateUnit'); // Atualiza no banco com as informações
+    Route::put('/cart/edit/unit/{value}{order}', [CartController::class, 'updateUnit'])->name('cart.updateUnit'); // Atualiza no banco com as informações
     Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
 });
 

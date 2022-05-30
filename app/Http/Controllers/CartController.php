@@ -64,6 +64,35 @@ class CartController extends Controller
         return redirect()->route('cart.index');
     }
 
+    public function updateUnit(string $value, int $order_id)
+    {
+        $user = auth()->user();
+
+        $cart = Cart::where([
+            'user_id' => $user->id,
+            'id' => $order_id
+        ])->first();
+
+        //There is product in cart
+        if ($cart) {
+
+            if ($value === 'minus')
+                $cart->update([
+                    'units' => $cart->units - 1,
+                ]);
+            else
+                $cart->update([
+                    'units' => $cart->units + 1,
+                ]);
+
+            session()->flash('success', 'Foi adicionado mais 1 unidade do produto');
+        } else {
+            session()->flash('danger', 'Houve um erro, o produto não está adicionado na cesta');
+        }
+
+        return redirect()->route('cart.index');
+    }
+
     public function destroy()
     {
     }
