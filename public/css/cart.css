@@ -39,3 +39,25 @@ input[name="units"] {
     width: 100%;
     word-wrap: normal;
 }
+
+/* Model */
+.modal-body#purchase-description {
+    border: 0;
+    width: 100%;
+}
+
+.modal-body#purchase-description .model-title {
+    font-weight: 600;
+}
+
+.modal-body#purchase-description .block-option {
+    min-height: 138px;
+}
+
+.modal-body#purchase-description .product-upgraded {
+    color: #136006;
+}
+
+.modal-body#purchase-description .product-not-upgraded {
+    color: #4d1919;
+}

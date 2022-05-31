@@ -13,8 +13,7 @@ class CartController extends Controller
     public function index()
     {
         $items = Cart::where('user_id', Auth()->user()->id)->get();
-
-        return view('cart.index')->with('itens', $items);
+        return view('cart.index')->with('items', $items);
     }
 
     public function store(Product $product, Request $request)
@@ -64,7 +63,7 @@ class CartController extends Controller
         return redirect()->route('cart.index');
     }
 
-    public function updateUnit(string $value, int $order_id)
+    public function update(string $value, int $order_id)
     {
         $user = auth()->user();
 

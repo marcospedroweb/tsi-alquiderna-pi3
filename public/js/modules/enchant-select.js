@@ -20,6 +20,8 @@ if (enchantSelect && divEnchantTypes && enchantTypes) {
         } else {
             if (!divEnchantTypes.classList.contains('d-none'))
                 divEnchantTypes.classList.toggle('d-none');
+
+            initUpdatePurchaseDescription('item-enchants', 'hidden-all', 600, 'hidden-all', enchantTypes);
         }
 
     });

@@ -41,7 +41,6 @@ export default function initLvlOptions() {
                         price = 900;
                         break;
                     case 61:
-                        price = 1200;
                         price = 0;
                         break;
                     case 70:

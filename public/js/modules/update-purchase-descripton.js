@@ -55,6 +55,26 @@ export default function initUpdatePurchaseDescription(itemId, itemValue, price, 
                 const lisListEnchant = option.querySelectorAll('.purchase-list-info li');
                 const spanPrice = option.querySelector('.only-price');
 
+                console.log('item-enchants')
+                if (actionListItem === 'hidden-all') {
+
+                    lisListEnchant.forEach(li => {
+                        if (!li.classList.contains('d-none'))
+                            li.classList.toggle('d-none');
+                    });
+
+                    if (!option.classList.contains('d-none'))
+                        option.classList.toggle('d-none')
+                    spanPrice.textContent = 0;
+
+                    updateTotalPrice();
+                    initFormatProductPrice();
+
+                    console.log('antes return')
+                    return;
+                }
+                console.log('antes depois')
+
                 lisListEnchant.forEach(li => {
                     if (li.dataset.enchantName === itemValue)
                         if (li.classList.contains('d-none') && actionListItem === 'show')
