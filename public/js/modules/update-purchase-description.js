@@ -34,7 +34,7 @@ export default function initUpdatePurchaseDescription(itemId, itemValue, price, 
 
 
     if (purchaseDescription && purchaseTotalPrice)
-        if (itemId && itemValue)
+        if (itemId && itemValue) {
             if (itemId === 'item-durability') {
                 const option = document.querySelector('#item-durability');
                 const infoSelected = option.querySelector('.purchase-list-info');
@@ -55,7 +55,6 @@ export default function initUpdatePurchaseDescription(itemId, itemValue, price, 
                 const lisListEnchant = option.querySelectorAll('.purchase-list-info li');
                 const spanPrice = option.querySelector('.only-price');
 
-                console.log('item-enchants')
                 if (actionListItem === 'hidden-all') {
 
                     lisListEnchant.forEach(li => {
@@ -70,10 +69,8 @@ export default function initUpdatePurchaseDescription(itemId, itemValue, price, 
                     updateTotalPrice();
                     initFormatProductPrice();
 
-                    console.log('antes return')
                     return;
                 }
-                console.log('antes depois')
 
                 lisListEnchant.forEach(li => {
                     if (li.dataset.enchantName === itemValue)
@@ -93,14 +90,14 @@ export default function initUpdatePurchaseDescription(itemId, itemValue, price, 
                         option.classList.toggle('d-none')
 
                     // purchaseTotalPrice.textContent = parseInt(purchaseTotalPrice.textContent.replace('.', '')) + price;
-                    if (parseInt(spanPrice.textContent) === 0)
+                    if (parseInt(spanPrice.textContent.replace('.', '')) === 0)
                         spanPrice.textContent = price;
-                    else if (parseInt(spanPrice.textContent) !== 0)
-                        spanPrice.textContent = parseInt(spanPrice.textContent) + price;
+                    else if (parseInt(spanPrice.textContent.replace('.', '')) !== 0)
+                        spanPrice.textContent = parseInt(spanPrice.textContent.replace('.', '')) + price;
                 } else if (actionListItem === 'hidden' && continputList !== 0) {
-                    if (parseInt(spanPrice.textContent) !== 0) {
+                    if (parseInt(spanPrice.textContent.replace('.', '')) !== 0) {
                         // purchaseTotalPrice.textContent = parseInt(purchaseTotalPrice.textContent.replace('.', '')) - price;
-                        spanPrice.textContent = parseInt(spanPrice.textContent) - price;
+                        spanPrice.textContent = parseInt(spanPrice.textContent.replace('.', '')) - price;
                     }
                 } else if (actionListItem === 'hidden' && continputList === 0) {
                     if (!option.classList.contains('d-none'))
@@ -133,7 +130,6 @@ export default function initUpdatePurchaseDescription(itemId, itemValue, price, 
                         option.classList.toggle('d-none');
 
                     spanPrice.textContent = parseInt(inputProductBreakagePrice.value) + parseInt(inputProductTheftPrice.value);
-                    // purchaseTotalPrice.textContent = parseInt(purchaseTotalPrice.textContent.replace('.', '')) + parseInt(spanPrice.textContent.replace('.', ''));
 
                     lisListEnchant.forEach(li => {
                         if (li.getAttribute('id') === 'li-' + itemValue)
@@ -152,8 +148,6 @@ export default function initUpdatePurchaseDescription(itemId, itemValue, price, 
                     else
                         spanPrice.textContent = parseInt(spanPrice.textContent.replace('.', '')) - parseInt(inputProductTheftPrice.value);
 
-                    // purchaseTotalPrice.textContent = parseInt(purchaseTotalPrice.textContent.replace('.', '')) - parseInt(spanPrice.textContent.replace('.', ''));
-
                     lisListEnchant.forEach(li => {
                         if (li.getAttribute('id') === 'li-' + itemValue)
                             if (!li.classList.contains('d-none'))
@@ -163,7 +157,6 @@ export default function initUpdatePurchaseDescription(itemId, itemValue, price, 
                 } else {
 
                     spanPrice.textContent = parseInt(inputProductBreakagePrice.value) - parseInt(inputProductTheftPrice.value);
-                    // purchaseTotalPrice.textContent = parseInt(purchaseTotalPrice.textContent.replace('.', '')) - parseInt(spanPrice.textContent);
 
                     if (!option.classList.contains('d-none'))
                         option.classList.toggle('d-none')
@@ -171,8 +164,10 @@ export default function initUpdatePurchaseDescription(itemId, itemValue, price, 
                 }
 
             }
-    updateTotalPrice();
-    initFormatProductPrice();
+
+            updateTotalPrice();
+            initFormatProductPrice();
+        }
 }
 
 

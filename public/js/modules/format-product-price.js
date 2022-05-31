@@ -1,4 +1,5 @@
 export default function initFormatProductPrice() {
+    // Cards price
     const productPrice = document.querySelectorAll('span.product-price');
     const productDiscountPrice = document.querySelectorAll('span.product-discount-price');
 
@@ -9,18 +10,19 @@ export default function initFormatProductPrice() {
             return price.textContent.slice(0, 1) + '.' + price.textContent.slice(1);
     }
 
-    productPrice.forEach(element => {
-        if ((element.textContent.length) >= 5 && element.textContent.indexOf('.') === -1)
+    function verifyLength(element) {
+        if ((element.textContent.trim().length) >= 5 && element.textContent.indexOf('.') === -1)
             element.textContent = formatPrice(element, 5);
-        else if ((element.textContent.length) >= 4 && element.textContent.indexOf('.') === -1)
+        else if ((element.textContent.trim().length) >= 4 && element.textContent.indexOf('.') === -1)
             element.textContent = formatPrice(element, 4);
+    }
+
+    productPrice.forEach(element => {
+        verifyLength(element);
     });
 
     productDiscountPrice.forEach(element => {
-        if ((element.textContent.length) >= 5 && element.textContent.indexOf('.') === -1)
-            element.textContent = formatPrice(element, 5);
-        else if ((element.textContent.length) >= 4 && element.textContent.indexOf('.') === -1)
-            element.textContent = formatPrice(element, 4);
+        verifyLength(element);
     });
 
 
@@ -29,15 +31,11 @@ export default function initFormatProductPrice() {
     const productDiscountPriceBanner = document.querySelectorAll('.div-product-price .original-price');
 
     productPriceBanner.forEach(element => {
-        if ((element.textContent.length) >= 5 && element.textContent.indexOf('.') === -1)
-            element.textContent = formatPrice(element, 5);
-        else if ((element.textContent.length) >= 4 && element.textContent.indexOf('.') === -1)
-            element.textContent = formatPrice(element, 4);
+        verifyLength(element);
     });
 
     productDiscountPriceBanner.forEach(element => {
-        if ((element.textContent.trim().length) >= 4)
-            element.textContent = element.textContent.trim().slice(0, 1) + '.' + element.textContent.trim().slice(1);
+        verifyLength(element);
     });
 }
 

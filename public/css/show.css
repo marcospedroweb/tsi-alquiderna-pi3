@@ -102,12 +102,14 @@
 }
 
 /* Purchase description */
-#purchase-description {
+#purchase-description,
+#purchase-description-view {
     border: 1px solid #aaa;
     width: 80%;
 }
 
 #purchase-description .fa-solid,
+#purchase-description-view .fa-solid,
 #div-cep-options .fa-solid {
     background-color: var(--btn-static);
     color: var(--btn-static-text-color);
@@ -116,7 +118,8 @@
     text-align: center;
 }
 
-#purchase-description h4~ul {
+#purchase-description h4~ul,
+#purchase-description-view h4~ul {
     padding: .5rem 0;
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;

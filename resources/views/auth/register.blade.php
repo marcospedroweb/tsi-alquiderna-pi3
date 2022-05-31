@@ -25,8 +25,8 @@
                         <x-input id="password" class="form-control" type="password" name="password" required
                             autocomplete="new-password" aria-describedby="passwordHelp" minlength="8" maxlength="20" />
                         <div id="passwordHelp" class="form-text">
-                            <span>Sua senha deve ter no mínimo 8 caracteres e no máximo 20 caracteres.</span>
-                            <span>Sua senha deve ter ao menos letra minúsculas e uma maiúscula.</span>
+                            <span class="d-block">Sua senha deve ter no mínimo 8 caracteres e no máximo 20 caracteres.</span>
+                            <span class="d-block">Sua senha deve ter ao menos letra minúsculas e uma maiúscula.</span>
                         </div>
                     </div>
                     <div class="mb-4">

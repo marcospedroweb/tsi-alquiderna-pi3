@@ -175,11 +175,6 @@
             </nav>
         </div>
     </header>
-    <div class="container-xxl mt-5 d-none" id="div-alert-user">
-        <div class="alert text-center">
-            <span></span>
-        </div>
-    </div>
     <main>
         <div class="container-xxl">
             @if (session()->get('success'))
@@ -188,30 +183,28 @@
                         {{ session()->get('success') }}
                     </div>
                 </div>
+            @else
+                <div class="container-xxl mt-5 d-none" id="div-alert-user">
+                    <div class="alert text-center">
+                        <span></span>
+                    </div>
+                </div>
             @endif
             @if (session()->get('error'))
                 <div class="container-xxl mt-5">
                     <div class="alert alert-danger">
                         {{ session()->get('error') }}
+                    </div>
+                </div>
+            @else
+                <div class="container-xxl mt-5 d-none" id="div-alert-user">
+                    <div class="alert text-center">
+                        <span></span>
                     </div>
                 </div>
             @endif
         </div>
         <main>
-            @if (session()->get('success'))
-                <div class="container-xxl mt-5">
-                    <div class="alert alert-success">
-                        {{ session()->get('success') }}
-                    </div>
-                </div>
-            @endif
-            @if (session()->get('error'))
-                <div class="container-xxl mt-5">
-                    <div class="alert alert-danger">
-                        {{ session()->get('error') }}
-                    </div>
-                </div>
-            @endif
             <div>
                 @yield('content')
             </div>

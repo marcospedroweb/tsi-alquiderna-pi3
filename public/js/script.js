@@ -10,7 +10,7 @@ import initScrollCards from "./modules/scroll-cards.js";
 import initScrollTo from "./modules/scroll-to.js";
 import initSelectsGuarantee from "./modules/selects-guarantee.js";
 import initShippingRates from "./modules/shipping-rates.js";
-import initUpdatePurchaseDescription from "./modules/update-purchase-descripton.js";
+import initUpdatePurchaseDescription from "./modules/update-purchase-description.js";
 import initValidateForm from "./modules/validate-form.js";
 import initWhatsMonth from "./modules/whats-month.js";
 

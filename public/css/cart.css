@@ -41,23 +41,23 @@ input[name="units"] {
 }
 
 /* Model */
-.modal-body#purchase-description {
+.modal-body#purchase-description-view {
     border: 0;
     width: 100%;
 }
 
-.modal-body#purchase-description .model-title {
+.modal-body#purchase-description-view .model-title {
     font-weight: 600;
 }
 
-.modal-body#purchase-description .block-option {
+.modal-body#purchase-description-view .block-option {
     min-height: 138px;
 }
 
-.modal-body#purchase-description .product-upgraded {
+.modal-body#purchase-description-view .product-upgraded {
     color: #136006;
 }
 
-.modal-body#purchase-description .product-not-upgraded {
+.modal-body#purchase-description-view .product-not-upgraded {
     color: #4d1919;
 }

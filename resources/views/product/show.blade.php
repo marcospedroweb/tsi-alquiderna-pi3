@@ -379,6 +379,7 @@
                                 </select>
                             </div>
                             <div class="col-12 row d-none" id="div_breakage_guarantee_months">
+                                <input class="option-breakage_guarantee_default d-none form-check-input mx-auto" type="radio" name="breakage_guarantee_months" value="0" required checked>
                                 <div class="col-4 mt-3">
                                     <div class="block-option form-check d-flex flex-column text-center p-2">
                                         <input class="form-check-input mx-auto" type="radio"
@@ -430,6 +431,7 @@
                                 </select>
                             </div>
                             <div class="col-12 row d-none" id="div_theft_guarantee_months">
+                                <input class="option-theft_guarantee_default d-none form-check-input mx-auto" type="radio" name="theft_guarantee_months" value="0" required checked>
                                 <div class="col-4 mt-3">
                                     <div class="block-option form-check d-flex flex-column text-center p-2">
                                         <input class="form-check-input mx-auto" type="radio" name="theft_guarantee_months"

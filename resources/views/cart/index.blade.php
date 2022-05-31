@@ -240,7 +240,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Close</button>
+                                                        data-bs-dismiss="modal">Fechar</button>
                                                     <!-- Button modal edit-->
                                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                         data-bs-target="#modal-edit-product-{{ $item->id }}">
@@ -736,6 +736,9 @@
                                                             </div>
                                                             <div class="col-12 row {{ $item->breakage_guarantee === 1 ? '' : 'd-none' }}"
                                                                 id="div_breakage_guarantee_months">
+                                                                <input class="option-breakage_guarantee_default d-none form-check-input mx-auto" type="radio"
+                                                                    name="breakage_guarantee_months" value="0" required
+                                                                    {{ $item->breakage_guarantee === 0 && $item->breakage_guarantee_months === 0 ? 'checked' : '' }}>
                                                                 <div class="col-4 mt-3">
                                                                     <div
                                                                         class="block-option form-check d-flex flex-column text-center p-2">
@@ -811,6 +814,9 @@
                                                             </div>
                                                             <div class="col-12 row {{ $item->theft_guarantee === 1 ? '' : 'd-none' }}"
                                                                 id="div_theft_guarantee_months">
+                                                                <input class="option-theft_guarantee_default d-none form-check-input mx-auto" type="radio"
+                                                                    name="theft_guarantee_months" value="0" required
+                                                                    {{ $item->theft_guarantee === 0 && $item->theft_guarantee_months === 0 ? 'checked' : '' }}>
                                                                 <div class="col-4 mt-3">
                                                                     <div
                                                                         class="block-option form-check d-flex flex-column text-center p-2">

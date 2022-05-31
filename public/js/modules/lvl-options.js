@@ -1,4 +1,4 @@
-import initUpdatePurchaseDescription from "./update-purchase-descripton.js";
+import initUpdatePurchaseDescription from "./update-purchase-description.js";
 
 export default function initLvlOptions() {
 

@@ -1,4 +1,4 @@
-import initUpdatePurchaseDescription from "./update-purchase-descripton.js";
+import initUpdatePurchaseDescription from "./update-purchase-description.js";
 
 export default function initSelectsGuarantee() {
 
@@ -14,19 +14,34 @@ if (selectBreakageGuarantee && selectTheftGuarantee) {
     const optionsTheftGuarantee = document.querySelectorAll('input[name=theft_guarantee_months]');
     const breakagePrice = document.querySelector('input[name=product_breakage_guarantee_price]');
     const theftPrice = document.querySelector('input[name=product_theft_guarantee_price]');
+    //Hidden default guarantee
+    const hiddenBreakageRadio = document.querySelectorAll('.option-breakage_guarantee_default');
+    const hiddenTheftRadio = document.querySelectorAll('.option-theft_guarantee_default');
 
     selectBreakageGuarantee.addEventListener('change', event => {
         const divBreakageGuarantee = document.querySelector('#div_breakage_guarantee_months');
         if (selectBreakageGuarantee.options[selectBreakageGuarantee.selectedIndex].value === '1') {
 
+            hiddenBreakageRadio.forEach(hiddenBreakage => {
+                if (hiddenBreakage.checked === true) {
+                    console.log('teste')
+                    hiddenBreakage.checked = false;
+                }
+            });
+
             if (divBreakageGuarantee.classList.contains('d-none'))
                 divBreakageGuarantee.classList.toggle('d-none');
 
         } else {
-
+            //reset all
             optionsBreakageGuarantee.forEach(inputRadio => inputRadio.checked = false);
             initUpdatePurchaseDescription('item-guarantee', 'breakage_guarantee_months', 0, 'hidden', optionsBreakageGuarantee, optionsTheftGuarantee);
             breakagePrice.value = 0;
+
+            hiddenBreakageRadio.forEach(hiddenBreakage => {
+                if (hiddenBreakage.checked == false)
+                    hiddenBreakage.checked = true;
+            });
 
             if (!divBreakageGuarantee.classList.contains('d-none'))
                 divBreakageGuarantee.classList.toggle('d-none');
@@ -39,14 +54,24 @@ if (selectBreakageGuarantee && selectTheftGuarantee) {
 
         if (selectTheftGuarantee.options[selectTheftGuarantee.selectedIndex].value === '1') {
 
+            hiddenTheftRadio.forEach(hiddenTheft => {
+                if (hiddenTheft.checked == true)
+                    hiddenTheft.checked = false;
+            });
+
             if (divTheftGuarantee.classList.contains('d-none'))
                 divTheftGuarantee.classList.toggle('d-none');
 
         } else {
-
+            //reset all
             optionsTheftGuarantee.forEach(inputRadio => inputRadio.checked = false);
             initUpdatePurchaseDescription('item-guarantee', 'theft_guarantee_months', 0, 'hidden', optionsBreakageGuarantee, optionsTheftGuarantee);
             theftPrice.value = 0;
+
+            hiddenTheftRadio.forEach(hiddenTheft => {
+                if (hiddenTheft.checked == false)
+                    hiddenTheft.checked = true;
+            });
 
             if (!divTheftGuarantee.classList.contains('d-none'))
                 divTheftGuarantee.classList.toggle('d-none');
