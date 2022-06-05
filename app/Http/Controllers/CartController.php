@@ -13,7 +13,13 @@ class CartController extends Controller
     public function index()
     {
         $items = Cart::where('user_id', Auth()->user()->id)->get();
-        return view('cart.index')->with('items', $items);
+        $totalPrice = 0;
+        foreach ($items as $item)
+            $totalPrice += $item->product_total_price;
+        return view('cart.index')->with([
+            'items' => $items,
+            'total' => $totalPrice,
+        ]);
     }
 
     public function store(Product $product, Request $request)
@@ -121,6 +127,18 @@ class CartController extends Controller
         }
 
         return redirect()->route('cart.index');
+    }
+
+    public function payment()
+    {
+        $items = Cart::where('user_id', Auth()->user()->id)->get();
+        $totalPrice = 0;
+        foreach ($items as $item)
+            $totalPrice += $item->product_total_price;
+        return view('cart.payment')->with([
+            'items' => $items,
+            'total' => $totalPrice,
+        ]);
     }
 
     public function destroy()

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container-xxl mt-5">
+    <div class="container-xxl mt-5 mb-6">
         <h2>Minha cesta</h2>
-        <div class="row justify-content-center align-items-center">
+        <div class="row justify-content-center align-items-start">
             <div class="col-8">
                 <table class="table">
                     <thead>
@@ -1057,8 +1057,23 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-4">
-
+            <div class="col-4 bg-description p-4 rounded sticky-top" id="div-order-total">
+                <h3 class="h3 fw-bold">Resumo do pedido</h3>
+                <p class="d-flex flex-column border-top border-bottom" id="div-total-products">
+                    @foreach ($items as $item)
+                        <span class="d-flex justify-content-between align-items-center mb-1">
+                            <span>{{ $item->Product->name }}</span>
+                            <span>R$ <span class="product-price d-inline-block text-end"
+                                    style="min-width: 46px;">{{ $item->product_total_price }}</span></span>
+                        </span>
+                    @endforeach
+                </p>
+                <p class="d-flex justify-content-between align-items-center fw-bold">
+                    <span>Total</span>
+                    <span>R$ <span class="product-price">{{ $total }}</span></span>
+                </p>
+                <a href="{{ route('cart.payment') }}" class="btn btn-primary w-100 text-uppercase fw-bold">Ir para
+                    pagamento</a>
             </div>
         </div>
     </div>

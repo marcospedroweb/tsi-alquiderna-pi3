@@ -1,0 +1,32 @@
+/* content: ""; border-top: 40px vermelho sólido; border-bottom: 40px vermelho sólido; border-left: 40px solid blue; position: absoluto; right: -40px; top: 0; */
+
+.custom-breadcrumbs {
+    background-color: aqua;
+    width: 150px;
+    height: 50px;
+    position: relative;
+}
+
+.custom-breadcrumbs:after {
+    content: "";
+    border-top: 25px transparent solid;
+    border-bottom: 25px transparent solid;
+    border-left: 25px blue solid;
+    position: absolute;
+    right: -25px;
+    top: 0;
+}
+
+.custom-breadcrumbs::before {
+    content: "";
+    border-top: 25px aqua solid;
+    border-bottom: 25px aqua solid;
+    border-left: 25px transparent solid;
+    position: absolute;
+    left: -25px;
+    top: 0;
+}
+
+.custom-breadcrumbs+.custom-breadcrumbs {
+    margin-left: 64px;
+}

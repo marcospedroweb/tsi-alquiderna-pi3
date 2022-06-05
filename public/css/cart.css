@@ -61,3 +61,19 @@ input[name="units"] {
 .modal-body#purchase-description-view .product-not-upgraded {
     color: #4d1919;
 }
+
+#div-order-total {
+    border: 1px solid #aaa;
+}
+
+.sticky-top#div-order-total {
+    top: 32px;
+}
+
+.bg-description {
+    background-color: #f0f0f0;
+}
+
+#div-total-products span {
+    font-size: .9rem;
+}
