@@ -3,6 +3,7 @@ import initChangeInputPrice from "./modules/change-input-price.js";
 import initEnchantSelect from "./modules/enchant-select.js";
 import initFormatProductPrice from "./modules/format-product-price.js";
 import initHiddenAttributes from "./modules/hidden-attributes.js";
+import initHideAlert from "./modules/hide-alert.js";
 import initLvlOptions from "./modules/lvl-options.js";
 import initMarkProduct from "./modules/mark-product.js";
 import initReplaceRecommendation from "./modules/replace-recommendation.js";
@@ -17,6 +18,7 @@ import initWhatsMonth from "./modules/whats-month.js";
 //General scripts
 initWhatsMonth();
 initAlertUser();
+initHideAlert();
 initHiddenAttributes();
 initValidateForm();
 initScrollCards();

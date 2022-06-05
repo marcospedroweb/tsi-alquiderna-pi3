@@ -43,8 +43,8 @@ class Cart extends Model
     public static function NumberOfProductsInCart(int $cart_id = 0)
     {
         if ($cart_id)
-            return Cart::where('user_id', Auth()->user()->id)->get();
+            return Cart::where('id', $cart_id)->first()->units;
         else
-            return Cart::where('user_id', Auth()->user()->id)->get();
+            return count(Cart::where('user_id', Auth()->user()->id)->get());
     }
 }

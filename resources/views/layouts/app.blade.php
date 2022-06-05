@@ -122,7 +122,7 @@
                                 id="btn-bag">
                                 <i class="bi bi-bag"></i>
                                 <span class="position-absolute badge rounded-pill bg-primary">
-                                    {{ count(App\Models\Cart::NumberOfProductsInCart()) }}
+                                    {{ App\Models\Cart::NumberOfProductsInCart() }}
                                     <span class="visually-hidden">produtos na cesta</span>
                                 </span>
                             </a>
@@ -178,20 +178,13 @@
     <main>
         <div class="container-xxl">
             @if (session()->get('success'))
-                <div class="container-xxl mt-5">
+                <div class="container-xxl mt-5" id="div-alert-flash">
                     <div class="alert alert-success">
-                        {{ session()->get('success') }}
+                        <span>{{ session()->get('success') }}</span>
                     </div>
                 </div>
-            @else
-                <div class="container-xxl mt-5 d-none" id="div-alert-user">
-                    <div class="alert text-center">
-                        <span></span>
-                    </div>
-                </div>
-            @endif
-            @if (session()->get('error'))
-                <div class="container-xxl mt-5">
+            @elseif (session()->get('error'))
+                <div class="container-xxl mt-5" id="div-alert-flash">
                     <div class="alert alert-danger">
                         {{ session()->get('error') }}
                     </div>
@@ -199,7 +192,7 @@
             @else
                 <div class="container-xxl mt-5 d-none" id="div-alert-user">
                     <div class="alert text-center">
-                        <span></span>
+                        <span>{{ session()->get('success') }}</span>
                     </div>
                 </div>
             @endif

@@ -25,26 +25,27 @@
                                     </div>
                                 </td>
                                 <td class="div-product-units">
-                                    <div class="d-flex justify-content-center align-items-center border mt-3 mx-3"
-                                        id="units">
+                                    <form action="{{ route('cart.update.unit', $item->id) }}" method="POST"
+                                        class="d-flex justify-content-center align-items-center border mt-3 mx-3" id="units">
+                                        @csrf
+                                        @method('PUT')
                                         <div>
-                                            <a href="{{ route('cart.update', ['value' => 'minus', 'order' => $item->id]) }}"
-                                                class="btn">
+                                            <button type="submit" name="value" value="minus"
+                                                class="btn {{ App\Models\Cart::NumberOfProductsInCart($item->id) == 1 ? 'd-none' : '' }}">
                                                 <i class="fa-solid fa-minus"></i>
-                                            </a>
+                                            </button>
                                         </div>
                                         <div id="div-input-units">
                                             <input type="text" name="units"
-                                                value="{{ count(App\Models\Cart::NumberOfProductsInCart()) }}"
-                                                maxlength="2" minlength="1">
+                                                value="{{ App\Models\Cart::NumberOfProductsInCart($item->id) }}"
+                                                maxlength="2" minlength="1" disabled>
                                         </div>
                                         <div>
-                                            <a href="{{ route('cart.update', ['value' => 'plus', 'order' => $item->id]) }}"
-                                                class="btn">
+                                            <button type="submit" name="value" value="plus" class="btn">
                                                 <i class="fa-solid fa-plus"></i>
-                                            </a>
+                                            </button>
                                         </div>
-                                    </div>
+                                    </form>
                                 </td>
                                 <td class="div-product-price">
                                     <div class="mt-4" id="cart-product-price">
@@ -232,7 +233,8 @@
                                                         <div
                                                             class="col-10 d-flex justify-content-between align-items-center">
                                                             <h5 class="h5 m-0" id="purchase-total-title">Total</h5>
-                                                            <p class="m-0" id="purchase-total-price">R$ <span
+                                                            <p class="m-0 fw-bold" id="purchase-total-price-preview">R$
+                                                                <span
                                                                     class="product-price">{{ $item->product_total_price }}</span>
                                                             </p>
                                                         </div>
@@ -254,7 +256,10 @@
                                     <div class="modal fade" id="modal-edit-product-{{ $item->id }}" tabindex="-1"
                                         aria-labelledby="modal-edit-product-{{ $item->id }}-Label" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-scrollable modal-lg">
-                                            <div class="modal-content">
+                                            <form action="{{ route('cart.update', $item->id) }}" method="POST"
+                                                class="modal-content">
+                                                @csrf
+                                                @method('PUT')
                                                 <div class="modal-header">
                                                     <h4 class="modal-title"
                                                         id="modal-edit-product-{{ $item->id }}-Label">
@@ -262,10 +267,7 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                                 </div>
-                                                <form
-                                                    action="{{ route('cart.update', ['value' => 'all', 'order' => $item->Product->id]) }}"
-                                                    class="modal-body rounded" method="POST" id="main-form-buy">
-                                                    @csrf
+                                                <div class="modal-body rounded" id="main-form-buy">
                                                     <div class="mb-5 border" id="lvl">
                                                         <h4 class="h4">Escolha o nível
                                                             {{ $item->Product->Category->name === 'Grimório' ? 'do' : 'da' }}
@@ -498,7 +500,8 @@
                                                                 </div>
                                                             @endif
                                                         </div>
-                                                        <input type="hidden" name="lvl_selected">
+                                                        <input type="hidden" name="lvl_selected"
+                                                            value="{{ $item->level }}">
                                                         <small class="d-inline-block mt-2">A durabilidade
                                                             {{ $item->Product->Category->name === 'Grimório' ? 'do' : 'da' }}
                                                             {{ $item->Product->Category->name }} será afetada
@@ -736,8 +739,10 @@
                                                             </div>
                                                             <div class="col-12 row {{ $item->breakage_guarantee === 1 ? '' : 'd-none' }}"
                                                                 id="div_breakage_guarantee_months">
-                                                                <input class="option-breakage_guarantee_default d-none form-check-input mx-auto" type="radio"
-                                                                    name="breakage_guarantee_months" value="0" required
+                                                                <input
+                                                                    class="option-breakage_guarantee_default d-none form-check-input mx-auto"
+                                                                    type="radio" name="breakage_guarantee_months" value="0"
+                                                                    required
                                                                     {{ $item->breakage_guarantee === 0 && $item->breakage_guarantee_months === 0 ? 'checked' : '' }}>
                                                                 <div class="col-4 mt-3">
                                                                     <div
@@ -814,8 +819,10 @@
                                                             </div>
                                                             <div class="col-12 row {{ $item->theft_guarantee === 1 ? '' : 'd-none' }}"
                                                                 id="div_theft_guarantee_months">
-                                                                <input class="option-theft_guarantee_default d-none form-check-input mx-auto" type="radio"
-                                                                    name="theft_guarantee_months" value="0" required
+                                                                <input
+                                                                    class="option-theft_guarantee_default d-none form-check-input mx-auto"
+                                                                    type="radio" name="theft_guarantee_months" value="0"
+                                                                    required
                                                                     {{ $item->theft_guarantee === 0 && $item->theft_guarantee_months === 0 ? 'checked' : '' }}>
                                                                 <div class="col-4 mt-3">
                                                                     <div
@@ -1034,19 +1041,14 @@
                                                                 value="{{ $item->product_theft_price }}">
                                                         </div>
                                                     </div>
-                                                    <div
-                                                        class="p-4 row flex-column justify-content-center align-items-center">
-                                                        <button type="submit" class="col-12 btn btn-primary mb-4">Continuar
-                                                            compra</button>
-                                                    </div>
-                                                </form>
+                                                </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-danger"
                                                         data-bs-dismiss="modal">Cancelar</button>
                                                     <button type="submit" class="btn btn-primary">Salvar
                                                         alterações</button>
                                                 </div>
-                                            </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </td>
