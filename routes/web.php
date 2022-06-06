@@ -98,6 +98,8 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
 });
 
+Route::get('/search', [eCommerceController::class, 'search'])->name('search.index');
+
 //[User] Product
 Route::get('/product/{category}', [eCommerceController::class, 'productCategory'])->name('product.category');
 Route::get('/product/show/{product}', [eCommerceController::class, 'productShow'])->name('product.show');

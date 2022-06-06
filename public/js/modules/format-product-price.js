@@ -5,16 +5,17 @@ export default function initFormatProductPrice() {
 
     function formatPrice(price, length) {
         if (length === 5)
-            return price.textContent.slice(0, 2) + '.' + price.textContent.slice(2);
+            return price.slice(0, 2) + '.' + price.slice(2);
         else
-            return price.textContent.slice(0, 1) + '.' + price.textContent.slice(1);
+            return price.slice(0, 1) + '.' + price.slice(1);
     }
 
     function verifyLength(element) {
-        if ((element.textContent.trim().length) >= 5 && element.textContent.indexOf('.') === -1)
-            element.textContent = formatPrice(element, 5);
-        else if ((element.textContent.trim().length) >= 4 && element.textContent.indexOf('.') === -1)
-            element.textContent = formatPrice(element, 4);
+        const price = element.textContent.trim();
+        if ((price.length) >= 5 && element.textContent.indexOf('.') === -1)
+            element.textContent = formatPrice(price, 5);
+        else if ((price.length) >= 4 && element.textContent.indexOf('.') === -1)
+            element.textContent = formatPrice(price, 4);
     }
 
     productPrice.forEach(element => {

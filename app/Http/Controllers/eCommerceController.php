@@ -222,8 +222,11 @@ class eCommerceController extends Controller
         ]);
     }
 
-    public function productWarranty(Request $request)
+    public function search(Request $request)
     {
-        dd($request);
+        $products = Product::where('name', $request->inputSearch)
+            ->orWhere('name', 'like', '%' . $request->inputSearch . '%');
+        dd($products);
+        return view('search.index');
     }
 }

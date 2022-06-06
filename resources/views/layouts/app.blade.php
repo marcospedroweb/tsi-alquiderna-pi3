@@ -7,10 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Alquiderna</title>
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <!-- Google fonts -->
@@ -32,7 +34,7 @@
 
 <body>
     <header id="header">
-        <div class="container-xxl">
+        <div class="container-xxl show" id="div-nav">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid">
                     <div>
@@ -173,6 +175,23 @@
                     </div>
                 </div>
             </nav>
+        </div>
+        <div class="d-none container-xxl py-2" id="div-search">
+            <form method="GET" action="{{ route('search.index') }}" class="position-relative col-8 mx-auto">
+                <label for="inputSearch" class="form-label visually-hidden">Barra de pesquisa</label>
+                <input type="search" list="datalist-products" class="form-control" name="inputSearch" id="inputSearch"
+                    placeholder="Digite o nome do produto" autocomplete="off">
+                <button type="button" class="btn position-absolute top-50 end-0 translate-middle-y"
+                    id="btn-cancel-search"><i class="fa-solid fa-xmark"></i></button>
+                <button type="submit" class="btn btn-primary position-absolute top-50 end-0 translate-middle-y"
+                    id="btn-search-product">Buscar</button>
+                <template id="list-template">
+                    @foreach (App\Models\Product::allProducts() as $product)
+                        <option value="{{ $product->name }}">
+                    @endforeach
+                </template>
+                <datalist id="datalist-products"></datalist>
+            </form>
         </div>
     </header>
     <main>

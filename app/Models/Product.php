@@ -231,4 +231,9 @@ class Product extends Model
                 ->where($whereColumn, $whereValue)
                 ->paginate($paginate);
     }
+
+    public static function allProducts()
+    {
+        return Product::all();
+    }
 }

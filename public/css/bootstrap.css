@@ -71,6 +71,16 @@ span.h2 {
     font-size: 1.25rem;
 }
 
+/* Carousel */
+.carousel-item a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.carousel-item a:hover {
+    color: #fff;
+}
+
 /* NAV */
 .nav-item+.nav-item {
     margin-left: 8px !important;
