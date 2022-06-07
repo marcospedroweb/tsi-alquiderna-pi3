@@ -225,8 +225,10 @@ class eCommerceController extends Controller
     public function search(Request $request)
     {
         $products = Product::where('name', $request->inputSearch)
-            ->orWhere('name', 'like', '%' . $request->inputSearch . '%');
-        dd($products);
-        return view('search.index');
+            ->orWhere('name', 'like', '%' . $request->inputSearch . '%')->get();
+        return view('search.index')->with([
+            'products' => $products,
+            'search_name' => $request->inputSearch
+        ]);
     }
 }

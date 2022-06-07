@@ -9,7 +9,6 @@ export default function initShrinkDatalist() {
         });
     }
 
-
     function showOptions(input, datalist) {
         while (datalist.children.length) datalist.removeChild(datalist.firstChild);//Enquanto datalist tiver option, remove
         let inputVal = new RegExp(input.value.trim(), 'i');//Compila aquele texto e remove os espaços em branco

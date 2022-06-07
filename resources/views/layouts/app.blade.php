@@ -116,11 +116,11 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                         @if (!Auth::check())
-                            <a href="{{ route('login') }}" class="btn" id="btn-bag">
+                            <a href="{{ route('login') }}" class="btn btn-link " id="btn-bag">
                                 <i class="bi bi-bag"></i>
                             </a>
                         @else
-                            <a href="{{ route('cart.index') }}" class="btn-header btn position-relative "
+                            <a href="{{ route('cart.index') }}" class="btn-header btn btn-link position-relative "
                                 id="btn-bag">
                                 <i class="bi bi-bag"></i>
                                 <span class="position-absolute badge rounded-pill bg-primary">
@@ -130,7 +130,7 @@
                             </a>
                         @endif
                         @if (!Auth::check())
-                            <div class="d-flex justify-content-center align-items-center">
+                            <div class="d-flex justify-content-center align-items-center" id="div-login-user">
                                 <a href="{{ route('login') }}" class="btn-link">
                                     <i class="bi bi-person-circle me-2"></i>
                                     Login
