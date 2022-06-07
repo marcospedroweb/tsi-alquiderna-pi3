@@ -73,13 +73,13 @@ p {
     right: 80px !important;
 }
 
-.btn:hover,
-#div-login-user:hover {
+#options-nav .btn:hover,
+#options-nav #div-login-user:hover {
     border: 1px solid transparent;
 }
 
-.btn:focus,
-#div-login-user:focus {
+#options-nav .btn:focus,
+#options-nav #div-login-user:focus {
     border: 1px solid var(--btn-static);
 }
 

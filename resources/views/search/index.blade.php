@@ -1,15 +1,16 @@
 @extends('layouts.app')
 @section('content')
     <div class="container-xxl">
-        <section>
-            <h2 class="h2">Resultados com "{{ $search_name }}"</h2>
+        <section class="mt-5">
+            <h2 class="h2">{{ count($products) }} Resultados com "{{ $search_name }}"</h2>
         </section>
-        <section class="products-search row flex-column align-items-center">
+        <div class="separator-products rounded"></div>
+        <section class="products-search row flex-column align-items-center mb-6">
             @foreach ($products as $product)
-                <div class="col-10 mb-3 p-3 rounded border">
-                    <a href="{{ route('product.show', $product->id) }}"
-                        class="row justify-content-center align-items-center">
-                        <div class="product-image col-4 position-relative overflow-hidden">
+                <div class="product-found col-10 mb-3 p-3 rounded border bg-white">
+                    <div class="row justify-content-center align-items-center">
+                        <a href="{{ route('product.show', $product->id) }}"
+                            class="product-image col-4 p-0 position-relative overflow-hidden rounded">
                             <img src="{{ asset($product->image) }}" class="rounded" alt="imagem do produto">
                             <div class="attributes d-flex justify-content-between align-items-center">
                                 @if ($product->Category->name === 'Armadura')
@@ -89,8 +90,9 @@
                                     </div>
                                 @endif
                             </div>
-                        </div>
-                        <div class="col-6 row justify-content-center">
+                        </a>
+                        <a href="{{ route('product.show', $product->id) }}"
+                            class="product-found-text d-block col-6 row flex-column justify-content-center text-decoration-none ms-3">
                             <div class="col-12">
                                 <h3 style="word-wrap: break-word;" class="d-flex flex-column">
                                     @if ($product->new === 1)
@@ -98,30 +100,37 @@
                                     @endif
                                     <span class="product-name">{{ $product->name }}</span>
                                 </h3>
-                                <p><span class="product-category">{{ $product->Category->name }}</span>
+                                <p class="category-item-class"><span
+                                        class="product-category">{{ $product->Category->name }}</span>
                                     <span class="product-item-class">{{ $product->ItemClass->name }}</span>,
                                     nível
                                     <span class="product-level">{{ $product->lvlMin }}</span>
                                 </p>
-                                <p>{{ $product->description }}</p>
+                                <p class="description">{{ $product->description }}</p>
                             </div>
-                            <div class="col-12">
-                                @if ($product->discount_price !== 0.0)
-                                    <p class="text-decoration-line-through product-discount-price">R$
-                                        <span class="product-price">{{ $product->price }}</span>
-                                    </p>
-                                    <p class="p-product-price">R$ <span
-                                            class="product-discount-price">{{ $product->discount_price }}
-                                        </span>
-                                    </p>
-                                @else
-                                    <p class="p-product-price">R$ <span
-                                            class="product-price">{{ $product->price }}</span>
-                                    </p>
-                                @endif
+                            <div class="col-12 d-flex justify-content-start align-items-center mt-4">
+                                <div>
+                                    @if ($product->discount_price !== 0.0)
+                                        <p class="text-decoration-line-through product-discount-price m-0">R$
+                                            <span class="product-price">{{ $product->price }}</span>
+                                        </p>
+                                        <p class="p-product-price m-0">R$ <span
+                                                class="product-discount-price">{{ $product->discount_price }}
+                                            </span>
+                                        </p>
+                                    @else
+                                        <p class="p-product-price m-0">R$ <span
+                                                class="product-price">{{ $product->price }}</span>
+                                        </p>
+                                    @endif
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-primary ms-2">Ver
+                                        produto</button>
+                                </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
             @endforeach
         </section>

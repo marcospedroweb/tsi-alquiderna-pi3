@@ -20,6 +20,10 @@
     margin-bottom: 4rem !important;
 }
 
+.mt-6 {
+    margin-top: 4rem !important;
+}
+
 /*Typography*/
 .h1 {
     font-size: 1.75rem !important;
@@ -167,26 +171,26 @@ span.h2 {
 
 /* Links */
 .link-primary {
-    color: #fff;
+    color: #fff !important;
     font-weight: 500;
-    transition: color .25 ease-out;
+    transition: color .25s ease-out;
     text-decoration: none;
 }
 
 .link-primary:hover {
-    color: #f5efd0;
+    color: #f5efd0 !important;
     font-weight: 500;
 
 }
 
 .link-secondary {
-    transition: color .25 ease-out;
-    color: #e3e3e3;
+    transition: color .25s ease-out;
+    color: #e3e3e3 !important;
     text-decoration: none;
 }
 
 .link-secondary:hover {
-    color: #f5ddba;
+    color: #f5ddba !important;
 }
 
 /* Dropdown */

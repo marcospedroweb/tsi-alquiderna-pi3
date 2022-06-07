@@ -111,7 +111,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-center align-items-center">
+                    <div class="d-flex justify-content-center align-items-center" id="options-nav">
                         <button type="button" id="btn-search" class="btn-header btn">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
