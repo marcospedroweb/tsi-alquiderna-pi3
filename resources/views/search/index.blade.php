@@ -12,7 +12,8 @@
                         <a href="{{ route('product.show', $product->id) }}"
                             class="product-image col-4 p-0 position-relative overflow-hidden rounded">
                             <img src="{{ asset($product->image) }}" class="rounded" alt="imagem do produto">
-                            <div class="attributes d-flex justify-content-between align-items-center">
+                            <div
+                                class="attributes d-flex justify-content-between align-items-center position-absolute bottom-0 start-50 translate-middle-x">
                                 @if ($product->Category->name === 'Armadura')
                                     <div class="attribute d-flex justify-content-center align-items-center">
                                         <i class="bi bi-heart-fill"></i>
