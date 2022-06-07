@@ -219,6 +219,7 @@
                 <input type="hidden" name="complement">
                 <input type="hidden" name="payment_type">
                 <input type="hidden" name="number_card">
+                {{-- <input type="hidden" name="number_card"> --}}
             </form>
             <div class="col-4 bg-description p-4 rounded sticky-top" id="div-order-total-payment">
                 <h2 class="h3 fw-bold">Compra em processo</h2>
