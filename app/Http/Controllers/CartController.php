@@ -141,6 +141,10 @@ class CartController extends Controller
         ]);
     }
 
+    public function confirmOrder(Request $request)
+    {
+    }
+
     public function destroy()
     {
     }

@@ -62,16 +62,13 @@ input[name="units"] {
     color: #4d1919;
 }
 
-#div-order-total {
-    border: 1px solid #aaa;
-}
-
 .sticky-top#div-order-total {
+    border: 1px solid #dee2e6;
     top: 32px;
 }
 
 .bg-description {
-    background-color: #f0f0f0;
+    background-color: #fff;
 }
 
 #div-total-products span {
