@@ -162,6 +162,10 @@
     color: #4a4a4a;
 }
 
+.sticky-top#div-order-total-payment {
+    top: 32px;
+}
+
 .bg-description#div-order-total-payment {
     background-color: #fafafa;
 }
