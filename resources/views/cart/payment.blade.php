@@ -76,7 +76,9 @@
                     <button type="submit" class="btn btn-primary">Confirmar forma de pagamento</button>
                 </div>
             </form>
-            <form class="d-none col-7 bg-white rounded border row me-5" id="form-confirm">
+            <form method="POST" action="{{ route('cart.order') }}" class="d-none col-7 bg-white rounded border row me-5"
+                id="form-confirm">
+                @csrf
                 <h2 class="h2 mb-4">Finalizando pedido</h2>
                 <h3 class="h3">Produto(s)</h3>
                 <div class="mb-4">

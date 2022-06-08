@@ -13,6 +13,9 @@ class eCommerceController extends Controller
     public function index()
     {
         return view('index')->with([
+            'carouselProduct1' => Product::where('id', 16)->first(),
+            'carouselProduct2' => Product::where('id', 11)->first(),
+            'carouselProduct3' => Product::where('id', 66)->first(),
             'newProducts' => Product::where('new', 1)->take(7)->get(),
             'heavyArmors' => Product::filterProductBy('Armadura', 'pesada'),
             'productBigBanner1' => Product::where('id', 23)->first(),

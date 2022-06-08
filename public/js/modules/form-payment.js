@@ -4,7 +4,6 @@ export default function initFormPayment() {
     const formPayment = document.querySelector('#form-payment');
     const selectPayment = document.querySelector('#select-payment');
     const divPaymentCard = document.querySelector('#div-payment-card');
-    const inputsPayment = divPaymentCard.querySelectorAll('.form-control');
 
     function updateFormFinish() {
         //Form payment
@@ -37,6 +36,8 @@ export default function initFormPayment() {
     }
 
     if (formPayment) {
+        const inputsPayment = divPaymentCard.querySelectorAll('.form-control');
+
         formPayment.addEventListener('submit', event => {
             event.preventDefault();
             updateFormFinish();

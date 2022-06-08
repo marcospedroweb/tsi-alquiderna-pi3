@@ -146,12 +146,10 @@
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="#">Perfil</a></li>
                                     <li><a class="dropdown-item" href="{{ route('crud.index') }}">Crud</a></li>
-                                    <li class="dropdown-item">
-                                        <form action="{{ route('logout') }}" method="post">
-                                            @csrf
-                                            <button type="submit" class="btn p-0">Sair da sessão</button>
-                                        </form>
-                                    </li>
+                                    <form action="{{ route('logout') }}" method="post" class="dropdown-item">
+                                        @csrf
+                                        <button type="submit" class="btn p-0">Sair da sessão</button>
+                                    </form>
                                 </ul>
                             </div>
                         @else

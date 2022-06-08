@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->string('order_number');
+            $table->bigInteger('product_id')->unsigned();
             $table->foreign('product_id')
                 ->references('id')
                 ->on('products')

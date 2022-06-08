@@ -91,11 +91,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-    Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
     Route::put('/cart/update/{product}', [CartController::class, 'update'])->name('cart.update');
     Route::put('/cart/update/unit/{order}', [CartController::class, 'unit'])->name('cart.update.unit');
     Route::get('/cart/payment', [CartController::class, 'payment'])->name('cart.payment');
     Route::post('/cart/payment', [CartController::class, 'confirmOrder'])->name('cart.order');
+    Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
     Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
 });
 

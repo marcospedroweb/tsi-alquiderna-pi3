@@ -144,6 +144,7 @@ class CartController extends Controller
     public function confirmOrder(Request $request)
     {
         //Back end
+        dd($request);
     }
 
     public function destroy()

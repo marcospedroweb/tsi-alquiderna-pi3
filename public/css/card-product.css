@@ -167,7 +167,7 @@
 .carousel-control-prev-icon:not(#mainCarousel>.carousel-control-prev .carousel-control-prev-icon),
 .carousel-control-next-icon:not(#mainCarousel>.carousel-control-next .carousel-control-next-icon) {
     opacity: 0;
-    transition: opacity .25s ease-in;
+    transition: all .25s ease-in;
 }
 
 .carousel-control-prev-icon.show,
@@ -192,4 +192,9 @@
     background-color: var(--nav-color);
     padding: 1.5rem;
     border-radius: 50%;
+}
+
+.carousel-products-control-prev.btn:hover .carousel-product-icon,
+.carousel-products-control-next:hover .carousel-product-icon {
+    background-color: #523306;
 }
