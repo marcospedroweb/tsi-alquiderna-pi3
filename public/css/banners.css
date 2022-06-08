@@ -1,0 +1,75 @@
+.big-banner-full,
+.big-banner-right,
+.small-banner {
+    color: #fff;
+}
+
+.big-banner-full .btn,
+.big-banner-right .btn,
+.small-banner .btn {
+    font-weight: 500;
+}
+
+.big-banner-full .big-banner-full-heading,
+.big-banner-right .big-banner-right-call {
+    font-size: 3rem;
+}
+
+.big-banner-full .big-banner-full-category-item-class,
+.big-banner-right .big-banner-right-call-paragraph {
+    font-size: 1.25rem;
+}
+
+.big-banner-full .div-product-price .original-price,
+.small-banner .div-product-price .original-price {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-weight: 700;
+    font-size: 1.25rem !important;
+    font-weight: 500;
+}
+
+.big-banner-full .div-product-price .original-price::before,
+.small-banner .div-product-price .original-price::before {
+    content: 'R$';
+    font-weight: 500;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem !important;
+    margin-top: 1px;
+    margin-right: 4px;
+}
+
+.big-banner-full .div-product-price .p-product-price,
+.big-banner-right .div-product-price .p-product-price,
+.small-banner .div-product-price .p-product-price {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-weight: 700;
+    font-size: 1.75rem !important;
+}
+
+.big-banner-full .div-product-price .p-product-price::before,
+.big-banner-right .div-product-price .p-product-price::before,
+.small-banner .div-product-price .p-product-price::before {
+    content: 'R$';
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem !important;
+    margin-top: 4px;
+    margin-right: 4px;
+}
+
+/* Banner text right */
+.big-banner-right .product-name {
+    font-size: 1.25rem;
+}
+
+.big-banner-right .product-category-item-class {
+    font-size: 1rem;
+}
+
+.div-text-call {
+    margin-bottom: 100px;
+}

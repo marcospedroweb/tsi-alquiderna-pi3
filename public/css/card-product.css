@@ -1,0 +1,200 @@
+.card-product {
+    min-width: 348px;
+    min-height: 388px;
+    max-width: 348px;
+    max-height: 388px;
+    background-color: #323232;
+    transition: all .25s ease-out;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.card-product-view {
+    width: 348px;
+    height: 388px;
+    cursor: pointer;
+    transition: transform .25s ease-out;
+    background-color: #323232;
+}
+
+.link-card-product {
+    display: block;
+    min-width: 100%;
+    min-height: 100%;
+
+}
+
+.div-link-to-more {
+    z-index: 999;
+}
+
+.div-link-to-more span {
+    font-weight: bold;
+    text-align: center;
+    max-width: 260px;
+}
+
+.card-product+.card-product {
+    margin-left: 1.25rem !important;
+}
+
+.card-product-view img,
+.card-product img {
+    width: 348px;
+    height: 388px;
+    background-color: #323232;
+    object-fit: cover;
+    object-position: center center;
+    transition: transform .25s ease-out;
+}
+
+.card-product-view:hover img,
+.card-product:hover img {
+    transform: scale(1.05);
+}
+
+.card-product-view::before,
+.card-product::before {
+    content: '';
+    width: 348px;
+    height: 388px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .8) 70%, rgba(0, 0, 0, 1));
+    position: absolute;
+    z-index: 799;
+}
+
+.card-product.card-product-see-more::before {
+    background-color: rgba(0, 0, 0, .75) !important;
+}
+
+
+.card-product-view .card-product-view-text,
+.card-product .card-product-text {
+    z-index: 899;
+    padding: 0.625rem;
+    color: #fff;
+}
+
+.card-product .card-product-text h3 {
+    font-weight: 600;
+}
+
+.novidade {
+    color: var(--btn-static) !important;
+    font-size: 0.95rem;
+}
+
+.attributes {
+    background-color: #fff;
+    padding: 4px;
+    border-radius: 6px;
+    color: #000000;
+    font-weight: 600;
+}
+
+.attribute+.attribute {
+    margin-left: .5rem;
+}
+
+.attributes i::before {
+    width: auto;
+    height: 12px;
+    padding-right: .25rem;
+}
+
+.attribute>.bi-heart-fill,
+.bi-heart-fill+span {
+    color: #91140B;
+}
+
+.attribute>.fa-person-running,
+.fa-person-running+span {
+    color: #3137D1;
+}
+
+.attribute>.bi-shield-slash-fill,
+.bi-shield-slash-fill+span,
+.attribute>.fa-user-slash,
+.fa-user-slash+span {
+    color: #D97B0E;
+}
+
+.attribute>.shield-moon,
+.shield-moon+span,
+.attribute>.fa-wand-sparkles,
+.fa-wand-sparkles+span {
+    color: #771CA3 !important;
+}
+
+.attribute>.fa-droplet,
+.fa-droplet+span {
+    color: #2663AB !important;
+}
+
+.shield-moon+span {
+    padding-left: .25rem;
+}
+
+.card-product-view-price .p-product-price,
+.card-product .card-product-price p,
+.original-price,
+.text-decoration-line-through.product-discount-price {
+    font-weight: bold;
+    margin: 0;
+}
+
+.p-product-price {
+    font-size: 1.25rem !important;
+}
+
+.original-price,
+.text-decoration-line-through.product-discount-price {
+    color: #bfbfbf !important;
+}
+
+.carousel-products-control-prev,
+.carousel-products-control-next {
+    z-index: 1000;
+}
+
+.carousel-products-control-prev.btn:focus,
+.carousel-products-control-next:focus {
+    outline: 0px !important;
+    -webkit-appearance: none;
+    box-shadow: none !important;
+}
+
+.carousel-control-prev-icon:not(#mainCarousel>.carousel-control-prev .carousel-control-prev-icon),
+.carousel-control-next-icon:not(#mainCarousel>.carousel-control-next .carousel-control-next-icon) {
+    opacity: 0;
+    transition: all .25s ease-in;
+}
+
+.carousel-control-prev-icon.show,
+.carousel-control-next-icon.show {
+    opacity: 1 !important;
+}
+
+.carousel-products .carousel-control-prev {
+    margin-left: 12px;
+}
+
+.carousel-products .carousel-control-next {
+    margin-right: 12px;
+}
+
+.carousel-products .carousel-control-prev,
+.carousel-products .carousel-control-next {
+    width: unset !important;
+}
+
+.carousel-product-icon {
+    background-color: var(--nav-color);
+    padding: 1.5rem;
+    border-radius: 50%;
+}
+
+.carousel-products-control-prev.btn:hover .carousel-product-icon,
+.carousel-products-control-next:hover .carousel-product-icon {
+    background-color: #523306;
+}

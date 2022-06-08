@@ -1,0 +1,47 @@
+Armadura leve iniciante - (vida: 300-1000), (velocidade: 200-249), (PF: 10-19), (PM: 10-19), (Preço: 800-2400), (Durabilidade: 1200)
+Armadura leve intermediario - (vida: 1100-1400), (velocidade: 250-279), (PF: 20-29), (PM: 20-29), (Preço: 2500-4000), (Durabilidade: 1500)
+Armadura leve avançado - (vida: 1500-1800), (velocidade: 280-300), (PF: 30-50), (PM: 30-50), (Preço: 4100-6000), (Durabilidade: 2000)
+
+Armadura média iniciante - (vida: 1900-2000), (velocidade: 130-149), (PF: 55-69), (PM: 55-69), (Preço: 800-2400), (Durabilidade: 2200)
+Armadura média intermediario - (vida: 2300-2500), (velocidade: 150-179), (PF: 70-89), (PM: 70-89), (Preço: 2500-4000), (Durabilidade: 2500)
+Armadura média avançado - (vida: 2600-2900), (velocidade: 180-199), (PF: 90-110), (PM: 90-110), (Preço: 4100-6000), (Durabilidade: 3000)
+
+Armadura pesada iniciante - (vida: 3000-4000), (velocidade: 50-79), (PF: 120-149), (PM: 120-149), (Preço: 800-2400), (Durabilidade: 3200)
+Armadura pesada intemediairo- (vida: 4100-4900), (velocidade: 80-99), (PF: 150-179), (PM: 150-179), (Preço: 2500-4000), (Durabilidade: 3500)
+Armadura pesada avançado - (vida: 5000-6000), (velocidade: 100-129), (PF: 180-200), (PM: 180-200), (Preço: 4100-6000), (Durabilidade: 4000)
+
+Espada iniciante (AF: 0-100) - (AM: 0-120) - (Mana: 0-50) - (Preço: 800-2000), (Durabilidade: 800)
+Espada intermediario (AF: 0-150) - (AM: 0-250) - (Mana: 0-75) - (Preço: 2100-3000), (Durabilidade: 1200)
+Espada avançado (AF: 0-200) - (AM: 0-400) - (Mana: 0-100) - (Preço: 3100-4000), (Durabilidade: 1700)
+
+Machado iniciante (AF: 0-220) - (AM: 0-60) - (Mana: 0-15) - (Preço: 1000-3000), (Durabilidade: 1900)
+Machado intermediario (AF: 0-320) - (AM: 0-120) - (Mana: 0-30) - (Preço: 3100-4000), (Durabilidade: 2400)
+Machado avançado (AF: 0-500) - (AM: 0-200) - (Mana: 0-50) - (Preço: 4100-5000), (Durabilidade: 2600)
+
+Arco iniciante (AF: 0-20) - (AM: 0-20) - (Mana: 0-5) - (Preço: 800-1400), (Durabilidade: 2800)
+Arco intermediario (AF: 0-80) - (AM: 0-80) - (Mana: 0-15) - (Preço: 1500-2000), (Durabilidade: 3300)
+Arco avançado (AF: 0-120) - (AM: 0-120) - (Mana: 0-30) - (Preço: 2100-3000), (Durabilidade: 3500)
+
+Poção de vida fraca (Vida: 100-300) - (Preço: 200-600), (Durabilidade: 1000)
+Poção de vida média (Vida: 400-800) - (Preço: 700-1000), (Durabilidade: 1200)
+Poção de vida forte (Vida: 900-1500) - (Preço: 1100-1500), (Durabilidade: 1400)
+
+Poção de agilidade fraca (agilidade: 10-50) - (Preço: 1500-2000), (Durabilidade: 200)
+Poção de agilidade média (agilidade: 60-90) - (Preço: 2100-2700), (Durabilidade: 400)
+Poção de agilidade forte (agilidade: 100-200) - (Preço: 2800-3200), (Durabilidade: 600)
+
+Poção de força fraca (AF: 30-60) - (Preço: 200-500), (Durabilidade: 1600)
+Poção de força média (AF: 70-100) - (Preço: 600-800), (Durabilidade: 1800)
+Poção de força forte (AF: 110-150) - (Preço: 900-1200), (Durabilidade: 2000)
+
+Poção de mana fraca (Vida: 400-600) - (Preço: 500-800), (Durabilidade: 1200)
+Poção de mana média (Vida: 700-1000) - (Preço: 900-1200), (Durabilidade: 1400)
+Poção de mana forte (Vida: 1200-1800) - (Preço: 1300-2000), (Durabilidade: 1600)
+
+Grimório iniciante (AF: 0-70) - (AM: 0-400) - (Mana: 0-140) - (Preço: 3900-4900), (Durabilidade: 2200)
+Grimório intermediario (AF: 0-100) - (AM: 0-500) - (Mana: 0-200) - (Preço: 5900-6900), (Durabilidade: 2400)
+Grimório avançado (AF: 0-150) - (AM: 0-600) - (Mana: 0-300) - (Preço: 7000-8000), (Durabilidade: 2600)
+
+varinha iniciante (AF: 0-30) - (AM: 0-600) - (Mana: 0-80) - (Preço: 3900-4900), (Durabilidade: 2800)
+varinha intermediario (AF: 0-50) - (AM: 0-800) - (Mana: 0-100) - (Preço: 5900-6900), (Durabilidade: 3300)
+varinha avançado (AF: 0-70) - (AM: 0-1000) - (Mana: 0-150) - (Preço: 7000-8000), (Durabilidade: 3500)
