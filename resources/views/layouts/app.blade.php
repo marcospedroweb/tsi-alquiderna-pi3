@@ -217,9 +217,19 @@
             @endif
         </div>
         <main>
-            <div class="{{ Auth()->user()->VerifyIsAdmin()? 'container-xxl mt-3': '' }}">
-                @yield('content')
-            </div>
+            @if (!Auth::check())
+                <div>
+                    @yield('content')
+                </div>
+            @elseif(Auth()->user()->VerifyIsAdmin())
+                <div class="container-xxl mt-3">
+                    @yield('content')
+                </div>
+            @else
+                <div>
+                    @yield('content')
+                </div>
+            @endif
         </main>
         <footer>
             <div class="container-xxl">
