@@ -75,7 +75,7 @@
                     </div>
                     @if (!Auth::check())
                         <div class="mb-5 border">
-                            <h3 class="h3">Para realizar o pedido é necessário se logar</h3>
+                            <h3 class="h3 text-center">Para realizar o pedido é necessário se logar</h3>
                             <div class="text-center">
                                 <a href="{{ route('login') }}" class="btn btn-primary mt-3">Fazer login</a>
                             </div>

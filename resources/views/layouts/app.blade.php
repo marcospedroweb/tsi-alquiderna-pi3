@@ -276,6 +276,8 @@
                                     class="link-secondary">Poção de vida</a></li>
                             <li><a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'mana']) }}"
                                     class="link-secondary">Poção de mana</a></li>
+                            <li><a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'agilidade']) }}"
+                                    class="link-secondary">Poção de agilidade</a></li>
                             <li><a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'força']) }}"
                                     class="link-secondary">Poção de força</a></li>
                         </ul>
