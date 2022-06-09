@@ -882,16 +882,62 @@
                         </a>
                     </div>
                 @endforeach
-                <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                    <a href="{{ route('product.category', 'Armadura') }}" class="link-card-product">
-                        <img src='{{ asset('images-for-cards/image-for-cards-Arma física-arco.jpg') }}'>
-                        <div
-                            class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                            <span class="h2 text-white fw-normal">Ver mais <span
-                                    class="fw-bold">arcos</span></span>
-                        </div>
-                    </a>
-                </div>
+                @if ($category_name == 'Armadura')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Armadura') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Armadura-pesada.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span
+                                        class="fw-bold">Armaduras</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @elseif($category_name == 'Arma física')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Arma física') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Arma física-espada.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">Arma
+                                        física</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @elseif($category_name == 'Arma mágica')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Arma mágica') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Arma mágica-varinha.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">Armas
+                                        mágicas</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @elseif($category_name == 'Poção')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Poção') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Poção-vida.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span
+                                        class="fw-bold">Poções</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @else
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Grimório') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Grimório-mágico.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span
+                                        class="fw-bold">Grimórios</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @endif
             </div>
             <button class="carousel-products-control-prev btn position-absolute top-50 start-0 translate-middle-y"
                 data-carousel-slide="prev">
@@ -971,16 +1017,62 @@
                         </a>
                     </div>
                 @endforeach
-                <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                    <a href="{{ route('product.category', 'Armadura') }}" class="link-card-product">
-                        <img src='{{ asset('images-for-cards/image-for-cards-Arma física-arco.jpg') }}'>
-                        <div
-                            class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                            <span class="h2 text-white fw-normal">Ver mais <span
-                                    class="fw-bold">arcos</span></span>
-                        </div>
-                    </a>
-                </div>
+                @if ($productsWithOtherCategory1[1] == 'Armadura')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Armadura') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Armadura-pesada.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span
+                                        class="fw-bold">Armaduras</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @elseif($productsWithOtherCategory1[1] == 'Arma física')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Arma física') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Arma física-espada.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">Arma
+                                        física</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @elseif($productsWithOtherCategory1[1] == 'Arma mágica')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Arma mágica') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Arma mágica-varinha.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">Armas
+                                        mágicas</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @elseif($productsWithOtherCategory1[1] == 'Poção')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Poção') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Poção-vida.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span
+                                        class="fw-bold">Poções</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @else
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Grimório') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Grimório-mágico.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span
+                                        class="fw-bold">Grimórios</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @endif
             </div>
             <button class="carousel-products-control-prev btn position-absolute top-50 start-0 translate-middle-y"
                 data-carousel-slide="prev">
@@ -1060,16 +1152,62 @@
                         </a>
                     </div>
                 @endforeach
-                <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                    <a href="{{ route('product.category', 'Armadura') }}" class="link-card-product">
-                        <img src='{{ asset('images-for-cards/image-for-cards-Arma física-arco.jpg') }}'>
-                        <div
-                            class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                            <span class="h2 text-white fw-normal">Ver mais <span
-                                    class="fw-bold">arcos</span></span>
-                        </div>
-                    </a>
-                </div>
+                @if ($productsWithOtherCategory2[1] == 'Armadura')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Armadura') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Armadura-pesada.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span
+                                        class="fw-bold">Armaduras</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @elseif($productsWithOtherCategory2[1] == 'Arma física')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Arma física') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Arma física-espada.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">Arma
+                                        física</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @elseif($productsWithOtherCategory2[1] == 'Arma mágica')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Arma mágica') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Arma mágica-varinha.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">Armas
+                                        mágicas</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @elseif($productsWithOtherCategory2[1] == 'Poção')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Poção') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Poção-vida.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span
+                                        class="fw-bold">Poções</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @else
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Grimório') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Grimório-mágico.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span
+                                        class="fw-bold">Grimórios</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @endif
             </div>
             <button class="carousel-products-control-prev btn position-absolute top-50 start-0 translate-middle-y"
                 data-carousel-slide="prev">
@@ -1101,7 +1239,8 @@
                                         @endif
                                         <span class="product-name">{{ $productOtherCategory->name }}</span>
                                     </h3>
-                                    <p><span class="product-category">{{ $productOtherCategory->Category->name }}</span>
+                                    <p><span
+                                            class="product-category">{{ $productOtherCategory->Category->name }}</span>
                                         <span
                                             class="product-item-class">{{ $productOtherCategory->ItemClass->name }}</span>,
                                         nível
@@ -1149,16 +1288,62 @@
                         </a>
                     </div>
                 @endforeach
-                <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                    <a href="{{ route('product.category', 'Armadura') }}" class="link-card-product">
-                        <img src='{{ asset('images-for-cards/image-for-cards-Arma física-arco.jpg') }}'>
-                        <div
-                            class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                            <span class="h2 text-white fw-normal">Ver mais <span
-                                    class="fw-bold">arcos</span></span>
-                        </div>
-                    </a>
-                </div>
+                @if ($productsWithOtherCategory3[1] == 'Armadura')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Armadura') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Armadura-pesada.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span
+                                        class="fw-bold">Armaduras</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @elseif($productsWithOtherCategory3[1] == 'Arma física')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Arma física') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Arma física-espada.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">Arma
+                                        física</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @elseif($productsWithOtherCategory3[1] == 'Arma mágica')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Arma mágica') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Arma mágica-varinha.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">Armas
+                                        mágicas</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @elseif($productsWithOtherCategory3[1] == 'Poção')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Poção') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Poção-vida.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span
+                                        class="fw-bold">Poções</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @else
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Grimório') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Grimório-mágico.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span
+                                        class="fw-bold">Grimórios</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @endif
             </div>
             <button class="carousel-products-control-prev btn position-absolute top-50 start-0 translate-middle-y"
                 data-carousel-slide="prev">
@@ -1239,16 +1424,62 @@
                         </a>
                     </div>
                 @endforeach
-                <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                    <a href="{{ route('product.category', 'Armadura') }}" class="link-card-product">
-                        <img src='{{ asset('images-for-cards/image-for-cards-Arma física-arco.jpg') }}'>
-                        <div
-                            class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                            <span class="h2 text-white fw-normal">Ver mais <span
-                                    class="fw-bold">arcos</span></span>
-                        </div>
-                    </a>
-                </div>
+                @if ($productsWithOtherCategory4[1] == 'Armadura')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Armadura') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Armadura-pesada.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span
+                                        class="fw-bold">Armaduras</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @elseif($productsWithOtherCategory4[1] == 'Arma física')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Arma física') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Arma física-espada.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">Arma
+                                        física</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @elseif($productsWithOtherCategory4[1] == 'Arma mágica')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Arma mágica') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Arma mágica-varinha.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">Armas
+                                        mágicas</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @elseif($productsWithOtherCategory4[1] == 'Poção')
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Poção') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Poção-vida.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span
+                                        class="fw-bold">Poções</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @else
+                    <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
+                        <a href="{{ route('product.category', 'Grimório') }}" class="link-card-product">
+                            <img src='{{ asset('images-for-cards/image-for-cards-Grimório-mágico.jpg') }}'>
+                            <div
+                                class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
+                                <span class="h2 text-white fw-normal">Ver mais <span
+                                        class="fw-bold">Grimórios</span></span>
+                            </div>
+                        </a>
+                    </div>
+                @endif
             </div>
             <button class="carousel-products-control-prev btn position-absolute top-50 start-0 translate-middle-y"
                 data-carousel-slide="prev">

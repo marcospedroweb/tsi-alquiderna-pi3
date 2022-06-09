@@ -788,7 +788,8 @@
                     data-carousel-show-card="4">
                     @foreach ($newProductsByCategory as $newProduct)
                         <div class="card-product position-relative overflow-hidden">
-                            <a href="{{ route('product.index') }}">
+                            <a
+                                href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'leve']) }}">
                                 <img src='{{ asset("$newProduct->image") }}' class="img-fluid">
                                 <div
                                     class="card-product-text w-100 h-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column justify-content-end">
@@ -910,7 +911,8 @@
                     @endforeach
                     @if ($category_name === 'Armadura')
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'leve']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Armadura-leve.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -921,7 +923,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'média']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Armadura-média.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -933,7 +936,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'pesada']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Armadura-pesada.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -946,7 +950,8 @@
                         </div>
                     @elseif ($category_name === 'Arma física')
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'espada']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Arma física-espada.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -957,7 +962,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'machado']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Arma física-machado.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -968,7 +974,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'arco']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Arma física-arco.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -980,7 +987,8 @@
                         </div>
                     @elseif ($category_name === 'Arma mágica')
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Arma mágica', 'itemClass' => 'varinha']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Arma mágica-varinha.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -992,7 +1000,8 @@
                         </div>
                     @elseif ($category_name === 'Poção')
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'vida']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Poção-vida.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1004,7 +1013,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'mana']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Poção-mana.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1016,7 +1026,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'força']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Poção-força.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1028,7 +1039,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'agilidade']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Poção-agilidade.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1041,7 +1053,8 @@
                         </div>
                     @else
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Grimório', 'itemClass' => 'mágico']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Grimório-mágico.png') }}'
                                     class="img-fluid">
                                 <div
@@ -1075,7 +1088,8 @@
                     data-carousel-show-card="4">
                     @foreach ($productsOnSaleByCategory as $productsOnSale)
                         <div class="card-product position-relative overflow-hidden">
-                            <a href="{{ route('product.index') }}">
+                            <a
+                                href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'leve']) }}">
                                 <img src='{{ asset("$productsOnSale->image") }}' class="img-fluid">
                                 <div
                                     class="card-product-text w-100 h-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column justify-content-end">
@@ -1206,7 +1220,8 @@
                     @endforeach
                     @if ($category_name === 'Armadura')
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'leve']) . '?filter%5B%5D=filter-onSale-true' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Armadura-leve.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1217,7 +1232,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'média']) . '?filter%5B%5D=filter-onSale-true' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Armadura-média.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1228,7 +1244,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'pesada']) . '?filter%5B%5D=filter-onSale-true' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Armadura-pesada.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1240,7 +1257,8 @@
                         </div>
                     @elseif ($category_name === 'Arma física')
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'espada']) . '?filter%5B%5D=filter-onSale-true' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Arma física-espada.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1252,7 +1270,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'machado']) . '?filter%5B%5D=filter-onSale-true' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Arma física-machado.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1264,7 +1283,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'arco']) . '?filter%5B%5D=filter-onSale-true' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Arma física-arco.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1276,7 +1296,8 @@
                         </div>
                     @elseif ($category_name === 'Arma mágica')
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Arma mágica', 'itemClass' => 'varinha']) . '?filter%5B%5D=filter-onSale-true' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Arma mágica-varinha.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1289,7 +1310,8 @@
                         </div>
                     @elseif ($category_name === 'Poção')
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'vida']) . '?filter%5B%5D=filter-onSale-true' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Poção-vida.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1300,7 +1322,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'mana']) . '?filter%5B%5D=filter-onSale-true' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Poção-mana.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1311,7 +1334,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'força']) . '?filter%5B%5D=filter-onSale-true' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Poção-força.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1322,7 +1346,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'speed']) . '?filter%5B%5D=filter-onSale-true' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Poção-agilidade.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1334,7 +1359,8 @@
                         </div>
                     @else
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Grimório', 'itemClass' => 'mágico']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Grimório-mágico.png') }}'
                                     class="img-fluid">
                                 <div
@@ -1370,7 +1396,7 @@
                     data-carousel-show-card="4">
                     @foreach ($beginnerProductsByCategory as $begginerProduct)
                         <div class="card-product position-relative overflow-hidden">
-                            <a href="{{ route('product.index') }}">
+                            <a href="{{ route('product.show', $begginerProduct->id) }}">
                                 <img src='{{ asset("$begginerProduct->image") }}' class="img-fluid">
                                 <div
                                     class="card-product-text w-100 h-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column justify-content-end">
@@ -1501,7 +1527,8 @@
                     @endforeach
                     @if ($category_name === 'Armadura')
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'leve']) . '?filter%5B%5D=filter-lvl-min-0' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Armadura-leve.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1512,7 +1539,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'média']) . '?filter%5B%5D=filter-lvl-min-0' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Armadura-média.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1523,7 +1551,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'pesada']) . '?filter%5B%5D=filter-lvl-min-0' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Armadura-pesada.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1535,7 +1564,8 @@
                         </div>
                     @elseif ($category_name === 'Arma física')
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'espada']) . '?filter%5B%5D=filter-lvl-min-0' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Arma física-espada.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1547,7 +1577,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'machado']) . '?filter%5B%5D=filter-lvl-min-0' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Arma física-machado.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1559,7 +1590,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'arco']) . '?filter%5B%5D=filter-lvl-min-0' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Arma física-arco.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1572,7 +1604,8 @@
                         </div>
                     @elseif ($category_name === 'Arma mágica')
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Arma mágica', 'itemClass' => 'varinha']) . '?filter%5B%5D=filter-lvl-min-0' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Arma mágica-varinha.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1585,7 +1618,8 @@
                         </div>
                     @elseif ($category_name === 'Poção')
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'vida']) . '?filter%5B%5D=filter-lvl-min-0' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Poção-vida.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1596,7 +1630,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'mana']) . '?filter%5B%5D=filter-lvl-min-0' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Poção-mana.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1607,7 +1642,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'força']) . '?filter%5B%5D=filter-lvl-min-0' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Poção-força.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1618,7 +1654,8 @@
                             </a>
                         </div>
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'agilidade']) . '?filter%5B%5D=filter-lvl-min-0' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Poção-agilidade.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1630,7 +1667,8 @@
                         </div>
                     @else
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Grimório', 'itemClass' => 'mágico']) . '?filter%5B%5D=filter-lvl-min-0' }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Grimório-mágico.png') }}'
                                     class="img-fluid">
                                 <div
@@ -1667,7 +1705,7 @@
                         data-carousel-show-card="4">
                         @foreach ($productsByItemClass['lightArmors'] as $lightArmor)
                             <div class="card-product position-relative overflow-hidden">
-                                <a href="{{ route('product.index') }}">
+                                <a href="{{ route('product.show', $lightArmor->id) }}">
                                     <img src='{{ asset("$lightArmor->image") }}' class="img-fluid">
                                     <div
                                         class="card-product-text w-100 h-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column justify-content-end">
@@ -1739,7 +1777,8 @@
                             </div>
                         @endforeach
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'leve']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Armadura-leve.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1773,7 +1812,7 @@
                         data-carousel-show-card="4">
                         @foreach ($productsByItemClass['mediumArmors'] as $mediumArmor)
                             <div class="card-product position-relative overflow-hidden">
-                                <a href="{{ route('product.index') }}">
+                                <a href="{{ route('product.show', $mediumArmor->id) }}">
                                     <img src='{{ asset("$mediumArmor->image") }}' class="img-fluid">
                                     <div
                                         class="card-product-text w-100 h-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column justify-content-end">
@@ -1846,7 +1885,8 @@
                             </div>
                         @endforeach
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'média']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Armadura-média.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1880,7 +1920,7 @@
                         data-carousel-show-card="4">
                         @foreach ($productsByItemClass['heavyArmors'] as $heavyArmor)
                             <div class="card-product position-relative overflow-hidden">
-                                <a href="{{ route('product.index') }}">
+                                <a href="{{ route('product.show', $heavyArmor->id) }}">
                                     <img src='{{ asset("$heavyArmor->image") }}' class="img-fluid">
                                     <div
                                         class="card-product-text w-100 h-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column justify-content-end">
@@ -1952,7 +1992,8 @@
                             </div>
                         @endforeach
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Armadura', 'itemClass' => 'pesada']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Armadura-pesada.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -1986,7 +2027,7 @@
                         data-carousel-show-card="4">
                         @foreach ($productsByItemClass['swords'] as $sword)
                             <div class="card-product position-relative overflow-hidden">
-                                <a href="{{ route('product.index') }}">
+                                <a href="{{ route('product.show', $sword->id) }}">
                                     <img src='{{ asset("$sword->image") }}' class="img-fluid">
                                     <div
                                         class="card-product-text w-100 h-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column justify-content-end">
@@ -2043,7 +2084,8 @@
                             </div>
                         @endforeach
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'espada']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Arma física-espada.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -2076,7 +2118,7 @@
                         data-carousel-show-card="4">
                         @foreach ($productsByItemClass['axes'] as $axe)
                             <div class="card-product position-relative overflow-hidden">
-                                <a href="{{ route('product.index') }}">
+                                <a href="{{ route('product.show', $axe->id) }}">
                                     <img src='{{ asset("$axe->image") }}' class="img-fluid">
                                     <div
                                         class="card-product-text w-100 h-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column justify-content-end">
@@ -2133,7 +2175,8 @@
                             </div>
                         @endforeach
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'machado']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Arma física-machado.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -2166,7 +2209,7 @@
                         data-carousel-show-card="4">
                         @foreach ($productsByItemClass['bows'] as $bow)
                             <div class="card-product position-relative overflow-hidden">
-                                <a href="{{ route('product.index') }}">
+                                <a href="{{ route('product.show', $bow->id) }}">
                                     <img src='{{ asset("$bow->image") }}' class="img-fluid">
                                     <div
                                         class="card-product-text w-100 h-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column justify-content-end">
@@ -2223,7 +2266,8 @@
                             </div>
                         @endforeach
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Arma física', 'itemClass' => 'arco']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Arma física-arco.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -2257,7 +2301,7 @@
                         data-carousel-show-card="4">
                         @foreach ($productsByItemClass['wands'] as $wand)
                             <div class="card-product position-relative overflow-hidden">
-                                <a href="{{ route('product.index') }}">
+                                <a href="{{ route('product.show', $wand->id) }}">
                                     <img src='{{ asset("$wand->image") }}' class="img-fluid">
                                     <div
                                         class="card-product-text w-100 h-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column justify-content-end">
@@ -2314,7 +2358,8 @@
                             </div>
                         @endforeach
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Arma mágica', 'itemClass' => 'varinha']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Arma mágica-varinha.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -2349,7 +2394,7 @@
                         data-carousel-show-card="4">
                         @foreach ($productsByItemClass['potion-life'] as $potionLife)
                             <div class="card-product position-relative overflow-hidden">
-                                <a href="{{ route('product.index') }}">
+                                <a href="{{ route('product.show', $potionLife->id) }}">
                                     <img src='{{ asset("$potionLife->image") }}' class="img-fluid">
                                     <div
                                         class="card-product-text w-100 h-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column justify-content-end">
@@ -2399,7 +2444,8 @@
                             </div>
                         @endforeach
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'vida']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Poção-vida.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -2434,7 +2480,7 @@
                         data-carousel-show-card="4">
                         @foreach ($productsByItemClass['potion-mana'] as $potionMana)
                             <div class="card-product position-relative overflow-hidden">
-                                <a href="{{ route('product.index') }}">
+                                <a href="{{ route('product.show', $potionMana->id) }}">
                                     <img src='{{ asset("$potionMana->image") }}' class="img-fluid">
                                     <div
                                         class="card-product-text w-100 h-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column justify-content-end">
@@ -2484,7 +2530,8 @@
                             </div>
                         @endforeach
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'mana']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Poção-mana.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -2519,7 +2566,7 @@
                         data-carousel-show-card="4">
                         @foreach ($productsByItemClass['potion-strength'] as $potionStrength)
                             <div class="card-product position-relative overflow-hidden">
-                                <a href="{{ route('product.index') }}">
+                                <a href="{{ route('product.show', $potionStrength->id) }}">
                                     <img src='{{ asset("$potionStrength->image") }}' class="img-fluid">
                                     <div
                                         class="card-product-text w-100 h-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column justify-content-end">
@@ -2570,7 +2617,8 @@
                             </div>
                         @endforeach
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'força']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Poção-força.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -2605,7 +2653,7 @@
                         data-carousel-show-card="4">
                         @foreach ($productsByItemClass['potion-speed'] as $potionSpeed)
                             <div class="card-product position-relative overflow-hidden">
-                                <a href="{{ route('product.index') }}">
+                                <a href="{{ route('product.show', $potionSpeed->id) }}">
                                     <img src='{{ asset("$potionSpeed->image") }}' class="img-fluid">
                                     <div
                                         class="card-product-text w-100 h-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column justify-content-end">
@@ -2656,7 +2704,8 @@
                             </div>
                         @endforeach
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'agilidade']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Poção-agilidade.jpg') }}'
                                     class="img-fluid">
                                 <div
@@ -2692,7 +2741,7 @@
                         data-carousel-show-card="4">
                         @foreach ($productsByItemClass['grimoire-magic'] as $grimoire)
                             <div class="card-product position-relative overflow-hidden">
-                                <a href="{{ route('product.index') }}">
+                                <a href="{{ route('product.show', $grimoire->id) }}">
                                     <img src='{{ asset("$grimoire->image") }}' class="img-fluid">
                                     <div
                                         class="card-product-text w-100 h-100 position-absolute bottom-0 start-50 translate-middle-x d-flex flex-column justify-content-end">
@@ -2750,7 +2799,8 @@
                             </div>
                         @endforeach
                         <div class="card-product card-product-see-more position-relative overflow-hidden mx-auto">
-                            <a href="{{ route('product.index') }}" class="link-card-product">
+                            <a href="{{ route('product.itemClass', ['category' => 'Grimório', 'itemClass' => 'mágico']) }}"
+                                class="link-card-product">
                                 <img src='{{ asset('images-for-cards/image-for-cards-Grimório-mágico.png') }}'
                                     class="img-fluid">
                                 <div
