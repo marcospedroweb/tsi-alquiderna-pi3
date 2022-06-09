@@ -90,13 +90,14 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/order', [eCommerceController::class, 'orderIndex'])->name('order.index');
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::put('/cart/update/{product}', [CartController::class, 'update'])->name('cart.update');
     Route::put('/cart/update/unit/{order}', [CartController::class, 'unit'])->name('cart.update.unit');
+    Route::get('/category/destroy/{category}', [CartController::class, 'destroy'])->name('cart.destroy'); // "Apaga do banco"
     Route::get('/cart/payment', [CartController::class, 'payment'])->name('cart.payment');
     Route::post('/cart/payment', [CartController::class, 'confirmOrder'])->name('cart.order');
     Route::post('/cart/{product}', [CartController::class, 'store'])->name('cart.store');
-    Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
 });
 
 Route::get('/search', [eCommerceController::class, 'search'])->name('search.index');

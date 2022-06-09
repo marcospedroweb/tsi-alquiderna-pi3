@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Order;
 
 
 class eCommerceController extends Controller
@@ -22,6 +23,16 @@ class eCommerceController extends Controller
             'productSmallBanner1' => Product::where('id', 48)->first(),
             'productSmallBanner2' => Product::where('id', 47)->first(),
             'productBigBanner2' => Product::where('id', 17)->first(),
+        ]);
+    }
+
+    public function orderIndex()
+    {
+        $user = auth()->user();
+        $items = Order::where('user_id', $user->id)->get();
+
+        return view('order.index')->with([
+            'items' => $items,
         ]);
     }
 

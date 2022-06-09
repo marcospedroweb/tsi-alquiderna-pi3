@@ -144,7 +144,8 @@
                                     Olá, {{ Auth()->user()->name }}
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('order.index') }}">Meus pedidos</a>
+                                    </li>
                                     <li><a class="dropdown-item" href="{{ route('crud.index') }}">Crud</a></li>
                                     <form action="{{ route('logout') }}" method="post" class="dropdown-item">
                                         @csrf
@@ -160,7 +161,8 @@
                                     Olá, {{ Auth()->user()->name }}
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('order.index') }}">Meus pedidos</a>
+                                    </li>
                                     <li>
                                         <form action="{{ route('logout') }}" method="post">
                                             @csrf
@@ -195,19 +197,19 @@
     <main>
         <div class="container-xxl">
             @if (session()->get('success'))
-                <div class="container-xxl mt-5" id="div-alert-flash">
+                <div class="mt-5" id="div-alert-flash">
                     <div class="alert alert-success">
                         <span>{{ session()->get('success') }}</span>
                     </div>
                 </div>
             @elseif (session()->get('error'))
-                <div class="container-xxl mt-5" id="div-alert-flash">
+                <div class="mt-5" id="div-alert-flash">
                     <div class="alert alert-danger">
                         {{ session()->get('error') }}
                     </div>
                 </div>
             @else
-                <div class="container-xxl mt-5 d-none" id="div-alert-user">
+                <div class="mt-5 d-none" id="div-alert-user">
                     <div class="alert text-center">
                         <span>{{ session()->get('success') }}</span>
                     </div>
@@ -215,7 +217,7 @@
             @endif
         </div>
         <main>
-            <div>
+            <div class="{{ Auth()->user()->VerifyIsAdmin()? 'container-xxl mt-3': '' }}">
                 @yield('content')
             </div>
         </main>

@@ -1,8 +1,10 @@
 export default function initHideAlert() {
-    const alert = document.querySelector('#div-alert-flash');
+    const alert = document.querySelectorAll('.alert');
     if (alert)
         setTimeout(() => {
-            if (!alert.classList.contains('d-none'))
-                alert.classList.toggle('d-none');
+            alert.forEach(alert => {
+                if (!alert.classList.contains('d-none'))
+                    alert.classList.toggle('d-none');
+            });
         }, 3000);
 }

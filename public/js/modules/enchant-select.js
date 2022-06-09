@@ -9,8 +9,10 @@ const enchantSelect = document.querySelector('#enchant-select');
 const divEnchantTypes = document.querySelector('#div-enchant-types');
 //checkbox enchant types
 const enchantTypes = document.querySelectorAll('.enchant-type');
+//labels
 
 if (enchantSelect && divEnchantTypes && enchantTypes) {
+    const labelSpan = divEnchantTypes.querySelectorAll('.form-check label span');
     enchantSelect.addEventListener('change', event => {
         const optionSelected = enchantSelect.options[enchantSelect.selectedIndex].value;
 
@@ -20,7 +22,10 @@ if (enchantSelect && divEnchantTypes && enchantTypes) {
         } else {
             if (!divEnchantTypes.classList.contains('d-none'))
                 divEnchantTypes.classList.toggle('d-none');
-
+            labelSpan.forEach(span => {
+                if (!span.classList.contains('d-none'))
+                    span.classList.toggle('d-none');
+            });
             initUpdatePurchaseDescription('item-enchants', 'hidden-all', 600, 'hidden-all', enchantTypes);
         }
 

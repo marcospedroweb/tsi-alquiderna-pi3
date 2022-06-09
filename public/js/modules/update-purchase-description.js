@@ -62,6 +62,11 @@ export default function initUpdatePurchaseDescription(itemId, itemValue, price, 
                             li.classList.toggle('d-none');
                     });
 
+                    inputList.forEach(inputElement => {
+                        if (inputElement.checked)
+                            inputElement.checked = false;
+                    });
+
                     if (!option.classList.contains('d-none'))
                         option.classList.toggle('d-none')
                     spanPrice.textContent = 0;

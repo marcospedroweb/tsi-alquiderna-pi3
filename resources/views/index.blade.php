@@ -9,7 +9,8 @@
                 <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active big-banner-full row justify-content-center align-items-center mb-4">
+                <div class="carousel-item active big-banner-full row justify-content-center align-items-center mb-4"
+                    data-bs-interval="5000">
                     <a href="{{ route('product.show', $carouselProduct1->id) }}">
                         <img src="{{ asset('imgs/Carrosel-image-1.png') }}" class="d-block w-100" alt="Imagem de produto">
                         <div
@@ -89,7 +90,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="carousel-item big-banner-full row justify-content-center align-items-center mb-4">
+                <div class="carousel-item big-banner-full row justify-content-center align-items-center mb-4"
+                    data-bs-interval="5000">
                     <a href="{{ route('product.show', $carouselProduct2->id) }}">
                         <img src="{{ asset('imgs/Carrosel-image-2.png') }}" class="d-block w-100"
                             alt="Imagem de produto">
@@ -171,7 +173,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="carousel-item big-banner-full row justify-content-center align-items-center mb-4">
+                <div class="carousel-item big-banner-full row justify-content-center align-items-center mb-4"
+                    data-bs-interval="5000">
                     <a href="{{ route('product.show', $carouselProduct3->id) }}">
                         <img src="{{ asset('imgs/Carrosel-image-3.png') }}" class="d-block w-100"
                             alt="Imagem de produto">

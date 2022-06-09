@@ -50,7 +50,7 @@
                         <option disabled>Seleciona o tipo do pagamento</option>
                         <option value="boleto">Boleto</option>
                         <option value="pix">Pix</option>
-                        <option value="cartao">Cartão de credito</option>
+                        <option class="d-none" value="cartao" disabled>Cartão de credito</option>
                     </select>
                 </div>
                 <div class="d-none col-10 row flex-column justify-content-center align-items-center" id="div-payment-card">
@@ -61,7 +61,7 @@
                     </div>
                     <div class="col mb-2">
                         <label for="number_card" class="form-label">Número impresso no cartão</label>
-                        <input type="text" class="form-control" id="number_card" maxlength="18">
+                        <input type="text" class="form-control" id="number_card" maxlength="19">
                     </div>
                     <div class="col mb-2">
                         <label for="date_card" class="form-label">Data de expiração</label>
@@ -199,7 +199,7 @@
                     </div>
                 </div>
                 <div class="border">
-                    <h3 class="h3 mt-5">Pagamento</h3>
+                    <h3 class="h3">Pagamento</h3>
                     <div class="d-flex justify-content-start align-items-center">
                         <div>
                             <h4 class="h4">Forma de pagamento</h4>

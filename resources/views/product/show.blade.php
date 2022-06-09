@@ -24,10 +24,7 @@
                 @csrf
                 <div class="py-3">
                     <h3 class="h3 mb-5 text-center">
-                        Compre {{ $mainProduct->name }} -
-                        @if (Auth()->user()->VerifyIsAdmin())
-                            <span class="product-name">{{ $mainProduct->id }}</span>
-                        @endif
+                        Compre {{ $mainProduct->name }}
                     </h3>
                     <div class="mb-5 border">
                         <h4 class="h4">Calcular frete e prazo</h4>
@@ -70,168 +67,187 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mb-5 border" id="lvl">
-                        <h4 class="h4">Escolha o nível
-                            {{ $mainProduct->Category->name === 'Grimório' ? 'do' : 'da' }}
-                            {{ $mainProduct->Category->name }}
-                        </h4>
-                        <div class="row">
-                            @if ($mainProduct->lvlMin === 0)
-                                <div class="col-4 lvl-min-option ">
-                                    <div class="block-option form-check d-flex flex-column text-center p-2">
-                                        <input class="form-check-input mx-auto" type="radio" name="durability"
-                                            id="option-lvl-0" value="0" required>
-                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-0">
-                                            Nível 0
-                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
-                                                    0</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-4 lvl-min-option ">
-                                    <div class="block-option form-check d-flex flex-column text-center p-2">
-                                        <input class="form-check-input mx-auto" type="radio" name="durability"
-                                            id="option-lvl-10" value="100" required>
-                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-10">
-                                            Nível 10
-                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
-                                                    100</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-4 lvl-min-option ">
-                                    <div class="block-option form-check d-flex flex-column text-center p-2">
-                                        <input class="form-check-input mx-auto" type="radio" name="durability"
-                                            id="option-lvl-20" value="200" required>
-                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-20">
-                                            Nível 10
-                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
-                                                    200</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-4 lvl-min-option  mt-3">
-                                    <div class="block-option form-check d-flex flex-column text-center p-2">
-                                        <input class="form-check-input mx-auto" type="radio" name="durability"
-                                            id="option-lvl-30" value="300" required>
-                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-30">
-                                            Nível 30
-                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
-                                                    300</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-                            @elseif($mainProduct->lvlMin === 31)
-                                <div class="col-4 lvl-min-option ">
-                                    <div class="block-option form-check d-flex flex-column text-center p-2">
-                                        <input class="form-check-input mx-auto" type="radio" name="durability"
-                                            id="option-lvl-31" value="0" required>
-                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-31">
-                                            Nível 31
-                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
-                                                    0</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-4 lvl-min-option ">
-                                    <div class="block-option form-check d-flex flex-column text-center p-2">
-                                        <input class="form-check-input mx-auto" type="radio" name="durability"
-                                            id="option-lvl-40" value="200" required>
-                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-40">
-                                            Nível 40
-                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
-                                                    200</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-4 lvl-min-option ">
-                                    <div class="block-option form-check d-flex flex-column text-center p-2">
-                                        <input class="form-check-input mx-auto" type="radio" name="durability"
-                                            id="option-lvl-50" value="400" required>
-                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-50">
-                                            Nível 50
-                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
-                                                    400</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-4 lvl-min-option  mt-3">
-                                    <div class="block-option form-check d-flex flex-column text-center p-2">
-                                        <input class="form-check-input mx-auto" type="radio" name="durability"
-                                            id="option-lvl-60" value="600" required>
-                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-60">
-                                            Nível 60
-                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
-                                                    600</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-                            @else
-                                <div class="col-4 lvl-min-option ">
-                                    <div class="block-option form-check d-flex flex-column text-center p-2">
-                                        <input class="form-check-input mx-auto" type="radio" name="durability"
-                                            id="option-lvl-61" value="0" required>
-                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-61">
-                                            Nível 61
-                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
-                                                    0</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-4 lvl-min-option ">
-                                    <div class="block-option form-check d-flex flex-column text-center p-2">
-                                        <input class="form-check-input mx-auto" type="radio" name="durability"
-                                            id="option-lvl-70" value="300" required>
-                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-70">
-                                            Nível 70
-                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
-                                                    300</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-4 lvl-min-option ">
-                                    <div class="block-option form-check d-flex flex-column text-center p-2">
-                                        <input class="form-check-input mx-auto" type="radio" name="durability"
-                                            id="option-lvl-80" value="600" required>
-                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-80">
-                                            Nível 80
-                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
-                                                    600</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-4 lvl-min-option  mt-3">
-                                    <div class="block-option form-check d-flex flex-column text-center p-2">
-                                        <input class="form-check-input mx-auto" type="radio" name="durability"
-                                            id="option-lvl-90" value="900" required>
-                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold" for="option-lvl-90">
-                                            Nível 90
-                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
-                                                    900</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-4 lvl-min-option  mt-3">
-                                    <div class="block-option form-check d-flex flex-column text-center p-2">
-                                        <input class="form-check-input mx-auto" type="radio" name="durability"
-                                            id="option-lvl-100" value="1200" required>
-                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold"
-                                            for="option-lvl-100">
-                                            Nível 100
-                                            <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
-                                                    1200</span></span>
-                                        </label>
-                                    </div>
-                                </div>
-                            @endif
+                    @if (!Auth::check())
+                        <div class="mb-5 border">
+                            <h3 class="h3">Para realizar o pedido é necessário se logar</h3>
+                            <div class="text-center">
+                                <a href="{{ route('login') }}" class="btn btn-primary mt-3">Fazer login</a>
+                            </div>
                         </div>
-                        <input type="hidden" name="lvl_selected">
-                        <small class="d-inline-block mt-2">A durabilidade
-                            {{ $mainProduct->Category->name === 'Grimório' ? 'do' : 'da' }}
-                            {{ $mainProduct->Category->name }} será afetada pelo nível</small>
-                    </div>
-                    @if ($mainProduct->enchant)
-                        <div class="mb-5 border" id="enchant">
+                    @else
+                        <div class="mb-5 border" id="lvl">
+                            <h4 class="h4">Escolha o nível
+                                {{ $mainProduct->Category->name === 'Grimório' ? 'do' : 'da' }}
+                                {{ $mainProduct->Category->name }}
+                            </h4>
+                            <div class="row">
+                                @if ($mainProduct->lvlMin === 0)
+                                    <div class="col-4 lvl-min-option ">
+                                        <div class="block-option form-check d-flex flex-column text-center p-2">
+                                            <input class="form-check-input mx-auto" type="radio" name="durability"
+                                                id="option-lvl-0" value="0" required>
+                                            <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                                for="option-lvl-0">
+                                                Nível 0
+                                                <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                        0</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 lvl-min-option ">
+                                        <div class="block-option form-check d-flex flex-column text-center p-2">
+                                            <input class="form-check-input mx-auto" type="radio" name="durability"
+                                                id="option-lvl-10" value="100" required>
+                                            <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                                for="option-lvl-10">
+                                                Nível 10
+                                                <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                        100</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 lvl-min-option ">
+                                        <div class="block-option form-check d-flex flex-column text-center p-2">
+                                            <input class="form-check-input mx-auto" type="radio" name="durability"
+                                                id="option-lvl-20" value="200" required>
+                                            <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                                for="option-lvl-20">
+                                                Nível 10
+                                                <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                        200</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 lvl-min-option  mt-3">
+                                        <div class="block-option form-check d-flex flex-column text-center p-2">
+                                            <input class="form-check-input mx-auto" type="radio" name="durability"
+                                                id="option-lvl-30" value="300" required>
+                                            <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                                for="option-lvl-30">
+                                                Nível 30
+                                                <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                        300</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                @elseif($mainProduct->lvlMin === 31)
+                                    <div class="col-4 lvl-min-option ">
+                                        <div class="block-option form-check d-flex flex-column text-center p-2">
+                                            <input class="form-check-input mx-auto" type="radio" name="durability"
+                                                id="option-lvl-31" value="0" required>
+                                            <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                                for="option-lvl-31">
+                                                Nível 31
+                                                <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                        0</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 lvl-min-option ">
+                                        <div class="block-option form-check d-flex flex-column text-center p-2">
+                                            <input class="form-check-input mx-auto" type="radio" name="durability"
+                                                id="option-lvl-40" value="200" required>
+                                            <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                                for="option-lvl-40">
+                                                Nível 40
+                                                <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                        200</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 lvl-min-option ">
+                                        <div class="block-option form-check d-flex flex-column text-center p-2">
+                                            <input class="form-check-input mx-auto" type="radio" name="durability"
+                                                id="option-lvl-50" value="400" required>
+                                            <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                                for="option-lvl-50">
+                                                Nível 50
+                                                <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                        400</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 lvl-min-option  mt-3">
+                                        <div class="block-option form-check d-flex flex-column text-center p-2">
+                                            <input class="form-check-input mx-auto" type="radio" name="durability"
+                                                id="option-lvl-60" value="600" required>
+                                            <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                                for="option-lvl-60">
+                                                Nível 60
+                                                <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                        600</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="col-4 lvl-min-option ">
+                                        <div class="block-option form-check d-flex flex-column text-center p-2">
+                                            <input class="form-check-input mx-auto" type="radio" name="durability"
+                                                id="option-lvl-61" value="0" required>
+                                            <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                                for="option-lvl-61">
+                                                Nível 61
+                                                <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                        0</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 lvl-min-option ">
+                                        <div class="block-option form-check d-flex flex-column text-center p-2">
+                                            <input class="form-check-input mx-auto" type="radio" name="durability"
+                                                id="option-lvl-70" value="300" required>
+                                            <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                                for="option-lvl-70">
+                                                Nível 70
+                                                <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                        300</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 lvl-min-option ">
+                                        <div class="block-option form-check d-flex flex-column text-center p-2">
+                                            <input class="form-check-input mx-auto" type="radio" name="durability"
+                                                id="option-lvl-80" value="600" required>
+                                            <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                                for="option-lvl-80">
+                                                Nível 80
+                                                <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                        600</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 lvl-min-option  mt-3">
+                                        <div class="block-option form-check d-flex flex-column text-center p-2">
+                                            <input class="form-check-input mx-auto" type="radio" name="durability"
+                                                id="option-lvl-90" value="900" required>
+                                            <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                                for="option-lvl-90">
+                                                Nível 90
+                                                <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                        900</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 lvl-min-option  mt-3">
+                                        <div class="block-option form-check d-flex flex-column text-center p-2">
+                                            <input class="form-check-input mx-auto" type="radio" name="durability"
+                                                id="option-lvl-100" value="1200" required>
+                                            <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                                for="option-lvl-100">
+                                                Nível 100
+                                                <span>{{ $mainProduct->durability }} <span class="durability-upgrade">+
+                                                        1200</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                @endif
+                            </div>
+                            <input type="hidden" name="lvl_selected">
+                            <small class="d-inline-block mt-2">A durabilidade
+                                {{ $mainProduct->Category->name === 'Grimório' ? 'do' : 'da' }}
+                                {{ $mainProduct->Category->name }} será afetada pelo nível</small>
+                        </div>
+                        <div class="mb-5 border {{ $mainProduct->enchant == 0 ? 'd-none' : '' }}" id="enchant">
                             <h4 class="h4">Encantar produto?</h4>
                             <div class="row flex-column justify-content-center align-items-center">
                                 <div class="col-12">
@@ -371,255 +387,264 @@
                                 </div>
                             </div>
                         </div>
-                    @endif
-                    <div class="mb-5 border" id="breakage_guarantee">
-                        <h4 class="h4">Adicionar garantia de quebra?</h4>
-                        <div class="row flex-column justify-content-center align-items-center">
-                            <div class="col-12">
-                                <select class="form-select" name="breakage_guarantee" id="breakage_guarantee_select"
-                                    aria-label="garantia" required>
-                                    <option disabled>Adicionar garantia de quebra?</option>
-                                    <option value="0" selected>Não</option>
-                                    <option value="1">Sim</option>
-                                </select>
-                            </div>
-                            <div class="col-12 row d-none" id="div_breakage_guarantee_months">
-                                <input class="option-breakage_guarantee_default d-none form-check-input mx-auto"
-                                    type="radio" name="breakage_guarantee_months" value="0" required checked>
-                                <div class="col-4 mt-3">
-                                    <div class="block-option form-check d-flex flex-column text-center p-2">
-                                        <input class="form-check-input mx-auto" type="radio"
-                                            name="breakage_guarantee_months" id="option-breakage_guarantee_6" value="6"
-                                            required>
-                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold"
-                                            for="option-breakage_guarantee_6">
-                                            Garantia básica
-                                            <span class="breakage_guarantee_upgrade">6 meses</span>
-                                        </label>
-                                    </div>
+                        <div class="mb-5 border" id="breakage_guarantee">
+                            <h4 class="h4">Adicionar garantia de quebra ou defeito?</h4>
+                            <div class="row flex-column justify-content-center align-items-center">
+                                <div class="col-12">
+                                    <select class="form-select" name="breakage_guarantee" id="breakage_guarantee_select"
+                                        aria-label="garantia" required>
+                                        <option disabled>Adicionar garantia de quebra?</option>
+                                        <option value="0" selected>Não</option>
+                                        <option value="1">Sim</option>
+                                    </select>
                                 </div>
-                                <div class="col-4 mt-3">
-                                    <div class="block-option form-check d-flex flex-column text-center p-2">
-                                        <input class="form-check-input mx-auto" type="radio"
-                                            name="breakage_guarantee_months" id="option-breakage_guarantee_12" value="12"
-                                            required>
-                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold"
-                                            for="option-breakage_guarantee_12">
-                                            Garantia extendida
-                                            <span class="breakage_guarantee_upgrade">12 meses</span>
-                                        </label>
+                                <div class="col-12 row d-none" id="div_breakage_guarantee_months">
+                                    <input class="option-breakage_guarantee_default d-none form-check-input mx-auto"
+                                        type="radio" name="breakage_guarantee_months" value="0" required checked>
+                                    <div class="col-4 mt-3">
+                                        <div class="block-option form-check d-flex flex-column text-center p-2">
+                                            <input class="form-check-input mx-auto" type="radio"
+                                                name="breakage_guarantee_months" id="option-breakage_guarantee_6" value="6"
+                                                required>
+                                            <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                                for="option-breakage_guarantee_6">
+                                                Garantia básica
+                                                <span class="breakage_guarantee_upgrade">6 meses</span>
+                                            </label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-4 mt-3">
-                                    <div class="block-option form-check d-flex flex-column text-center p-2">
-                                        <input class="form-check-input mx-auto" type="radio"
-                                            name="breakage_guarantee_months" id="option-breakage_guarantee_24" value="24"
-                                            required>
-                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold"
-                                            for="option-breakage_guarantee_24">
-                                            Garantia premium
-                                            <span class="breakage_guarantee_upgrade">24 meses</span>
-                                        </label>
+                                    <div class="col-4 mt-3">
+                                        <div class="block-option form-check d-flex flex-column text-center p-2">
+                                            <input class="form-check-input mx-auto" type="radio"
+                                                name="breakage_guarantee_months" id="option-breakage_guarantee_12"
+                                                value="12" required>
+                                            <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                                for="option-breakage_guarantee_12">
+                                                Garantia extendida
+                                                <span class="breakage_guarantee_upgrade">12 meses</span>
+                                            </label>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-5 border" id="theft_guarantee">
-                        <h4 class="h4">Adicionar garantia de furto e/ou roubo?</h4>
-                        <div class="row flex-column justify-content-center align-items-center">
-                            <div class="col-12">
-                                <select class="form-select" name="theft_guarantee" id="theft_guarantee_select"
-                                    aria-label="garantia" required>
-                                    <option disabled>Adicionar garantia de quebra?</option>
-                                    <option value="0" selected>Não</option>
-                                    <option value="1">Sim</option>
-                                </select>
-                            </div>
-                            <div class="col-12 row d-none" id="div_theft_guarantee_months">
-                                <input class="option-theft_guarantee_default d-none form-check-input mx-auto" type="radio"
-                                    name="theft_guarantee_months" value="0" required checked>
-                                <div class="col-4 mt-3">
-                                    <div class="block-option form-check d-flex flex-column text-center p-2">
-                                        <input class="form-check-input mx-auto" type="radio" name="theft_guarantee_months"
-                                            id="option-theft_guarantee_6" value="6" required>
-                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold"
-                                            for="option-theft_guarantee_6">
-                                            Garantia básica
-                                            <span class="theft_guarantee_upgrade">6 meses</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-4 mt-3">
-                                    <div class="block-option form-check d-flex flex-column text-center p-2">
-                                        <input class="form-check-input mx-auto" type="radio" name="theft_guarantee_months"
-                                            id="option-theft_guarantee_12" value="12" required>
-                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold"
-                                            for="option-theft_guarantee_12">
-                                            Garantia extendida
-                                            <span class="theft_guarantee_upgrade">12 meses</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-4 mt-3">
-                                    <div class="block-option form-check d-flex flex-column text-center p-2">
-                                        <input class="form-check-input mx-auto" type="radio" name="theft_guarantee_months"
-                                            id="option-theft_guarantee_24" value="24" required>
-                                        <label class="form-check-label d-flex flex-column mt-3 fw-bold"
-                                            for="option-theft_guarantee_24">
-                                            Garantia premium
-                                            <span class="theft_guarantee_upgrade">24 meses</span>
-                                        </label>
+                                    <div class="col-4 mt-3">
+                                        <div class="block-option form-check d-flex flex-column text-center p-2">
+                                            <input class="form-check-input mx-auto" type="radio"
+                                                name="breakage_guarantee_months" id="option-breakage_guarantee_24"
+                                                value="24" required>
+                                            <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                                for="option-breakage_guarantee_24">
+                                                Garantia premium
+                                                <span class="breakage_guarantee_upgrade">24 meses</span>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="d-flex justify-content-center mb-4">
-                        <div class="p-4 rounded" id="purchase-description">
-                            <h4 class="h4 fw-bold text-center">Descrição da compra</h4>
-                            <ul class="list-unstyled pt-0">
-                                <li class="d-flex justify-content-start align-items-start mt-2 p-0 purchase-description-option"
-                                    id="item-default-price">
-                                    <i class="fa-solid fa-money-bill"></i>
-                                    <span
-                                        class="purchase-description-info d-flex justify-content-start align-items-start flex-grow-1">
-                                        <span class="purchase-title">Preço padrão</span>
-                                        <span class="ms-auto d-flex flex-column">
-                                            @if ($mainProduct->discount_price !== 0.0)
-                                                <span class="purchase-price text-decoration-line-through"
-                                                    style="font-size:.90rem;font-weight:500;">R$ <span
-                                                        class="product-price"
-                                                        style="min-width: 41px;">{{ $mainProduct->price }}</span></span>
-                                                <span class="purchase-price">R$ <span
-                                                        class="d-inline-block product-price only-price"
-                                                        style="min-width: 41px">{{ $mainProduct->discount_price }}</span></span>
-                                            @else
-                                                <span class="purchase-price">R$ <span
-                                                        class="d-inline-block product-price only-price"
-                                                        style="min-width: 41px">{{ $mainProduct->price }}</span></span>
-                                            @endif
-                                        </span>
-                                    </span>
-                                </li>
-                                <li class="d-none d-flex justify-content-start align-items-start mt-2 p-0 position-relative purchase-description-option"
-                                    id="item-durability">
-                                    <i class="fa-solid fa-bars-progress"></i>
-                                    <span
-                                        class="purchase-description-info d-flex justify-content-start align-items-center flex-grow-1">
-                                        <span class="purchase-title" style="min-width: 132px">
-                                            Durabildade</span>
-                                        <ul class="purchase-list-info" style="min-width: 124px">
-                                            <li>Nível <span>100</span></li>
-                                        </ul>
-                                        <span class="ms-auto">
-                                            <span class="purchase-price">R$ <span
-                                                    class="d-inline-block product-price only-price"
-                                                    style="min-width: 41px">0</span></span>
-                                        </span>
-                                    </span>
-                                </li>
-                                <li class="d-none d-flex justify-content-start align-items-start my-2 p-0 position-relative purchase-description-option"
-                                    id="item-enchants">
-                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                                    <span
-                                        class="purchase-description-info d-flex justify-content-start align-items-start flex-grow-1">
-                                        <span class="purchase-title" style="min-width: 132px">
-                                            Encantamento</span>
-                                        <ul class="purchase-list-info" style="min-width: 124px">
-                                            @if ($mainProduct->Category->name === 'Armadura')
-                                                <li class="d-none" data-enchant-name="life">Vida</li>
-                                                <li class="d-none" data-enchant-name="speed">Agilidade</li>
-                                                <li class="d-none" data-enchant-name="physical_protection">Proteção
-                                                    física</li>
-                                                <li class="d-none" data-enchant-name="magic_protection">Proteção
-                                                    mágica</li>
-                                            @elseif ($mainProduct->Category->name === 'Poção')
-                                                @if ($mainProduct->itemClass->name === 'vida')
-                                                    <li class="d-none" data-enchant-name="life">Vida</li>
-                                                @elseif($mainProduct->itemClass->name === 'mana')
-                                                    <li class="d-none" data-enchant-name="mana">Mana</li>
-                                                @elseif($mainProduct->itemClass->name === 'agilidade')
-                                                    <li class="d-none" data-enchant-name="speed">Agilidade</li>
-                                                @elseif($mainProduct->itemClass->name === 'força')
-                                                    <li class="d-none" data-enchant-name="strength">Ataque físico
-                                                    </li>
+                        <div class="mb-5 border" id="theft_guarantee">
+                            <h4 class="h4">Adicionar garantia de furto ou roubo?</h4>
+                            <div class="row flex-column justify-content-center align-items-center">
+                                <div class="col-12">
+                                    <select class="form-select" name="theft_guarantee" id="theft_guarantee_select"
+                                        aria-label="garantia" required>
+                                        <option disabled>Adicionar garantia de quebra?</option>
+                                        <option value="0" selected>Não</option>
+                                        <option value="1">Sim</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 row d-none" id="div_theft_guarantee_months">
+                                    <input class="option-theft_guarantee_default d-none form-check-input mx-auto"
+                                        type="radio" name="theft_guarantee_months" value="0" required checked>
+                                    <div class="col-4 mt-3">
+                                        <div class="block-option form-check d-flex flex-column text-center p-2">
+                                            <input class="form-check-input mx-auto" type="radio"
+                                                name="theft_guarantee_months" id="option-theft_guarantee_6" value="6"
+                                                required>
+                                            <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                                for="option-theft_guarantee_6">
+                                                Garantia básica
+                                                <span class="theft_guarantee_upgrade">6 meses</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 mt-3">
+                                        <div class="block-option form-check d-flex flex-column text-center p-2">
+                                            <input class="form-check-input mx-auto" type="radio"
+                                                name="theft_guarantee_months" id="option-theft_guarantee_12" value="12"
+                                                required>
+                                            <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                                for="option-theft_guarantee_12">
+                                                Garantia extendida
+                                                <span class="theft_guarantee_upgrade">12 meses</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 mt-3">
+                                        <div class="block-option form-check d-flex flex-column text-center p-2">
+                                            <input class="form-check-input mx-auto" type="radio"
+                                                name="theft_guarantee_months" id="option-theft_guarantee_24" value="24"
+                                                required>
+                                            <label class="form-check-label d-flex flex-column mt-3 fw-bold"
+                                                for="option-theft_guarantee_24">
+                                                Garantia premium
+                                                <span class="theft_guarantee_upgrade">24 meses</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center mb-4">
+                            <div class="p-4 rounded" id="purchase-description">
+                                <h4 class="h4 fw-bold text-center">Descrição da compra</h4>
+                                <ul class="list-unstyled pt-0">
+                                    <li class="d-flex justify-content-start align-items-start mt-2 p-0 purchase-description-option"
+                                        id="item-default-price">
+                                        <i class="fa-solid fa-money-bill"></i>
+                                        <span
+                                            class="purchase-description-info d-flex justify-content-start align-items-start flex-grow-1">
+                                            <span class="purchase-title">Preço padrão</span>
+                                            <span class="ms-auto d-flex flex-column">
+                                                @if ($mainProduct->discount_price !== 0.0)
+                                                    <span class="purchase-price text-decoration-line-through"
+                                                        style="font-size:.90rem;font-weight:500;">R$ <span
+                                                            class="product-price"
+                                                            style="min-width: 41px;">{{ $mainProduct->price }}</span></span>
+                                                    <span class="purchase-price">R$ <span
+                                                            class="d-inline-block product-price only-price"
+                                                            style="min-width: 41px">{{ $mainProduct->discount_price }}</span></span>
+                                                @else
+                                                    <span class="purchase-price">R$ <span
+                                                            class="d-inline-block product-price only-price"
+                                                            style="min-width: 41px">{{ $mainProduct->price }}</span></span>
                                                 @endif
-                                            @else
-                                                <li class="d-none" data-enchant-name="physical_attack">Ataque
-                                                    físico</li>
-                                                <li class="d-none" data-enchant-name="magic_attack">Ataque mágico
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <li class="d-none d-flex justify-content-start align-items-start mt-2 p-0 position-relative purchase-description-option"
+                                        id="item-durability">
+                                        <i class="fa-solid fa-bars-progress"></i>
+                                        <span
+                                            class="purchase-description-info d-flex justify-content-start align-items-center flex-grow-1">
+                                            <span class="purchase-title" style="min-width: 132px">
+                                                Durabildade</span>
+                                            <ul class="purchase-list-info" style="min-width: 124px">
+                                                <li>Nível <span>100</span></li>
+                                            </ul>
+                                            <span class="ms-auto">
+                                                <span class="purchase-price">R$ <span
+                                                        class="d-inline-block product-price only-price"
+                                                        style="min-width: 41px">0</span></span>
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <li class="d-none d-flex justify-content-start align-items-start my-2 p-0 position-relative purchase-description-option"
+                                        id="item-enchants">
+                                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                        <span
+                                            class="purchase-description-info d-flex justify-content-start align-items-start flex-grow-1">
+                                            <span class="purchase-title" style="min-width: 132px">
+                                                Encantamento</span>
+                                            <ul class="purchase-list-info" style="min-width: 124px">
+                                                @if ($mainProduct->Category->name === 'Armadura')
+                                                    <li class="d-none" data-enchant-name="life">Vida</li>
+                                                    <li class="d-none" data-enchant-name="speed">Agilidade</li>
+                                                    <li class="d-none" data-enchant-name="physical_protection">
+                                                        Proteção
+                                                        física</li>
+                                                    <li class="d-none" data-enchant-name="magic_protection">
+                                                        Proteção
+                                                        mágica</li>
+                                                @elseif ($mainProduct->Category->name === 'Poção')
+                                                    @if ($mainProduct->itemClass->name === 'vida')
+                                                        <li class="d-none" data-enchant-name="life">Vida</li>
+                                                    @elseif($mainProduct->itemClass->name === 'mana')
+                                                        <li class="d-none" data-enchant-name="mana">Mana</li>
+                                                    @elseif($mainProduct->itemClass->name === 'agilidade')
+                                                        <li class="d-none" data-enchant-name="speed">Agilidade</li>
+                                                    @elseif($mainProduct->itemClass->name === 'força')
+                                                        <li class="d-none" data-enchant-name="strength">Ataque
+                                                            físico
+                                                        </li>
+                                                    @endif
+                                                @else
+                                                    <li class="d-none" data-enchant-name="physical_attack">Ataque
+                                                        físico</li>
+                                                    <li class="d-none" data-enchant-name="magic_attack">Ataque
+                                                        mágico
+                                                    </li>
+                                                    <li class="d-none" data-enchant-name="mana">Mana</li>
+                                                @endif
+                                            </ul>
+                                            <span class="ms-auto">
+                                                <span class="purchase-price">R$ <span
+                                                        class="d-inline-block product-price only-price"
+                                                        style="min-width: 41px">0</span></span>
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <li class="d-none d-flex justify-content-start align-items-start my-2 p-0 position-relative purchase-description-option"
+                                        id="item-guarantee">
+                                        <i class="fa-solid fa-certificate"></i>
+                                        <span
+                                            class="purchase-description-info d-flex justify-content-start align-items-start flex-grow-1">
+                                            <span class="purchase-title" style="min-width: 132px">
+                                                Garantia</span>
+                                            <ul class="purchase-list-info" style="min-width: 124px">
+                                                <li class="d-none" id="li-breakage_guarantee_months">Quebra</li>
+                                                <li class="d-none" id="li-theft_guarantee_months">Furto ou roubo
                                                 </li>
-                                                <li class="d-none" data-enchant-name="mana">Mana</li>
-                                            @endif
-                                        </ul>
-                                        <span class="ms-auto">
-                                            <span class="purchase-price">R$ <span
-                                                    class="d-inline-block product-price only-price"
-                                                    style="min-width: 41px">0</span></span>
+                                            </ul>
+                                            <span class="ms-auto">
+                                                <span class="purchase-price">R$ <span
+                                                        class="d-inline-block product-price only-price"
+                                                        style="min-width: 41px">0</span></span>
+                                            </span>
                                         </span>
-                                    </span>
-                                </li>
-                                <li class="d-none d-flex justify-content-start align-items-start my-2 p-0 position-relative purchase-description-option"
-                                    id="item-guarantee">
-                                    <i class="fa-solid fa-certificate"></i>
-                                    <span
-                                        class="purchase-description-info d-flex justify-content-start align-items-start flex-grow-1">
-                                        <span class="purchase-title" style="min-width: 132px">
-                                            Garantia</span>
-                                        <ul class="purchase-list-info" style="min-width: 124px">
-                                            <li class="d-none" id="li-breakage_guarantee_months">Quebra</li>
-                                            <li class="d-none" id="li-theft_guarantee_months">Furto ou roubo</li>
-                                        </ul>
-                                        <span class="ms-auto">
-                                            <span class="purchase-price">R$ <span
-                                                    class="d-inline-block product-price only-price"
-                                                    style="min-width: 41px">0</span></span>
-                                        </span>
-                                    </span>
-                                </li>
-                            </ul>
-                            <div class="row justify-content-center align-items-center">
-                                <div class="col-10 d-flex justify-content-between align-items-center">
-                                    <h5 class="h5 m-0" id="purchase-total-title">Total</h5>
-                                    @if ($mainProduct->discount_price !== 0.0)
-                                        <p class="m-0" id="purchase-total-price">R$ <span
-                                                class="product-price">{{ $mainProduct->discount_price }}</span></p>
-                                    @else
-                                        <p class="m-0" id="purchase-total-price">R$ <span
-                                                class="product-price">{{ $mainProduct->price }}</span></p>
-                                    @endif
+                                    </li>
+                                </ul>
+                                <div class="row justify-content-center align-items-center">
+                                    <div class="col-10 d-flex justify-content-between align-items-center">
+                                        <h5 class="h5 m-0" id="purchase-total-title">Total</h5>
+                                        @if ($mainProduct->discount_price !== 0.0)
+                                            <p class="m-0" id="purchase-total-price">R$ <span
+                                                    class="product-price">{{ $mainProduct->discount_price }}</span></p>
+                                        @else
+                                            <p class="m-0" id="purchase-total-price">R$ <span
+                                                    class="product-price">{{ $mainProduct->price }}</span></p>
+                                        @endif
+                                    </div>
                                 </div>
+                                @if ($mainProduct->discount_price !== 0.0)
+                                    <input type="hidden" name="product_total_price"
+                                        value="{{ $mainProduct->discount_price }}">
+                                    <input type="hidden" value="{{ $mainProduct->discount_price }}"
+                                        name="product_default_price">
+                                @else
+                                    <input type="hidden" name="product_total_price" value="{{ $mainProduct->price }}">
+                                    <input type="hidden" value="{{ $mainProduct->price }}" name="product_default_price">
+                                @endif
+                                <input type="hidden" name="product_lvl_price">
+                                <input type="hidden" name="product_enchant_price">
+                                <input type="hidden" name="product_breakage_guarantee_price" value="0">
+                                <input type="hidden" name="product_theft_guarantee_price" value="0">
                             </div>
-                            @if ($mainProduct->discount_price !== 0.0)
-                                <input type="hidden" name="product_total_price"
-                                    value="{{ $mainProduct->discount_price }}">
-                                <input type="hidden" value="{{ $mainProduct->discount_price }}"
-                                    name="product_default_price">
-                            @else
-                                <input type="hidden" name="product_total_price" value="{{ $mainProduct->price }}">
-                                <input type="hidden" value="{{ $mainProduct->price }}" name="product_default_price">
-                            @endif
-                            <input type="hidden" name="product_lvl_price">
-                            <input type="hidden" name="product_enchant_price">
-                            <input type="hidden" name="product_breakage_guarantee_price" value="0">
-                            <input type="hidden" name="product_theft_guarantee_price" value="0">
                         </div>
-                    </div>
-                    <div class="p-4 row flex-column justify-content-center align-items-center">
-                        <button type="submit" class="col-12 btn btn-primary mb-4">Continuar compra</button>
-                        <div class="col-12 py-2 rounded" id="mark-product">
-                            <h4>Ainda decidindo?</h4>
-                            <div class="d-flex justify-content-center align-items-center mt-2">
-                                <p class="m-0 me-4">Adicione esse produto a sua lista de desejos e você poderá voltar
-                                    para ve-lô denovo</p>
-                                <div id="marks">
-                                    <i class="fa-regular fa-bookmark"></i>
-                                    <i class="d-none fa-solid fa-bookmark"></i>
+                        <div class="p-4 row flex-column justify-content-center align-items-center">
+                            <button type="submit" class="col-12 btn btn-primary mb-4">Continuar compra</button>
+                            <div class="col-12 py-2 rounded" id="mark-product">
+                                <h4>Ainda decidindo?</h4>
+                                <div class="d-flex justify-content-center align-items-center mt-2">
+                                    <p class="m-0 me-4">Adicione esse produto a sua lista de desejos e você poderá
+                                        voltar
+                                        para ve-lô denovo</p>
+                                    <div id="marks">
+                                        <i class="fa-regular fa-bookmark"></i>
+                                        <i class="d-none fa-solid fa-bookmark"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </form>
         </div>

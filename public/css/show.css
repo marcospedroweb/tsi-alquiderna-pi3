@@ -169,7 +169,11 @@
 }
 
 #section-desc .block-option {
-    min-height: 93.67px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 117px;
 }
 
 #section-desc .separator,

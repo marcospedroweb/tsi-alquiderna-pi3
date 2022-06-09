@@ -16,8 +16,8 @@
 }
 
 /* GENERAL */
-
 body {
+
     background-color: var(--body-background);
 }
 
@@ -71,8 +71,14 @@ p {
 
 #div-search #btn-cancel-search {
     right: 80px !important;
+    transition: color .15s ease-out;
 }
 
+#div-search #btn-cancel-search:hover {
+    color: #dc3545;
+}
+
+#options-nav .btn,
 #options-nav .btn:hover:not(.dropdown-item .btn:hover),
 #options-nav #div-login-user:hover {
     border: 1px solid transparent;
