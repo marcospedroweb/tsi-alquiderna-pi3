@@ -17,7 +17,13 @@
     <section class="container-xxl mt-4 mb-6">
         <div class="row justify-content-center align-items-start">
             <div class="col-6 overflow-hidden sticky-top" id="main-product-image">
-                <img src="{{ asset($mainProduct->image) }}" class="rounded" alt="imagem do produto">
+                <div class="position-relative">
+                    <img src="{{ asset($mainProduct->image) }}" class="rounded" alt="imagem do produto">
+                    <p class="position-absolute bottom-0 start-50 translate-middle-x">Foto tirada por <a
+                            href="{{ $mainProduct->author_link }}">{{ $mainProduct->author_name }}</a> em <a
+                            href="{{ $mainProduct->source_website_link }}">{{ $mainProduct->SourceWebsite->name }}</a>
+                    </p>
+                </div>
             </div>
             <form action="{{ route('cart.store', $mainProduct->id) }}" method="POST" class="col-6 bg-white rounded"
                 id="main-form-buy">
@@ -665,7 +671,7 @@
                             @if ($mainProduct->enchant === 1)
                                 <p>Disponível</p>
                             @else
-                                <p>ndisponível</p>
+                                <p>Indisponível</p>
                             @endif
                         </div>
                     </div>

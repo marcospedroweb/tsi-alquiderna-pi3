@@ -36,6 +36,24 @@
     object-position: top center;
 }
 
+#main-product-image p {
+    width: fit-content;
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+#main-product-image p a {
+    font-weight: 600;
+    color: #323232;
+    transition: color .25s ease-out;
+}
+
+#main-product-image p a:hover {
+    color: #000;
+}
+
 #main-form-buy h4 {
     font-weight: 600;
 }

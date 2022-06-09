@@ -149,7 +149,7 @@
                                     <li><a class="dropdown-item" href="{{ route('crud.index') }}">Crud</a></li>
                                     <form action="{{ route('logout') }}" method="post" class="dropdown-item">
                                         @csrf
-                                        <button type="submit" class="btn p-0">Sair da sessão</button>
+                                        <button type="submit" class="btn p-0 rounded-0">Sair da sessão</button>
                                     </form>
                                 </ul>
                             </div>

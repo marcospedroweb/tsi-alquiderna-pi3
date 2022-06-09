@@ -119,6 +119,9 @@ span.h2 {
 }
 
 /* BTNs */
+.dropdown-menu button.btn {
+    border-radius: 0;
+}
 
 .btn-primary {
     border: 0;

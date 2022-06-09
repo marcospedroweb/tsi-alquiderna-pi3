@@ -110,7 +110,7 @@
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-wand-sparkles"></i>
-                                            <span>{{ $item->magic_attack }}</span>
+                                            <span>{{ $item->enchant_magic_attack != 0 ? $item->enchant_magic_attack : $item->Product->magic_attack }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
                                             <i class="fa-solid fa-droplet"></i>

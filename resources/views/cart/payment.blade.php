@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-3 mb-3">
                     <label for="complement" class="form-label">Coplemento</label>
-                    <input type="text" class="form-control" id="complement" placeholder="Ex: b" required>
+                    <input type="text" class="form-control" id="complement" placeholder="Ex: b">
                 </div>
                 <div class="col-11 text-center py-4">
                     <button type="submit" class="btn btn-primary">Confirmar endereço</button>
