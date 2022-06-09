@@ -844,20 +844,92 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="attributes d-flex justify-content-between align-items-center">
-                                        <div class="attribute d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-user-slash"></i>
-                                            <span
-                                                class="product-attribute-physical-attack">{{ $productSameCategory->physical_attack }}</span>
-                                        </div>
-                                        <div class="attribute d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-wand-sparkles"></i>
-                                            <span
-                                                class="product-attribute-magic-attack">{{ $productSameCategory->magic_attack }}</span>
-                                        </div>
-                                        <div class="attribute d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-droplet"></i>
-                                            <span class="product-attribute-mana">{{ $productSameCategory->mana }}</span>
-                                        </div>
+                                        @if ($category_name === 'Armadura')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-heart-fill"></i>
+                                                <span
+                                                    class="product-attribute-life">{{ $productSameCategory->life }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-person-running"></i>
+                                                <span
+                                                    class="product-attribute-speed">{{ $productSameCategory->speed }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-shield-slash-fill"></i>
+                                                <span
+                                                    class="product-attribute-physical-protection">{{ $productSameCategory->physical_protection }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
+                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
+                                                        fill="#771CA3" />
+                                                    <path
+                                                        d="M5.01007 12.33C6.76007 14.5 10.1301 14.57 11.9701 12.4C12.2001 12.13 12.0501 11.72 11.7101 11.66C10.4201 11.45 9.23007 10.68 8.53007 9.46003C7.82007 8.24003 7.75007 6.83003 8.21007 5.60003C8.33007 5.27003 8.05006 4.94003 7.70006 5.00003C4.36006 5.62003 2.81007 9.61003 5.01007 12.33Z"
+                                                        fill="#771CA3" />
+                                                </svg>
+                                                <span
+                                                    class="product-attribute-magic-protection">{{ $productSameCategory->magic_protection }}</span>
+                                            </div>
+                                        @elseif($category_name === 'Poção' && $productSameCategory->ItemClass->name === 'vida')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-heart-fill"></i>
+                                                <span
+                                                    class="product-attribute-life">{{ $productSameCategory->life }}</span>
+                                            </div>
+                                        @elseif($category_name === 'Poção' && $productSameCategory->ItemClass->name === 'força')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-shield-slash-fill"></i>
+                                                <span
+                                                    class="product-attribute-physical-attack">{{ $productSameCategory->physical_attack }}</span>
+                                            </div>
+                                        @elseif($category_name === 'Poção' && $productSameCategory->ItemClass->name === 'mana')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-droplet"></i>
+                                                <span
+                                                    class="product-attribute-mana">{{ $productSameCategory->mana }}</span>
+                                            </div>
+                                        @elseif($category_name === 'Poção' && $productSameCategory->ItemClass->name === 'agilidade')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-person-running"></i>
+                                                <span
+                                                    class="product-attribute-speed">{{ $productSameCategory->speed }}</span>
+                                            </div>
+                                        @elseif($category_name === 'Poção' && $productSameCategory->ItemClass->name === 'kit')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-heart-fill"></i>
+                                                <span
+                                                    class="product-attribute-life">{{ $productSameCategory->life }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-person-running"></i>
+                                                <span
+                                                    class="product-attribute-speed">{{ $productSameCategory->speed }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-droplet"></i>
+                                                <span
+                                                    class="product-attribute-mana">{{ $productSameCategory->mana }}</span>
+                                            </div>
+                                        @else
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-user-slash"></i>
+                                                <span
+                                                    class="product-attribute-physical-attack">{{ $productSameCategory->physical_attack }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-wand-sparkles"></i>
+                                                <span
+                                                    class="product-attribute-magic-attack">{{ $productSameCategory->magic_attack }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-droplet"></i>
+                                                <span
+                                                    class="product-attribute-mana">{{ $productSameCategory->mana }}</span>
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="card-product-price">
                                         <div class="d-flex flex-column align-items-end">
@@ -978,21 +1050,92 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="attributes d-flex justify-content-between align-items-center">
-                                        <div class="attribute d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-user-slash"></i>
-                                            <span
-                                                class="product-attribute-physical-attack">{{ $productOtherCategory->physical_attack }}</span>
-                                        </div>
-                                        <div class="attribute d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-wand-sparkles"></i>
-                                            <span
-                                                class="product-attribute-magic-attack">{{ $productOtherCategory->magic_attack }}</span>
-                                        </div>
-                                        <div class="attribute d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-droplet"></i>
-                                            <span
-                                                class="product-attribute-mana">{{ $productOtherCategory->mana }}</span>
-                                        </div>
+                                        @if ($productOtherCategory->Category->name === 'Armadura')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-heart-fill"></i>
+                                                <span
+                                                    class="product-attribute-life">{{ $productOtherCategory->life }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-person-running"></i>
+                                                <span
+                                                    class="product-attribute-speed">{{ $productOtherCategory->speed }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-shield-slash-fill"></i>
+                                                <span
+                                                    class="product-attribute-physical-protection">{{ $productOtherCategory->physical_protection }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
+                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
+                                                        fill="#771CA3" />
+                                                    <path
+                                                        d="M5.01007 12.33C6.76007 14.5 10.1301 14.57 11.9701 12.4C12.2001 12.13 12.0501 11.72 11.7101 11.66C10.4201 11.45 9.23007 10.68 8.53007 9.46003C7.82007 8.24003 7.75007 6.83003 8.21007 5.60003C8.33007 5.27003 8.05006 4.94003 7.70006 5.00003C4.36006 5.62003 2.81007 9.61003 5.01007 12.33Z"
+                                                        fill="#771CA3" />
+                                                </svg>
+                                                <span
+                                                    class="product-attribute-magic-protection">{{ $productOtherCategory->magic_protection }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'vida')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-heart-fill"></i>
+                                                <span
+                                                    class="product-attribute-life">{{ $productOtherCategory->life }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'força')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-shield-slash-fill"></i>
+                                                <span
+                                                    class="product-attribute-physical-attack">{{ $productOtherCategory->physical_attack }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'mana')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-droplet"></i>
+                                                <span
+                                                    class="product-attribute-mana">{{ $productOtherCategory->mana }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'agilidade')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-person-running"></i>
+                                                <span
+                                                    class="product-attribute-speed">{{ $productOtherCategory->speed }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'kit')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-heart-fill"></i>
+                                                <span
+                                                    class="product-attribute-life">{{ $productOtherCategory->life }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-person-running"></i>
+                                                <span
+                                                    class="product-attribute-speed">{{ $productOtherCategory->speed }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-droplet"></i>
+                                                <span
+                                                    class="product-attribute-mana">{{ $productOtherCategory->mana }}</span>
+                                            </div>
+                                        @else
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-user-slash"></i>
+                                                <span
+                                                    class="product-attribute-physical-attack">{{ $productOtherCategory->physical_attack }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-wand-sparkles"></i>
+                                                <span
+                                                    class="product-attribute-magic-attack">{{ $productOtherCategory->magic_attack }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-droplet"></i>
+                                                <span
+                                                    class="product-attribute-mana">{{ $productOtherCategory->mana }}</span>
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="card-product-price">
                                         <div class="d-flex flex-column align-items-end">
@@ -1104,7 +1247,8 @@
                                         @endif
                                         <span class="product-name">{{ $productOtherCategory->name }}</span>
                                     </h3>
-                                    <p><span class="product-category">{{ $productOtherCategory->Category->name }}</span>
+                                    <p><span
+                                            class="product-category">{{ $productOtherCategory->Category->name }}</span>
                                         <span
                                             class="product-item-class">{{ $productOtherCategory->ItemClass->name }}</span>,
                                         nível
@@ -1113,21 +1257,92 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="attributes d-flex justify-content-between align-items-center">
-                                        <div class="attribute d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-user-slash"></i>
-                                            <span
-                                                class="product-attribute-physical-attack">{{ $productOtherCategory->physical_attack }}</span>
-                                        </div>
-                                        <div class="attribute d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-wand-sparkles"></i>
-                                            <span
-                                                class="product-attribute-magic-attack">{{ $productOtherCategory->magic_attack }}</span>
-                                        </div>
-                                        <div class="attribute d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-droplet"></i>
-                                            <span
-                                                class="product-attribute-mana">{{ $productOtherCategory->mana }}</span>
-                                        </div>
+                                        @if ($productOtherCategory->Category->name === 'Armadura')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-heart-fill"></i>
+                                                <span
+                                                    class="product-attribute-life">{{ $productOtherCategory->life }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-person-running"></i>
+                                                <span
+                                                    class="product-attribute-speed">{{ $productOtherCategory->speed }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-shield-slash-fill"></i>
+                                                <span
+                                                    class="product-attribute-physical-protection">{{ $productOtherCategory->physical_protection }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
+                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
+                                                        fill="#771CA3" />
+                                                    <path
+                                                        d="M5.01007 12.33C6.76007 14.5 10.1301 14.57 11.9701 12.4C12.2001 12.13 12.0501 11.72 11.7101 11.66C10.4201 11.45 9.23007 10.68 8.53007 9.46003C7.82007 8.24003 7.75007 6.83003 8.21007 5.60003C8.33007 5.27003 8.05006 4.94003 7.70006 5.00003C4.36006 5.62003 2.81007 9.61003 5.01007 12.33Z"
+                                                        fill="#771CA3" />
+                                                </svg>
+                                                <span
+                                                    class="product-attribute-magic-protection">{{ $productOtherCategory->magic_protection }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'vida')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-heart-fill"></i>
+                                                <span
+                                                    class="product-attribute-life">{{ $productOtherCategory->life }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'força')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-shield-slash-fill"></i>
+                                                <span
+                                                    class="product-attribute-physical-attack">{{ $productOtherCategory->physical_attack }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'mana')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-droplet"></i>
+                                                <span
+                                                    class="product-attribute-mana">{{ $productOtherCategory->mana }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'agilidade')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-person-running"></i>
+                                                <span
+                                                    class="product-attribute-speed">{{ $productOtherCategory->speed }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'kit')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-heart-fill"></i>
+                                                <span
+                                                    class="product-attribute-life">{{ $productOtherCategory->life }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-person-running"></i>
+                                                <span
+                                                    class="product-attribute-speed">{{ $productOtherCategory->speed }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-droplet"></i>
+                                                <span
+                                                    class="product-attribute-mana">{{ $productOtherCategory->mana }}</span>
+                                            </div>
+                                        @else
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-user-slash"></i>
+                                                <span
+                                                    class="product-attribute-physical-attack">{{ $productOtherCategory->physical_attack }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-wand-sparkles"></i>
+                                                <span
+                                                    class="product-attribute-magic-attack">{{ $productOtherCategory->magic_attack }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-droplet"></i>
+                                                <span
+                                                    class="product-attribute-mana">{{ $productOtherCategory->mana }}</span>
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="card-product-price">
                                         <div class="d-flex flex-column align-items-end">
@@ -1249,21 +1464,92 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="attributes d-flex justify-content-between align-items-center">
-                                        <div class="attribute d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-user-slash"></i>
-                                            <span
-                                                class="product-attribute-physical-attack">{{ $productOtherCategory->physical_attack }}</span>
-                                        </div>
-                                        <div class="attribute d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-wand-sparkles"></i>
-                                            <span
-                                                class="product-attribute-magic-attack">{{ $productOtherCategory->magic_attack }}</span>
-                                        </div>
-                                        <div class="attribute d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-droplet"></i>
-                                            <span
-                                                class="product-attribute-mana">{{ $productOtherCategory->mana }}</span>
-                                        </div>
+                                        @if ($productOtherCategory->Category->name === 'Armadura')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-heart-fill"></i>
+                                                <span
+                                                    class="product-attribute-life">{{ $productOtherCategory->life }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-person-running"></i>
+                                                <span
+                                                    class="product-attribute-speed">{{ $productOtherCategory->speed }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-shield-slash-fill"></i>
+                                                <span
+                                                    class="product-attribute-physical-protection">{{ $productOtherCategory->physical_protection }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
+                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
+                                                        fill="#771CA3" />
+                                                    <path
+                                                        d="M5.01007 12.33C6.76007 14.5 10.1301 14.57 11.9701 12.4C12.2001 12.13 12.0501 11.72 11.7101 11.66C10.4201 11.45 9.23007 10.68 8.53007 9.46003C7.82007 8.24003 7.75007 6.83003 8.21007 5.60003C8.33007 5.27003 8.05006 4.94003 7.70006 5.00003C4.36006 5.62003 2.81007 9.61003 5.01007 12.33Z"
+                                                        fill="#771CA3" />
+                                                </svg>
+                                                <span
+                                                    class="product-attribute-magic-protection">{{ $productOtherCategory->magic_protection }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'vida')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-heart-fill"></i>
+                                                <span
+                                                    class="product-attribute-life">{{ $productOtherCategory->life }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'força')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-shield-slash-fill"></i>
+                                                <span
+                                                    class="product-attribute-physical-attack">{{ $productOtherCategory->physical_attack }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'mana')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-droplet"></i>
+                                                <span
+                                                    class="product-attribute-mana">{{ $productOtherCategory->mana }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'agilidade')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-person-running"></i>
+                                                <span
+                                                    class="product-attribute-speed">{{ $productOtherCategory->speed }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'kit')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-heart-fill"></i>
+                                                <span
+                                                    class="product-attribute-life">{{ $productOtherCategory->life }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-person-running"></i>
+                                                <span
+                                                    class="product-attribute-speed">{{ $productOtherCategory->speed }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-droplet"></i>
+                                                <span
+                                                    class="product-attribute-mana">{{ $productOtherCategory->mana }}</span>
+                                            </div>
+                                        @else
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-user-slash"></i>
+                                                <span
+                                                    class="product-attribute-physical-attack">{{ $productOtherCategory->physical_attack }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-wand-sparkles"></i>
+                                                <span
+                                                    class="product-attribute-magic-attack">{{ $productOtherCategory->magic_attack }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-droplet"></i>
+                                                <span
+                                                    class="product-attribute-mana">{{ $productOtherCategory->mana }}</span>
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="card-product-price">
                                         <div class="d-flex flex-column align-items-end">
@@ -1385,21 +1671,92 @@
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="attributes d-flex justify-content-between align-items-center">
-                                        <div class="attribute d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-user-slash"></i>
-                                            <span
-                                                class="product-attribute-physical-attack">{{ $productOtherCategory->physical_attack }}</span>
-                                        </div>
-                                        <div class="attribute d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-wand-sparkles"></i>
-                                            <span
-                                                class="product-attribute-magic-attack">{{ $productOtherCategory->magic_attack }}</span>
-                                        </div>
-                                        <div class="attribute d-flex justify-content-center align-items-center">
-                                            <i class="fa-solid fa-droplet"></i>
-                                            <span
-                                                class="product-attribute-mana">{{ $productOtherCategory->mana }}</span>
-                                        </div>
+                                        @if ($productOtherCategory->Category->name === 'Armadura')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-heart-fill"></i>
+                                                <span
+                                                    class="product-attribute-life">{{ $productOtherCategory->life }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-person-running"></i>
+                                                <span
+                                                    class="product-attribute-speed">{{ $productOtherCategory->speed }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-shield-slash-fill"></i>
+                                                <span
+                                                    class="product-attribute-physical-protection">{{ $productOtherCategory->physical_protection }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
+                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
+                                                        fill="#771CA3" />
+                                                    <path
+                                                        d="M5.01007 12.33C6.76007 14.5 10.1301 14.57 11.9701 12.4C12.2001 12.13 12.0501 11.72 11.7101 11.66C10.4201 11.45 9.23007 10.68 8.53007 9.46003C7.82007 8.24003 7.75007 6.83003 8.21007 5.60003C8.33007 5.27003 8.05006 4.94003 7.70006 5.00003C4.36006 5.62003 2.81007 9.61003 5.01007 12.33Z"
+                                                        fill="#771CA3" />
+                                                </svg>
+                                                <span
+                                                    class="product-attribute-magic-protection">{{ $productOtherCategory->magic_protection }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'vida')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-heart-fill"></i>
+                                                <span
+                                                    class="product-attribute-life">{{ $productOtherCategory->life }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'força')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-shield-slash-fill"></i>
+                                                <span
+                                                    class="product-attribute-physical-attack">{{ $productOtherCategory->physical_attack }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'mana')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-droplet"></i>
+                                                <span
+                                                    class="product-attribute-mana">{{ $productOtherCategory->mana }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'agilidade')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-person-running"></i>
+                                                <span
+                                                    class="product-attribute-speed">{{ $productOtherCategory->speed }}</span>
+                                            </div>
+                                        @elseif($productOtherCategory->Category->name === 'Poção' && $productOtherCategory->ItemClass->name === 'kit')
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="bi bi-heart-fill"></i>
+                                                <span
+                                                    class="product-attribute-life">{{ $productOtherCategory->life }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-person-running"></i>
+                                                <span
+                                                    class="product-attribute-speed">{{ $productOtherCategory->speed }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-droplet"></i>
+                                                <span
+                                                    class="product-attribute-mana">{{ $productOtherCategory->mana }}</span>
+                                            </div>
+                                        @else
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-user-slash"></i>
+                                                <span
+                                                    class="product-attribute-physical-attack">{{ $productOtherCategory->physical_attack }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-wand-sparkles"></i>
+                                                <span
+                                                    class="product-attribute-magic-attack">{{ $productOtherCategory->magic_attack }}</span>
+                                            </div>
+                                            <div class="attribute d-flex justify-content-center align-items-center">
+                                                <i class="fa-solid fa-droplet"></i>
+                                                <span
+                                                    class="product-attribute-mana">{{ $productOtherCategory->mana }}</span>
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="card-product-price">
                                         <div class="d-flex flex-column align-items-end">
