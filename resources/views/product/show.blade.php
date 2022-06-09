@@ -636,8 +636,9 @@
                             </div>
                         </div>
                         <div class="p-4 row flex-column justify-content-center align-items-center">
-                            <button type="submit" class="col-12 btn btn-primary mb-4">Continuar compra</button>
-                            <div class="col-12 py-2 rounded" id="mark-product">
+                            <button type="submit" class="col-12 btn btn-primary mb-4 text-uppercase fw-bold">Adicionar a
+                                cesta</button>
+                            <div class="col-12 py-2 rounded d-none" id="mark-product">
                                 <h4>Ainda decidindo?</h4>
                                 <div class="d-flex justify-content-center align-items-center mt-2">
                                     <p class="m-0 me-4">Adicione esse produto a sua lista de desejos e você poderá
