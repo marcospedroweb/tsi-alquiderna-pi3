@@ -198,8 +198,9 @@
                                                     class="product-attribute-physical-protection">{{ $productBigBanner1->physical_protection }}</span>
                                             </div>
                                             <div class="attribute d-flex justify-content-center align-items-center">
-                                                <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="shield-moon" width="16" height="20"
+                                                    viewBox="0 0 16 20" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                         fill="#771CA3" />
@@ -291,7 +292,8 @@
                 </div>
             @else
                 <div class="big-banner-full row d-flex justify-content-center align-items-center mb-4 position-relative">
-                    <img src="{{ asset('images-banners/' . $category_name . '-big-banner-1.png') }}" alt="imagem banner">
+                    <img src="{{ asset('images-banners/' . $category_name . '-big-banner-1.png') }}"
+                        alt="imagem banner">
                     <div
                         class="col-10 position-absolute top-0 start-50 translate-middle-x row flex-column justify-content-center align-items-center">
                         <div class="col-12 d-flex flex-column justify-content-center align-items-center">
@@ -406,7 +408,8 @@
             <div class="row justify-content-between align-items-center mb-4">
                 <div class="col-6">
                     <div class="small-banner row justify-content-center align-items-center position-relative">
-                        <img src="{{ asset('images-banners/' . $category_name . '-small-banner-1.png') }}" alt="">
+                        <img src="{{ asset('images-banners/' . $category_name . '-small-banner-1.png') }}"
+                            alt="">
                         <div
                             class="col-12 position-absolute bottom-0 start-50 translate-middle-x row flex-column justify-content-center align-items-center mb-4 mx-auto">
                             <div class="small-banner-text w-100 h-100  d-flex flex-column justify-content-end">
@@ -443,8 +446,9 @@
                                                     class="product-attribute-physical-protection">{{ $productSmallBanner1->physical_protection }}</span>
                                             </div>
                                             <div class="attribute d-flex justify-content-center align-items-center">
-                                                <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="shield-moon" width="16" height="20"
+                                                    viewBox="0 0 16 20" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                         fill="#771CA3" />
@@ -538,7 +542,8 @@
                 </div>
                 <div class="col-6">
                     <div class="small-banner row justify-content-center align-items-center position-relative">
-                        <img src="{{ asset('images-banners/' . $category_name . '-small-banner-2.png') }}" alt="">
+                        <img src="{{ asset('images-banners/' . $category_name . '-small-banner-2.png') }}"
+                            alt="">
                         <div
                             class="col-12 position-absolute bottom-0 start-50 translate-middle-x row flex-column justify-content-center align-items-center mb-4 mx-auto">
                             <div class="small-banner-text w-100 h-100  d-flex flex-column justify-content-end">
@@ -575,8 +580,9 @@
                                                     class="product-attribute-physical-protection">{{ $productSmallBanner2->physical_protection }}</span>
                                             </div>
                                             <div class="attribute d-flex justify-content-center align-items-center">
-                                                <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="shield-moon" width="16" height="20"
+                                                    viewBox="0 0 16 20" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                         fill="#771CA3" />
@@ -696,8 +702,8 @@
                                             class="product-attribute-physical-protection">{{ $productBigBanner2->physical_protection }}</span>
                                     </div>
                                     <div class="attribute d-flex justify-content-center align-items-center">
-                                        <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                 fill="#771CA3" />
@@ -824,8 +830,9 @@
                                                         class="product-attribute-physical-protection">{{ $newProduct->physical_protection }}</span>
                                                 </div>
                                                 <div class="attribute d-flex justify-content-center align-items-center">
-                                                    <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg class="shield-moon" width="16" height="20"
+                                                        viewBox="0 0 16 20" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
                                                         <path
                                                             d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                             fill="#771CA3" />
@@ -1126,8 +1133,9 @@
                                                         class="product-attribute-physical-protection">{{ $productsOnSale->physical_protection }}</span>
                                                 </div>
                                                 <div class="attribute d-flex justify-content-center align-items-center">
-                                                    <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg class="shield-moon" width="16" height="20"
+                                                        viewBox="0 0 16 20" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
                                                         <path
                                                             d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                             fill="#771CA3" />
@@ -1433,8 +1441,9 @@
                                                         class="product-attribute-physical-protection">{{ $begginerProduct->physical_protection }}</span>
                                                 </div>
                                                 <div class="attribute d-flex justify-content-center align-items-center">
-                                                    <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg class="shield-moon" width="16" height="20"
+                                                        viewBox="0 0 16 20" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
                                                         <path
                                                             d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                             fill="#771CA3" />
@@ -1727,7 +1736,8 @@
                                             <div class="attributes d-flex justify-content-between align-items-center">
                                                 <div class="attribute d-flex justify-content-center align-items-center">
                                                     <i class="bi bi-heart-fill"></i>
-                                                    <span class="product-attribute-life">{{ $lightArmor->life }}</span>
+                                                    <span
+                                                        class="product-attribute-life">{{ $lightArmor->life }}</span>
                                                 </div>
                                                 <div class="attribute d-flex justify-content-center align-items-center">
                                                     <i class="fa-solid fa-person-running"></i>
@@ -1740,8 +1750,9 @@
                                                         class="product-attribute-physical-protection">{{ $lightArmor->physical_protection }}</span>
                                                 </div>
                                                 <div class="attribute d-flex justify-content-center align-items-center">
-                                                    <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg class="shield-moon" width="16" height="20"
+                                                        viewBox="0 0 16 20" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
                                                         <path
                                                             d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                             fill="#771CA3" />
@@ -1783,7 +1794,8 @@
                                     class="img-fluid">
                                 <div
                                     class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                    <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">armaduras
+                                    <span class="h2 text-white fw-normal">Ver mais <span
+                                            class="fw-bold d-block">armaduras
                                             leves</span></span>
                                 </div>
                             </a>
@@ -1823,7 +1835,8 @@
                                                 @endif
                                                 <span class="product-name">{{ $mediumArmor->name }}</span>
                                             </h3>
-                                            <p><span class="product-category">{{ $mediumArmor->Category->name }}</span>
+                                            <p><span
+                                                    class="product-category">{{ $mediumArmor->Category->name }}</span>
                                                 <span
                                                     class="product-item-class">{{ $mediumArmor->ItemClass->name }}</span>,
                                                 nível
@@ -1848,8 +1861,9 @@
                                                         class="product-attribute-physical-protection">{{ $mediumArmor->physical_protection }}</span>
                                                 </div>
                                                 <div class="attribute d-flex justify-content-center align-items-center">
-                                                    <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg class="shield-moon" width="16" height="20"
+                                                        viewBox="0 0 16 20" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
                                                         <path
                                                             d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                             fill="#771CA3" />
@@ -1891,7 +1905,8 @@
                                     class="img-fluid">
                                 <div
                                     class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                    <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">armaduras
+                                    <span class="h2 text-white fw-normal">Ver mais <span
+                                            class="fw-bold d-block">armaduras
                                             médias</span></span>
                                 </div>
                             </a>
@@ -1942,7 +1957,8 @@
                                             <div class="attributes d-flex justify-content-between align-items-center">
                                                 <div class="attribute d-flex justify-content-center align-items-center">
                                                     <i class="bi bi-heart-fill"></i>
-                                                    <span class="product-attribute-life">{{ $heavyArmor->life }}</span>
+                                                    <span
+                                                        class="product-attribute-life">{{ $heavyArmor->life }}</span>
                                                 </div>
                                                 <div class="attribute d-flex justify-content-center align-items-center">
                                                     <i class="fa-solid fa-person-running"></i>
@@ -1955,8 +1971,9 @@
                                                         class="product-attribute-physical-protection">{{ $heavyArmor->physical_protection }}</span>
                                                 </div>
                                                 <div class="attribute d-flex justify-content-center align-items-center">
-                                                    <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg class="shield-moon" width="16" height="20"
+                                                        viewBox="0 0 16 20" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
                                                         <path
                                                             d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                             fill="#771CA3" />
@@ -1998,7 +2015,8 @@
                                     class="img-fluid">
                                 <div
                                     class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                    <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold d-block">armaduras
+                                    <span class="h2 text-white fw-normal">Ver mais <span
+                                            class="fw-bold d-block">armaduras
                                             pesadas</span></span>
                                 </div>
                             </a>
@@ -2022,7 +2040,8 @@
         @elseif ($category_name === 'Arma física')
             <section class="mb-6">
                 <h2 class="mb-3 h2">Espadas</h2>
-                <div id="productCarouselSwords" data-translate-value='0' class="carousel-products position-relative mb-6">
+                <div id="productCarouselSwords" data-translate-value='0'
+                    class="carousel-products position-relative mb-6">
                     <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
                         data-carousel-show-card="4">
                         @foreach ($productsByItemClass['swords'] as $sword)
@@ -2113,7 +2132,8 @@
             </section>
             <section class="mb-6">
                 <h2 class="mb-3 h2">Machados</h2>
-                <div id="productCarouselAxes" data-translate-value='0' class="carousel-products position-relative mb-6">
+                <div id="productCarouselAxes" data-translate-value='0'
+                    class="carousel-products position-relative mb-6">
                     <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
                         data-carousel-show-card="4">
                         @foreach ($productsByItemClass['axes'] as $axe)
@@ -2204,7 +2224,8 @@
             </section>
             <section class="mb-6">
                 <h2 class="mb-3 h2">Arcos</h2>
-                <div id="productCarouselBows" data-translate-value='0' class="carousel-products position-relative mb-6">
+                <div id="productCarouselBows" data-translate-value='0'
+                    class="carousel-products position-relative mb-6">
                     <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
                         data-carousel-show-card="4">
                         @foreach ($productsByItemClass['bows'] as $bow)
@@ -2296,7 +2317,8 @@
         @elseif ($category_name === 'Arma mágica')
             <section class="mb-6">
                 <h2 class="mb-3 h2">Varinhas</h2>
-                <div id="productCarouselWands" data-translate-value='0' class="carousel-products position-relative mb-6">
+                <div id="productCarouselWands" data-translate-value='0'
+                    class="carousel-products position-relative mb-6">
                     <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
                         data-carousel-show-card="4">
                         @foreach ($productsByItemClass['wands'] as $wand)
@@ -2870,8 +2892,8 @@
                                                 class="product-attribute-physical-protection">{{ $productBigBanner3->physical_protection }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
-                                            <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg class="shield-moon" width="16" height="20"
+                                                viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                     fill="#771CA3" />
@@ -2987,8 +3009,8 @@
                                                 class="product-attribute-physical-protection">{{ $productBigBanner3->physical_protection }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
-                                            <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg class="shield-moon" width="16" height="20"
+                                                viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                     fill="#771CA3" />
@@ -3079,7 +3101,8 @@
             <div class="row justify-content-between align-items-center mb-4">
                 <div class="col-6">
                     <div class="small-banner row justify-content-center align-items-center position-relative">
-                        <img src="{{ asset('images-banners/' . $category_name . '-small-banner-3.png') }}" alt="">
+                        <img src="{{ asset('images-banners/' . $category_name . '-small-banner-3.png') }}"
+                            alt="">
                         <div
                             class="col-12 position-absolute bottom-0 start-50 translate-middle-x row flex-column justify-content-center align-items-center mb-4 mx-auto">
                             <div class="small-banner-text w-100 h-100  d-flex flex-column justify-content-end">
@@ -3117,8 +3140,9 @@
                                                     class="product-attribute-physical-protection">{{ $productSmallBanner3->physical_protection }}</span>
                                             </div>
                                             <div class="attribute d-flex justify-content-center align-items-center">
-                                                <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="shield-moon" width="16" height="20"
+                                                    viewBox="0 0 16 20" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                         fill="#771CA3" />
@@ -3212,7 +3236,8 @@
                 </div>
                 <div class="col-6">
                     <div class="small-banner row justify-content-center align-items-center position-relative">
-                        <img src="{{ asset('images-banners/' . $category_name . '-small-banner-4.png') }}" alt="">
+                        <img src="{{ asset('images-banners/' . $category_name . '-small-banner-4.png') }}"
+                            alt="">
                         <div
                             class="col-12 position-absolute bottom-0 start-50 translate-middle-x row flex-column justify-content-center align-items-center mb-4 mx-auto">
                             <div class="small-banner-text w-100 h-100  d-flex flex-column justify-content-end">
@@ -3250,8 +3275,9 @@
                                                     class="product-attribute-physical-protection">{{ $productSmallBanner4->physical_protection }}</span>
                                             </div>
                                             <div class="attribute d-flex justify-content-center align-items-center">
-                                                <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="shield-moon" width="16" height="20"
+                                                    viewBox="0 0 16 20" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                         fill="#771CA3" />
@@ -3387,8 +3413,8 @@
                                                 class="product-attribute-physical-protection">{{ $productBigBanner4->physical_protection }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
-                                            <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg class="shield-moon" width="16" height="20"
+                                                viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                     fill="#771CA3" />
@@ -3473,6 +3499,125 @@
                         </div>
                     </div>
                 </div>
+            @elseif($category_name === 'Grimório')
+                <div class="big-banner-full row d-flex justify-content-center align-items-center mb-4 position-relative">
+                    <img src="{{ asset('images-banners/' . $category_name . '-big-banner-1.png') }}"
+                        alt="imagem banner">
+                    <div
+                        class="col-10 position-absolute top-0 start-50 translate-middle-x row flex-column justify-content-center align-items-center">
+                        <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+                            <h2 class="big-banner-full-heading">{{ $productBigBanner1->name }}</h2>
+                            <p class="big-banner-full-category-item-class">{{ $productBigBanner1->Category->name }}
+                                {{ $productBigBanner1->ItemClass->name }}, nível {{ $productBigBanner1->lvlMin }}
+                            </p>
+                        </div>
+                        <div class="col-12 row justify-content-between align-items-center">
+                            <div class="{{ $category_name === 'Armadura' ? 'col-3' : 'col-2' }}">
+                                <div class="attributes d-flex justify-content-between align-items-center">
+                                    @if ($productBigBanner1->Category->name === 'Armadura')
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="bi bi-heart-fill"></i>
+                                            <span class="product-attribute-life">{{ $productBigBanner1->life }}</span>
+                                        </div>
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-person-running"></i>
+                                            <span
+                                                class="product-attribute-speed">{{ $productBigBanner1->speed }}</span>
+                                        </div>
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="bi bi-shield-slash-fill"></i>
+                                            <span
+                                                class="product-attribute-physical-protection">{{ $productBigBanner1->physical_protection }}</span>
+                                        </div>
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <svg class="shield-moon" width="16" height="20"
+                                                viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
+                                                    fill="#771CA3" />
+                                                <path
+                                                    d="M5.01007 12.33C6.76007 14.5 10.1301 14.57 11.9701 12.4C12.2001 12.13 12.0501 11.72 11.7101 11.66C10.4201 11.45 9.23007 10.68 8.53007 9.46003C7.82007 8.24003 7.75007 6.83003 8.21007 5.60003C8.33007 5.27003 8.05006 4.94003 7.70006 5.00003C4.36006 5.62003 2.81007 9.61003 5.01007 12.33Z"
+                                                    fill="#771CA3" />
+                                            </svg>
+                                            <span
+                                                class="product-attribute-magic-protection">{{ $productBigBanner1->magic_protection }}</span>
+                                        </div>
+                                    @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'vida')
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="bi bi-heart-fill"></i>
+                                            <span class="product-attribute-life">{{ $productBigBanner1->life }}</span>
+                                        </div>
+                                    @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'força')
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="bi bi-shield-slash-fill"></i>
+                                            <span
+                                                class="product-attribute-physical-attack">{{ $productBigBanner1->physical_attack }}</span>
+                                        </div>
+                                    @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'mana')
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-droplet"></i>
+                                            <span class="product-attribute-mana">{{ $productBigBanner1->mana }}</span>
+                                        </div>
+                                    @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'agilidade')
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-person-running"></i>
+                                            <span
+                                                class="product-attribute-speed">{{ $productBigBanner1->speed }}</span>
+                                        </div>
+                                    @elseif($productBigBanner1->Category->name === 'Poção' && $productBigBanner1->ItemClass->name === 'kit')
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="bi bi-heart-fill"></i>
+                                            <span class="product-attribute-life">{{ $productBigBanner1->life }}</span>
+                                        </div>
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-person-running"></i>
+                                            <span
+                                                class="product-attribute-speed">{{ $productBigBanner1->speed }}</span>
+                                        </div>
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-droplet"></i>
+                                            <span class="product-attribute-mana">{{ $productBigBanner1->mana }}</span>
+                                        </div>
+                                    @else
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-user-slash"></i>
+                                            <span
+                                                class="product-attribute-physical-attack">{{ $productBigBanner1->physical_attack }}</span>
+                                        </div>
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-wand-sparkles"></i>
+                                            <span
+                                                class="product-attribute-magic-attack">{{ $productBigBanner1->magic_attack }}</span>
+                                        </div>
+                                        <div class="attribute d-flex justify-content-center align-items-center">
+                                            <i class="fa-solid fa-droplet"></i>
+                                            <span class="product-attribute-mana">{{ $productBigBanner1->mana }}</span>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="col d-flex justify-content-end align-items-center big-banner-full-buy">
+                                <div class="div-product-price d-flex justify-content-center align-items-center">
+                                    <div class="d-flex flex-column align-items-end me-2">
+                                        @if ($productBigBanner1->discount_price !== 0.0)
+                                            <p class="text-decoration-line-through original-price">
+                                                {{ $productBigBanner1->price }}</p>
+                                            <p class="p-product-price m-0">{{ $productBigBanner1->discount_price }}
+                                            </p>
+                                        @else
+                                            <p class="p-product-price m-0">{{ $productBigBanner1->price }}</p>
+                                        @endif
+                                    </div>
+                                    <div>
+                                        <a href="{{ route('product.show', $productBigBanner1->id) }}"
+                                            class="btn btn-primary">Ver
+                                            produto</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             @else
                 <div class="big-banner-full row d-flex justify-content-center align-items-center mb-4 position-relative">
                     <img src="{{ asset('images-banners/' . $category_name . '-big-banner-4.png') }}"
@@ -3504,8 +3649,8 @@
                                                 class="product-attribute-physical-protection">{{ $productBigBanner4->physical_protection }}</span>
                                         </div>
                                         <div class="attribute d-flex justify-content-center align-items-center">
-                                            <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <svg class="shield-moon" width="16" height="20"
+                                                viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path
                                                     d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                     fill="#771CA3" />
