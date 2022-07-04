@@ -269,8 +269,8 @@
                                     <div class="d-flex justify-content-center align-items-start">
                                         @if ($mainProduct->Category->name === 'Armadura')
                                             <div class="form-check mt-3 me-3 border">
-                                                <input class="form-check-input enchant-type" type="checkbox" name="life"
-                                                    value="300" id="enchant-checkbox-life">
+                                                <input class="form-check-input enchant-type" type="checkbox"
+                                                    name="life" value="300" id="enchant-checkbox-life">
                                                 <label
                                                     class="form-check-label d-flex flex-column justify-content-between align-items-start"
                                                     for="enchant-checkbox-life">
@@ -279,8 +279,8 @@
                                                 </label>
                                             </div>
                                             <div class="form-check mt-3 me-3 border">
-                                                <input class="form-check-input enchant-type" type="checkbox" name="speed"
-                                                    value="30" id="enchant-checkbox-speed">
+                                                <input class="form-check-input enchant-type" type="checkbox"
+                                                    name="speed" value="30" id="enchant-checkbox-speed">
                                                 <label
                                                     class="form-check-label d-flex flex-column justify-content-between align-items-start"
                                                     for="enchant-checkbox-speed">
@@ -347,7 +347,8 @@
                                             @elseif ($mainProduct->ItemClass->name === 'força')
                                                 <div class="form-check mt-3 me-3 border">
                                                     <input class="form-check-input enchant-type" type="checkbox"
-                                                        name="strength" value="50" id="enchant-checkbox-physical-attack">
+                                                        name="strength" value="50"
+                                                        id="enchant-checkbox-physical-attack">
                                                     <label
                                                         class="form-check-label d-flex flex-column justify-content-between align-items-start"
                                                         for="enchant-checkbox-physical-attack">
@@ -370,7 +371,8 @@
                                             </div>
                                             <div class="form-check mt-3 me-3 border">
                                                 <input class="form-check-input enchant-type" type="checkbox"
-                                                    name="magic_attack" value="100" id="enchant-checkbox-magic-attack">
+                                                    name="magic_attack" value="100"
+                                                    id="enchant-checkbox-magic-attack">
                                                 <label
                                                     class="form-check-label d-flex flex-column justify-content-between align-items-start"
                                                     for="enchant-checkbox-magic-attack">
@@ -379,8 +381,8 @@
                                                 </label>
                                             </div>
                                             <div class="form-check mt-3 me-3 border">
-                                                <input class="form-check-input enchant-type" type="checkbox" name="mana"
-                                                    value="100" id="enchant-checkbox-mana">
+                                                <input class="form-check-input enchant-type" type="checkbox"
+                                                    name="mana" value="100" id="enchant-checkbox-mana">
                                                 <label
                                                     class="form-check-label d-flex flex-column justify-content-between align-items-start"
                                                     for="enchant-checkbox-mana">
@@ -410,8 +412,8 @@
                                     <div class="col-4 mt-3">
                                         <div class="block-option form-check d-flex flex-column text-center p-2">
                                             <input class="form-check-input mx-auto" type="radio"
-                                                name="breakage_guarantee_months" id="option-breakage_guarantee_6" value="6"
-                                                required>
+                                                name="breakage_guarantee_months" id="option-breakage_guarantee_6"
+                                                value="6" required>
                                             <label class="form-check-label d-flex flex-column mt-3 fw-bold"
                                                 for="option-breakage_guarantee_6">
                                                 Garantia básica
@@ -463,8 +465,8 @@
                                     <div class="col-4 mt-3">
                                         <div class="block-option form-check d-flex flex-column text-center p-2">
                                             <input class="form-check-input mx-auto" type="radio"
-                                                name="theft_guarantee_months" id="option-theft_guarantee_6" value="6"
-                                                required>
+                                                name="theft_guarantee_months" id="option-theft_guarantee_6"
+                                                value="6" required>
                                             <label class="form-check-label d-flex flex-column mt-3 fw-bold"
                                                 for="option-theft_guarantee_6">
                                                 Garantia básica
@@ -475,8 +477,8 @@
                                     <div class="col-4 mt-3">
                                         <div class="block-option form-check d-flex flex-column text-center p-2">
                                             <input class="form-check-input mx-auto" type="radio"
-                                                name="theft_guarantee_months" id="option-theft_guarantee_12" value="12"
-                                                required>
+                                                name="theft_guarantee_months" id="option-theft_guarantee_12"
+                                                value="12" required>
                                             <label class="form-check-label d-flex flex-column mt-3 fw-bold"
                                                 for="option-theft_guarantee_12">
                                                 Garantia extendida
@@ -487,8 +489,8 @@
                                     <div class="col-4 mt-3">
                                         <div class="block-option form-check d-flex flex-column text-center p-2">
                                             <input class="form-check-input mx-auto" type="radio"
-                                                name="theft_guarantee_months" id="option-theft_guarantee_24" value="24"
-                                                required>
+                                                name="theft_guarantee_months" id="option-theft_guarantee_24"
+                                                value="24" required>
                                             <label class="form-check-label d-flex flex-column mt-3 fw-bold"
                                                 for="option-theft_guarantee_24">
                                                 Garantia premium
@@ -510,7 +512,7 @@
                                             class="purchase-description-info d-flex justify-content-start align-items-start flex-grow-1">
                                             <span class="purchase-title">Preço padrão</span>
                                             <span class="ms-auto d-flex flex-column">
-                                                @if ($mainProduct->discount_price !== 0.0)
+                                                @if ($mainProduct->sale == 1)
                                                     <span class="purchase-price text-decoration-line-through"
                                                         style="font-size:.90rem;font-weight:500;">R$ <span
                                                             class="product-price"
@@ -611,7 +613,7 @@
                                 <div class="row justify-content-center align-items-center">
                                     <div class="col-10 d-flex justify-content-between align-items-center">
                                         <h5 class="h5 m-0" id="purchase-total-title">Total</h5>
-                                        @if ($mainProduct->discount_price !== 0.0)
+                                        @if ($mainProduct->sale == 1)
                                             <p class="m-0" id="purchase-total-price">R$ <span
                                                     class="product-price">{{ $mainProduct->discount_price }}</span></p>
                                         @else
@@ -620,14 +622,16 @@
                                         @endif
                                     </div>
                                 </div>
-                                @if ($mainProduct->discount_price !== 0.0)
+                                @if ($mainProduct->sale == 1)
                                     <input type="hidden" name="product_total_price"
                                         value="{{ $mainProduct->discount_price }}">
                                     <input type="hidden" value="{{ $mainProduct->discount_price }}"
                                         name="product_default_price">
                                 @else
-                                    <input type="hidden" name="product_total_price" value="{{ $mainProduct->price }}">
-                                    <input type="hidden" value="{{ $mainProduct->price }}" name="product_default_price">
+                                    <input type="hidden" name="product_total_price"
+                                        value="{{ $mainProduct->price }}">
+                                    <input type="hidden" value="{{ $mainProduct->price }}"
+                                        name="product_default_price">
                                 @endif
                                 <input type="hidden" name="product_lvl_price">
                                 <input type="hidden" name="product_enchant_price">
@@ -691,7 +695,7 @@
                     <div class="col-4">
                         <div class="block-option text-center p-2">
                             <h4 class="h4 fw-bold">Promoção</h4>
-                            @if ($mainProduct->discount_price !== 0.0)
+                            @if ($mainProduct->sale == 1)
                                 <p>Sim</p>
                             @else
                                 <p>Não</p>
@@ -862,8 +866,9 @@
                                                     class="product-attribute-physical-protection">{{ $productSameCategory->physical_protection }}</span>
                                             </div>
                                             <div class="attribute d-flex justify-content-center align-items-center">
-                                                <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="shield-moon" width="16" height="20"
+                                                    viewBox="0 0 16 20" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                         fill="#771CA3" />
@@ -934,10 +939,9 @@
                                     </div>
                                     <div class="card-product-price">
                                         <div class="d-flex flex-column align-items-end">
-                                            @if ($productSameCategory->discount_price !== 0.0)
+                                            @if ($productSameCategory->sale == 1)
                                                 <p class="text-decoration-line-through product-discount-price">R$
-                                                    <span
-                                                        class="product-price">{{ $productSameCategory->price }}</span>
+                                                    <span class="product-price">{{ $productSameCategory->price }}</span>
                                                 </p>
                                                 <p class="p-product-price">R$ <span
                                                         class="product-discount-price">{{ $productSameCategory->discount_price }}
@@ -994,8 +998,7 @@
                             <img src='{{ asset('images-for-cards/image-for-cards-Poção-vida.jpg') }}'>
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span
-                                        class="fw-bold">Poções</span></span>
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">Poções</span></span>
                             </div>
                         </a>
                     </div>
@@ -1068,8 +1071,9 @@
                                                     class="product-attribute-physical-protection">{{ $productOtherCategory->physical_protection }}</span>
                                             </div>
                                             <div class="attribute d-flex justify-content-center align-items-center">
-                                                <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="shield-moon" width="16" height="20"
+                                                    viewBox="0 0 16 20" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                         fill="#771CA3" />
@@ -1140,7 +1144,7 @@
                                     </div>
                                     <div class="card-product-price">
                                         <div class="d-flex flex-column align-items-end">
-                                            @if ($productOtherCategory->discount_price !== 0.0)
+                                            @if ($productOtherCategory->sale == 1)
                                                 <p class="text-decoration-line-through product-discount-price">R$
                                                     <span
                                                         class="product-price">{{ $productOtherCategory->price }}</span>
@@ -1200,8 +1204,7 @@
                             <img src='{{ asset('images-for-cards/image-for-cards-Poção-vida.jpg') }}'>
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span
-                                        class="fw-bold">Poções</span></span>
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">Poções</span></span>
                             </div>
                         </a>
                     </div>
@@ -1275,8 +1278,9 @@
                                                     class="product-attribute-physical-protection">{{ $productOtherCategory->physical_protection }}</span>
                                             </div>
                                             <div class="attribute d-flex justify-content-center align-items-center">
-                                                <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="shield-moon" width="16" height="20"
+                                                    viewBox="0 0 16 20" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                         fill="#771CA3" />
@@ -1347,7 +1351,7 @@
                                     </div>
                                     <div class="card-product-price">
                                         <div class="d-flex flex-column align-items-end">
-                                            @if ($productOtherCategory->discount_price !== 0.0)
+                                            @if ($productOtherCategory->sale == 1)
                                                 <p class="text-decoration-line-through product-discount-price">R$
                                                     <span
                                                         class="product-price">{{ $productOtherCategory->price }}</span>
@@ -1407,8 +1411,7 @@
                             <img src='{{ asset('images-for-cards/image-for-cards-Poção-vida.jpg') }}'>
                             <div
                                 class="div-link-to-more w-100 h-100 position-absolute top-50 start-0 translate-middle-y d-flex  justify-content-center align-items-center">
-                                <span class="h2 text-white fw-normal">Ver mais <span
-                                        class="fw-bold">Poções</span></span>
+                                <span class="h2 text-white fw-normal">Ver mais <span class="fw-bold">Poções</span></span>
                             </div>
                         </a>
                     </div>
@@ -1440,8 +1443,10 @@
             </button>
         </div>
         <h2 class="mb-3 h2">Produtos de outras categorias, {{ $productsWithOtherCategory3[1] }}</h2>
-        <div id="productsWithOtherCategory3" data-translate-value='0' class="carousel-products position-relative mb-6">
-            <div class="carousel-products-inner d-flex justify-content-start overflow-hidden" data-carousel-show-card="4">
+        <div id="productsWithOtherCategory3" data-translate-value='0'
+            class="carousel-products position-relative mb-6">
+            <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
+                data-carousel-show-card="4">
                 @foreach ($productsWithOtherCategory3[0] as $productOtherCategory)
                     <div class="card-product position-relative overflow-hidden">
                         <a href="{{ route('product.show', $productOtherCategory->id) }}">
@@ -1482,8 +1487,9 @@
                                                     class="product-attribute-physical-protection">{{ $productOtherCategory->physical_protection }}</span>
                                             </div>
                                             <div class="attribute d-flex justify-content-center align-items-center">
-                                                <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="shield-moon" width="16" height="20"
+                                                    viewBox="0 0 16 20" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                         fill="#771CA3" />
@@ -1554,7 +1560,7 @@
                                     </div>
                                     <div class="card-product-price">
                                         <div class="d-flex flex-column align-items-end">
-                                            @if ($productOtherCategory->discount_price !== 0.0)
+                                            @if ($productOtherCategory->sale == 1)
                                                 <p class="text-decoration-line-through product-discount-price">R$
                                                     <span
                                                         class="product-price">{{ $productOtherCategory->price }}</span>
@@ -1647,8 +1653,10 @@
             </button>
         </div>
         <h2 class="mb-3 h2">Produtos de outras categorias, {{ $productsWithOtherCategory4[1] }}</h2>
-        <div id="productsWithOtherCategory4" data-translate-value='0' class="carousel-products position-relative mb-6">
-            <div class="carousel-products-inner d-flex justify-content-start overflow-hidden" data-carousel-show-card="4">
+        <div id="productsWithOtherCategory4" data-translate-value='0'
+            class="carousel-products position-relative mb-6">
+            <div class="carousel-products-inner d-flex justify-content-start overflow-hidden"
+                data-carousel-show-card="4">
                 @foreach ($productsWithOtherCategory4[0] as $productOtherCategory)
                     <div class="card-product position-relative overflow-hidden">
                         <a href="{{ route('product.show', $productOtherCategory->id) }}">
@@ -1689,8 +1697,9 @@
                                                     class="product-attribute-physical-protection">{{ $productOtherCategory->physical_protection }}</span>
                                             </div>
                                             <div class="attribute d-flex justify-content-center align-items-center">
-                                                <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="shield-moon" width="16" height="20"
+                                                    viewBox="0 0 16 20" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                         fill="#771CA3" />
@@ -1761,7 +1770,7 @@
                                     </div>
                                     <div class="card-product-price">
                                         <div class="d-flex flex-column align-items-end">
-                                            @if ($productOtherCategory->discount_price !== 0.0)
+                                            @if ($productOtherCategory->sale == 1)
                                                 <p class="text-decoration-line-through product-discount-price">R$
                                                     <span
                                                         class="product-price">{{ $productOtherCategory->price }}</span>

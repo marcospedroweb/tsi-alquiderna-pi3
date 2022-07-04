@@ -3,8 +3,8 @@
     <div class="container-xxl mt-4">
         <section id="mainCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+                    aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
@@ -58,8 +58,9 @@
                                                         class="product-attribute-physical-protection">{{ $carouselProduct1->physical_protection }}</span>
                                                 </div>
                                                 <div class="attribute d-flex justify-content-center align-items-center">
-                                                    <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg class="shield-moon" width="16" height="20"
+                                                        viewBox="0 0 16 20" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
                                                         <path
                                                             d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                             fill="#771CA3" />
@@ -74,7 +75,7 @@
                                         </div>
                                         <div class="div-product-price d-flex justify-content-center align-items-center">
                                             <div class="d-flex flex-column align-items-end me-2">
-                                                @if ($carouselProduct1->discount_price !== 0.0)
+                                                @if ($carouselProduct1->sale == 1)
                                                     <p class="text-decoration-line-through original-price">
                                                         {{ $carouselProduct1->price }}</p>
                                                     <p class="p-product-price m-0">
@@ -140,8 +141,9 @@
                                                         class="product-attribute-physical-protection">{{ $carouselProduct2->physical_protection }}</span>
                                                 </div>
                                                 <div class="attribute d-flex justify-content-center align-items-center">
-                                                    <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg class="shield-moon" width="16" height="20"
+                                                        viewBox="0 0 16 20" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
                                                         <path
                                                             d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                             fill="#771CA3" />
@@ -156,7 +158,7 @@
                                         </div>
                                         <div class="div-product-price d-flex justify-content-center align-items-center">
                                             <div class="d-flex flex-column align-items-end me-2">
-                                                @if ($carouselProduct2->discount_price !== 0.0)
+                                                @if ($carouselProduct2->sale == 1)
                                                     <p class="text-decoration-line-through original-price">
                                                         {{ $carouselProduct2->price }}</p>
                                                     <p class="p-product-price m-0">
@@ -223,8 +225,9 @@
                                                         class="product-attribute-physical-protection">{{ $carouselProduct3->physical_protection }}</span>
                                                 </div>
                                                 <div class="attribute d-flex justify-content-center align-items-center">
-                                                    <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg class="shield-moon" width="16" height="20"
+                                                        viewBox="0 0 16 20" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
                                                         <path
                                                             d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                             fill="#771CA3" />
@@ -239,7 +242,7 @@
                                         </div>
                                         <div class="div-product-price d-flex justify-content-center align-items-center">
                                             <div class="d-flex flex-column align-items-end me-2">
-                                                @if ($carouselProduct3->discount_price !== 0.0)
+                                                @if ($carouselProduct3->sale == 1)
                                                     <p class="text-decoration-line-through original-price">
                                                         {{ $carouselProduct3->price }}</p>
                                                     <p class="p-product-price m-0">
@@ -307,8 +310,9 @@
                                                         class="product-attribute-physical-protection">{{ $newProduct->physical_protection }}</span>
                                                 </div>
                                                 <div class="attribute d-flex justify-content-center align-items-center">
-                                                    <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg class="shield-moon" width="16" height="20"
+                                                        viewBox="0 0 16 20" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
                                                         <path
                                                             d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                             fill="#771CA3" />
@@ -374,7 +378,7 @@
                                         </div>
                                         <div class="card-product-price">
                                             <div class="d-flex flex-column align-items-end">
-                                                @if ($newProduct->discount_price !== 0.0)
+                                                @if ($newProduct->sale == 1)
                                                     <p class="text-decoration-line-through original-price">R$ <span
                                                             class="product-price">{{ $newProduct->price }}</span></p>
                                                     <p class="p-product-price">R$ <span
@@ -411,7 +415,8 @@
         {{-- Carousel de produtos --}}
         <section class="mb-6">
             <h2 class="mb-3 h2">Armaduras pesadas</h2>
-            <div id="productCarouselHeavyArmors" data-translate-value='0' class="carousel-products position-relative mb-6">
+            <div id="productCarouselHeavyArmors" data-translate-value='0'
+                class="carousel-products position-relative mb-6">
                 <div class="carousel-products-inner d-flex overflow-hidden" data-carousel-show-card="4">
                     @foreach ($heavyArmors as $heavyArmor)
                         <div class="card-product position-relative overflow-hidden mx-auto">
@@ -450,8 +455,9 @@
                                                         class="product-attribute-physical-protection">{{ $heavyArmor->physical_protection }}</span>
                                                 </div>
                                                 <div class="attribute d-flex justify-content-center align-items-center">
-                                                    <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg class="shield-moon" width="16" height="20"
+                                                        viewBox="0 0 16 20" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
                                                         <path
                                                             d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                             fill="#771CA3" />
@@ -517,7 +523,7 @@
                                         </div>
                                         <div class="card-product-price">
                                             <div class="d-flex flex-column align-items-end">
-                                                @if ($heavyArmor->discount_price !== 0.0)
+                                                @if ($heavyArmor->sale == 1)
                                                     <p class="text-decoration-line-through original-price">R$ <span
                                                             class="product-price">{{ $heavyArmor->price }}</span></p>
                                                     <p class="p-product-price">R$ <span
@@ -678,7 +684,7 @@
                                 </div>
                                 <div class="div-product-price d-flex justify-content-center align-items-center">
                                     <div class="d-flex flex-column align-items-end me-2">
-                                        @if ($productBigBanner1->discount_price !== 0.0)
+                                        @if ($productBigBanner1->sale == 1)
                                             <p class="text-decoration-line-through original-price">
                                                 {{ $productBigBanner1->price }}</p>
                                             <p class="p-product-price m-0">{{ $productBigBanner1->discount_price }}</p>
@@ -736,8 +742,9 @@
                                                     class="product-attribute-physical-protection">{{ $productSmallBanner1->physical_protection }}</span>
                                             </div>
                                             <div class="attribute d-flex justify-content-center align-items-center">
-                                                <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="shield-moon" width="16" height="20"
+                                                    viewBox="0 0 16 20" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                         fill="#771CA3" />
@@ -808,7 +815,7 @@
                                     </div>
                                     <div class="div-product-price d-flex justify-content-center align-items-center">
                                         <div class="d-flex flex-column align-items-end me-2">
-                                            @if ($productSmallBanner1->discount_price !== 0.0)
+                                            @if ($productSmallBanner1->sale == 1)
                                                 <p class="text-decoration-line-through original-price">
                                                     {{ $productSmallBanner1->price }}</p>
                                                 <p class="p-product-price m-0">
@@ -868,8 +875,9 @@
                                                     class="product-attribute-physical-protection">{{ $productSmallBanner2->physical_protection }}</span>
                                             </div>
                                             <div class="attribute d-flex justify-content-center align-items-center">
-                                                <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg class="shield-moon" width="16" height="20"
+                                                    viewBox="0 0 16 20" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                         fill="#771CA3" />
@@ -940,7 +948,7 @@
                                     </div>
                                     <div class="div-product-price d-flex justify-content-center align-items-center">
                                         <div class="d-flex flex-column align-items-end me-2">
-                                            @if ($productSmallBanner2->discount_price !== 0.0)
+                                            @if ($productSmallBanner2->sale == 1)
                                                 <p class="text-decoration-line-through original-price">
                                                     {{ $productSmallBanner2->price }}</p>
                                                 <p class="p-product-price m-0">
@@ -1076,7 +1084,7 @@
                                 </div>
                                 <div class="div-product-price d-flex justify-content-center align-items-center">
                                     <div class="d-flex flex-column align-items-end me-2">
-                                        @if ($productBigBanner2->discount_price !== 0.0)
+                                        @if ($productBigBanner2->sale == 1)
                                             <p class="text-decoration-line-through original-price">
                                                 {{ $productBigBanner2->price }}</p>
                                             <p class="p-product-price m-0">{{ $productBigBanner2->discount_price }}</p>

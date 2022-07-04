@@ -29,8 +29,8 @@
                                             class="product-attribute-physical-protection">{{ $product->physical_protection }}</span>
                                     </div>
                                     <div class="attribute d-flex justify-content-center align-items-center">
-                                        <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
+                                        <svg class="shield-moon" width="16" height="20" viewBox="0 0 16 20"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M8 0L0 3V9.09C0 14.14 3.41 18.85 8 20C12.59 18.85 16 14.14 16 9.09V3L8 0ZM14 9.09C14 13.09 11.45 16.79 8 17.92C4.55 16.79 2 13.1 2 9.09V4.39L8 2.14L14 4.39V9.09Z"
                                                 fill="#771CA3" />
@@ -111,7 +111,7 @@
                             </div>
                             <div class="col-12 d-flex justify-content-start align-items-center mt-4">
                                 <div>
-                                    @if ($product->discount_price !== 0.0)
+                                    @if ($product->sale == 1)
                                         <p class="text-decoration-line-through product-discount-price m-0">R$
                                             <span class="product-price">{{ $product->price }}</span>
                                         </p>

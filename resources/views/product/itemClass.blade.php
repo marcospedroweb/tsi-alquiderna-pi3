@@ -10,8 +10,8 @@
                         class="disabled">
                         <div
                             class="div-item-class-image {{ $itemClass_name === 'leve' ? 'item-class-selected' : '' }} overflow-hidden">
-                            <img src="{{ asset('images-for-cards/image-for-cards-Armadura-leve.jpg') }}"
-                                class="img-fluid" alt="">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Armadura-leve.jpg') }}" class="img-fluid"
+                                alt="">
                         </div>
                         <span class="d-flex flex-column text-center">
                             <span class="{{ $itemClass_name === 'leve' ? 'fw-normal' : '' }}">Armaduras
@@ -107,8 +107,8 @@
                     <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'vida']) }}">
                         <div
                             class="div-item-class-image {{ $itemClass_name === 'vida' ? 'item-class-selected' : '' }} overflow-hidden">
-                            <img src="{{ asset('images-for-cards/image-for-cards-Poção-vida.jpg') }}"
-                                class="img-fluid" alt="">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Poção-vida.jpg') }}" class="img-fluid"
+                                alt="">
                         </div>
                         <span class="d-flex flex-column text-center">
                             <span class="{{ $itemClass_name === 'vida' ? 'fw-normal' : '' }}">Poções de vida</span>
@@ -120,8 +120,8 @@
                     <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'mana']) }}">
                         <div
                             class="div-item-class-image {{ $itemClass_name === 'mana' ? 'item-class-selected' : '' }} overflow-hidden">
-                            <img src="{{ asset('images-for-cards/image-for-cards-Poção-mana.jpg') }}"
-                                class="img-fluid" alt="">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Poção-mana.jpg') }}" class="img-fluid"
+                                alt="">
                         </div>
                         <span class="d-flex flex-column text-center">
                             <span class="{{ $itemClass_name === 'mana' ? 'fw-normal' : '' }}">Poções de mana</span>
@@ -133,8 +133,8 @@
                     <a href="{{ route('product.itemClass', ['category' => 'Poção', 'itemClass' => 'força']) }}">
                         <div
                             class="div-item-class-image {{ $itemClass_name === 'força' ? 'item-class-selected' : '' }} overflow-hidden">
-                            <img src="{{ asset('images-for-cards/image-for-cards-Poção-força.jpg') }}"
-                                class="img-fluid" alt="">
+                            <img src="{{ asset('images-for-cards/image-for-cards-Poção-força.jpg') }}" class="img-fluid"
+                                alt="">
                         </div>
                         <span class="d-flex flex-column text-center">
                             <span class="{{ $itemClass_name === 'força' ? 'fw-normal' : '' }}">Poções de força</span>
@@ -437,7 +437,7 @@
                                                 </div>
                                                 <div class="card-product-price">
                                                     <div class="d-flex flex-column align-items-end">
-                                                        @if ($product->discount_price !== 0.0)
+                                                        @if ($product->sale == 1)
                                                             <p class="text-decoration-line-through original-price">R$ <span
                                                                     class="product-price">{{ $product->price }}</span>
                                                             </p>

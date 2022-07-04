@@ -271,7 +271,7 @@
                                     </div>
                                     <div class="div-product-price d-flex justify-content-center align-items-center">
                                         <div class="d-flex flex-column align-items-end me-2">
-                                            @if ($productBigBanner1->discount_price !== 0.0)
+                                            @if ($productBigBanner1->sale == 1)
                                                 <p class="text-decoration-line-through original-price">
                                                     {{ $productBigBanner1->price }}</p>
                                                 <p class="p-product-price m-0">{{ $productBigBanner1->discount_price }}
@@ -386,7 +386,7 @@
                             <div class="col d-flex justify-content-end align-items-center big-banner-full-buy">
                                 <div class="div-product-price d-flex justify-content-center align-items-center">
                                     <div class="d-flex flex-column align-items-end me-2">
-                                        @if ($productBigBanner1->discount_price !== 0.0)
+                                        @if ($productBigBanner1->sale == 1)
                                             <p class="text-decoration-line-through original-price">
                                                 {{ $productBigBanner1->price }}</p>
                                             <p class="p-product-price m-0">{{ $productBigBanner1->discount_price }}</p>
@@ -519,7 +519,7 @@
                                     </div>
                                     <div class="div-product-price d-flex justify-content-center align-items-center">
                                         <div class="d-flex flex-column align-items-end me-2">
-                                            @if ($productSmallBanner1->discount_price !== 0.0)
+                                            @if ($productSmallBanner1->sale == 1)
                                                 <p class="text-decoration-line-through original-price">
                                                     {{ $productSmallBanner1->price }}</p>
                                                 <p class="p-product-price m-0">
@@ -653,7 +653,7 @@
                                     </div>
                                     <div class="div-product-price d-flex justify-content-center align-items-center">
                                         <div class="d-flex flex-column align-items-end me-2">
-                                            @if ($productSmallBanner2->discount_price !== 0.0)
+                                            @if ($productSmallBanner2->sale == 1)
                                                 <p class="text-decoration-line-through original-price">
                                                     {{ $productSmallBanner2->price }}</p>
                                                 <p class="p-product-price m-0">
@@ -769,7 +769,7 @@
                         <div class="col d-flex justify-content-end align-items-center big-banner-full-buy">
                             <div class="div-product-price d-flex justify-content-center align-items-center">
                                 <div class="d-flex flex-column align-items-end me-2">
-                                    @if ($productBigBanner2->discount_price !== 0.0)
+                                    @if ($productBigBanner2->sale == 1)
                                         <p class="text-decoration-line-through original-price">
                                             {{ $productBigBanner2->price }}</p>
                                         <p class="p-product-price m-0">{{ $productBigBanner2->discount_price }}</p>
@@ -898,7 +898,7 @@
                                         </div>
                                         <div class="card-product-price">
                                             <div class="d-flex flex-column align-items-end">
-                                                @if ($newProduct->discount_price !== 0.0)
+                                                @if ($newProduct->sale == 1)
                                                     <p class="text-decoration-line-through product-discount-price">R$ <span
                                                             class="product-price">{{ $newProduct->price }}</span></p>
                                                     <p class="p-product-price">R$ <span
@@ -1206,7 +1206,7 @@
                                         </div>
                                         <div class="card-product-price">
                                             <div class="d-flex flex-column align-items-end">
-                                                @if ($productsOnSale->discount_price !== 0.0)
+                                                @if ($productsOnSale->sale == 1)
                                                     <p class="text-decoration-line-through product-discount-price">R$ <span
                                                             class="product-price">{{ $productsOnSale->price }}</span>
                                                     </p>
@@ -1514,7 +1514,7 @@
                                         </div>
                                         <div class="card-product-price">
                                             <div class="d-flex flex-column align-items-end">
-                                                @if ($begginerProduct->discount_price !== 0.0)
+                                                @if ($begginerProduct->sale == 1)
                                                     <p class="text-decoration-line-through product-discount-price">R$ <span
                                                             class="product-price">{{ $begginerProduct->price }}</span>
                                                     </p>
@@ -1766,7 +1766,7 @@
                                             </div>
                                             <div class="card-product-price">
                                                 <div class="d-flex flex-column align-items-end">
-                                                    @if ($lightArmor->discount_price !== 0.0)
+                                                    @if ($lightArmor->sale == 1)
                                                         <p class="text-decoration-line-through product-discount-price">R$
                                                             <span
                                                                 class="product-price">{{ $lightArmor->price }}</span>
@@ -1877,7 +1877,7 @@
                                             </div>
                                             <div class="card-product-price">
                                                 <div class="d-flex flex-column align-items-end">
-                                                    @if ($mediumArmor->discount_price !== 0.0)
+                                                    @if ($mediumArmor->sale == 1)
                                                         <p class="text-decoration-line-through product-discount-price">R$
                                                             <span
                                                                 class="product-price">{{ $mediumArmor->price }}</span>
@@ -1987,7 +1987,7 @@
                                             </div>
                                             <div class="card-product-price">
                                                 <div class="d-flex flex-column align-items-end">
-                                                    @if ($heavyArmor->discount_price !== 0.0)
+                                                    @if ($heavyArmor->sale == 1)
                                                         <p class="text-decoration-line-through product-discount-price">R$
                                                             <span
                                                                 class="product-price">{{ $heavyArmor->price }}</span>
@@ -2082,7 +2082,7 @@
                                             </div>
                                             <div class="card-product-price">
                                                 <div class="d-flex flex-column align-items-end">
-                                                    @if ($sword->discount_price !== 0.0)
+                                                    @if ($sword->sale == 1)
                                                         <p class="text-decoration-line-through product-discount-price">R$
                                                             <span class="product-price">{{ $sword->price }}</span>
                                                         </p>
@@ -2174,7 +2174,7 @@
                                             </div>
                                             <div class="card-product-price">
                                                 <div class="d-flex flex-column align-items-end">
-                                                    @if ($axe->discount_price !== 0.0)
+                                                    @if ($axe->sale == 1)
                                                         <p class="text-decoration-line-through product-discount-price">R$
                                                             <span class="product-price">{{ $axe->price }}</span>
                                                         </p>
@@ -2266,7 +2266,7 @@
                                             </div>
                                             <div class="card-product-price">
                                                 <div class="d-flex flex-column align-items-end">
-                                                    @if ($bow->discount_price !== 0.0)
+                                                    @if ($bow->sale == 1)
                                                         <p class="text-decoration-line-through product-discount-price">R$
                                                             <span class="product-price">{{ $bow->price }}</span>
                                                         </p>
@@ -2359,7 +2359,7 @@
                                             </div>
                                             <div class="card-product-price">
                                                 <div class="d-flex flex-column align-items-end">
-                                                    @if ($wand->discount_price !== 0.0)
+                                                    @if ($wand->sale == 1)
                                                         <p class="text-decoration-line-through product-discount-price">R$
                                                             <span class="product-price">{{ $wand->price }}</span>
                                                         </p>
@@ -2444,7 +2444,7 @@
                                             </div>
                                             <div class="card-product-price">
                                                 <div class="d-flex flex-column align-items-end">
-                                                    @if ($potionLife->discount_price !== 0.0)
+                                                    @if ($potionLife->sale == 1)
                                                         <p class="text-decoration-line-through product-discount-price">R$
                                                             <span
                                                                 class="product-price">{{ $potionLife->price }}</span>
@@ -2530,7 +2530,7 @@
                                             </div>
                                             <div class="card-product-price">
                                                 <div class="d-flex flex-column align-items-end">
-                                                    @if ($potionMana->discount_price !== 0.0)
+                                                    @if ($potionMana->sale == 1)
                                                         <p class="text-decoration-line-through product-discount-price">R$
                                                             <span
                                                                 class="product-price">{{ $potionMana->price }}</span>
@@ -2617,7 +2617,7 @@
                                             </div>
                                             <div class="card-product-price">
                                                 <div class="d-flex flex-column align-items-end">
-                                                    @if ($potionStrength->discount_price !== 0.0)
+                                                    @if ($potionStrength->sale == 1)
                                                         <p class="text-decoration-line-through product-discount-price">R$
                                                             <span
                                                                 class="product-price">{{ $potionStrength->price }}</span>
@@ -2704,7 +2704,7 @@
                                             </div>
                                             <div class="card-product-price">
                                                 <div class="d-flex flex-column align-items-end">
-                                                    @if ($potionSpeed->discount_price !== 0.0)
+                                                    @if ($potionSpeed->sale == 1)
                                                         <p class="text-decoration-line-through product-discount-price">R$
                                                             <span
                                                                 class="product-price">{{ $potionSpeed->price }}</span>
@@ -2800,7 +2800,7 @@
                                             </div>
                                             <div class="card-product-price">
                                                 <div class="d-flex flex-column align-items-end">
-                                                    @if ($grimoire->discount_price !== 0.0)
+                                                    @if ($grimoire->sale == 1)
                                                         <p class="text-decoration-line-through product-discount-price">R$
                                                             <span class="product-price">{{ $grimoire->price }}</span>
                                                         </p>
@@ -2959,7 +2959,7 @@
                                 </div>
                                 <div class="div-product-price d-flex justify-content-center align-items-center">
                                     <div class="d-flex flex-column align-items-end me-2">
-                                        @if ($productBigBanner3->discount_price !== 0.0)
+                                        @if ($productBigBanner3->sale == 1)
                                             <p class="text-decoration-line-through original-price">
                                                 {{ $productBigBanner3->price }}</p>
                                             <p class="p-product-price m-0">{{ $productBigBanner3->discount_price }}
@@ -3078,7 +3078,7 @@
                             <div class="col d-flex justify-content-end align-items-center big-banner-full-buy">
                                 <div class="div-product-price d-flex justify-content-center align-items-center">
                                     <div class="d-flex flex-column align-items-end me-2">
-                                        @if ($productBigBanner3->discount_price !== 0.0)
+                                        @if ($productBigBanner3->sale == 1)
                                             <p class="text-decoration-line-through original-price">
                                                 {{ $productBigBanner3->price }}</p>
                                             <p class="p-product-price m-0">{{ $productBigBanner3->discount_price }}
@@ -3213,7 +3213,7 @@
                                     </div>
                                     <div class="div-product-price d-flex justify-content-center align-items-center">
                                         <div class="d-flex flex-column align-items-end me-2">
-                                            @if ($productSmallBanner3->discount_price !== 0.0)
+                                            @if ($productSmallBanner3->sale == 1)
                                                 <p class="text-decoration-line-through original-price">
                                                     {{ $productSmallBanner3->price }}</p>
                                                 <p class="p-product-price m-0">
@@ -3348,7 +3348,7 @@
                                     </div>
                                     <div class="div-product-price d-flex justify-content-center align-items-center">
                                         <div class="d-flex flex-column align-items-end me-2">
-                                            @if ($productSmallBanner4->discount_price !== 0.0)
+                                            @if ($productSmallBanner4->sale == 1)
                                                 <p class="text-decoration-line-through original-price">
                                                     {{ $productSmallBanner4->price }}</p>
                                                 <p class="p-product-price m-0">
@@ -3480,7 +3480,7 @@
                                 </div>
                                 <div class="div-product-price d-flex justify-content-center align-items-center">
                                     <div class="d-flex flex-column align-items-end me-2">
-                                        @if ($productBigBanner4->discount_price !== 0.0)
+                                        @if ($productBigBanner4->sale == 1)
                                             <p class="text-decoration-line-through original-price">
                                                 {{ $productBigBanner4->price }}</p>
                                             <p class="p-product-price m-0">{{ $productBigBanner4->discount_price }}
@@ -3599,7 +3599,7 @@
                             <div class="col d-flex justify-content-end align-items-center big-banner-full-buy">
                                 <div class="div-product-price d-flex justify-content-center align-items-center">
                                     <div class="d-flex flex-column align-items-end me-2">
-                                        @if ($productBigBanner1->discount_price !== 0.0)
+                                        @if ($productBigBanner1->sale == 1)
                                             <p class="text-decoration-line-through original-price">
                                                 {{ $productBigBanner1->price }}</p>
                                             <p class="p-product-price m-0">{{ $productBigBanner1->discount_price }}
@@ -3718,7 +3718,7 @@
                             <div class="col d-flex justify-content-end align-items-center big-banner-full-buy">
                                 <div class="div-product-price d-flex justify-content-center align-items-center">
                                     <div class="d-flex flex-column align-items-end me-2">
-                                        @if ($productBigBanner4->discount_price !== 0.0)
+                                        @if ($productBigBanner4->sale == 1)
                                             <p class="text-decoration-line-through original-price">
                                                 {{ $productBigBanner4->price }}</p>
                                             <p class="p-product-price m-0">{{ $productBigBanner4->discount_price }}

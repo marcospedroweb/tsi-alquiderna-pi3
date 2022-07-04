@@ -133,7 +133,7 @@
                                                                     class="purchase-description-info d-flex justify-content-start align-items-start flex-grow-1">
                                                                     <span class="purchase-title">Preço padrão</span>
                                                                     <span class="ms-auto d-flex flex-column">
-                                                                        @if ($item->Product->discount_price !== 0.0)
+                                                                        @if ($item->Product->sale == 1)
                                                                             <span
                                                                                 class="purchase-price text-decoration-line-through"
                                                                                 style="font-size:.90rem;font-weight:500;">R$
@@ -157,7 +157,8 @@
                                                                     class="purchase-description-info d-flex justify-content-start align-items-center flex-grow-1">
                                                                     <span class="purchase-title" style="min-width: 132px">
                                                                         Durabildade</span>
-                                                                    <ul class="purchase-list-info" style="min-width: 124px">
+                                                                    <ul class="purchase-list-info"
+                                                                        style="min-width: 124px">
                                                                         <li>Nível <span>{{ $item->level }}</span></li>
                                                                     </ul>
                                                                     <span class="ms-auto">
@@ -174,7 +175,8 @@
                                                                     class="purchase-description-info d-flex justify-content-start align-items-start flex-grow-1">
                                                                     <span class="purchase-title" style="min-width: 132px">
                                                                         Encantamento</span>
-                                                                    <ul class="purchase-list-info" style="min-width: 124px">
+                                                                    <ul class="purchase-list-info"
+                                                                        style="min-width: 124px">
                                                                         @if ($item->Product->Category->name === 'Armadura')
                                                                             <li class="{{ $item->enchant_life !== 0 ? '' : 'd-none' }}"
                                                                                 data-enchant-name="life">
@@ -202,7 +204,8 @@
                                                                                     Mana</li>
                                                                             @elseif($item->Product->itemClass->name === 'agilidade')
                                                                                 <li class="{{ $item->enchant_speed !== 0 ? '' : 'd-none' }}"
-                                                                                    data-enchant-name="speed">Agilidade</li>
+                                                                                    data-enchant-name="speed">Agilidade
+                                                                                </li>
                                                                             @elseif($item->Product->itemClass->name === 'força')
                                                                                 <li class="{{ $item->enchant_strength !== 0 ? '' : 'd-none' }}"
                                                                                     data-enchant-name="strength">Ataque
@@ -237,7 +240,8 @@
                                                                     class="purchase-description-info d-flex justify-content-start align-items-start flex-grow-1">
                                                                     <span class="purchase-title" style="min-width: 132px">
                                                                         Garantia</span>
-                                                                    <ul class="purchase-list-info" style="min-width: 124px">
+                                                                    <ul class="purchase-list-info"
+                                                                        style="min-width: 124px">
                                                                         <li class="{{ $item->breakage_guarantee_months !== 0 ? '' : 'd-none' }}"
                                                                             id="li-breakage_guarantee_months">Quebra</li>
                                                                         <li class="{{ $item->theft_guarantee_months !== 0 ? '' : 'd-none' }}"
@@ -291,8 +295,8 @@
                                                         <h4 class="modal-title"
                                                             id="modal-edit-product-{{ $item->id }}-Label">
                                                             Editando {{ $item->Product->name }}</h4>
-                                                        <button type="button" class="btn-close"
-                                                            data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body rounded" id="main-form-buy">
                                                         <div class="mb-5 border" id="lvl">
@@ -513,7 +517,8 @@
                                                                             class="block-option form-check d-flex flex-column text-center p-2">
                                                                             <input class="form-check-input mx-auto"
                                                                                 type="radio" name="durability"
-                                                                                id="option-lvl-100" value="1200" required
+                                                                                id="option-lvl-100" value="1200"
+                                                                                required
                                                                                 {{ $item->level === 100 ? 'checked' : '' }}>
                                                                             <label
                                                                                 class="form-check-label d-flex flex-column mt-3 fw-bold"
@@ -613,7 +618,8 @@
                                                                                     <input
                                                                                         class="form-check-input enchant-type"
                                                                                         type="checkbox"
-                                                                                        name="magic_protection" value="150"
+                                                                                        name="magic_protection"
+                                                                                        value="150"
                                                                                         id="enchant-checkbox-magic-protection"
                                                                                         {{ $item->enchant_magic_protection !== 0 ? 'checked' : '' }}>
                                                                                     <label
@@ -685,8 +691,8 @@
                                                                                         class="form-check mt-3 me-3 border">
                                                                                         <input
                                                                                             class="form-check-input enchant-type"
-                                                                                            type="checkbox" name="strength"
-                                                                                            value="50"
+                                                                                            type="checkbox"
+                                                                                            name="strength" value="50"
                                                                                             id="enchant-checkbox-physical-attack"
                                                                                             {{ $item->enchant_strength !== 0 ? 'checked' : '' }}>
                                                                                         <label
@@ -704,7 +710,8 @@
                                                                                     <input
                                                                                         class="form-check-input enchant-type"
                                                                                         type="checkbox"
-                                                                                        name="physical_attack" value="100"
+                                                                                        name="physical_attack"
+                                                                                        value="100"
                                                                                         id="enchant-checkbox-physical-attack"
                                                                                         {{ $item->enchant_physical_attack !== 0 ? 'checked' : '' }}>
                                                                                     <label
@@ -719,8 +726,8 @@
                                                                                 <div class="form-check mt-3 me-3 border">
                                                                                     <input
                                                                                         class="form-check-input enchant-type"
-                                                                                        type="checkbox" name="magic_attack"
-                                                                                        value="100"
+                                                                                        type="checkbox"
+                                                                                        name="magic_attack" value="100"
                                                                                         id="enchant-checkbox-magic-attack"
                                                                                         {{ $item->enchant_magic_attack !== 0 ? 'checked' : '' }}>
                                                                                     <label
@@ -760,10 +767,9 @@
                                                             <div
                                                                 class="row flex-column justify-content-center align-items-center">
                                                                 <div class="col-12">
-                                                                    <select class="form-select"
-                                                                        name="breakage_guarantee"
-                                                                        id="breakage_guarantee_select" aria-label="garantia"
-                                                                        required>
+                                                                    <select class="form-select" name="breakage_guarantee"
+                                                                        id="breakage_guarantee_select"
+                                                                        aria-label="garantia" required>
                                                                         <option disabled>Adicionar garantia de quebra?
                                                                         </option>
                                                                         <option value="0"
@@ -787,8 +793,8 @@
                                                                             <input class="form-check-input mx-auto"
                                                                                 type="radio"
                                                                                 name="breakage_guarantee_months"
-                                                                                id="option-breakage_guarantee_6" value="6"
-                                                                                required
+                                                                                id="option-breakage_guarantee_6"
+                                                                                value="6" required
                                                                                 {{ $item->breakage_guarantee_months === 6 ? 'checked' : '' }}>
                                                                             <label
                                                                                 class="form-check-label d-flex flex-column mt-3 fw-bold"
@@ -805,8 +811,8 @@
                                                                             <input class="form-check-input mx-auto"
                                                                                 type="radio"
                                                                                 name="breakage_guarantee_months"
-                                                                                id="option-breakage_guarantee_12" value="12"
-                                                                                required
+                                                                                id="option-breakage_guarantee_12"
+                                                                                value="12" required
                                                                                 {{ $item->breakage_guarantee_months === 12 ? 'checked' : '' }}>
                                                                             <label
                                                                                 class="form-check-label d-flex flex-column mt-3 fw-bold"
@@ -823,8 +829,8 @@
                                                                             <input class="form-check-input mx-auto"
                                                                                 type="radio"
                                                                                 name="breakage_guarantee_months"
-                                                                                id="option-breakage_guarantee_24" value="24"
-                                                                                required
+                                                                                id="option-breakage_guarantee_24"
+                                                                                value="24" required
                                                                                 {{ $item->breakage_guarantee_months === 24 ? 'checked' : '' }}>
                                                                             <label
                                                                                 class="form-check-label d-flex flex-column mt-3 fw-bold"
@@ -861,16 +867,17 @@
                                                                     id="div_theft_guarantee_months">
                                                                     <input
                                                                         class="option-theft_guarantee_default d-none form-check-input mx-auto"
-                                                                        type="radio" name="theft_guarantee_months" value="0"
-                                                                        required
+                                                                        type="radio" name="theft_guarantee_months"
+                                                                        value="0" required
                                                                         {{ $item->theft_guarantee === 0 && $item->theft_guarantee_months === 0 ? 'checked' : '' }}>
                                                                     <div class="col-4 mt-3">
                                                                         <div
                                                                             class="block-option form-check d-flex flex-column text-center p-2">
                                                                             <input class="form-check-input mx-auto"
-                                                                                type="radio" name="theft_guarantee_months"
-                                                                                id="option-theft_guarantee_6" value="6"
-                                                                                required
+                                                                                type="radio"
+                                                                                name="theft_guarantee_months"
+                                                                                id="option-theft_guarantee_6"
+                                                                                value="6" required
                                                                                 {{ $item->theft_guarantee_months === 6 ? 'checked' : '' }}>
                                                                             <label
                                                                                 class="form-check-label d-flex flex-column mt-3 fw-bold"
@@ -885,9 +892,10 @@
                                                                         <div
                                                                             class="block-option form-check d-flex flex-column text-center p-2">
                                                                             <input class="form-check-input mx-auto"
-                                                                                type="radio" name="theft_guarantee_months"
-                                                                                id="option-theft_guarantee_12" value="12"
-                                                                                required
+                                                                                type="radio"
+                                                                                name="theft_guarantee_months"
+                                                                                id="option-theft_guarantee_12"
+                                                                                value="12" required
                                                                                 {{ $item->theft_guarantee_months === 12 ? 'checked' : '' }}>
                                                                             <label
                                                                                 class="form-check-label d-flex flex-column mt-3 fw-bold"
@@ -902,9 +910,10 @@
                                                                         <div
                                                                             class="block-option form-check d-flex flex-column text-center p-2">
                                                                             <input class="form-check-input mx-auto"
-                                                                                type="radio" name="theft_guarantee_months"
-                                                                                id="option-theft_guarantee_24" value="24"
-                                                                                required
+                                                                                type="radio"
+                                                                                name="theft_guarantee_months"
+                                                                                id="option-theft_guarantee_24"
+                                                                                value="24" required
                                                                                 {{ $item->theft_guarantee_months === 24 ? 'checked' : '' }}>
                                                                             <label
                                                                                 class="form-check-label d-flex flex-column mt-3 fw-bold"
@@ -929,7 +938,7 @@
                                                                             <span class="purchase-title">Preço
                                                                                 padrão</span>
                                                                             <span class="ms-auto d-flex flex-column">
-                                                                                @if ($item->Product->discount_price !== 0.0)
+                                                                                @if ($item->Product->sale == 1)
                                                                                     <span
                                                                                         class="purchase-price text-decoration-line-through"
                                                                                         style="font-size:.90rem;font-weight:500;">R$
@@ -1048,7 +1057,8 @@
                                                                             <ul class="purchase-list-info"
                                                                                 style="min-width: 124px">
                                                                                 <li class="{{ $item->breakage_guarantee_months !== 0 ? '' : 'd-none' }}"
-                                                                                    id="li-breakage_guarantee_months">Quebra
+                                                                                    id="li-breakage_guarantee_months">
+                                                                                    Quebra
                                                                                 </li>
                                                                                 <li class="{{ $item->theft_guarantee_months !== 0 ? '' : 'd-none' }}"
                                                                                     id="li-theft_guarantee_months">
@@ -1065,11 +1075,9 @@
                                                                 <div class="row justify-content-center align-items-center">
                                                                     <div
                                                                         class="col-10 d-flex justify-content-between align-items-center">
-                                                                        <h5 class="h5 m-0"
-                                                                            id="purchase-total-title">
+                                                                        <h5 class="h5 m-0" id="purchase-total-title">
                                                                             Total</h5>
-                                                                        <p class="m-0"
-                                                                            id="purchase-total-price">R$
+                                                                        <p class="m-0" id="purchase-total-price">R$
                                                                             <span
                                                                                 class="product-price">{{ $item->product_total_price }}</span>
                                                                         </p>
@@ -1083,7 +1091,8 @@
                                                                     value="{{ $item->product_lvl_price }}">
                                                                 <input type="hidden" name="product_enchant_price"
                                                                     value="{{ $item->product_enchant_price }}">
-                                                                <input type="hidden" name="product_breakage_guarantee_price"
+                                                                <input type="hidden"
+                                                                    name="product_breakage_guarantee_price"
                                                                     value="{{ $item->product_breakage_price }}">
                                                                 <input type="hidden" name="product_theft_guarantee_price"
                                                                     value="{{ $item->product_theft_price }}">
