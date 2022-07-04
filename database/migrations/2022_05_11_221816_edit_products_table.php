@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->boolean('kit')->default(0);
+            $table->integer('kit')->default(0);
         });
     }
 

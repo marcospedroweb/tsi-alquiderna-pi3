@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('source_website_link');
             $table->integer('lvlMin');
             $table->integer('lvlMax');
-            $table->boolean('enchant')->default(0);
+            $table->integer('enchant')->default(0);
             $table->integer('life')->default(0);
             $table->integer('speed')->default(0);
             $table->string('strength')->default(0);
@@ -33,8 +33,8 @@ return new class extends Migration
             $table->integer('physical_attack')->default(0);
             $table->integer('physical_magic')->default(0);
             $table->integer('mana')->default(0);
-            $table->boolean('sale');
-            $table->boolean('new');
+            $table->integer('sale');
+            $table->integer('new');
             $table->double('price', 10, 2);
             $table->double('discount_price', 10, 2)->default(0);
             $table->bigInteger('category_id')->unsigned();
