@@ -3,7 +3,7 @@
 use Illuminate\Support\Str;
 use Illuminate\Database\DBAL\TimestampType;
 
-$DATABASE_URL = parse_url(url: 'DATABASE_URL');
+$DATABASE_URL = parse_url(url: 'postgres://njhcasqgfyokjc:830ea8f88b32a1514342095c8757d3a92b64b53c6c18786e5c27e71dfac21987@ec2-18-204-142-254.compute-1.amazonaws.com:5432/d1sm8fvqb8h3b4');
 
 return [
 
