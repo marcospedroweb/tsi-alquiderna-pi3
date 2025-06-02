@@ -4,19 +4,17 @@ Projeto de e-commerce fictício de temática medieval, desenvolvido durante o 3�
 
 ## 🚀 Como Executar o Projeto Localmente
 
-1. Clone o repositório:
-   git clone https://github.com/marcospedroweb/tsi-alquiderna-pi3.git
+1. Clone o repositório: ```git clone https://github.com/marcospedroweb/tsi-alquiderna-pi3.git```
 2. Instale as dependências com o Composer:
-   composer install
+   ```composer install```
 3. Copie o arquivo .env.example para .env e configure suas credenciais de banco de dados e outras variáveis de ambiente.
 4. Gere a chave da aplicação:
-   php artisan key:generate
+   ```php artisan key:generate```
 5. Execute as migrations (e seeders se necessário):
-   php artisan migrate
+   ```php artisan migrate```
 6. Inicie o servidor local:
    ```php artisan serve```
-7. Acesse a aplicação no navegador:
-   http://localhost:8000
+7. Acesse a aplicação no navegador: http://localhost:8000
 
 ## 📚 Funcionalidades
 
