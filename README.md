@@ -1,16 +1,38 @@
-## Sobre o projeto
+# Alquiderna (Laravel)
 
-<h2>Acesse o site</h2>
-<p>Link para o site: http://alquiderna.herokuapp.com</p>
+Projeto de e-commerce fictício de temática medieval, desenvolvido durante o 3º semestre da faculdade no curso de Tecnólogo em Sistemas para Internet. O projeto oferece venda simulada de itens medievais, incluindo armaduras, armas físicas e outros acessórios com aspectos de jogo RPG. Cada produto conta com descrição detalhada, atributos, categorias e classes de item relacionadas.
 
-<h2>Tema</h2>
-<p>E-commerce ficticio que vende diversos itens medievais com aspectos de um jogo RPG, como por exemplo Armaduras, Armas físicas e entre outros. No site, cada produto há descrição sobre o mesmo, atributos, categorias e classe de item relacionadas a ele.</p>
-<p><strong>**TODA IMAGEM UTILIZADA NO SITE RECEBE SEUS DEVIDOS CREDITOS DE QUEM TIROU A FOTO E ONDE VOCÊ PODE ENCONTRAR ESSA FOTO**</strong></p>
+## 🚀 Como Executar o Projeto Localmente
 
-<h2>Informações sobre o desenvolvimento</h2>
-<ul>
-    <li>Duração de desenvolvimento: 23/03/2022 até 09/06/2022</li>
-    <li>Projeto desenvolvido durante o 3°Semestre da faculdade, curso Tecnologo em Sistemas para Internet</li>
-    <li>Ferramentas utilizadas: HTML, CSS, Javascript, Laravel, Boostrap</li>
-    <li>Desenvolvedor do projeto: Marcos Pedro</li>
-</ul>
+1. Clone o repositório:
+   git clone https://github.com/marcospedroweb/tsi-alquiderna-pi3.git
+2. Instale as dependências com o Composer:
+   composer install
+3. Copie o arquivo .env.example para .env e configure suas credenciais de banco de dados e outras variáveis de ambiente.
+4. Gere a chave da aplicação:
+   php artisan key:generate
+5. Execute as migrations (e seeders se necessário):
+   php artisan migrate
+6. Inicie o servidor local:
+   php artisan serve
+7. Acesse a aplicação no navegador:
+   http://localhost:8000
+
+## 📚 Funcionalidades
+
+- Cadastro e gerenciamento de produtos com descrições detalhadas, atributos e classes.
+- Sistema de categorias para organizar os produtos.
+- Sistema de busca e filtro de itens.
+- Página de detalhes de produtos.
+- Layout responsivo com Bootstrap.
+
+## 🛠️ Tecnologias Utilizadas
+
+- Laravel (PHP)
+- MySQL/MariaDB
+- HTML, CSS, Javascript
+- Bootstrap
+
+---
+
+Projeto desenvolvido por Marcos Pedro, de 23/03/2022 a 09/06/2022, como trabalho semestral para aprendizado de Laravel e desenvolvimento de e-commerce fictício.
