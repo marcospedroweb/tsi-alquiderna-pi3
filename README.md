@@ -14,7 +14,7 @@ Projeto de e-commerce fictício de temática medieval, desenvolvido durante o 3�
 5. Execute as migrations (e seeders se necessário):
    php artisan migrate
 6. Inicie o servidor local:
-   php artisan serve
+   ```php artisan serve```
 7. Acesse a aplicação no navegador:
    http://localhost:8000
 
